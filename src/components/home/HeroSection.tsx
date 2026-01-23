@@ -126,11 +126,11 @@ const HeroSection = () => {
                 stopOnMouseEnter: true,
               }),
             ]}
-            className="w-full"
+            className="w-full overflow-visible"
           >
-            <CarouselContent className="-ml-0">
+            <CarouselContent className="-ml-0" allowOverflow>
               {heroSlides.map((slide, index) => (
-                <CarouselItem key={index} className="pl-0">
+                <CarouselItem key={index} className="pl-0 overflow-visible">
                   <AnimatePresence mode="wait">
                     {current === index && (
                       <motion.div 
@@ -174,7 +174,7 @@ const HeroSection = () => {
                           initial={{ opacity: 0, y: 30 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.6, delay: 0.3 }}
-                          className="flex flex-col sm:flex-row gap-4"
+                          className="flex flex-col sm:flex-row gap-4 flex-wrap"
                         >
                           <Button asChild variant="hero" size="xl">
                             <Link to="/apply" className="flex items-center gap-2">
