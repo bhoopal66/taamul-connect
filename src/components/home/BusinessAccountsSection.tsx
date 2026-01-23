@@ -17,7 +17,7 @@ const accountTypes = [
   },
   {
     icon: Users,
-    title: "Salary Account",
+    title: "WPS Account",
     description: "Streamlined payroll management",
   },
   {

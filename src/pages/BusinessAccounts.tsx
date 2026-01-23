@@ -42,10 +42,10 @@ const accountTypes = [
     idealFor: "SMEs & Startups",
   },
   {
-    id: "salary",
+    id: "wps",
     icon: Users,
-    title: "Salary Account",
-    description: "Streamlined payroll management for your employees",
+    title: "WPS Account",
+    description: "Wage Protection System compliant payroll management",
     minBalance: "AED 0",
     monthlyFee: "Free",
     interestRate: "0%",
