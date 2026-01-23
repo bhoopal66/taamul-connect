@@ -13,7 +13,6 @@ import Autoplay from "embla-carousel-autoplay";
 
 // Import background images
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
-import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
 import heroSlide4 from "@/assets/hero-slide-4.jpg";
 
@@ -29,19 +28,6 @@ const heroSlides = [
       { icon: Building2, value: "15+", label: "Years Experience" },
       { icon: Users, value: "500+", label: "Businesses Served" },
       { icon: Award, value: "AED 2B+", label: "Loans Facilitated" },
-    ],
-  },
-  {
-    badge: "Fast & Hassle-Free Process",
-    badgeIcon: Calculator,
-    title: "From Application to Approval in",
-    highlight: "Just 48 Hours",
-    description: "Our streamlined digital process and strong banking relationships mean faster approvals and competitive rates for your business.",
-    backgroundImage: heroSlide2,
-    stats: [
-      { icon: Building2, value: "87%", label: "Approval Rate" },
-      { icon: Users, value: "15+", label: "Partner Banks" },
-      { icon: Award, value: "7%", label: "Starting Interest" },
     ],
   },
   {
