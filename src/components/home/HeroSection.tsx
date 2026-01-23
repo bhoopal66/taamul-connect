@@ -11,6 +11,11 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 
+// Import background images
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
+
 const heroSlides = [
   {
     badge: "Trusted by 500+ UAE Businesses",
@@ -18,6 +23,7 @@ const heroSlides = [
     title: "Powering UAE Business Growth Through",
     highlight: "Strategic Financing",
     description: "Access flexible business loans from AED 100,000 to AED 50 million. Partner with UAE's leading banks through our streamlined application process.",
+    backgroundImage: heroSlide1,
     stats: [
       { icon: Building2, value: "15+", label: "Years Experience" },
       { icon: Users, value: "500+", label: "Businesses Served" },
@@ -30,6 +36,7 @@ const heroSlides = [
     title: "Get Pre-Approved in Just",
     highlight: "48 Hours",
     description: "Our streamlined digital process and strong banking relationships mean faster approvals and competitive rates for your business.",
+    backgroundImage: heroSlide2,
     stats: [
       { icon: Building2, value: "87%", label: "Approval Rate" },
       { icon: Users, value: "15+", label: "Partner Banks" },
@@ -42,6 +49,7 @@ const heroSlides = [
     title: "From Loans to Accounts,",
     highlight: "We've Got You Covered",
     description: "Beyond financing, we help you open the perfect business account, set up trade finance solutions, and manage your corporate banking needs.",
+    backgroundImage: heroSlide3,
     stats: [
       { icon: Building2, value: "5+", label: "Account Types" },
       { icon: Users, value: "100%", label: "Compliance" },
@@ -68,9 +76,28 @@ const HeroSection = () => {
   }, [api]);
 
   return (
-    <section className="relative min-h-screen gradient-hero overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Background Images with Crossfade */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={current}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0"
+        >
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroSlides[current].backgroundImage})` }}
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/70" />
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
         <motion.div 
           className="absolute top-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"
           animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
@@ -94,7 +121,7 @@ const HeroSection = () => {
             }}
             plugins={[
               Autoplay({
-                delay: 5000,
+                delay: 6000,
                 stopOnInteraction: false,
                 stopOnMouseEnter: true,
               }),
@@ -118,7 +145,7 @@ const HeroSection = () => {
                           initial={{ opacity: 0, y: 20 }}
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ duration: 0.5 }}
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 rounded-full text-primary-foreground/90 text-sm font-medium backdrop-blur-sm"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 rounded-full text-primary-foreground/90 text-sm font-medium backdrop-blur-sm border border-primary-foreground/20"
                         >
                           <slide.badgeIcon className="h-4 w-4" />
                           {slide.badge}
@@ -178,7 +205,7 @@ const HeroSection = () => {
                               transition={{ duration: 0.4, delay: 0.5 + statIndex * 0.1 }}
                               className="flex items-center gap-3"
                             >
-                              <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
+                              <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center border border-primary-foreground/20">
                                 <stat.icon className="h-6 w-6 text-accent" />
                               </div>
                               <div>
@@ -197,19 +224,28 @@ const HeroSection = () => {
 
             {/* Carousel Navigation */}
             <div className="flex items-center gap-4 mt-8">
-              {/* Dots */}
+              {/* Dots with Progress */}
               <div className="flex gap-2">
                 {heroSlides.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => scrollTo(index)}
-                    className={`h-2 rounded-full transition-all duration-300 ${
+                    className={`relative h-2 rounded-full transition-all duration-300 overflow-hidden ${
                       current === index 
-                        ? "w-8 bg-accent" 
+                        ? "w-8 bg-primary-foreground/30" 
                         : "w-2 bg-primary-foreground/30 hover:bg-primary-foreground/50"
                     }`}
                     aria-label={`Go to slide ${index + 1}`}
-                  />
+                  >
+                    {current === index && (
+                      <motion.div
+                        className="absolute inset-0 bg-accent rounded-full"
+                        initial={{ scaleX: 0, originX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: 6, ease: "linear" }}
+                      />
+                    )}
+                  </button>
                 ))}
               </div>
 
@@ -217,14 +253,14 @@ const HeroSection = () => {
               <div className="flex gap-2 ml-auto">
                 <button
                   onClick={() => api?.scrollPrev()}
-                  className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all"
+                  className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all backdrop-blur-sm"
                   aria-label="Previous slide"
                 >
                   <ChevronLeft className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => api?.scrollNext()}
-                  className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all"
+                  className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all backdrop-blur-sm"
                   aria-label="Next slide"
                 >
                   <ChevronRight className="h-5 w-5" />
@@ -241,7 +277,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, scale: 0.9, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.3 }}
-                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-48 bg-card rounded-2xl shadow-elevated p-6 animate-float"
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-48 bg-card/95 backdrop-blur-md rounded-2xl shadow-elevated p-6 animate-float border border-border/50"
               >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
@@ -269,13 +305,13 @@ const HeroSection = () => {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.5 }}
-                className="absolute top-10 right-10 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse-slow" 
+                className="absolute top-10 right-10 w-20 h-20 bg-accent/30 rounded-full blur-xl animate-pulse-slow" 
               />
               <motion.div 
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 1, delay: 0.7 }}
-                className="absolute bottom-20 left-10 w-32 h-32 bg-primary-foreground/10 rounded-full blur-2xl animate-pulse-slow" 
+                className="absolute bottom-20 left-10 w-32 h-32 bg-primary-foreground/20 rounded-full blur-2xl animate-pulse-slow" 
                 style={{ animationDelay: "1s" }} 
               />
               
@@ -284,7 +320,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, x: -30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="absolute top-16 left-8 bg-card/90 backdrop-blur-sm rounded-xl p-4 shadow-card animate-float" 
+                className="absolute top-16 left-8 bg-card/95 backdrop-blur-md rounded-xl p-4 shadow-card animate-float border border-border/50" 
                 style={{ animationDelay: "0.5s" }}
               >
                 <p className="text-sm text-muted-foreground">Processing Time</p>
@@ -295,7 +331,7 @@ const HeroSection = () => {
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.6 }}
-                className="absolute bottom-16 right-8 bg-card/90 backdrop-blur-sm rounded-xl p-4 shadow-card animate-float" 
+                className="absolute bottom-16 right-8 bg-card/95 backdrop-blur-md rounded-xl p-4 shadow-card animate-float border border-border/50" 
                 style={{ animationDelay: "1s" }}
               >
                 <p className="text-sm text-muted-foreground">Approval Rate</p>
