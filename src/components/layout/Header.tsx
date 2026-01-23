@@ -42,7 +42,7 @@ const Header = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-card/95 backdrop-blur-md shadow-card border-b border-border"
+          ? "bg-card/95 backdrop-blur-md shadow-card"
           : "bg-transparent"
       )}
     >
@@ -55,7 +55,8 @@ const Header = () => {
             </div>
             <span
               className={cn(
-                "font-bold text-xl transition-colors text-foreground"
+                "font-bold text-xl transition-colors",
+                isScrolled ? "text-foreground" : "text-primary-foreground"
               )}
             >
               TAAMUL
@@ -67,10 +68,12 @@ const Header = () => {
             <Link
               to="/"
               className={cn(
-                "font-medium transition-colors hover:text-primary",
+                "font-medium transition-colors hover:text-accent",
                 isActive("/")
-                  ? "text-primary"
-                  : "text-foreground"
+                  ? "text-accent"
+                  : isScrolled
+                  ? "text-foreground"
+                  : "text-primary-foreground"
               )}
             >
               Home
@@ -80,7 +83,8 @@ const Header = () => {
             <DropdownMenu>
               <DropdownMenuTrigger
                 className={cn(
-                  "flex items-center gap-1 font-medium transition-colors hover:text-primary text-foreground"
+                  "flex items-center gap-1 font-medium transition-colors hover:text-accent",
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
                 )}
               >
                 Loans <ChevronDown className="h-4 w-4" />
@@ -102,10 +106,12 @@ const Header = () => {
             <Link
               to="/business-accounts"
               className={cn(
-                "font-medium transition-colors hover:text-primary",
+                "font-medium transition-colors hover:text-accent",
                 isActive("/business-accounts")
-                  ? "text-primary"
-                  : "text-foreground"
+                  ? "text-accent"
+                  : isScrolled
+                  ? "text-foreground"
+                  : "text-primary-foreground"
               )}
             >
               Business Accounts
@@ -114,10 +120,8 @@ const Header = () => {
             <Link
               to="/how-it-works"
               className={cn(
-                "font-medium transition-colors hover:text-primary",
-                isActive("/how-it-works")
-                  ? "text-primary"
-                  : "text-foreground"
+                "font-medium transition-colors hover:text-accent",
+                isScrolled ? "text-foreground" : "text-primary-foreground"
               )}
             >
               How It Works
@@ -126,10 +130,8 @@ const Header = () => {
             <Link
               to="/about"
               className={cn(
-                "font-medium transition-colors hover:text-primary",
-                isActive("/about")
-                  ? "text-primary"
-                  : "text-foreground"
+                "font-medium transition-colors hover:text-accent",
+                isScrolled ? "text-foreground" : "text-primary-foreground"
               )}
             >
               About
@@ -138,10 +140,8 @@ const Header = () => {
             <Link
               to="/contact"
               className={cn(
-                "font-medium transition-colors hover:text-primary",
-                isActive("/contact")
-                  ? "text-primary"
-                  : "text-foreground"
+                "font-medium transition-colors hover:text-accent",
+                isScrolled ? "text-foreground" : "text-primary-foreground"
               )}
             >
               Contact
@@ -154,15 +154,18 @@ const Header = () => {
             <button
               onClick={() => setLanguage(language === "EN" ? "AR" : "EN")}
               className={cn(
-                "flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium transition-colors text-foreground hover:bg-muted"
+                "flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
+                isScrolled
+                  ? "text-foreground hover:bg-muted"
+                  : "text-primary-foreground hover:bg-primary-foreground/10"
               )}
             >
               <Globe className="h-4 w-4" />
               {language}
             </button>
 
-            <Button asChild variant="default" size="lg">
-              <Link to="/apply">Check Eligibility</Link>
+            <Button asChild variant={isScrolled ? "default" : "hero"} size="lg">
+              <Link to="/apply">Apply Now</Link>
             </Button>
           </div>
 
@@ -172,9 +175,19 @@ const Header = () => {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           >
             {isMobileMenuOpen ? (
-              <X className="h-6 w-6 text-foreground" />
+              <X
+                className={cn(
+                  "h-6 w-6",
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                )}
+              />
             ) : (
-              <Menu className="h-6 w-6 text-foreground" />
+              <Menu
+                className={cn(
+                  "h-6 w-6",
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                )}
+              />
             )}
           </button>
         </nav>
