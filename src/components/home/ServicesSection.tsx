@@ -95,7 +95,7 @@ const ServicesSection = () => {
         </AnimatedSection>
 
         {/* Services Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
           {services.map((service, index) => (
             <AnimatedItem key={service.title} index={index} baseDelay={0.05}>
               <Link
