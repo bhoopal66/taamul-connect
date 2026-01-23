@@ -44,10 +44,10 @@ const heroSlides = [
     ],
   },
   {
-    badge: "Situations Can Be Complex",
+    badge: "Simple Solutions for Complex Challenges",
     badgeIcon: Lightbulb,
-    title: "Solutions",
-    highlight: "Need Not Be",
+    title: "Situations can be complex",
+    highlight: "SOLUTIONS NEED NOT BE !!",
     description: "We simplify complex financial challenges with straightforward solutions. Our expert team navigates the complexities so you can focus on growing your business.",
     backgroundImage: heroSlide4,
     stats: [
