@@ -1,176 +1,361 @@
-import { useEffect, useRef } from "react";
-import { motion } from "framer-motion";
-import { ChevronDown } from "lucide-react";
+import { useState, useEffect, useCallback } from "react";
+import { Link } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
+import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
+
+// Import background images
+import heroSlide1 from "@/assets/hero-slide-1.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpg";
+import heroSlide3 from "@/assets/hero-slide-3.jpg";
+
+const heroSlides = [
+  {
+    badge: "Trusted by 500+ UAE Businesses",
+    badgeIcon: Award,
+    title: "Unlock Your Business Potential with",
+    highlight: "Smart Financing",
+    description: "Access flexible business loans from AED 100,000 to AED 50 million. Partner with UAE's leading banks through our streamlined application process.",
+    backgroundImage: heroSlide1,
+    stats: [
+      { icon: Building2, value: "15+", label: "Years Experience" },
+      { icon: Users, value: "500+", label: "Businesses Served" },
+      { icon: Award, value: "AED 2B+", label: "Loans Facilitated" },
+    ],
+  },
+  {
+    badge: "Fast & Hassle-Free Process",
+    badgeIcon: Calculator,
+    title: "From Application to Approval in",
+    highlight: "Just 48 Hours",
+    description: "Our streamlined digital process and strong banking relationships mean faster approvals and competitive rates for your business.",
+    backgroundImage: heroSlide2,
+    stats: [
+      { icon: Building2, value: "87%", label: "Approval Rate" },
+      { icon: Users, value: "15+", label: "Partner Banks" },
+      { icon: Award, value: "7%", label: "Starting Interest" },
+    ],
+  },
+  {
+    badge: "Complete Business Banking",
+    badgeIcon: Building2,
+    title: "Your One-Stop Partner for",
+    highlight: "Business Success",
+    description: "Beyond financing, we help you open the perfect business account, set up trade finance solutions, and manage your corporate banking needs.",
+    backgroundImage: heroSlide3,
+    stats: [
+      { icon: Building2, value: "5+", label: "Account Types" },
+      { icon: Users, value: "100%", label: "Compliance" },
+      { icon: Award, value: "24/7", label: "Online Banking" },
+    ],
+  },
+];
 
 const HeroSection = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
 
-  // Animated stars background
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!api) return;
 
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    resizeCanvas();
-    window.addEventListener("resize", resizeCanvas);
-
-    // Create stars
-    const stars: { x: number; y: number; size: number; opacity: number; twinkleSpeed: number }[] = [];
-    const numStars = 150;
-
-    for (let i = 0; i < numStars; i++) {
-      stars.push({
-        x: Math.random() * canvas.width,
-        y: Math.random() * canvas.height,
-        size: Math.random() * 2 + 0.5,
-        opacity: Math.random() * 0.8 + 0.2,
-        twinkleSpeed: Math.random() * 0.02 + 0.005,
-      });
-    }
-
-    let animationId: number;
-    let time = 0;
-
-    const animate = () => {
-      ctx.fillStyle = "hsl(215, 30%, 8%)";
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw gradient orbs
-      const gradient1 = ctx.createRadialGradient(
-        canvas.width * 0.3,
-        canvas.height * 0.2,
-        0,
-        canvas.width * 0.3,
-        canvas.height * 0.2,
-        canvas.width * 0.4
-      );
-      gradient1.addColorStop(0, "hsla(200, 60%, 20%, 0.3)");
-      gradient1.addColorStop(1, "transparent");
-      ctx.fillStyle = gradient1;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      const gradient2 = ctx.createRadialGradient(
-        canvas.width * 0.8,
-        canvas.height * 0.15,
-        0,
-        canvas.width * 0.8,
-        canvas.height * 0.15,
-        canvas.width * 0.3
-      );
-      gradient2.addColorStop(0, "hsla(200, 50%, 15%, 0.25)");
-      gradient2.addColorStop(1, "transparent");
-      ctx.fillStyle = gradient2;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw stars with twinkling
-      stars.forEach((star) => {
-        const twinkle = Math.sin(time * star.twinkleSpeed) * 0.3 + 0.7;
-        ctx.beginPath();
-        ctx.arc(star.x, star.y, star.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity * twinkle})`;
-        ctx.fill();
-      });
-
-      time++;
-      animationId = requestAnimationFrame(animate);
-    };
-
-    animate();
-
-    return () => {
-      window.removeEventListener("resize", resizeCanvas);
-      cancelAnimationFrame(animationId);
-    };
-  }, []);
-
-  const scrollToContent = () => {
-    window.scrollTo({
-      top: window.innerHeight,
-      behavior: "smooth",
+    setCurrent(api.selectedScrollSnap());
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap());
     });
-  };
+  }, [api]);
+
+  const scrollTo = useCallback((index: number) => {
+    api?.scrollTo(index);
+  }, [api]);
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Stars Canvas */}
-      <canvas
-        ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
-      />
-
-      {/* Content */}
-      <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight"
-        >
-          Business financing can be{" "}
-          <span 
-            className="text-[hsl(30,70%,75%)] inline-block italic"
-            style={{ fontFamily: "'Caveat', cursive", fontSize: "1.3em", fontWeight: 500, letterSpacing: "0.02em" }}
-          >
-            complex
-          </span>
-        </motion.h1>
-        
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mt-2 tracking-wide"
-        >
-          YOUR JOURNEY NEED NOT BE !!
-        </motion.h2>
-
+    <section className="relative min-h-screen overflow-hidden">
+      {/* Background Images with Crossfade */}
+      <AnimatePresence mode="wait">
         <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="mt-16"
+          key={current}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          className="absolute inset-0"
         >
-          <button
-            onClick={scrollToContent}
-            className="group inline-flex flex-col items-center gap-2 text-white/70 hover:text-white transition-colors duration-300"
-          >
-            <span className="text-sm font-medium tracking-widest uppercase">
-              Come see how
-            </span>
-            <motion.div
-              animate={{ y: [0, 8, 0] }}
-              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-            >
-              <ChevronDown className="h-6 w-6" />
-            </motion.div>
-          </button>
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style={{ backgroundImage: `url(${heroSlides[current].backgroundImage})` }}
+          />
+          {/* Dark overlay for text readability */}
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/80 to-primary/70" />
         </motion.div>
+      </AnimatePresence>
+
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 opacity-10 pointer-events-none">
+        <motion.div 
+          className="absolute top-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.12, 0.1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
       </div>
 
-      {/* Bottom decorative element - subtle planet/globe hint */}
-      <motion.div
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[200px] pointer-events-none"
-      >
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full">
-          <div 
-            className="absolute bottom-[-150px] left-1/2 -translate-x-1/2 w-[600px] h-[300px] rounded-full opacity-30"
-            style={{
-              background: "linear-gradient(180deg, hsl(35, 60%, 50%) 0%, hsl(25, 50%, 40%) 50%, transparent 100%)",
-              filter: "blur(20px)",
+      <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-200px)]">
+          {/* Left Content - Carousel */}
+          <Carousel
+            setApi={setApi}
+            opts={{
+              align: "start",
+              loop: true,
             }}
-          />
+            plugins={[
+              Autoplay({
+                delay: 6000,
+                stopOnInteraction: false,
+                stopOnMouseEnter: true,
+              }),
+            ]}
+            className="w-full overflow-visible"
+          >
+            <CarouselContent className="-ml-0" allowOverflow>
+              {heroSlides.map((slide, index) => (
+                <CarouselItem key={index} className="pl-0 overflow-visible">
+                  <AnimatePresence mode="wait">
+                    {current === index && (
+                      <motion.div 
+                        key={index}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 0.3 }}
+                        className="space-y-8"
+                      >
+                        <motion.div 
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5 }}
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 rounded-full text-primary-foreground/90 text-sm font-medium backdrop-blur-sm border border-primary-foreground/20"
+                        >
+                          <slide.badgeIcon className="h-4 w-4" />
+                          {slide.badge}
+                        </motion.div>
+
+                        <motion.h1 
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.1 }}
+                          className="text-display-sm md:text-display text-primary-foreground leading-tight"
+                        >
+                          {slide.title}{" "}
+                          <span className="text-accent">{slide.highlight}</span>
+                        </motion.h1>
+
+                        <motion.p 
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.2 }}
+                          className="text-xl text-primary-foreground/80 max-w-xl leading-relaxed"
+                        >
+                          {slide.description}
+                        </motion.p>
+
+                        <motion.div 
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.3 }}
+                          className="flex flex-col sm:flex-row gap-4 flex-wrap"
+                        >
+                          <Button asChild variant="hero" size="xl">
+                            <Link to="/apply" className="flex items-center gap-2">
+                              Apply for Business Loan
+                              <ArrowRight className="h-5 w-5" />
+                            </Link>
+                          </Button>
+                          <Button asChild variant="heroOutline" size="xl">
+                            <a href="#calculator" className="flex items-center gap-2">
+                              <Calculator className="h-5 w-5" />
+                              Calculate Eligibility
+                            </a>
+                          </Button>
+                        </motion.div>
+
+                        {/* Trust Badges */}
+                        <motion.div 
+                          initial={{ opacity: 0, y: 30 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.6, delay: 0.4 }}
+                          className="flex flex-wrap gap-8 pt-8 border-t border-primary-foreground/20"
+                        >
+                          {slide.stats.map((stat, statIndex) => (
+                            <motion.div 
+                              key={stat.label}
+                              initial={{ opacity: 0, scale: 0.9 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{ duration: 0.4, delay: 0.5 + statIndex * 0.1 }}
+                              className="flex items-center gap-3"
+                            >
+                              <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 backdrop-blur-sm flex items-center justify-center border border-primary-foreground/20">
+                                <stat.icon className="h-6 w-6 text-accent" />
+                              </div>
+                              <div>
+                                <p className="text-2xl font-bold text-primary-foreground">{stat.value}</p>
+                                <p className="text-sm text-primary-foreground/70">{stat.label}</p>
+                              </div>
+                            </motion.div>
+                          ))}
+                        </motion.div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+
+            {/* Carousel Navigation */}
+            <div className="flex items-center gap-4 mt-8">
+              {/* Dots with Progress */}
+              <div className="flex gap-2">
+                {heroSlides.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => scrollTo(index)}
+                    className={`relative h-2 rounded-full transition-all duration-300 overflow-hidden ${
+                      current === index 
+                        ? "w-8 bg-primary-foreground/30" 
+                        : "w-2 bg-primary-foreground/30 hover:bg-primary-foreground/50"
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  >
+                    {current === index && (
+                      <motion.div
+                        className="absolute inset-0 bg-accent rounded-full"
+                        initial={{ scaleX: 0, originX: 0 }}
+                        animate={{ scaleX: 1 }}
+                        transition={{ duration: 6, ease: "linear" }}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+
+              {/* Arrows */}
+              <div className="flex gap-2 ml-auto">
+                <button
+                  onClick={() => api?.scrollPrev()}
+                  className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all backdrop-blur-sm"
+                  aria-label="Previous slide"
+                >
+                  <ChevronLeft className="h-5 w-5" />
+                </button>
+                <button
+                  onClick={() => api?.scrollNext()}
+                  className="w-10 h-10 rounded-full border border-primary-foreground/30 flex items-center justify-center text-primary-foreground/70 hover:bg-primary-foreground/10 hover:text-primary-foreground transition-all backdrop-blur-sm"
+                  aria-label="Next slide"
+                >
+                  <ChevronRight className="h-5 w-5" />
+                </button>
+              </div>
+            </div>
+          </Carousel>
+
+          {/* Right Content - Abstract Visualization */}
+          <div className="relative hidden lg:block">
+            <div className="relative w-full h-[500px]">
+              {/* Main Card */}
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-48 bg-card/95 backdrop-blur-md rounded-2xl shadow-elevated p-6 animate-float border border-border/50"
+              >
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <Building2 className="h-6 w-6 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Loan Approved</p>
+                    <p className="text-xl font-bold text-foreground">AED 2,500,000</p>
+                  </div>
+                </div>
+                <div className="space-y-2">
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Interest Rate</span>
+                    <span className="font-medium text-foreground">7.5% p.a.</span>
+                  </div>
+                  <div className="flex justify-between text-sm">
+                    <span className="text-muted-foreground">Tenure</span>
+                    <span className="font-medium text-foreground">60 months</span>
+                  </div>
+                </div>
+              </motion.div>
+
+              {/* Floating Elements */}
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="absolute top-10 right-10 w-20 h-20 bg-accent/30 rounded-full blur-xl animate-pulse-slow" 
+              />
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.7 }}
+                className="absolute bottom-20 left-10 w-32 h-32 bg-primary-foreground/20 rounded-full blur-2xl animate-pulse-slow" 
+                style={{ animationDelay: "1s" }} 
+              />
+              
+              {/* Stats Cards */}
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="absolute top-16 left-8 bg-card/95 backdrop-blur-md rounded-xl p-4 shadow-card animate-float border border-border/50" 
+                style={{ animationDelay: "0.5s" }}
+              >
+                <p className="text-sm text-muted-foreground">Processing Time</p>
+                <p className="text-lg font-bold text-success">48 Hours</p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="absolute bottom-16 right-8 bg-card/95 backdrop-blur-md rounded-xl p-4 shadow-card animate-float border border-border/50" 
+                style={{ animationDelay: "1s" }}
+              >
+                <p className="text-sm text-muted-foreground">Approval Rate</p>
+                <p className="text-lg font-bold text-accent">87%</p>
+              </motion.div>
+            </div>
+          </div>
         </div>
-      </motion.div>
+      </div>
+
+      {/* Bottom Wave */}
+      <div className="absolute bottom-0 left-0 right-0">
+        <svg
+          viewBox="0 0 1440 120"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          className="w-full"
+        >
+          <path
+            d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+            fill="hsl(var(--background))"
+          />
+        </svg>
+      </div>
     </section>
   );
 };
