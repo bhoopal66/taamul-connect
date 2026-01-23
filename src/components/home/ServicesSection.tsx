@@ -10,6 +10,7 @@ import {
   Ship,
   Users,
 } from "lucide-react";
+import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 
 const services = [
   {
@@ -67,7 +68,7 @@ const ServicesSection = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
             Our Services
           </p>
@@ -77,31 +78,31 @@ const ServicesSection = () => {
           <p className="text-lg text-muted-foreground">
             From startups to corporations, we offer tailored financial products to fuel your business growth.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Services Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {services.map((service, index) => (
-            <Link
-              key={service.title}
-              to={service.href}
-              className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-accent/20"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                <service.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors" />
-              </div>
-              <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                {service.description}
-              </p>
-              <span className="inline-flex items-center gap-2 text-sm font-medium text-accent group-hover:gap-3 transition-all">
-                Learn More
-                <ArrowRight className="h-4 w-4" />
-              </span>
-            </Link>
+            <AnimatedItem key={service.title} index={index} baseDelay={0.05}>
+              <Link
+                to={service.href}
+                className="group bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 border border-transparent hover:border-accent/20 block h-full"
+              >
+                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
+                  <service.icon className="h-7 w-7 text-primary group-hover:text-primary-foreground transition-colors" />
+                </div>
+                <h3 className="text-xl font-semibold text-foreground mb-3 group-hover:text-primary transition-colors">
+                  {service.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                  {service.description}
+                </p>
+                <span className="inline-flex items-center gap-2 text-sm font-medium text-accent group-hover:gap-3 transition-all">
+                  Learn More
+                  <ArrowRight className="h-4 w-4" />
+                </span>
+              </Link>
+            </AnimatedItem>
           ))}
         </div>
       </div>

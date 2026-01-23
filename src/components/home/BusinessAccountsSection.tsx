@@ -8,6 +8,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 
 const accountTypes = [
   {
@@ -42,7 +43,7 @@ const BusinessAccountsSection = () => {
     <section className="py-24 bg-muted">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
             Business Accounts
           </p>
@@ -52,38 +53,38 @@ const BusinessAccountsSection = () => {
           <p className="text-lg text-muted-foreground">
             We help you choose and open the perfect business account with our partner banks.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Account Types */}
         <div className="flex flex-wrap justify-center gap-6 mb-12">
           {accountTypes.map((account, index) => (
-            <div
-              key={account.title}
-              className="flex flex-col items-center p-6 bg-card rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 min-w-[180px]"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
-                <account.icon className="h-8 w-8 text-primary" />
+            <AnimatedItem key={account.title} index={index} baseDelay={0.1}>
+              <div className="flex flex-col items-center p-6 bg-card rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 min-w-[180px]">
+                <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                  <account.icon className="h-8 w-8 text-primary" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground text-center mb-2">
+                  {account.title}
+                </h3>
+                <p className="text-sm text-muted-foreground text-center">
+                  {account.description}
+                </p>
               </div>
-              <h3 className="text-lg font-semibold text-foreground text-center mb-2">
-                {account.title}
-              </h3>
-              <p className="text-sm text-muted-foreground text-center">
-                {account.description}
-              </p>
-            </div>
+            </AnimatedItem>
           ))}
         </div>
 
         {/* CTA */}
-        <div className="text-center">
-          <Button asChild variant="cta" size="xl">
-            <Link to="/business-accounts" className="flex items-center gap-2">
-              Compare All Account Types
-              <ArrowRight className="h-5 w-5" />
-            </Link>
-          </Button>
-        </div>
+        <AnimatedSection delay={0.4} direction="none">
+          <div className="text-center">
+            <Button asChild variant="cta" size="xl">
+              <Link to="/business-accounts" className="flex items-center gap-2">
+                Compare All Account Types
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );

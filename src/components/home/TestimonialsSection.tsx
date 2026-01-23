@@ -1,4 +1,5 @@
 import { Quote, Star } from "lucide-react";
+import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 
 const testimonials = [
   {
@@ -29,7 +30,7 @@ const TestimonialsSection = () => {
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
+        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
           <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
             Testimonials
           </p>
@@ -39,51 +40,50 @@ const TestimonialsSection = () => {
           <p className="text-lg text-muted-foreground">
             See what our clients say about their experience working with TAAMUL.
           </p>
-        </div>
+        </AnimatedSection>
 
         {/* Testimonials Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 relative"
-            >
-              {/* Quote Icon */}
-              <div className="absolute -top-4 left-8">
-                <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-                  <Quote className="h-4 w-4 text-accent-foreground" />
+            <AnimatedItem key={index} index={index} baseDelay={0.1}>
+              <div className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 relative h-full">
+                {/* Quote Icon */}
+                <div className="absolute -top-4 left-8">
+                  <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
+                    <Quote className="h-4 w-4 text-accent-foreground" />
+                  </div>
+                </div>
+
+                {/* Rating */}
+                <div className="flex gap-1 mb-4 pt-2">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} className="h-5 w-5 fill-gold text-gold" />
+                  ))}
+                </div>
+
+                {/* Quote */}
+                <p className="text-foreground leading-relaxed mb-6 italic">
+                  "{testimonial.quote}"
+                </p>
+
+                {/* Author */}
+                <div className="flex items-center gap-4 pt-4 border-t border-border">
+                  <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
+                    <span className="text-lg font-bold text-primary">
+                      {testimonial.author.charAt(0)}
+                    </span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">
+                      {testimonial.author}
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      {testimonial.position}, {testimonial.company}
+                    </p>
+                  </div>
                 </div>
               </div>
-
-              {/* Rating */}
-              <div className="flex gap-1 mb-4 pt-2">
-                {[...Array(testimonial.rating)].map((_, i) => (
-                  <Star key={i} className="h-5 w-5 fill-gold text-gold" />
-                ))}
-              </div>
-
-              {/* Quote */}
-              <p className="text-foreground leading-relaxed mb-6 italic">
-                "{testimonial.quote}"
-              </p>
-
-              {/* Author */}
-              <div className="flex items-center gap-4 pt-4 border-t border-border">
-                <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
-                  <span className="text-lg font-bold text-primary">
-                    {testimonial.author.charAt(0)}
-                  </span>
-                </div>
-                <div>
-                  <p className="font-semibold text-foreground">
-                    {testimonial.author}
-                  </p>
-                  <p className="text-sm text-muted-foreground">
-                    {testimonial.position}, {testimonial.company}
-                  </p>
-                </div>
-              </div>
-            </div>
+            </AnimatedItem>
           ))}
         </div>
       </div>

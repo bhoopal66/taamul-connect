@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import { ArrowRight, Calculator, Building2, Users, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -7,30 +8,58 @@ const HeroSection = () => {
     <section className="relative min-h-screen gradient-hero overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
+        <motion.div 
+          className="absolute top-0 right-0 w-96 h-96 bg-primary-foreground rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"
+          animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div 
+          className="absolute bottom-0 left-0 w-96 h-96 bg-accent rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"
+          animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.12, 0.1] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        />
       </div>
 
       <div className="container mx-auto px-4 pt-32 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center min-h-[calc(100vh-200px)]">
           {/* Left Content */}
-          <div className="space-y-8 animate-slide-up">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 rounded-full text-primary-foreground/90 text-sm font-medium backdrop-blur-sm">
+          <div className="space-y-8">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 px-4 py-2 bg-primary-foreground/10 rounded-full text-primary-foreground/90 text-sm font-medium backdrop-blur-sm"
+            >
               <Award className="h-4 w-4" />
               Trusted by 500+ UAE Businesses
-            </div>
+            </motion.div>
 
-            <h1 className="text-display-sm md:text-display text-primary-foreground leading-tight">
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-display-sm md:text-display text-primary-foreground leading-tight"
+            >
               Powering UAE Business Growth Through{" "}
               <span className="text-accent">Strategic Financing</span>
-            </h1>
+            </motion.h1>
 
-            <p className="text-xl text-primary-foreground/80 max-w-xl leading-relaxed">
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-primary-foreground/80 max-w-xl leading-relaxed"
+            >
               Access flexible business loans from AED 100,000 to AED 50 million.
               Partner with UAE's leading banks through our streamlined application process.
-            </p>
+            </motion.p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
               <Button asChild variant="hero" size="xl">
                 <Link to="/apply" className="flex items-center gap-2">
                   Apply for Business Loan
@@ -43,45 +72,49 @@ const HeroSection = () => {
                   Calculate Eligibility
                 </a>
               </Button>
-            </div>
+            </motion.div>
 
             {/* Trust Badges */}
-            <div className="flex flex-wrap gap-8 pt-8 border-t border-primary-foreground/20">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
-                  <Building2 className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-primary-foreground">15+</p>
-                  <p className="text-sm text-primary-foreground/70">Years Experience</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
-                  <Users className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-primary-foreground">500+</p>
-                  <p className="text-sm text-primary-foreground/70">Businesses Served</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
-                  <Award className="h-6 w-6 text-accent" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-primary-foreground">AED 2B+</p>
-                  <p className="text-sm text-primary-foreground/70">Loans Facilitated</p>
-                </div>
-              </div>
-            </div>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-wrap gap-8 pt-8 border-t border-primary-foreground/20"
+            >
+              {[
+                { icon: Building2, value: "15+", label: "Years Experience" },
+                { icon: Users, value: "500+", label: "Businesses Served" },
+                { icon: Award, value: "AED 2B+", label: "Loans Facilitated" },
+              ].map((stat, index) => (
+                <motion.div 
+                  key={stat.label}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.4, delay: 0.5 + index * 0.1 }}
+                  className="flex items-center gap-3"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary-foreground/10 flex items-center justify-center">
+                    <stat.icon className="h-6 w-6 text-accent" />
+                  </div>
+                  <div>
+                    <p className="text-2xl font-bold text-primary-foreground">{stat.value}</p>
+                    <p className="text-sm text-primary-foreground/70">{stat.label}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
           </div>
 
           {/* Right Content - Abstract Visualization */}
           <div className="relative hidden lg:block">
             <div className="relative w-full h-[500px]">
               {/* Main Card */}
-              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-48 bg-card rounded-2xl shadow-elevated p-6 animate-float">
+              <motion.div 
+                initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 }}
+                className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-48 bg-card rounded-2xl shadow-elevated p-6 animate-float"
+              >
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <Building2 className="h-6 w-6 text-primary" />
@@ -101,22 +134,45 @@ const HeroSection = () => {
                     <span className="font-medium text-foreground">60 months</span>
                   </div>
                 </div>
-              </div>
+              </motion.div>
 
               {/* Floating Elements */}
-              <div className="absolute top-10 right-10 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse-slow" />
-              <div className="absolute bottom-20 left-10 w-32 h-32 bg-primary-foreground/10 rounded-full blur-2xl animate-pulse-slow" style={{ animationDelay: "1s" }} />
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.5 }}
+                className="absolute top-10 right-10 w-20 h-20 bg-accent/20 rounded-full blur-xl animate-pulse-slow" 
+              />
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 1, delay: 0.7 }}
+                className="absolute bottom-20 left-10 w-32 h-32 bg-primary-foreground/10 rounded-full blur-2xl animate-pulse-slow" 
+                style={{ animationDelay: "1s" }} 
+              />
               
               {/* Stats Cards */}
-              <div className="absolute top-16 left-8 bg-card/90 backdrop-blur-sm rounded-xl p-4 shadow-card animate-float" style={{ animationDelay: "0.5s" }}>
+              <motion.div 
+                initial={{ opacity: 0, x: -30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="absolute top-16 left-8 bg-card/90 backdrop-blur-sm rounded-xl p-4 shadow-card animate-float" 
+                style={{ animationDelay: "0.5s" }}
+              >
                 <p className="text-sm text-muted-foreground">Processing Time</p>
                 <p className="text-lg font-bold text-success">48 Hours</p>
-              </div>
+              </motion.div>
 
-              <div className="absolute bottom-16 right-8 bg-card/90 backdrop-blur-sm rounded-xl p-4 shadow-card animate-float" style={{ animationDelay: "1s" }}>
+              <motion.div 
+                initial={{ opacity: 0, x: 30 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.6, delay: 0.6 }}
+                className="absolute bottom-16 right-8 bg-card/90 backdrop-blur-sm rounded-xl p-4 shadow-card animate-float" 
+                style={{ animationDelay: "1s" }}
+              >
                 <p className="text-sm text-muted-foreground">Approval Rate</p>
                 <p className="text-lg font-bold text-accent">87%</p>
-              </div>
+              </motion.div>
             </div>
           </div>
         </div>
