@@ -20,8 +20,8 @@ const heroSlides = [
   {
     badge: "Trusted by 500+ UAE Businesses",
     badgeIcon: Award,
-    title: "Powering UAE Business Growth Through",
-    highlight: "Strategic Financing",
+    title: "Unlock Your Business Potential with",
+    highlight: "Smart Financing",
     description: "Access flexible business loans from AED 100,000 to AED 50 million. Partner with UAE's leading banks through our streamlined application process.",
     backgroundImage: heroSlide1,
     stats: [
@@ -33,8 +33,8 @@ const heroSlides = [
   {
     badge: "Fast & Hassle-Free Process",
     badgeIcon: Calculator,
-    title: "Get Pre-Approved in Just",
-    highlight: "48 Hours",
+    title: "From Application to Approval in",
+    highlight: "Just 48 Hours",
     description: "Our streamlined digital process and strong banking relationships mean faster approvals and competitive rates for your business.",
     backgroundImage: heroSlide2,
     stats: [
@@ -46,8 +46,8 @@ const heroSlides = [
   {
     badge: "Complete Business Banking",
     badgeIcon: Building2,
-    title: "From Loans to Accounts,",
-    highlight: "We've Got You Covered",
+    title: "Your One-Stop Partner for",
+    highlight: "Business Success",
     description: "Beyond financing, we help you open the perfect business account, set up trade finance solutions, and manage your corporate banking needs.",
     backgroundImage: heroSlide3,
     stats: [
