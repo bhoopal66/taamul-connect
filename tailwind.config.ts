@@ -15,7 +15,7 @@ export default {
   	extend: {
   		fontFamily: {
   			sans: [
-  				'Space Grotesk',
+  				'Inter',
   				'ui-sans-serif',
   				'system-ui',
   				'-apple-system',
@@ -223,7 +223,7 @@ export default {
   			'slide-in-left': 'slide-in-left 0.5s ease-out',
   			'fade-in-up': 'fade-in-up 0.5s ease-out',
   			'scale-in': 'scale-in 0.3s ease-out',
-  			'marquee': 'marquee 30s linear infinite'
+  			marquee: 'marquee 30s linear infinite'
   		}
   	}
   },
