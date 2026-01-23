@@ -21,6 +21,11 @@ const loanServices = [
   { name: "Co-Lending", href: "/loans/co-lending" },
 ];
 
+const advisoryServices = [
+  { name: "Debt Advisory & Structuring", href: "/services/debt-advisory" },
+  { name: "Mezzanine & Hybrid Financing", href: "/services/mezzanine-financing" },
+];
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -97,6 +102,30 @@ const Header = () => {
                       className="w-full cursor-pointer hover:bg-muted"
                     >
                       {loan.name}
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger
+                className={cn(
+                  "flex items-center gap-1 font-medium transition-colors hover:text-accent",
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                )}
+              >
+                Services <ChevronDown className="h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-64 bg-card border-border shadow-elevated">
+                {advisoryServices.map((service) => (
+                  <DropdownMenuItem key={service.href} asChild>
+                    <Link
+                      to={service.href}
+                      className="w-full cursor-pointer hover:bg-muted"
+                    >
+                      {service.name}
                     </Link>
                   </DropdownMenuItem>
                 ))}
@@ -217,6 +246,24 @@ const Header = () => {
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
                       {loan.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+
+              <div className="px-4 py-2">
+                <p className="text-sm font-semibold text-muted-foreground mb-2">
+                  Advisory Services
+                </p>
+                <div className="space-y-1 pl-2">
+                  {advisoryServices.map((service) => (
+                    <Link
+                      key={service.href}
+                      to={service.href}
+                      className="block py-2 text-foreground hover:text-accent"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {service.name}
                     </Link>
                   ))}
                 </div>
