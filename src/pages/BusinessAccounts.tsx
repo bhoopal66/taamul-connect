@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 import {
   Wallet,
   Users,
@@ -36,6 +38,7 @@ import {
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
+import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 
 const accountTypes = [
   {
@@ -259,23 +262,51 @@ const BusinessAccounts = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-20 gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-10 w-96 h-96 bg-secondary rounded-full blur-3xl" />
+          <motion.div 
+            className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-10 right-10 w-96 h-96 bg-secondary rounded-full blur-3xl"
+            animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.12, 0.1] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
         </div>
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto text-center">
-            <span className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-accent text-sm font-medium mb-6">
+            <motion.span 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-accent text-sm font-medium mb-6"
+            >
               <Building2 className="h-4 w-4" />
               Business Banking Solutions
-            </span>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            </motion.span>
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            >
               Choose the Right Account <br className="hidden md:block" />
               <span className="text-accent">for Your Business</span>
-            </h1>
-            <p className="text-xl text-white/80 mb-10 max-w-2xl mx-auto">
+            </motion.h1>
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-white/80 mb-10 max-w-2xl mx-auto"
+            >
               Compare our range of business accounts across UAE's top banks and find the perfect fit for your company's banking needs.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            </motion.p>
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+            >
               <Button asChild variant="hero" size="xl">
                 <a href="#accounts" className="flex items-center gap-2">
                   Explore Accounts
@@ -292,7 +323,7 @@ const BusinessAccounts = () => {
                   View Comparison
                 </a>
               </Button>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
@@ -300,7 +331,7 @@ const BusinessAccounts = () => {
       {/* Benefits Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-14">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-14">
             <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
               Why Choose Us
             </p>
@@ -310,24 +341,23 @@ const BusinessAccounts = () => {
             <p className="text-lg text-muted-foreground">
               We connect you with the best banking solutions tailored to your business needs.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
-              <div
-                key={index}
-                className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-elevated transition-all duration-300"
-              >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
-                  <benefit.icon className="h-7 w-7 text-primary" />
+              <AnimatedItem key={index} index={index} baseDelay={0.1}>
+                <div className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-elevated transition-all duration-300 h-full">
+                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                    <benefit.icon className="h-7 w-7 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-semibold text-foreground mb-2">
+                    {benefit.title}
+                  </h3>
+                  <p className="text-muted-foreground">
+                    {benefit.description}
+                  </p>
                 </div>
-                <h3 className="text-xl font-semibold text-foreground mb-2">
-                  {benefit.title}
-                </h3>
-                <p className="text-muted-foreground">
-                  {benefit.description}
-                </p>
-              </div>
+              </AnimatedItem>
             ))}
           </div>
         </div>
@@ -336,7 +366,7 @@ const BusinessAccounts = () => {
       {/* Interactive Account Selector */}
       <section id="accounts" className="py-20 bg-muted scroll-mt-20">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
             <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
               Account Types
             </p>
@@ -346,14 +376,16 @@ const BusinessAccounts = () => {
             <p className="text-lg text-muted-foreground">
               Select an account type to see detailed features and benefits.
             </p>
-          </div>
+          </AnimatedSection>
 
           {/* Account Tabs */}
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
+          <AnimatedSection delay={0.1} className="flex flex-wrap justify-center gap-3 mb-10">
             {accountTypes.map((account) => (
-              <button
+              <motion.button
                 key={account.id}
                 onClick={() => setSelectedAccount(account.id)}
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 className={`relative flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all duration-300 ${
                   selectedAccount === account.id
                     ? "bg-primary text-primary-foreground shadow-lg"
@@ -367,19 +399,30 @@ const BusinessAccounts = () => {
                     Popular
                   </span>
                 )}
-              </button>
+              </motion.button>
             ))}
-          </div>
+          </AnimatedSection>
 
           {/* Selected Account Details */}
-          <div className="max-w-4xl mx-auto">
-            <div className="bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border">
+          <AnimatedSection delay={0.2} className="max-w-4xl mx-auto">
+            <motion.div 
+              key={selectedAccount}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3 }}
+              className="bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border"
+            >
               <div className="flex flex-col md:flex-row gap-8">
                 <div className="flex-1">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
+                    <motion.div 
+                      initial={{ scale: 0.8 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center"
+                    >
                       <activeAccount.icon className="h-8 w-8 text-primary" />
-                    </div>
+                    </motion.div>
                     <div>
                       <h3 className="text-2xl font-bold text-foreground">
                         {activeAccount.title}
@@ -400,10 +443,16 @@ const BusinessAccounts = () => {
                     </h4>
                     <ul className="space-y-2">
                       {activeAccount.highlights.map((highlight, index) => (
-                        <li key={index} className="flex items-center gap-3 text-muted-foreground">
+                        <motion.li 
+                          key={`${selectedAccount}-${index}`}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.3, delay: index * 0.1 }}
+                          className="flex items-center gap-3 text-muted-foreground"
+                        >
                           <Check className="h-5 w-5 text-accent flex-shrink-0" />
                           {highlight}
-                        </li>
+                        </motion.li>
                       ))}
                     </ul>
                   </div>
@@ -438,15 +487,15 @@ const BusinessAccounts = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Comparison Table */}
       <section id="comparison" className="py-20 bg-background scroll-mt-20">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
             <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
               Side-by-Side Comparison
             </p>
@@ -456,91 +505,93 @@ const BusinessAccounts = () => {
             <p className="text-lg text-muted-foreground">
               Review all features and requirements to make an informed decision.
             </p>
-          </div>
+          </AnimatedSection>
 
-          <div className="overflow-x-auto rounded-2xl border border-border shadow-card bg-card">
-            <Table>
-              <TableHeader>
-                <TableRow className="bg-primary hover:bg-primary">
-                  <TableHead className="text-primary-foreground font-semibold min-w-[180px] py-5">
-                    Feature
-                  </TableHead>
-                  {accountTypes.map((account) => (
-                    <TableHead
-                      key={account.id}
-                      className="text-primary-foreground font-semibold text-center min-w-[140px] py-5"
-                    >
-                      <div className="flex flex-col items-center gap-1">
-                        <account.icon className="h-5 w-5 mb-1" />
-                        {account.title}
-                      </div>
+          <AnimatedSection delay={0.2} direction="none">
+            <div className="overflow-x-auto rounded-2xl border border-border shadow-card bg-card">
+              <Table>
+                <TableHeader>
+                  <TableRow className="bg-primary hover:bg-primary">
+                    <TableHead className="text-primary-foreground font-semibold min-w-[180px] py-5">
+                      Feature
                     </TableHead>
-                  ))}
-                </TableRow>
-              </TableHeader>
-              <TableBody>
-                {/* Text Features */}
-                {features.map((feature, index) => (
-                  <TableRow
-                    key={feature.key}
-                    className={index % 2 === 0 ? "bg-muted/30" : "bg-card"}
-                  >
-                    <TableCell className="font-medium text-foreground py-4">
-                      {feature.label}
-                    </TableCell>
                     {accountTypes.map((account) => (
-                      <TableCell
+                      <TableHead
                         key={account.id}
-                        className="text-center text-muted-foreground py-4"
+                        className="text-primary-foreground font-semibold text-center min-w-[140px] py-5"
                       >
-                        {account[feature.key as keyof typeof account] as string}
-                      </TableCell>
+                        <div className="flex flex-col items-center gap-1">
+                          <account.icon className="h-5 w-5 mb-1" />
+                          {account.title}
+                        </div>
+                      </TableHead>
                     ))}
                   </TableRow>
-                ))}
+                </TableHeader>
+                <TableBody>
+                  {/* Text Features */}
+                  {features.map((feature, index) => (
+                    <TableRow
+                      key={feature.key}
+                      className={index % 2 === 0 ? "bg-muted/30" : "bg-card"}
+                    >
+                      <TableCell className="font-medium text-foreground py-4">
+                        {feature.label}
+                      </TableCell>
+                      {accountTypes.map((account) => (
+                        <TableCell
+                          key={account.id}
+                          className="text-center text-muted-foreground py-4"
+                        >
+                          {account[feature.key as keyof typeof account] as string}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
 
-                {/* Boolean Features */}
-                {booleanFeatures.map((feature, index) => (
-                  <TableRow
-                    key={feature.key}
-                    className={
-                      (features.length + index) % 2 === 0
-                        ? "bg-muted/30"
-                        : "bg-card"
-                    }
-                  >
-                    <TableCell className="font-medium text-foreground py-4">
-                      {feature.label}
-                    </TableCell>
-                    {accountTypes.map((account) => (
-                      <TableCell key={account.id} className="text-center py-4">
-                        {account[feature.key as keyof typeof account] ? (
-                          <div className="flex justify-center">
-                            <div className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center">
-                              <Check className="h-4 w-4 text-accent" />
-                            </div>
-                          </div>
-                        ) : (
-                          <div className="flex justify-center">
-                            <div className="w-7 h-7 rounded-full bg-destructive/10 flex items-center justify-center">
-                              <X className="h-4 w-4 text-destructive" />
-                            </div>
-                          </div>
-                        )}
+                  {/* Boolean Features */}
+                  {booleanFeatures.map((feature, index) => (
+                    <TableRow
+                      key={feature.key}
+                      className={
+                        (features.length + index) % 2 === 0
+                          ? "bg-muted/30"
+                          : "bg-card"
+                      }
+                    >
+                      <TableCell className="font-medium text-foreground py-4">
+                        {feature.label}
                       </TableCell>
-                    ))}
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </div>
+                      {accountTypes.map((account) => (
+                        <TableCell key={account.id} className="text-center py-4">
+                          {account[feature.key as keyof typeof account] ? (
+                            <div className="flex justify-center">
+                              <div className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center">
+                                <Check className="h-4 w-4 text-accent" />
+                              </div>
+                            </div>
+                          ) : (
+                            <div className="flex justify-center">
+                              <div className="w-7 h-7 rounded-full bg-destructive/10 flex items-center justify-center">
+                                <X className="h-4 w-4 text-destructive" />
+                              </div>
+                            </div>
+                          )}
+                        </TableCell>
+                      ))}
+                    </TableRow>
+                  ))}
+                </TableBody>
+              </Table>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
       {/* Requirements Section */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-12">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
             <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
               Required Documents
             </p>
@@ -550,31 +601,30 @@ const BusinessAccounts = () => {
             <p className="text-lg text-muted-foreground">
               Prepare the following documents based on your company type.
             </p>
-          </div>
+          </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {requirements.map((req, index) => (
-              <div
-                key={req.title}
-                className="bg-card rounded-2xl p-8 shadow-card border border-border hover:border-primary/30 transition-all duration-300 group"
-              >
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-bold">
-                    {index + 1}
+              <AnimatedItem key={req.title} index={index} baseDelay={0.1}>
+                <div className="bg-card rounded-2xl p-8 shadow-card border border-border hover:border-primary/30 transition-all duration-300 group h-full">
+                  <div className="flex items-center gap-3 mb-6">
+                    <div className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-bold">
+                      {index + 1}
+                    </div>
+                    <h3 className="text-xl font-semibold text-foreground">
+                      {req.title}
+                    </h3>
                   </div>
-                  <h3 className="text-xl font-semibold text-foreground">
-                    {req.title}
-                  </h3>
+                  <ul className="space-y-3">
+                    {req.documents.map((doc) => (
+                      <li key={doc} className="flex items-start gap-3">
+                        <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                        <span className="text-muted-foreground">{doc}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <ul className="space-y-3">
-                  {req.documents.map((doc) => (
-                    <li key={doc} className="flex items-start gap-3">
-                      <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground">{doc}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              </AnimatedItem>
             ))}
           </div>
         </div>
@@ -584,7 +634,7 @@ const BusinessAccounts = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <div className="text-center mb-12">
+            <AnimatedSection className="text-center mb-12">
               <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
                 FAQ
               </p>
@@ -594,24 +644,26 @@ const BusinessAccounts = () => {
               <p className="text-lg text-muted-foreground">
                 Find answers to common questions about business accounts.
               </p>
-            </div>
+            </AnimatedSection>
 
-            <Accordion type="single" collapsible className="space-y-4">
-              {faqs.map((faq, index) => (
-                <AccordionItem
-                  key={index}
-                  value={`item-${index}`}
-                  className="bg-card rounded-xl border border-border px-6 data-[state=open]:border-primary/30 data-[state=open]:shadow-card transition-all duration-300"
-                >
-                  <AccordionTrigger className="text-left text-foreground hover:no-underline py-5 text-lg font-medium">
-                    {faq.question}
-                  </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground pb-5 text-base leading-relaxed">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
+            <AnimatedSection delay={0.15}>
+              <Accordion type="single" collapsible className="space-y-4">
+                {faqs.map((faq, index) => (
+                  <AccordionItem
+                    key={index}
+                    value={`item-${index}`}
+                    className="bg-card rounded-xl border border-border px-6 data-[state=open]:border-primary/30 data-[state=open]:shadow-card transition-all duration-300"
+                  >
+                    <AccordionTrigger className="text-left text-foreground hover:no-underline py-5 text-lg font-medium">
+                      {faq.question}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-muted-foreground pb-5 text-base leading-relaxed">
+                      {faq.answer}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </AnimatedSection>
           </div>
         </div>
       </section>
@@ -619,11 +671,19 @@ const BusinessAccounts = () => {
       {/* CTA Section */}
       <section className="py-20 gradient-hero relative overflow-hidden">
         <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-10 right-20 w-80 h-80 bg-accent rounded-full blur-3xl" />
-          <div className="absolute bottom-10 left-20 w-64 h-64 bg-secondary rounded-full blur-3xl" />
+          <motion.div 
+            className="absolute top-10 right-20 w-80 h-80 bg-accent rounded-full blur-3xl"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-10 left-20 w-64 h-64 bg-secondary rounded-full blur-3xl"
+            animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.12, 0.1] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <AnimatedSection className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Open Your Business Account?
             </h2>
@@ -649,7 +709,7 @@ const BusinessAccounts = () => {
                 </a>
               </Button>
             </div>
-          </div>
+          </AnimatedSection>
         </div>
       </section>
 
