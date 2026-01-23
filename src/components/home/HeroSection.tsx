@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -15,6 +15,7 @@ import Autoplay from "embla-carousel-autoplay";
 import heroSlide1 from "@/assets/hero-slide-1.jpg";
 import heroSlide2 from "@/assets/hero-slide-2.jpg";
 import heroSlide3 from "@/assets/hero-slide-3.jpg";
+import heroSlide4 from "@/assets/hero-slide-4.jpg";
 
 const heroSlides = [
   {
@@ -54,6 +55,19 @@ const heroSlides = [
       { icon: Building2, value: "5+", label: "Account Types" },
       { icon: Users, value: "100%", label: "Compliance" },
       { icon: Award, value: "24/7", label: "Online Banking" },
+    ],
+  },
+  {
+    badge: "Situations Can Be Complex",
+    badgeIcon: Lightbulb,
+    title: "Solutions",
+    highlight: "Need Not Be",
+    description: "We simplify complex financial challenges with straightforward solutions. Our expert team navigates the complexities so you can focus on growing your business.",
+    backgroundImage: heroSlide4,
+    stats: [
+      { icon: Building2, value: "10+", label: "Financing Solutions" },
+      { icon: Users, value: "Expert", label: "Advisory Team" },
+      { icon: Award, value: "100%", label: "Client Focus" },
     ],
   },
 ];
