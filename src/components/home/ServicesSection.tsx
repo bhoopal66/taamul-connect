@@ -9,6 +9,8 @@ import {
   Cog,
   Ship,
   Users,
+  TrendingUp,
+  Layers,
 } from "lucide-react";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 
@@ -60,6 +62,18 @@ const services = [
     title: "Co-Lending",
     description: "Access larger loan amounts through our network of partner banks and financial institutions.",
     href: "/loans/co-lending",
+  },
+  {
+    icon: TrendingUp,
+    title: "Debt Advisory & Structuring",
+    description: "Optimize your capital structure and secure improved loan terms through expert debt advisory.",
+    href: "/services/debt-advisory",
+  },
+  {
+    icon: Layers,
+    title: "Mezzanine & Hybrid Financing",
+    description: "Flexible capital solutions bridging debt and equity for growth without ownership dilution.",
+    href: "/services/mezzanine-financing",
   },
 ];
 
