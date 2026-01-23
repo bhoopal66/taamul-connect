@@ -12,6 +12,7 @@ import CorporateLoans from "./pages/loans/CorporateLoans";
 import EquipmentFinancing from "./pages/loans/EquipmentFinancing";
 import TradeFinance from "./pages/loans/TradeFinance";
 import CoLending from "./pages/loans/CoLending";
+import BusinessAccounts from "./pages/BusinessAccounts";
 import Apply from "./pages/Apply";
 import NotFound from "./pages/NotFound";
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/loans/equipment-financing" element={<EquipmentFinancing />} />
           <Route path="/loans/trade-finance" element={<TradeFinance />} />
           <Route path="/loans/co-lending" element={<CoLending />} />
+          <Route path="/business-accounts" element={<BusinessAccounts />} />
           <Route path="/apply" element={<Apply />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
