@@ -115,8 +115,8 @@ const HeroSection = () => {
         >
           Business financing can be{" "}
           <span 
-            className="text-[hsl(35,85%,70%)] inline-block"
-            style={{ fontFamily: "'Caveat', cursive", fontSize: "1.15em" }}
+            className="text-[hsl(30,70%,75%)] inline-block italic"
+            style={{ fontFamily: "'Caveat', cursive", fontSize: "1.3em", fontWeight: 500, letterSpacing: "0.02em" }}
           >
             complex
           </span>
