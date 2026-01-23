@@ -119,6 +119,15 @@ const Header = () => {
                 Services <ChevronDown className="h-4 w-4" />
               </DropdownMenuTrigger>
               <DropdownMenuContent className="w-64 bg-card border-border shadow-elevated">
+                <DropdownMenuItem asChild>
+                  <Link
+                    to="/services"
+                    className="w-full cursor-pointer hover:bg-muted font-medium"
+                  >
+                    All Services
+                  </Link>
+                </DropdownMenuItem>
+                <div className="border-t border-border my-1" />
                 {advisoryServices.map((service) => (
                   <DropdownMenuItem key={service.href} asChild>
                     <Link
@@ -256,6 +265,13 @@ const Header = () => {
                   Advisory Services
                 </p>
                 <div className="space-y-1 pl-2">
+                  <Link
+                    to="/services"
+                    className="block py-2 text-accent font-medium hover:text-accent"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    View All Services
+                  </Link>
                   {advisoryServices.map((service) => (
                     <Link
                       key={service.href}
