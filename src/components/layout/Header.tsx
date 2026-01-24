@@ -26,6 +26,7 @@ const loanServices = [
 const advisoryServices = [
   { name: "Debt Advisory & Structuring", href: "/services/debt-advisory", description: "Optimize your debt portfolio" },
   { name: "Mezzanine & Hybrid Financing", href: "/services/mezzanine-financing", description: "Flexible capital solutions" },
+  { name: "Bank Financing", href: "/services", description: "Comprehensive bank loan products" },
 ];
 
 const Header = () => {
