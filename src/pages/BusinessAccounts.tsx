@@ -87,8 +87,15 @@ const processSteps = [
     step: "04",
     icon: Send,
     title: "Application Submission",
-    duration: "2-4 Weeks",
-    description: "We submit your application directly to the bank and follow up on your behalf until account activation.",
+    duration: "2-3 Days",
+    description: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
+  },
+  {
+    step: "05",
+    icon: CheckCircle2,
+    title: "Approval",
+    duration: "4-7 Days",
+    description: "Bank reviews and approves your application. We assist with account activation and online banking setup.",
   },
 ];
 
