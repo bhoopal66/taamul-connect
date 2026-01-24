@@ -48,7 +48,7 @@ const eligibility = [
 ];
 
 const documents = [
-  "Trade License with import/export activity",
+  "Trade License, Office Ejari & import/export activity",
   "Import/Export code registration",
   "Proforma invoice and purchase orders",
   "Bill of lading / Airway bill samples",

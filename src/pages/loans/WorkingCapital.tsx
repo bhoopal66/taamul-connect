@@ -49,7 +49,7 @@ const eligibility = [
 ];
 
 const documents = [
-  "Trade License and Memorandum of Association",
+  "Trade License, Office Ejari & Memorandum of Association",
   "Bank statements (6-12 months)",
   "VAT returns (if applicable)",
   "Accounts receivable aging report",

@@ -48,7 +48,7 @@ const eligibility = [
 ];
 
 const documents = [
-  "Trade License and company documents",
+  "Trade License, Office Ejari & company documents",
   "Equipment quotation from authorized dealer",
   "Bank statements (6-12 months)",
   "Financial statements (1-2 years)",

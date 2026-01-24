@@ -48,7 +48,7 @@ const eligibility = [
 ];
 
 const documents = [
-  "Certificate of Incorporation and MOA/AOA",
+  "Certificate of Incorporation, Office Ejari & MOA/AOA",
   "Audited financial statements (3 years)",
   "Board resolution for loan application",
   "Corporate structure and group chart",

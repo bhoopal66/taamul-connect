@@ -48,7 +48,7 @@ const eligibility = [
 ];
 
 const documents = [
-  "Trade License and MOA/AOA",
+  "Trade License, Office Ejari & MOA/AOA",
   "Financial statements (1-2 years)",
   "Bank statements (6-12 months)",
   "VAT registration and returns",
