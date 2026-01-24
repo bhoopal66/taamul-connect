@@ -3,11 +3,11 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
 import { 
-  FileText, 
+  MessageSquare,
+  FileCheck, 
   Search, 
-  Building2, 
-  CheckCircle2, 
-  Banknote,
+  Send, 
+  CheckCircle2,
   ArrowRight,
   Clock,
   Shield,
@@ -17,67 +17,67 @@ import {
 const steps = [
   {
     number: "01",
-    title: "Submit Your Application",
-    description: "Fill out our simple online application form with your business details, financial information, and loan requirements. It takes just 10 minutes.",
-    icon: FileText,
-    duration: "10 minutes",
+    title: "Consultation",
+    description: "We understand your business needs, transaction volumes, and financing requirements to recommend the right solution.",
+    icon: MessageSquare,
+    duration: "Day 1",
     details: [
-      "Basic business information",
-      "Owner/director details",
-      "Loan amount and purpose",
-      "Upload supporting documents"
+      "Business profile review",
+      "Requirements assessment",
+      "Solution recommendation",
+      "Timeline discussion"
     ]
   },
   {
     number: "02",
-    title: "Initial Assessment",
-    description: "Our team reviews your application and performs an initial eligibility check based on your business profile and requirements.",
-    icon: Search,
-    duration: "24-48 hours",
+    title: "Document Collection",
+    description: "Our team collects and reviews all required documentation to ensure a complete, error-free application.",
+    icon: FileCheck,
+    duration: "1 Day",
     details: [
-      "Credit profile analysis",
-      "Business viability check",
-      "Document verification",
-      "Initial eligibility confirmation"
+      "Trade License & MOA",
+      "VAT returns (last 4 Qtrs)",
+      "Bank statements",
+      "Passport & EID copies"
     ]
   },
   {
     number: "03",
-    title: "Bank Matching",
-    description: "We match your profile with the most suitable banking partners from our network to find the best rates and terms for your needs.",
-    icon: Building2,
-    duration: "2-3 days",
+    title: "Bank Selection",
+    description: "Based on your profile, we match you with the most suitable banks from our partner network for higher approval rates.",
+    icon: Search,
+    duration: "1-2 Days",
     details: [
       "Compare multiple bank offers",
-      "Negotiate best rates",
       "Match terms to your needs",
+      "Negotiate best rates",
       "Present top options"
     ]
   },
   {
     number: "04",
-    title: "Final Approval",
-    description: "Once you select your preferred offer, we coordinate with the bank to complete the final approval process and documentation.",
-    icon: CheckCircle2,
-    duration: "2-4 weeks",
+    title: "Application Submission",
+    description: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
+    icon: Send,
+    duration: "2-3 Days",
     details: [
-      "Final documentation",
-      "Bank credit committee review",
-      "Terms finalization",
-      "Approval confirmation"
+      "Complete application filing",
+      "Document submission",
+      "Bank coordination",
+      "Progress tracking"
     ]
   },
   {
     number: "05",
-    title: "Fund Disbursement",
-    description: "After approval, funds are disbursed directly to your business account. We ensure a smooth handover and remain available for support.",
-    icon: Banknote,
-    duration: "1-2 days",
+    title: "Approval",
+    description: "Bank reviews and approves your application. We assist with final setup and any additional services you need.",
+    icon: CheckCircle2,
+    duration: "4-7 Days",
     details: [
-      "Account verification",
-      "Fund transfer initiation",
-      "Confirmation receipt",
-      "Ongoing relationship support"
+      "Bank credit review",
+      "Terms finalization",
+      "Approval confirmation",
+      "Account/loan activation"
     ]
   }
 ];
@@ -86,7 +86,7 @@ const benefits = [
   {
     icon: Clock,
     title: "Fast Processing",
-    description: "Get from application to disbursement in as little as 7-10 business days"
+    description: "Get from consultation to approval in as little as 7-10 business days"
   },
   {
     icon: Shield,
@@ -118,7 +118,7 @@ const HowItWorks = () => {
             </p>
             <div className="flex items-center justify-center gap-2 text-lg">
               <Clock className="h-5 w-5" />
-              <span>Average processing time: <strong>3-5 weeks</strong></span>
+              <span>Average processing time: <strong>7-10 Days</strong></span>
             </div>
           </div>
         </div>
@@ -228,17 +228,15 @@ const HowItWorks = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild size="xl" variant="hero">
-                <Link to="/apply">
-                  Start Application
+                <Link to="/contact">
+                  Talk to Expert
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild size="xl" variant="heroOutline">
-                <Link to="/contact">
-                  Talk to an Expert
-                </Link>
-              </Button>
             </div>
+            <p className="text-sm text-white/70 mt-6 max-w-2xl mx-auto">
+              *Timeline is subject to customer risk profile and business activity. Final approval is at the sole discretion of the bank.
+            </p>
           </div>
         </div>
       </section>
