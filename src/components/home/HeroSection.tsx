@@ -177,8 +177,8 @@ const HeroSection = () => {
                           className="flex flex-col sm:flex-row gap-4 flex-wrap"
                         >
                           <Button asChild variant="hero" size="xl">
-                            <Link to="/apply" className="flex items-center gap-2">
-                              Apply for Business Loan
+                            <Link to="/contact" className="flex items-center gap-2">
+                              Contact Us
                               <ArrowRight className="h-5 w-5" />
                             </Link>
                           </Button>

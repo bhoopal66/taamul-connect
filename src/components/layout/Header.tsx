@@ -273,7 +273,7 @@ const Header = () => {
             {/* Right Side - CTA */}
             <div className="hidden lg:flex items-center gap-3">
               <Button asChild variant="default" size="default">
-                <Link to="/apply">Apply Now</Link>
+                <Link to="/contact">Contact Us</Link>
               </Button>
             </div>
 
@@ -459,12 +459,9 @@ const Header = () => {
                 </a>
               </div>
 
-              <div className="grid grid-cols-2 gap-3">
-                <Button asChild variant="outline" size="lg" className="w-full">
-                  <Link to="/contact">Get Quote</Link>
-                </Button>
+              <div className="flex justify-center">
                 <Button asChild variant="default" size="lg" className="w-full">
-                  <Link to="/apply">Apply Now</Link>
+                  <Link to="/contact">Contact Us</Link>
                 </Button>
               </div>
             </div>

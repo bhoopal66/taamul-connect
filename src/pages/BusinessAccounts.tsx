@@ -434,8 +434,8 @@ const BusinessAccounts = () => {
                   </div>
 
                   <Button asChild variant="default" size="lg" className="w-full md:w-auto">
-                    <Link to="/apply" className="flex items-center gap-2">
-                      Apply for This Account
+                    <Link to="/contact" className="flex items-center gap-2">
+                      Contact Us
                       <ChevronRight className="h-4 w-4" />
                     </Link>
                   </Button>
@@ -573,8 +573,8 @@ const BusinessAccounts = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="xl">
-                <Link to="/apply" className="flex items-center gap-2">
-                  Start Application
+                <Link to="/contact" className="flex items-center gap-2">
+                  Contact Us
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>

@@ -86,8 +86,8 @@ const Syndicated = () => {
 
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild variant="hero" size="xl">
-                <Link to="/apply" className="flex items-center gap-2">
-                  Apply Now
+                <Link to="/contact" className="flex items-center gap-2">
+                  Contact Us
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
@@ -190,8 +190,8 @@ const Syndicated = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="xl">
-                <Link to="/apply" className="flex items-center gap-2">
-                  Start Application
+                <Link to="/contact" className="flex items-center gap-2">
+                  Contact Us
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
