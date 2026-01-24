@@ -35,26 +35,12 @@ const CalculatorSection = () => {
   const [industry, setIndustry] = useState("Trading & Distribution");
 
   const eligibleAmount = useMemo(() => {
-    // Base calculation: up to 50% of annual turnover
-    let base = turnover * 0.5;
+    // Calculation: turnover divided by 8
+    let amount = turnover / 8;
 
-    // Adjust based on years in business
-    const yearsMultiplier: Record<string, number> = {
-      "1-2": 0.6,
-      "3-5": 0.8,
-      "5-10": 1.0,
-      "10+": 1.2,
-    };
-    base *= yearsMultiplier[yearsInBusiness] || 0.8;
-
-    // Industry adjustment (simplified)
-    const riskierIndustries = ["Construction", "Real Estate", "Hospitality"];
-    if (riskierIndustries.includes(industry)) {
-      base *= 0.85;
-    }
-
-    return Math.min(base, 50000000); // Cap at 50M
-  }, [turnover, yearsInBusiness, industry]);
+    // Cap at 30M
+    return Math.min(amount, 30000000);
+  }, [turnover]);
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat("en-AE", {
