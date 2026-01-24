@@ -4,7 +4,7 @@ import {
   ArrowRight,
   Ship,
   Percent,
-  Globe,
+  Clock,
   Shield,
   FileText,
   FileCheck,
@@ -32,9 +32,9 @@ const features = [
     description: "Performance, advance payment, and bid bond guarantees",
   },
   {
-    icon: Globe,
-    title: "Global Network",
-    description: "Access correspondent banks worldwide for seamless transactions",
+    icon: Clock,
+    title: "Quick Approval",
+    description: "Streamlined documentation process with faster turnaround times",
   },
 ];
 

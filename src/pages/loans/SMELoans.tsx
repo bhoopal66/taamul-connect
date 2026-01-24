@@ -24,7 +24,7 @@ const features = [
   {
     icon: Clock,
     title: "Fast Processing",
-    description: "Simplified approval process with decisions within 48-72 hours",
+    description: "Streamlined documentation process with faster turnaround times",
   },
   {
     icon: Users,

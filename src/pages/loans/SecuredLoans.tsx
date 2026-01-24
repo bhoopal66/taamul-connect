@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import {
   CheckCircle2,
   ArrowRight,
-  Home,
+  Clock,
   Percent,
   Calendar,
   Shield,
@@ -22,9 +22,9 @@ const features = [
     description: "Enjoy reduced rates starting from 6% p.a. due to collateral security",
   },
   {
-    icon: Home,
-    title: "Multiple Collateral Options",
-    description: "Use property, equipment, inventory, or fixed deposits as security",
+    icon: Clock,
+    title: "Quick Approval",
+    description: "Streamlined documentation process with faster turnaround times",
   },
   {
     icon: Calendar,

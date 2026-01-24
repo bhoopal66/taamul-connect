@@ -7,7 +7,7 @@ import {
   Globe,
   Shield,
   FileText,
-  TrendingUp,
+  Clock,
   Banknote,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
@@ -32,9 +32,9 @@ const features = [
     description: "Financing available in AED, USD, EUR and other major currencies",
   },
   {
-    icon: TrendingUp,
-    title: "Structured Solutions",
-    description: "Complex financing structures tailored to corporate requirements",
+    icon: Clock,
+    title: "Quick Approval",
+    description: "Streamlined documentation process with faster turnaround times",
   },
 ];
 
