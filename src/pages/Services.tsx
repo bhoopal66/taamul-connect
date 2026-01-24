@@ -153,22 +153,21 @@ const Services = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary/5 via-background to-accent/5 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/placeholder.svg')] opacity-5"></div>
+      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-navy-light overflow-hidden">
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="max-w-4xl mx-auto text-center">
-            <p className="text-accent font-semibold mb-4 uppercase tracking-wide text-sm">
+          <AnimatedSection className="max-w-4xl mx-auto text-center text-white">
+            <p className="font-semibold mb-4 uppercase tracking-wide text-sm text-white/80">
               Our Services
             </p>
-            <h1 className="text-display-md md:text-display-lg text-foreground mb-6">
+            <h1 className="text-display-md md:text-display-lg mb-6">
               Comprehensive Business{" "}
-              <span className="text-primary">Financing Solutions</span>
+              <span className="text-gold">Financing Solutions</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
+            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
               From startups to established corporations, we offer a complete range of financing products and advisory services to fuel your business growth and optimize your capital structure.
             </p>
             <div className="flex justify-center">
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="heroOutline" asChild>
                 <Link to="/contact">Talk to an Expert</Link>
               </Button>
             </div>
