@@ -9,7 +9,11 @@ import {
   Building2,
   FileText,
   Shield,
+  Target,
+  Users,
+  Zap,
 } from "lucide-react";
+import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
@@ -53,6 +57,29 @@ const processSteps = [
   "Development of customized restructuring strategy",
   "Lender negotiation and term sheet finalization",
   "Implementation and ongoing monitoring support",
+];
+
+const whyChooseUs = [
+  {
+    icon: Target,
+    title: "Strategic Expertise",
+    description: "Deep understanding of capital markets and lending dynamics in the UAE",
+  },
+  {
+    icon: Users,
+    title: "Banking Relationships",
+    description: "Direct access to 50+ partner banks and financial institutions",
+  },
+  {
+    icon: Zap,
+    title: "Fast Execution",
+    description: "Streamlined processes for quick turnaround on complex transactions",
+  },
+  {
+    icon: Shield,
+    title: "Risk Mitigation",
+    description: "Comprehensive risk analysis to protect your financial interests",
+  },
 ];
 
 const DebtAdvisory = () => {
@@ -136,6 +163,43 @@ const DebtAdvisory = () => {
                   {service.description}
                 </p>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us - Dark Section */}
+      <section className="py-24 gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-display-sm text-white mb-4">
+              The <span className="text-accent">Taamul</span> Advantage
+            </h2>
+            <p className="text-lg text-white/80">
+              Expert debt advisory services backed by deep market expertise and strong lender relationships.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {whyChooseUs.map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+              >
+                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                  <item.icon className="h-6 w-6 text-white" />
+                </div>
+                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                <p className="text-sm text-white/70">{item.description}</p>
+              </motion.div>
             ))}
           </div>
         </div>
