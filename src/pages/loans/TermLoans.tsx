@@ -52,8 +52,7 @@ const documents = [
   "Audited financial statements (2 years)",
   "Bank statements (12 months)",
   "Company profile and business plan",
-  "Passport copies of shareholders",
-  "Emirates ID of authorized signatories",
+  "Passport copies of shareholders & EID of authorised signatory",
 ];
 
 const TermLoans = () => {
