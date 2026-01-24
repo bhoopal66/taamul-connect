@@ -100,7 +100,12 @@ const Header = () => {
               <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">T</span>
               </div>
-              <span className="font-bold text-xl text-foreground">TAAMUL</span>
+              <div className="flex flex-col">
+                <span className="font-bold text-xl text-foreground leading-tight">TAAMUL</span>
+                <span className="text-[10px] text-muted-foreground uppercase tracking-wider hidden sm:block">
+                  Credit Services
+                </span>
+              </div>
             </Link>
 
             {/* Desktop Navigation */}
@@ -271,6 +276,9 @@ const Header = () => {
 
             {/* Right Side - CTA */}
             <div className="hidden lg:flex items-center gap-3">
+              <Button asChild variant="outline" size="default">
+                <Link to="/contact">Get Quote</Link>
+              </Button>
               <Button asChild variant="default" size="default">
                 <Link to="/apply">Apply Now</Link>
               </Button>
@@ -458,9 +466,14 @@ const Header = () => {
                 </a>
               </div>
 
-              <Button asChild variant="default" size="lg" className="w-full">
-                <Link to="/apply">Apply Now</Link>
-              </Button>
+              <div className="grid grid-cols-2 gap-3">
+                <Button asChild variant="outline" size="lg" className="w-full">
+                  <Link to="/contact">Get Quote</Link>
+                </Button>
+                <Button asChild variant="default" size="lg" className="w-full">
+                  <Link to="/apply">Apply Now</Link>
+                </Button>
+              </div>
             </div>
           </div>
         </div>
