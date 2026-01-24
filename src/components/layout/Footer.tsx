@@ -12,7 +12,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="space-y-6">
             <div className="flex items-center">
-              <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-12 w-auto brightness-0 invert" />
+              <img src={taamulLogo} alt="Taamul" className="h-16 w-auto brightness-0 invert" />
             </div>
             <p className="text-white/80 leading-relaxed">
               TAAMUL Credit Review Services LLC is your trusted partner for business financing solutions in the UAE. We connect businesses with the right financial products.
