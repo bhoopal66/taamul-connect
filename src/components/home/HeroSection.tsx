@@ -324,8 +324,8 @@ const HeroSection = () => {
                 className="absolute bottom-16 right-8 bg-card/95 backdrop-blur-md rounded-xl p-4 shadow-card animate-float border border-border/50" 
                 style={{ animationDelay: "1s" }}
               >
-                <p className="text-sm text-muted-foreground">Approval Rate</p>
-                <p className="text-lg font-bold text-accent">87%</p>
+                <p className="text-sm text-muted-foreground">Document Review</p>
+                <p className="text-lg font-bold text-accent">Avoid Delays</p>
               </motion.div>
             </div>
           </div>
