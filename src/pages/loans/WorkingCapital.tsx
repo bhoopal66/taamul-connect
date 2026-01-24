@@ -51,9 +51,9 @@ const eligibility = [
 const documents = [
   "Trade License, Office Ejari & Memorandum of Association",
   "Bank statements (6-12 months)",
-  "VAT returns (if applicable)",
+  "VAT returns of last 4 Qtrs",
   "Accounts receivable aging report",
-  "Passport copies of shareholders",
+  "Passport copies of shareholders & EID of authorised signatory",
   "Company profile",
 ];
 

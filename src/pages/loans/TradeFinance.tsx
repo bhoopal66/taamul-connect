@@ -50,8 +50,8 @@ const eligibility = [
 const documents = [
   "Trade License, Office Ejari & import/export activity",
   "Import/Export code registration",
-  "Proforma invoice and purchase orders",
-  "Bill of lading / Airway bill samples",
+  "Passport copies of shareholders & EID of authorised signatory",
+  "VAT returns of last 4 Qtrs",
   "Insurance policy for goods",
   "Supplier/Buyer contracts and history",
 ];

@@ -51,9 +51,9 @@ const documents = [
   "Trade License, Office Ejari & company documents",
   "Equipment quotation from authorized dealer",
   "Bank statements (6-12 months)",
-  "Financial statements (1-2 years)",
+  "Passport copies of shareholders & EID of authorised signatory",
+  "VAT returns of last 4 Qtrs",
   "Equipment specifications and brochures",
-  "Proof of business premises",
 ];
 
 const EquipmentFinancing = () => {
