@@ -411,9 +411,15 @@ const BusinessAccounts = () => {
                 Total: <span className="text-primary">7-10 Days</span>
               </span>
             </div>
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-6">
               *Timeline is subject to customer risk profile and business activity. We do not guarantee account opening; final approval is at the sole discretion of the bank.
             </p>
+            <Button asChild variant="default" size="lg">
+              <Link to="/contact" className="flex items-center gap-2">
+                Talk to Expert
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </AnimatedSection>
         </div>
       </section>
