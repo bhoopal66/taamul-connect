@@ -1,24 +1,10 @@
 import { useState, useMemo } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { Calculator, ArrowRight, CheckCircle2 } from "lucide-react";
+import { Calculator, ArrowRight, CheckCircle2, Info } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
-
-const industries = [
-  "Trading & Distribution",
-  "Manufacturing",
-  "Construction",
-  "Retail",
-  "Technology",
-  "Healthcare",
-  "Hospitality",
-  "Professional Services",
-  "Transportation & Logistics",
-  "Real Estate",
-  "Other",
-];
 
 const benefits = [
   "Prevent incomplete documentation delays",
@@ -31,8 +17,6 @@ const benefits = [
 
 const CalculatorSection = () => {
   const [turnover, setTurnover] = useState(5000000);
-  const [yearsInBusiness, setYearsInBusiness] = useState("3-5");
-  const [industry, setIndustry] = useState("Trading & Distribution");
 
   const eligibleAmount = useMemo(() => {
     // Calculation: turnover divided by 8
@@ -67,7 +51,7 @@ const CalculatorSection = () => {
                 </div>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-6">
                 {/* Annual Turnover Slider */}
                 <div className="space-y-4">
                   <div className="flex justify-between items-center">
@@ -92,46 +76,12 @@ const CalculatorSection = () => {
                   </div>
                 </div>
 
-                {/* Years in Business */}
-                <div className="space-y-3">
-                  <label className="text-sm font-medium text-foreground">
-                    Years in Business
-                  </label>
-                  <div className="grid grid-cols-4 gap-2">
-                    {["1-2", "3-5", "5-10", "10+"].map((years) => (
-                      <motion.button
-                        key={years}
-                        onClick={() => setYearsInBusiness(years)}
-                        whileHover={{ scale: 1.02 }}
-                        whileTap={{ scale: 0.98 }}
-                        className={`px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                          yearsInBusiness === years
-                            ? "bg-primary text-primary-foreground"
-                            : "bg-muted text-foreground hover:bg-muted/80"
-                        }`}
-                      >
-                        {years} years
-                      </motion.button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Industry Selector */}
-                <div className="space-y-3">
-                  <label className="text-sm font-medium text-foreground">
-                    Industry
-                  </label>
-                  <select
-                    value={industry}
-                    onChange={(e) => setIndustry(e.target.value)}
-                    className="w-full h-12 px-4 rounded-lg border border-input bg-background text-foreground"
-                  >
-                    {industries.map((ind) => (
-                      <option key={ind} value={ind}>
-                        {ind}
-                      </option>
-                    ))}
-                  </select>
+                {/* Minimum Requirement Note */}
+                <div className="flex items-center gap-2 p-3 bg-muted rounded-lg">
+                  <Info className="h-4 w-4 text-muted-foreground flex-shrink-0" />
+                  <p className="text-sm text-muted-foreground">
+                    Minimum 1 year in business required
+                  </p>
                 </div>
               </div>
 
@@ -144,12 +94,13 @@ const CalculatorSection = () => {
                 className="mt-8 p-6 rounded-2xl gradient-hero text-primary-foreground"
               >
                 <p className="text-sm opacity-80 mb-1">Estimated Eligible Amount</p>
-                <p className="text-4xl font-bold mb-4">
+                <p className="text-4xl font-bold mb-2">
                   {formatCurrency(eligibleAmount)}
                 </p>
+                <p className="text-xs opacity-70 mb-4">*This is an estimate. Actual amount may vary.</p>
                 <Button asChild variant="hero" size="lg" className="w-full">
-                  <Link to="/apply" className="flex items-center justify-center gap-2">
-                    Get Full Results
+                  <Link to="/contact" className="flex items-center justify-center gap-2">
+                    Talk to Expert
                     <ArrowRight className="h-5 w-5" />
                   </Link>
                 </Button>
