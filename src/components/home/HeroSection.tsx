@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight, Lightbulb, CheckCircle2 } from "lucide-react";
+import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight, Lightbulb, CheckCircle2, Landmark } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -188,6 +188,27 @@ const HeroSection = () => {
                               Calculate Eligibility
                             </a>
                           </Button>
+                        </motion.div>
+
+                        {/* Business Bank Account Highlight */}
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          transition={{ duration: 0.5, delay: 0.35 }}
+                        >
+                          <Link 
+                            to="/business-accounts"
+                            className="inline-flex items-center gap-3 px-5 py-3 bg-accent/20 hover:bg-accent/30 border border-accent/40 rounded-xl text-primary-foreground transition-all duration-300 group backdrop-blur-sm"
+                          >
+                            <div className="w-10 h-10 rounded-lg bg-accent/30 flex items-center justify-center">
+                              <Landmark className="h-5 w-5 text-accent" />
+                            </div>
+                            <div>
+                              <p className="text-sm text-primary-foreground/70">Need a</p>
+                              <p className="font-semibold text-accent group-hover:underline">Business Bank Account?</p>
+                            </div>
+                            <ArrowRight className="h-5 w-5 text-accent opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                          </Link>
                         </motion.div>
 
                         {/* Trust Badges */}
