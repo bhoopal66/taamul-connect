@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight, Lightbulb, CheckCircle2, Landmark } from "lucide-react";
+import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight, Lightbulb, CheckCircle2, Landmark, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -54,6 +54,19 @@ const heroSlides = [
       { icon: Building2, value: "10+", label: "Financing Solutions" },
       { icon: Users, value: "Expert", label: "Advisory Team" },
       { icon: Award, value: "100%", label: "Client Focus" },
+    ],
+  },
+  {
+    badge: "Flexible Refinancing Solutions",
+    badgeIcon: RefreshCw,
+    title: "Top-up &",
+    highlight: "Buy-out Options",
+    description: "Refinance existing merchant loans or top-up your funding over time. Consolidate your debts and unlock better terms with our refinancing solutions.",
+    backgroundImage: heroSlide1,
+    stats: [
+      { icon: Building2, value: "Quick", label: "Processing" },
+      { icon: Users, value: "Better", label: "Terms" },
+      { icon: Award, value: "Flexible", label: "Options" },
     ],
   },
 ];
