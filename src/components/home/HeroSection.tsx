@@ -316,16 +316,6 @@ const HeroSection = () => {
               />
               
               {/* Stats Cards */}
-              <motion.div 
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="absolute top-16 left-8 bg-card/95 backdrop-blur-md rounded-xl p-4 shadow-card animate-float border border-border/50" 
-                style={{ animationDelay: "0.5s" }}
-              >
-                <p className="text-sm text-muted-foreground">Processing Time</p>
-                <p className="text-lg font-bold text-success">48 Hours</p>
-              </motion.div>
 
               <motion.div 
                 initial={{ opacity: 0, x: 30 }}
