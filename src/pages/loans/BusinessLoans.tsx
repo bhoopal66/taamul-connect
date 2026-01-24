@@ -178,18 +178,22 @@ const BusinessLoans = () => {
       </section>
 
       {/* POS Machine Loan Section */}
-      <section className="py-24 bg-muted">
-        <div className="container mx-auto px-4">
+      <section className="py-24 gradient-hero relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
+        </div>
+        <div className="container mx-auto px-4 relative z-10">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white text-sm font-medium backdrop-blur-sm mb-6">
               <CreditCard className="h-4 w-4" />
               POS Machine Financing
             </div>
-            <h2 className="text-display-sm text-foreground mb-4">
-              How <span className="text-primary">POS Loan</span> Works
+            <h2 className="text-display-sm text-white mb-4">
+              How <span className="text-accent">POS Loan</span> Works
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-lg text-white/80">
               Get financing based on your card payment transactions. A simple, transparent process 
               designed for businesses with consistent POS sales.
             </p>
@@ -231,17 +235,17 @@ const BusinessLoans = () => {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative"
               >
-                <div className="bg-card rounded-2xl p-6 shadow-card h-full">
-                  <div className="text-5xl font-bold text-primary/10 mb-4">{item.step}</div>
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                    <item.icon className="h-6 w-6 text-primary" />
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 h-full">
+                  <div className="text-5xl font-bold text-white/20 mb-4">{item.step}</div>
+                  <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                    <item.icon className="h-6 w-6 text-white" />
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
-                  <p className="text-sm text-muted-foreground">{item.description}</p>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-sm text-white/70">{item.description}</p>
                 </div>
                 {index < 3 && (
                   <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
-                    <ArrowRight className="h-6 w-6 text-primary/30" />
+                    <ArrowRight className="h-6 w-6 text-white/40" />
                   </div>
                 )}
               </motion.div>
@@ -249,38 +253,38 @@ const BusinessLoans = () => {
           </div>
 
           {/* Loan Calculation Example */}
-          <div className="bg-card rounded-2xl p-8 shadow-elevated border border-border max-w-3xl mx-auto mb-16">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-3xl mx-auto mb-16">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+              <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-foreground">How Loan Amount is Calculated</h3>
-                <p className="text-sm text-muted-foreground">Based on your POS transaction volume</p>
+                <h3 className="text-xl font-bold text-white">How Loan Amount is Calculated</h3>
+                <p className="text-sm text-white/70">Based on your POS transaction volume</p>
               </div>
             </div>
             
-            <div className="bg-muted rounded-xl p-6 mb-6">
+            <div className="bg-white/10 rounded-xl p-6 mb-6">
               <div className="grid sm:grid-cols-3 gap-4 text-center">
                 <div className="p-4">
-                  <p className="text-sm text-muted-foreground mb-1">Average Monthly POS Sales</p>
-                  <p className="text-2xl font-bold text-foreground">AED 100,000</p>
+                  <p className="text-sm text-white/70 mb-1">Average Monthly POS Sales</p>
+                  <p className="text-2xl font-bold text-white">AED 100,000</p>
                 </div>
                 <div className="p-4 flex items-center justify-center">
-                  <span className="text-2xl text-primary font-bold">×</span>
+                  <span className="text-2xl text-accent font-bold">×</span>
                 </div>
                 <div className="p-4">
-                  <p className="text-sm text-muted-foreground mb-1">Multiplier (up to)</p>
-                  <p className="text-2xl font-bold text-foreground">3x - 5x</p>
+                  <p className="text-sm text-white/70 mb-1">Multiplier (up to)</p>
+                  <p className="text-2xl font-bold text-white">3x - 5x</p>
                 </div>
               </div>
-              <div className="border-t border-border mt-4 pt-4 text-center">
-                <p className="text-sm text-muted-foreground mb-1">Potential Loan Amount</p>
-                <p className="text-3xl font-bold text-primary">AED 300,000 - 500,000</p>
+              <div className="border-t border-white/20 mt-4 pt-4 text-center">
+                <p className="text-sm text-white/70 mb-1">Potential Loan Amount</p>
+                <p className="text-3xl font-bold text-accent">AED 300,000 - 500,000</p>
               </div>
             </div>
             
-            <p className="text-sm text-muted-foreground text-center">
+            <p className="text-sm text-white/60 text-center">
               *Actual loan amount depends on lender's assessment, credit history, and business profile.
             </p>
           </div>
@@ -288,12 +292,12 @@ const BusinessLoans = () => {
           {/* Eligibility & Benefits Grid */}
           <div className="grid lg:grid-cols-2 gap-8">
             {/* POS Eligibility */}
-            <div className="bg-card rounded-2xl p-6 shadow-card">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
-                  <BadgeCheck className="h-5 w-5 text-success" />
+                <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
+                  <BadgeCheck className="h-5 w-5 text-accent" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">POS Loan Eligibility</h3>
+                <h3 className="text-xl font-bold text-white">POS Loan Eligibility</h3>
               </div>
               <div className="space-y-3">
                 {[
@@ -304,20 +308,20 @@ const BusinessLoans = () => {
                   "No outstanding defaults on existing loans",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-                    <p className="text-foreground text-sm">{item}</p>
+                    <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <p className="text-white/90 text-sm">{item}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Benefits */}
-            <div className="bg-card rounded-2xl p-6 shadow-card">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                  <Zap className="h-5 w-5 text-primary" />
+                <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
+                  <Zap className="h-5 w-5 text-accent" />
                 </div>
-                <h3 className="text-xl font-bold text-foreground">Why Choose POS Financing?</h3>
+                <h3 className="text-xl font-bold text-white">Why Choose POS Financing?</h3>
               </div>
               <div className="space-y-3">
                 {[
@@ -328,8 +332,8 @@ const BusinessLoans = () => {
                   "Ideal for retail, F&B, and service businesses",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                    <p className="text-foreground text-sm">{item}</p>
+                    <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <p className="text-white/90 text-sm">{item}</p>
                   </div>
                 ))}
               </div>
@@ -338,7 +342,7 @@ const BusinessLoans = () => {
 
           {/* CTA */}
           <div className="text-center mt-12">
-            <Button asChild size="lg">
+            <Button asChild variant="hero" size="lg">
               <Link to="/contact" className="flex items-center gap-2">
                 Talk to Expert About POS Loans
                 <ArrowRight className="h-5 w-5" />
