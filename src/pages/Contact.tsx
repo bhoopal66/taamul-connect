@@ -328,29 +328,29 @@ const Contact = () => {
                 ))}
               </div>
 
-              {/* Map Placeholder */}
+              {/* Google Maps Embed */}
               <div className="bg-card rounded-2xl overflow-hidden shadow-card">
-                <div className="aspect-video bg-muted flex items-center justify-center relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-primary/10" />
-                  <div className="text-center z-10">
-                    <MapPin className="h-12 w-12 text-primary mx-auto mb-3" />
-                    <p className="text-foreground font-semibold">
-                      Gharhoud, Dubai
-                    </p>
-                    <p className="text-muted-foreground text-sm">
-                      319 Gharhoud Star Building
-                    </p>
-                  </div>
+                <div className="aspect-video">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.1234567890123!2d55.3456789!3d25.2345678!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sGharhoud%20Star%20Building!5e0!3m2!1sen!2sae!4v1234567890"
+                    width="100%"
+                    height="100%"
+                    style={{ border: 0 }}
+                    allowFullScreen
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    title="TAAMUL Office Location - 319 Gharhoud Star Building, Dubai"
+                  />
                 </div>
                 <div className="p-4 bg-primary/5">
                   <a
-                    href="https://maps.google.com/?q=Business+Bay+Dubai"
+                    href="https://maps.google.com/?q=319+Gharhoud+Star+Building+Dubai+UAE"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary font-medium text-sm hover:underline flex items-center justify-center gap-2"
                   >
                     <MapPin className="h-4 w-4" />
-                    View on Google Maps
+                    Open in Google Maps
                   </a>
                 </div>
               </div>
