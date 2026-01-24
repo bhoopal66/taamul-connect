@@ -51,8 +51,8 @@ const documents = [
   "Certificate of Incorporation, Office Ejari & MOA/AOA",
   "Audited financial statements (3 years)",
   "Board resolution for loan application",
-  "Corporate structure and group chart",
-  "Management accounts and projections",
+  "Passport copies of shareholders & EID of authorised signatory",
+  "VAT returns of last 4 Qtrs",
   "Existing facility letters and obligations",
 ];
 

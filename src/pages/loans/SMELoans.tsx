@@ -51,8 +51,8 @@ const documents = [
   "Trade License, Office Ejari & MOA/AOA",
   "Financial statements (1-2 years)",
   "Bank statements (6-12 months)",
-  "VAT registration and returns",
-  "Passport and Emirates ID of owners",
+  "VAT returns of last 4 Qtrs",
+  "Passport copies of shareholders & EID of authorised signatory",
   "Business plan (for startups)",
 ];
 

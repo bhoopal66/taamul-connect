@@ -52,8 +52,8 @@ const documents = [
   "Audited financial statements (2-3 years)",
   "Property title deed and valuation report",
   "Bank statements (12 months)",
-  "Collateral documentation and insurance",
-  "Personal guarantee from shareholders",
+  "Passport copies of shareholders & EID of authorised signatory",
+  "VAT returns of last 4 Qtrs",
 ];
 
 const SecuredLoans = () => {
