@@ -189,7 +189,7 @@ const SMELoans = () => {
               Ready to Scale Your SME?
             </h2>
             <p className="text-xl text-[hsl(var(--background))]/80 mb-10">
-              Join 500+ SMEs that have accelerated their growth with our financing solutions.
+              Get tailored financing designed for your business growth. Apply today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="xl">
