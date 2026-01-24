@@ -209,7 +209,7 @@ const Contact = () => {
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                   <Clock className="h-5 w-5 text-accent" />
                 </div>
-                <span className="text-sm font-medium">24hr Response</span>
+                <span className="text-sm font-medium">Quick Response</span>
               </div>
               <div className="flex items-center gap-2 text-white/90">
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
