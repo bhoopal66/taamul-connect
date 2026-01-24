@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight, Lightbulb } from "lucide-react";
+import { ArrowRight, Calculator, Building2, Users, Award, ChevronLeft, ChevronRight, Lightbulb, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Carousel,
@@ -269,6 +269,66 @@ const HeroSection = () => {
             </div>
           </Carousel>
 
+          {/* Right Content - Free Service Card */}
+          <div className="hidden lg:flex items-center justify-center">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.5 }}
+              className="relative"
+            >
+              <div className="bg-card/95 backdrop-blur-md rounded-2xl shadow-elevated p-8 border border-border/50 max-w-sm">
+                <div className="text-center mb-6">
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
+                    className="w-16 h-16 rounded-full bg-accent/10 flex items-center justify-center mx-auto mb-4"
+                  >
+                    <CheckCircle2 className="h-8 w-8 text-accent" />
+                  </motion.div>
+                  <h3 className="text-2xl font-bold text-foreground mb-2">100% Free</h3>
+                  <p className="text-lg font-semibold text-accent">No Strings Attached</p>
+                </div>
+                
+                <div className="space-y-4">
+                  {[
+                    "No service fees",
+                    "No consultancy charges", 
+                    "No hidden costs"
+                  ].map((item, index) => (
+                    <motion.div
+                      key={item}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
+                      className="flex items-center gap-3 p-3 rounded-lg bg-muted/50"
+                    >
+                      <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+                        <CheckCircle2 className="h-4 w-4 text-accent" />
+                      </div>
+                      <span className="text-foreground font-medium">{item}</span>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 1.2 }}
+                  className="mt-6 pt-6 border-t border-border text-center"
+                >
+                  <p className="text-sm text-muted-foreground">
+                    We earn from bank partnerships, not from you
+                  </p>
+                </motion.div>
+              </div>
+
+              {/* Decorative elements */}
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 bg-primary/20 rounded-full blur-2xl" />
+            </motion.div>
+          </div>
         </div>
       </div>
 
