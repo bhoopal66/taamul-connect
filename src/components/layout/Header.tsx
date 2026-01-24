@@ -95,10 +95,10 @@ const Header = () => {
         )}
       >
         <div className="container mx-auto px-4">
-          <nav className="flex items-center justify-between h-20 lg:h-24">
+          <nav className="flex items-center justify-between h-28 lg:h-36">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-12 lg:h-16 w-auto" />
+              <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-24 lg:h-[8.75rem] w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
