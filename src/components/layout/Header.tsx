@@ -98,7 +98,7 @@ const Header = () => {
           <nav className="flex items-center justify-between h-20 lg:h-24">
             {/* Logo */}
             <Link to="/" className="flex items-center">
-              <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-12 lg:h-16 w-auto" />
+              <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-14 lg:h-20 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
