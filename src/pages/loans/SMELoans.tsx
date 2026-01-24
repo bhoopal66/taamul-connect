@@ -45,7 +45,7 @@ const features = [
 const eligibility = [
   "Registered business in UAE for minimum 3 years",
   "Annual turnover over AED 5 million",
-  "Valid trade license with SME classification",
+  "Valid trade license and Ejari",
   "No drop in turnover on year-on-year basis",
   "Audited or management accounts available",
   "No major defaults or legal issues",
