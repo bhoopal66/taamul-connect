@@ -71,8 +71,8 @@ const contactInfo = [
     title: "Head Office",
     details: [
       "TAAMUL CREDIT REVIEW Services LLC",
-      "Office 1205, Citadel Tower",
-      "Business Bay, Dubai, UAE",
+      "319 Gharhoud Star Building",
+      "Dubai, UAE",
     ],
   },
   {
@@ -335,10 +335,10 @@ const Contact = () => {
                   <div className="text-center z-10">
                     <MapPin className="h-12 w-12 text-primary mx-auto mb-3" />
                     <p className="text-foreground font-semibold">
-                      Business Bay, Dubai
+                      Gharhoud, Dubai
                     </p>
                     <p className="text-muted-foreground text-sm">
-                      Citadel Tower, Office 1205
+                      319 Gharhoud Star Building
                     </p>
                   </div>
                 </div>

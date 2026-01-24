@@ -123,7 +123,7 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 text-accent" />
                 <span className="text-white/80">
-                  Business Bay, Dubai, UAE
+                  319 Gharhoud Star Building, Dubai, UAE
                 </span>
               </li>
               <li className="flex items-center gap-3">
