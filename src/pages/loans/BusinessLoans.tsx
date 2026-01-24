@@ -70,13 +70,26 @@ const documents = [
   "VAT returns of last 4 Qtrs",
 ];
 
+const banks = [
+  { id: "wio", name: "Wio Bank", maxLimit: 1000000 },
+  { id: "rak", name: "RAK Bank", maxLimit: 5000000 },
+];
+
 const BusinessLoans = () => {
   const [turnover, setTurnover] = useState(5000000);
+  const [posTurnover, setPosTurnover] = useState(2000000);
+  const [selectedBank, setSelectedBank] = useState("wio");
 
   const eligibleAmount = useMemo(() => {
     let amount = turnover / 8;
     return Math.min(amount, 3000000);
   }, [turnover]);
+
+  const posEligibleAmount = useMemo(() => {
+    const bank = banks.find((b) => b.id === selectedBank);
+    const calculated = posTurnover * 0.8;
+    return Math.min(calculated, bank?.maxLimit || 1000000);
+  }, [posTurnover, selectedBank]);
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat("en-AE", {
@@ -252,38 +265,85 @@ const BusinessLoans = () => {
             ))}
           </div>
 
-          {/* Loan Calculation Example */}
+          {/* Interactive POS Calculator */}
           <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20 max-w-3xl mx-auto mb-16">
             <div className="flex items-center gap-3 mb-6">
               <div className="w-12 h-12 rounded-xl bg-accent/20 flex items-center justify-center">
                 <Calculator className="h-6 w-6 text-accent" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-white">How Loan Amount is Calculated</h3>
-                <p className="text-sm text-white/70">Based on your POS transaction volume</p>
+                <h3 className="text-xl font-bold text-white">POS Loan Calculator</h3>
+                <p className="text-sm text-white/70">Calculate your eligible loan amount</p>
               </div>
             </div>
             
-            <div className="bg-white/10 rounded-xl p-6 mb-6">
-              <div className="text-center mb-6">
-                <p className="text-sm text-white/70 mb-2">Formula</p>
-                <p className="text-xl font-bold text-white">Annual POS Turnover × 80%</p>
-              </div>
-              <div className="grid sm:grid-cols-2 gap-4">
-                <div className="bg-white/10 rounded-xl p-5 text-center border border-white/10">
-                  <p className="text-sm text-white/70 mb-2">Wio Bank</p>
-                  <p className="text-sm text-white/60 mb-1">Maximum Limit</p>
-                  <p className="text-2xl font-bold text-accent">AED 1,000,000</p>
+            <div className="space-y-8">
+              {/* Bank Selection */}
+              <div>
+                <label className="block text-sm font-medium text-white/80 mb-3">Select Bank</label>
+                <div className="grid grid-cols-2 gap-3">
+                  {banks.map((bank) => (
+                    <button
+                      key={bank.id}
+                      onClick={() => setSelectedBank(bank.id)}
+                      className={`p-4 rounded-xl border transition-all duration-200 text-center ${
+                        selectedBank === bank.id
+                          ? "bg-accent/20 border-accent text-white"
+                          : "bg-white/5 border-white/20 text-white/70 hover:bg-white/10"
+                      }`}
+                    >
+                      <p className="font-semibold">{bank.name}</p>
+                      <p className="text-xs text-white/60 mt-1">Max: {formatCurrency(bank.maxLimit)}</p>
+                    </button>
+                  ))}
                 </div>
-                <div className="bg-white/10 rounded-xl p-5 text-center border border-white/10">
-                  <p className="text-sm text-white/70 mb-2">RAK Bank</p>
-                  <p className="text-sm text-white/60 mb-1">Maximum Limit</p>
-                  <p className="text-2xl font-bold text-accent">AED 5,000,000</p>
+              </div>
+
+              {/* Turnover Slider */}
+              <div>
+                <div className="flex justify-between items-center mb-3">
+                  <label className="text-sm font-medium text-white/80">Annual POS Turnover</label>
+                  <span className="text-lg font-bold text-accent">{formatCurrency(posTurnover)}</span>
+                </div>
+                <Slider
+                  value={[posTurnover]}
+                  onValueChange={(value) => setPosTurnover(value[0])}
+                  min={500000}
+                  max={10000000}
+                  step={100000}
+                  className="w-full"
+                />
+                <div className="flex justify-between text-xs text-white/50 mt-2">
+                  <span>AED 500K</span>
+                  <span>AED 10M</span>
+                </div>
+              </div>
+
+              {/* Calculation Display */}
+              <div className="bg-white/10 rounded-xl p-6">
+                <div className="grid grid-cols-3 gap-4 text-center mb-4">
+                  <div>
+                    <p className="text-xs text-white/60 mb-1">Annual Turnover</p>
+                    <p className="text-lg font-bold text-white">{formatCurrency(posTurnover)}</p>
+                  </div>
+                  <div className="flex items-center justify-center">
+                    <span className="text-xl text-accent font-bold">× 80%</span>
+                  </div>
+                  <div>
+                    <p className="text-xs text-white/60 mb-1">Bank Max</p>
+                    <p className="text-lg font-bold text-white">
+                      {formatCurrency(banks.find((b) => b.id === selectedBank)?.maxLimit || 0)}
+                    </p>
+                  </div>
+                </div>
+                <div className="border-t border-white/20 pt-4 text-center">
+                  <p className="text-sm text-white/70 mb-1">Your Eligible Loan Amount</p>
+                  <p className="text-4xl font-bold text-accent">{formatCurrency(posEligibleAmount)}</p>
                 </div>
               </div>
             </div>
             
-            <p className="text-sm text-white/60 text-center">
+            <p className="text-sm text-white/60 text-center mt-6">
               *Actual loan amount depends on lender's assessment, credit history, and business profile.
             </p>
           </div>
