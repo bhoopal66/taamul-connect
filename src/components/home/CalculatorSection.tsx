@@ -116,7 +116,7 @@ const CalculatorSection = () => {
                   Why Choose TAAMUL?
                 </p>
                 <h2 className="text-display-sm text-foreground mb-4">
-                  Fast, Transparent Business Financing
+                  Fast, Transparent Business Loan Financing
                 </h2>
                 <p className="text-lg text-muted-foreground">
                   We've simplified the business loan process so you can focus on what matters most - growing your business.
