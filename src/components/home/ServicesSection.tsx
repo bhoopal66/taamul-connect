@@ -12,6 +12,7 @@ import {
   TrendingUp,
   Layers,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 
 const services = [
@@ -119,6 +120,16 @@ const ServicesSection = () => {
             </AnimatedItem>
           ))}
         </div>
+
+        {/* CTA Button */}
+        <AnimatedSection delay={0.3} direction="none" className="text-center mt-12">
+          <Button asChild variant="default" size="lg">
+            <Link to="/contact" className="flex items-center gap-2">
+              Talk to Expert
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </Button>
+        </AnimatedSection>
       </div>
     </section>
   );

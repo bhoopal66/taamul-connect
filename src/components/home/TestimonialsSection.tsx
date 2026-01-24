@@ -1,4 +1,6 @@
-import { Quote, Star } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Quote, Star, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 
 const testimonials = [
@@ -86,6 +88,16 @@ const TestimonialsSection = () => {
             </AnimatedItem>
           ))}
         </div>
+
+        {/* CTA Button */}
+        <AnimatedSection delay={0.3} direction="none" className="text-center mt-12">
+          <Button asChild variant="default" size="lg">
+            <Link to="/contact" className="flex items-center gap-2">
+              Talk to Expert
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </Button>
+        </AnimatedSection>
       </div>
     </section>
   );

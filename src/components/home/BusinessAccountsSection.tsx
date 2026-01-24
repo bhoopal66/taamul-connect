@@ -1,10 +1,13 @@
+import { Link } from "react-router-dom";
 import {
   Wallet,
   Users,
   PiggyBank,
   Lock,
   Building2,
+  ArrowRight,
 } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 
 const accountTypes = [
@@ -53,7 +56,7 @@ const BusinessAccountsSection = () => {
         </AnimatedSection>
 
         {/* Account Types */}
-        <div className="flex flex-wrap justify-center gap-6">
+        <div className="flex flex-wrap justify-center gap-6 mb-12">
           {accountTypes.map((account, index) => (
             <AnimatedItem key={account.title} index={index} baseDelay={0.1}>
               <div className="flex flex-col items-center p-6 bg-card rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 min-w-[180px]">
@@ -70,6 +73,16 @@ const BusinessAccountsSection = () => {
             </AnimatedItem>
           ))}
         </div>
+
+        {/* CTA Button */}
+        <AnimatedSection delay={0.3} direction="none" className="text-center">
+          <Button asChild variant="default" size="lg">
+            <Link to="/contact" className="flex items-center gap-2">
+              Talk to Expert
+              <ArrowRight className="h-5 w-5" />
+            </Link>
+          </Button>
+        </AnimatedSection>
       </div>
     </section>
   );
