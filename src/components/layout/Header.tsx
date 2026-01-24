@@ -178,10 +178,6 @@ const Header = () => {
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="w-[400px] p-6 bg-card border border-border rounded-lg shadow-elevated">
-                        <div className="mb-4 pb-3 border-b border-border">
-                          <h3 className="font-semibold text-foreground">Advisory Services</h3>
-                          <p className="text-sm text-muted-foreground">Strategic financial consulting</p>
-                        </div>
                         <div className="space-y-2">
                           {advisoryServices.map((service) => (
                             <NavigationMenuLink key={service.href} asChild>
@@ -202,15 +198,6 @@ const Header = () => {
                               </Link>
                             </NavigationMenuLink>
                           ))}
-                          <NavigationMenuLink asChild>
-                            <Link
-                              to="/services"
-                              className="block p-3 rounded-lg bg-accent/5 hover:bg-accent/10 transition-colors"
-                            >
-                              <span className="font-medium text-sm text-accent">All Services</span>
-                              <p className="text-xs text-muted-foreground mt-0.5">Complete overview of our offerings</p>
-                            </Link>
-                          </NavigationMenuLink>
                         </div>
                       </div>
                     </NavigationMenuContent>
@@ -384,15 +371,6 @@ const Header = () => {
                       {service.name}
                     </Link>
                   ))}
-                  <Link
-                    to="/services"
-                    className={cn(
-                      "block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
-                      isActive("/services") ? "bg-accent/10 text-accent" : "text-accent hover:bg-muted"
-                    )}
-                  >
-                    All Services
-                  </Link>
                 </div>
               </div>
             </div>
