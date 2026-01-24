@@ -402,6 +402,16 @@ const BusinessAccounts = () => {
               </div>
             </div>
           </div>
+
+          {/* Total Timeline Badge */}
+          <AnimatedSection delay={0.4} direction="none" className="mt-12 text-center">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-primary/10 border border-primary/20">
+              <Clock className="h-5 w-5 text-primary" />
+              <span className="text-lg font-semibold text-foreground">
+                Total: <span className="text-primary">~2 Weeks</span>
+              </span>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
