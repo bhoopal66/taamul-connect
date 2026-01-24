@@ -464,6 +464,12 @@ const BusinessAccounts = () => {
               </AnimatedItem>
             ))}
           </div>
+
+          <AnimatedSection delay={0.3} direction="none" className="mt-8 text-center">
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+              *Banks may request additional documents at their discretion based on customer profile and business activity.
+            </p>
+          </AnimatedSection>
         </div>
       </section>
 
