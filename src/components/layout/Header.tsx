@@ -100,12 +100,7 @@ const Header = () => {
               <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                 <span className="text-primary-foreground font-bold text-xl">T</span>
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-xl text-foreground leading-tight">TAAMUL</span>
-                <span className="text-[10px] text-muted-foreground uppercase tracking-wider hidden sm:block">
-                  Credit Services
-                </span>
-              </div>
+              <span className="font-bold text-xl text-foreground">TAAMUL</span>
             </Link>
 
             {/* Desktop Navigation */}
