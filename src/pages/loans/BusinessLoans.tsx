@@ -12,6 +12,7 @@ import {
   Shield,
   Calculator,
   Info,
+  CreditCard,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
@@ -42,7 +43,7 @@ const features = [
     description: "Streamlined documentation process with faster turnaround times",
   },
   {
-    icon: Building2,
+    icon: CreditCard,
     title: "Loan Against POS Machine",
     description: "Get financing based on your POS transaction history and sales volume",
   },
