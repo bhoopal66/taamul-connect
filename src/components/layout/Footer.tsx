@@ -15,7 +15,7 @@ const Footer = () => {
               <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-[2.85rem] w-auto brightness-0 invert" />
             </div>
             <p className="text-white leading-relaxed">
-              TAAMUL Credit Review Services LLC is your trusted partner for business financing solutions in the UAE. We connect businesses with the right financial products.
+              <span className="whitespace-nowrap">TAAMUL Credit Review Services LLC</span> is your trusted partner for business financing solutions in the UAE. We connect businesses with the right financial products.
             </p>
             <div className="flex gap-4">
               <a
