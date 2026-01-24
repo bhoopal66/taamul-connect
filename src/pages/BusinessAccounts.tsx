@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import {
   Wallet,
   Users,
@@ -9,7 +7,6 @@ import {
   Lock,
   Building2,
   Check,
-  X,
   ArrowRight,
   Phone,
   Shield,
@@ -18,7 +15,6 @@ import {
   Clock,
   Award,
   Headphones,
-  ChevronRight,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -34,99 +30,57 @@ import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section"
 
 const accountTypes = [
   {
-    id: "current",
     icon: Wallet,
     title: "Current Account",
-    description: "Day-to-day business transactions with unlimited access",
-    minBalance: "AED 10,000",
-    monthlyFee: "AED 50",
-    interestRate: "0%",
-    overdraftFacility: true,
-    chequebook: true,
-    debitCard: true,
-    onlineBanking: true,
-    multiCurrency: true,
-    dedicatedManager: false,
-    transactionLimit: "Unlimited",
-    idealFor: "SMEs & Startups",
-    popular: true,
-    highlights: ["No transaction limits", "Overdraft available", "Multi-currency support"],
+    description: "Day-to-day business transactions",
   },
   {
-    id: "wps",
     icon: Users,
     title: "WPS Account",
-    description: "Wage Protection System compliant payroll management",
-    minBalance: "AED 0",
-    monthlyFee: "Free",
-    interestRate: "0%",
-    overdraftFacility: false,
-    chequebook: false,
-    debitCard: true,
-    onlineBanking: true,
-    multiCurrency: false,
-    dedicatedManager: false,
-    transactionLimit: "50/month",
-    idealFor: "Employees",
-    popular: false,
-    highlights: ["Zero minimum balance", "WPS compliant", "Free maintenance"],
+    description: "Streamlined payroll management",
   },
   {
-    id: "savings",
     icon: PiggyBank,
     title: "Business Savings",
-    description: "Earn competitive interest on your idle business funds",
-    minBalance: "AED 25,000",
-    monthlyFee: "Free",
-    interestRate: "Up to 3.5%",
-    overdraftFacility: false,
-    chequebook: false,
-    debitCard: true,
-    onlineBanking: true,
-    multiCurrency: true,
-    dedicatedManager: false,
-    transactionLimit: "6/month",
-    idealFor: "Growing Businesses",
-    popular: false,
-    highlights: ["Competitive interest rates", "Grow your idle funds", "Easy transfers"],
+    description: "Earn interest on idle funds",
   },
   {
-    id: "escrow",
     icon: Lock,
     title: "Escrow Account",
-    description: "Secure third-party transactions with regulatory compliance",
-    minBalance: "AED 100,000",
-    monthlyFee: "AED 200",
-    interestRate: "1.5%",
-    overdraftFacility: false,
-    chequebook: true,
-    debitCard: false,
-    onlineBanking: true,
-    multiCurrency: true,
-    dedicatedManager: true,
-    transactionLimit: "As per agreement",
-    idealFor: "Real Estate & Legal",
-    popular: false,
-    highlights: ["Regulatory compliant", "Dedicated manager", "Secure transactions"],
+    description: "Secure third-party transactions",
   },
   {
-    id: "corporate",
     icon: Building2,
     title: "Corporate Account",
-    description: "Enterprise-grade banking with premium services",
-    minBalance: "AED 500,000",
-    monthlyFee: "AED 500",
-    interestRate: "Up to 2%",
-    overdraftFacility: true,
-    chequebook: true,
-    debitCard: true,
-    onlineBanking: true,
-    multiCurrency: true,
-    dedicatedManager: true,
-    transactionLimit: "Unlimited",
-    idealFor: "Large Enterprises",
-    popular: false,
-    highlights: ["Premium support", "All features included", "Custom solutions"],
+    description: "Enterprise-grade banking solutions",
+  },
+];
+
+const processSteps = [
+  {
+    step: "01",
+    title: "Consultation",
+    description: "We understand your business needs, transaction volumes, and banking requirements to recommend the right account type.",
+  },
+  {
+    step: "02",
+    title: "Bank Selection",
+    description: "Based on your profile, we match you with the most suitable banks from our partner network for higher approval rates.",
+  },
+  {
+    step: "03",
+    title: "Document Preparation",
+    description: "Our team reviews and prepares all required documentation to ensure a complete, error-free application.",
+  },
+  {
+    step: "04",
+    title: "Application Submission",
+    description: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
+  },
+  {
+    step: "05",
+    title: "Account Activation",
+    description: "Once approved, we assist with account activation, online banking setup, and any additional services you need.",
   },
 ];
 
@@ -228,8 +182,6 @@ const faqs = [
 ];
 
 const BusinessAccounts = () => {
-  const [selectedAccount, setSelectedAccount] = useState<string>("current");
-  const activeAccount = accountTypes.find((a) => a.id === selectedAccount) || accountTypes[0];
 
   return (
     <div className="min-h-screen bg-background">
@@ -339,7 +291,7 @@ const BusinessAccounts = () => {
         </div>
       </section>
 
-      {/* Interactive Account Selector */}
+      {/* Account Types Grid */}
       <section id="accounts" className="py-20 bg-muted scroll-mt-20">
         <div className="container mx-auto px-4">
           <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
@@ -347,124 +299,83 @@ const BusinessAccounts = () => {
               Account Types
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Find Your Perfect Business Account
+              We Help You Open Any Business Account
             </h2>
             <p className="text-lg text-muted-foreground">
-              Select an account type to see detailed features and benefits.
+              From current accounts to escrow solutions, we guide you to the right choice.
             </p>
           </AnimatedSection>
 
-          {/* Account Tabs */}
-          <AnimatedSection delay={0.1} className="flex flex-wrap justify-center gap-3 mb-10">
-            {accountTypes.map((account) => (
-              <motion.button
-                key={account.id}
-                onClick={() => setSelectedAccount(account.id)}
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className={`relative flex items-center gap-2 px-5 py-3 rounded-xl font-medium transition-all duration-300 ${
-                  selectedAccount === account.id
-                    ? "bg-primary text-primary-foreground shadow-lg"
-                    : "bg-card text-foreground hover:bg-card/80 border border-border hover:border-primary/30"
-                }`}
-              >
-                <account.icon className="h-5 w-5" />
-                {account.title}
-                {account.popular && (
-                  <span className="absolute -top-2 -right-2 bg-accent text-accent-foreground text-xs px-2 py-0.5 rounded-full font-semibold">
-                    Popular
-                  </span>
-                )}
-              </motion.button>
-            ))}
-          </AnimatedSection>
-
-          {/* Selected Account Details */}
-          <AnimatedSection delay={0.2} className="max-w-4xl mx-auto">
-            <motion.div 
-              key={selectedAccount}
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3 }}
-              className="bg-card rounded-3xl p-8 md:p-12 shadow-card border border-border"
-            >
-              <div className="flex flex-col md:flex-row gap-8">
-                <div className="flex-1">
-                  <div className="flex items-center gap-4 mb-6">
-                    <motion.div 
-                      initial={{ scale: 0.8 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.3 }}
-                      className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center"
-                    >
-                      <activeAccount.icon className="h-8 w-8 text-primary" />
-                    </motion.div>
-                    <div>
-                      <h3 className="text-2xl font-bold text-foreground">
-                        {activeAccount.title}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {activeAccount.idealFor}
-                      </p>
-                    </div>
+          <div className="flex flex-wrap justify-center gap-6 mb-12">
+            {accountTypes.map((account, index) => (
+              <AnimatedItem key={account.title} index={index} baseDelay={0.1}>
+                <div className="flex flex-col items-center p-6 bg-card rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 min-w-[180px] border border-border hover:border-primary/30">
+                  <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                    <account.icon className="h-8 w-8 text-primary" />
                   </div>
-                  <p className="text-lg text-muted-foreground mb-6">
-                    {activeAccount.description}
+                  <h3 className="text-lg font-semibold text-foreground text-center mb-2">
+                    {account.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground text-center">
+                    {account.description}
                   </p>
-
-                  {/* Key Highlights */}
-                  <div className="mb-8">
-                    <h4 className="text-sm font-semibold text-foreground uppercase tracking-wide mb-3">
-                      Key Highlights
-                    </h4>
-                    <ul className="space-y-2">
-                      {activeAccount.highlights.map((highlight, index) => (
-                        <motion.li 
-                          key={`${selectedAccount}-${index}`}
-                          initial={{ opacity: 0, x: -10 }}
-                          animate={{ opacity: 1, x: 0 }}
-                          transition={{ duration: 0.3, delay: index * 0.1 }}
-                          className="flex items-center gap-3 text-muted-foreground"
-                        >
-                          <Check className="h-5 w-5 text-accent flex-shrink-0" />
-                          {highlight}
-                        </motion.li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <Button asChild variant="default" size="lg" className="w-full md:w-auto">
-                    <Link to="/contact" className="flex items-center gap-2">
-                      Contact Us
-                      <ChevronRight className="h-4 w-4" />
-                    </Link>
-                  </Button>
                 </div>
+              </AnimatedItem>
+            ))}
+          </div>
 
-                {/* Quick Stats */}
-                <div className="md:w-72 flex-shrink-0">
-                  <div className="bg-muted rounded-2xl p-6 space-y-4">
-                    <div className="flex justify-between items-center pb-3 border-b border-border">
-                      <span className="text-muted-foreground">Minimum Balance</span>
-                      <span className="font-semibold text-foreground">{activeAccount.minBalance}</span>
-                    </div>
-                    <div className="flex justify-between items-center pb-3 border-b border-border">
-                      <span className="text-muted-foreground">Monthly Fee</span>
-                      <span className="font-semibold text-foreground">{activeAccount.monthlyFee}</span>
-                    </div>
-                    <div className="flex justify-between items-center pb-3 border-b border-border">
-                      <span className="text-muted-foreground">Interest Rate</span>
-                      <span className="font-semibold text-accent">{activeAccount.interestRate}</span>
-                    </div>
-                    <div className="flex justify-between items-center">
-                      <span className="text-muted-foreground">Transaction Limit</span>
-                      <span className="font-semibold text-foreground">{activeAccount.transactionLimit}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+          <AnimatedSection delay={0.3} direction="none" className="text-center">
+            <Button asChild variant="default" size="lg">
+              <Link to="/contact" className="flex items-center gap-2">
+                Talk to Expert
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </AnimatedSection>
+        </div>
+      </section>
+
+      {/* How We Do It Section */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <AnimatedSection className="text-center max-w-3xl mx-auto mb-14">
+            <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
+              Our Process
+            </p>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+              How We Help You Open an Account
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Our streamlined 5-step process ensures a smooth account opening experience.
+            </p>
+          </AnimatedSection>
+
+          <div className="max-w-4xl mx-auto">
+            <div className="relative">
+              {/* Vertical Line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block" />
+              
+              <div className="space-y-8">
+                {processSteps.map((step, index) => (
+                  <AnimatedItem key={step.step} index={index} baseDelay={0.1}>
+                    <div className="flex gap-6 items-start">
+                      <div className="relative z-10 w-16 h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">
+                        {step.step}
+                      </div>
+                      <div className="flex-1 pb-8">
+                        <h3 className="text-xl font-semibold text-foreground mb-2">
+                          {step.title}
+                        </h3>
+                        <p className="text-muted-foreground leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
+                  </AnimatedItem>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
