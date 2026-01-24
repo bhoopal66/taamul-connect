@@ -277,7 +277,7 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.5 }}
               className="relative"
             >
-              <div className="bg-card/95 backdrop-blur-md rounded-2xl shadow-elevated p-8 border border-border/50 max-w-sm">
+              <div className="bg-white rounded-2xl shadow-elevated p-8 border border-border/50 max-w-sm">
                 <div className="text-center mb-6">
                   <motion.div
                     initial={{ scale: 0 }}
@@ -287,7 +287,7 @@ const HeroSection = () => {
                   >
                     <CheckCircle2 className="h-8 w-8 text-accent" />
                   </motion.div>
-                  <h3 className="text-2xl font-bold text-foreground mb-2">100% Free</h3>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-2">100% Free</h3>
                   <p className="text-lg font-semibold text-accent">No Strings Attached</p>
                 </div>
                 
@@ -302,12 +302,12 @@ const HeroSection = () => {
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.4, delay: 0.8 + index * 0.1 }}
-                      className="flex items-center gap-3 p-3 rounded-lg bg-muted/50"
+                      className="flex items-center gap-3 p-3 rounded-lg bg-gray-50"
                     >
                       <div className="w-6 h-6 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
                         <CheckCircle2 className="h-4 w-4 text-accent" />
                       </div>
-                      <span className="text-foreground font-medium">{item}</span>
+                      <span className="text-gray-800 font-medium">{item}</span>
                     </motion.div>
                   ))}
                 </div>
@@ -316,9 +316,9 @@ const HeroSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1.2 }}
-                  className="mt-6 pt-6 border-t border-border text-center"
+                  className="mt-6 pt-6 border-t border-gray-200 text-center"
                 >
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-gray-600">
                     We earn from bank partnerships, not from you
                   </p>
                 </motion.div>
