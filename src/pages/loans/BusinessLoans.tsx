@@ -180,102 +180,170 @@ const BusinessLoans = () => {
       {/* POS Machine Loan Section */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
-                <CreditCard className="h-4 w-4" />
-                POS Machine Financing
-              </div>
-              <h2 className="text-display-sm text-foreground mb-6">
-                Loan Against <span className="text-primary">POS Machine</span>
-              </h2>
-              <p className="text-lg text-muted-foreground mb-8">
-                Leverage your POS transaction history to access quick financing. Ideal for retail businesses, 
-                restaurants, and service providers with consistent card payment volumes.
-              </p>
-              
-              <div className="grid sm:grid-cols-2 gap-4 mb-8">
-                <div className="flex items-center gap-3 p-4 bg-card rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
-                    <Zap className="h-5 w-5 text-success" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Quick Processing</p>
-                    <p className="text-sm text-muted-foreground">Faster approvals</p>
-                  </div>
-                </div>
-                <div className="flex items-center gap-3 p-4 bg-card rounded-xl">
-                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
-                    <TrendingUp className="h-5 w-5 text-accent" />
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground">Based on Sales</p>
-                    <p className="text-sm text-muted-foreground">Transaction-based limits</p>
-                  </div>
-                </div>
-              </div>
-
-              <Button asChild size="lg">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Apply for POS Loan
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </Button>
+          {/* Header */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
+              <CreditCard className="h-4 w-4" />
+              POS Machine Financing
             </div>
+            <h2 className="text-display-sm text-foreground mb-4">
+              How <span className="text-primary">POS Loan</span> Works
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Get financing based on your card payment transactions. A simple, transparent process 
+              designed for businesses with consistent POS sales.
+            </p>
+          </div>
 
-            <div className="space-y-6">
-              {/* POS Eligibility */}
-              <div className="bg-card rounded-2xl p-6 shadow-card">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
-                    <BadgeCheck className="h-5 w-5 text-success" />
+          {/* How It Works Steps */}
+          <div className="grid md:grid-cols-4 gap-6 mb-16">
+            {[
+              {
+                step: "01",
+                icon: FileText,
+                title: "Share Your POS Data",
+                description: "Provide access to your POS transaction history from the last 6 months",
+              },
+              {
+                step: "02",
+                icon: TrendingUp,
+                title: "We Analyze Sales",
+                description: "Our team reviews your average monthly card sales and transaction patterns",
+              },
+              {
+                step: "03",
+                icon: Calculator,
+                title: "Loan Amount Calculated",
+                description: "Eligible amount is determined based on your average monthly POS turnover",
+              },
+              {
+                step: "04",
+                icon: Banknote,
+                title: "Quick Disbursement",
+                description: "Once approved, funds are credited directly to your business account",
+              },
+            ].map((item, index) => (
+              <motion.div
+                key={item.step}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="bg-card rounded-2xl p-6 shadow-card h-full">
+                  <div className="text-5xl font-bold text-primary/10 mb-4">{item.step}</div>
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
+                    <item.icon className="h-6 w-6 text-primary" />
                   </div>
-                  <h3 className="text-xl font-bold text-foreground">POS Loan Eligibility</h3>
+                  <h3 className="text-lg font-bold text-foreground mb-2">{item.title}</h3>
+                  <p className="text-sm text-muted-foreground">{item.description}</p>
                 </div>
-                <div className="space-y-3">
-                  {[
-                    "Active POS machine with minimum 6 months history",
-                    "Minimum monthly POS turnover of AED 50,000",
-                    "Valid trade license in UAE",
-                    "Business bank account with POS transactions",
-                    "No outstanding defaults on existing loans",
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-                      <p className="text-foreground text-sm">{item}</p>
-                    </div>
-                  ))}
-                </div>
+                {index < 3 && (
+                  <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2 z-10">
+                    <ArrowRight className="h-6 w-6 text-primary/30" />
+                  </div>
+                )}
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Loan Calculation Example */}
+          <div className="bg-card rounded-2xl p-8 shadow-elevated border border-border max-w-3xl mx-auto mb-16">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
+                <Calculator className="h-6 w-6 text-accent" />
               </div>
-
-              {/* POS Application Process */}
-              <div className="bg-card rounded-2xl p-6 shadow-card">
-                <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
-                    <FileText className="h-5 w-5 text-primary" />
-                  </div>
-                  <h3 className="text-xl font-bold text-foreground">Application Process</h3>
-                </div>
-                <div className="space-y-4">
-                  {[
-                    { step: "1", title: "Submit Application", desc: "Fill out the online form with business details" },
-                    { step: "2", title: "POS Data Review", desc: "We analyze your transaction history" },
-                    { step: "3", title: "Quick Assessment", desc: "Receive eligibility confirmation" },
-                    { step: "4", title: "Fund Disbursement", desc: "Get funds credited to your account" },
-                  ].map((item, index) => (
-                    <div key={index} className="flex items-start gap-4">
-                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                        <span className="text-sm font-bold text-primary">{item.step}</span>
-                      </div>
-                      <div>
-                        <p className="font-semibold text-foreground">{item.title}</p>
-                        <p className="text-sm text-muted-foreground">{item.desc}</p>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+              <div>
+                <h3 className="text-xl font-bold text-foreground">How Loan Amount is Calculated</h3>
+                <p className="text-sm text-muted-foreground">Based on your POS transaction volume</p>
               </div>
             </div>
+            
+            <div className="bg-muted rounded-xl p-6 mb-6">
+              <div className="grid sm:grid-cols-3 gap-4 text-center">
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground mb-1">Average Monthly POS Sales</p>
+                  <p className="text-2xl font-bold text-foreground">AED 100,000</p>
+                </div>
+                <div className="p-4 flex items-center justify-center">
+                  <span className="text-2xl text-primary font-bold">×</span>
+                </div>
+                <div className="p-4">
+                  <p className="text-sm text-muted-foreground mb-1">Multiplier (up to)</p>
+                  <p className="text-2xl font-bold text-foreground">3x - 5x</p>
+                </div>
+              </div>
+              <div className="border-t border-border mt-4 pt-4 text-center">
+                <p className="text-sm text-muted-foreground mb-1">Potential Loan Amount</p>
+                <p className="text-3xl font-bold text-primary">AED 300,000 - 500,000</p>
+              </div>
+            </div>
+            
+            <p className="text-sm text-muted-foreground text-center">
+              *Actual loan amount depends on lender's assessment, credit history, and business profile.
+            </p>
+          </div>
+
+          {/* Eligibility & Benefits Grid */}
+          <div className="grid lg:grid-cols-2 gap-8">
+            {/* POS Eligibility */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
+                  <BadgeCheck className="h-5 w-5 text-success" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">POS Loan Eligibility</h3>
+              </div>
+              <div className="space-y-3">
+                {[
+                  "Active POS machine with minimum 6 months history",
+                  "Minimum monthly POS turnover of AED 50,000",
+                  "Valid trade license in UAE",
+                  "Business bank account with POS transactions",
+                  "No outstanding defaults on existing loans",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
+                    <p className="text-foreground text-sm">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Benefits */}
+            <div className="bg-card rounded-2xl p-6 shadow-card">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                  <Zap className="h-5 w-5 text-primary" />
+                </div>
+                <h3 className="text-xl font-bold text-foreground">Why Choose POS Financing?</h3>
+              </div>
+              <div className="space-y-3">
+                {[
+                  "No collateral required – your POS sales act as security",
+                  "Faster approval compared to traditional business loans",
+                  "Flexible repayment aligned with your cash flow",
+                  "Minimal documentation required",
+                  "Ideal for retail, F&B, and service businesses",
+                ].map((item, index) => (
+                  <div key={index} className="flex items-start gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <p className="text-foreground text-sm">{item}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* CTA */}
+          <div className="text-center mt-12">
+            <Button asChild size="lg">
+              <Link to="/contact" className="flex items-center gap-2">
+                Talk to Expert About POS Loans
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
