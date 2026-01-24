@@ -22,14 +22,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from "@/components/ui/table";
-import {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -138,22 +130,6 @@ const accountTypes = [
   },
 ];
 
-const features = [
-  { key: "minBalance", label: "Minimum Balance" },
-  { key: "monthlyFee", label: "Monthly Fee" },
-  { key: "interestRate", label: "Interest Rate" },
-  { key: "transactionLimit", label: "Transaction Limit" },
-  { key: "idealFor", label: "Ideal For" },
-];
-
-const booleanFeatures = [
-  { key: "overdraftFacility", label: "Overdraft Facility" },
-  { key: "chequebook", label: "Chequebook" },
-  { key: "debitCard", label: "Debit Card" },
-  { key: "onlineBanking", label: "Online Banking" },
-  { key: "multiCurrency", label: "Multi-Currency" },
-  { key: "dedicatedManager", label: "Dedicated Relationship Manager" },
-];
 
 const requirements = [
   {
@@ -319,9 +295,9 @@ const BusinessAccounts = () => {
                 size="xl"
                 className="border-white text-white hover:bg-white/10"
               >
-                <a href="#comparison" className="flex items-center gap-2">
-                  View Comparison
-                </a>
+                <Link to="/contact" className="flex items-center gap-2">
+                  Contact Us
+                </Link>
               </Button>
             </motion.div>
           </div>
@@ -492,101 +468,6 @@ const BusinessAccounts = () => {
         </div>
       </section>
 
-      {/* Comparison Table */}
-      <section id="comparison" className="py-20 bg-background scroll-mt-20">
-        <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-              Side-by-Side Comparison
-            </p>
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Detailed Feature Comparison
-            </h2>
-            <p className="text-lg text-muted-foreground">
-              Review all features and requirements to make an informed decision.
-            </p>
-          </AnimatedSection>
-
-          <AnimatedSection delay={0.2} direction="none">
-            <div className="overflow-x-auto rounded-2xl border border-border shadow-card bg-card">
-              <Table>
-                <TableHeader>
-                  <TableRow className="bg-primary hover:bg-primary">
-                    <TableHead className="text-primary-foreground font-semibold min-w-[180px] py-5">
-                      Feature
-                    </TableHead>
-                    {accountTypes.map((account) => (
-                      <TableHead
-                        key={account.id}
-                        className="text-primary-foreground font-semibold text-center min-w-[140px] py-5"
-                      >
-                        <div className="flex flex-col items-center gap-1">
-                          <account.icon className="h-5 w-5 mb-1" />
-                          {account.title}
-                        </div>
-                      </TableHead>
-                    ))}
-                  </TableRow>
-                </TableHeader>
-                <TableBody>
-                  {/* Text Features */}
-                  {features.map((feature, index) => (
-                    <TableRow
-                      key={feature.key}
-                      className={index % 2 === 0 ? "bg-muted/30" : "bg-card"}
-                    >
-                      <TableCell className="font-medium text-foreground py-4">
-                        {feature.label}
-                      </TableCell>
-                      {accountTypes.map((account) => (
-                        <TableCell
-                          key={account.id}
-                          className="text-center text-muted-foreground py-4"
-                        >
-                          {account[feature.key as keyof typeof account] as string}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-
-                  {/* Boolean Features */}
-                  {booleanFeatures.map((feature, index) => (
-                    <TableRow
-                      key={feature.key}
-                      className={
-                        (features.length + index) % 2 === 0
-                          ? "bg-muted/30"
-                          : "bg-card"
-                      }
-                    >
-                      <TableCell className="font-medium text-foreground py-4">
-                        {feature.label}
-                      </TableCell>
-                      {accountTypes.map((account) => (
-                        <TableCell key={account.id} className="text-center py-4">
-                          {account[feature.key as keyof typeof account] ? (
-                            <div className="flex justify-center">
-                              <div className="w-7 h-7 rounded-full bg-accent/10 flex items-center justify-center">
-                                <Check className="h-4 w-4 text-accent" />
-                              </div>
-                            </div>
-                          ) : (
-                            <div className="flex justify-center">
-                              <div className="w-7 h-7 rounded-full bg-destructive/10 flex items-center justify-center">
-                                <X className="h-4 w-4 text-destructive" />
-                              </div>
-                            </div>
-                          )}
-                        </TableCell>
-                      ))}
-                    </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
 
       {/* Requirements Section */}
       <section className="py-20 bg-muted">
