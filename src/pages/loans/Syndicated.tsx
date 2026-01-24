@@ -56,7 +56,7 @@ const documents = [
   "Board resolution and corporate documents",
 ];
 
-const CoLending = () => {
+const Syndicated = () => {
   return (
     <div className="min-h-screen">
       <Header />
@@ -75,8 +75,8 @@ const CoLending = () => {
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              Co-Lending{" "}
-              <span className="text-accent">Solutions</span>
+              Syndicated{" "}
+              <span className="text-accent">Loans</span>
             </h1>
 
             <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
@@ -112,7 +112,7 @@ const CoLending = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-display-sm text-foreground mb-4">
-              Benefits of Co-Lending
+              Benefits of Syndicated Loans
             </h2>
             <p className="text-lg text-muted-foreground">
               Unlock larger financing through our consortium lending arrangements.
@@ -186,7 +186,7 @@ const CoLending = () => {
               Need Large-Scale Financing?
             </h2>
             <p className="text-xl text-[hsl(var(--background))]/80 mb-10">
-              Let us structure a co-lending arrangement tailored to your requirements.
+              Let us structure a syndicated lending arrangement tailored to your requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="xl">
@@ -209,4 +209,4 @@ const CoLending = () => {
   );
 };
 
-export default CoLending;
+export default Syndicated;

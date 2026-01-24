@@ -12,7 +12,7 @@ import SMELoans from "./pages/loans/SMELoans";
 import CorporateLoans from "./pages/loans/CorporateLoans";
 import EquipmentFinancing from "./pages/loans/EquipmentFinancing";
 import TradeFinance from "./pages/loans/TradeFinance";
-import CoLending from "./pages/loans/CoLending";
+import Syndicated from "./pages/loans/Syndicated";
 import DebtAdvisory from "./pages/services/DebtAdvisory";
 import MezzanineFinancing from "./pages/services/MezzanineFinancing";
 import BusinessAccounts from "./pages/BusinessAccounts";
@@ -40,7 +40,7 @@ const App = () => (
           <Route path="/loans/corporate-loans" element={<CorporateLoans />} />
           <Route path="/loans/equipment-financing" element={<EquipmentFinancing />} />
           <Route path="/loans/trade-finance" element={<TradeFinance />} />
-          <Route path="/loans/co-lending" element={<CoLending />} />
+          <Route path="/loans/syndicated" element={<Syndicated />} />
           <Route path="/services/debt-advisory" element={<DebtAdvisory />} />
           <Route path="/services/mezzanine-financing" element={<MezzanineFinancing />} />
           <Route path="/business-accounts" element={<BusinessAccounts />} />

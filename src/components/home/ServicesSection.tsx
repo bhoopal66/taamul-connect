@@ -59,9 +59,9 @@ const services = [
   },
   {
     icon: Users,
-    title: "Co-Lending",
+    title: "Syndicated",
     description: "Access larger loan amounts through our network of partner banks and financial institutions.",
-    href: "/loans/co-lending",
+    href: "/loans/syndicated",
   },
   {
     icon: TrendingUp,
