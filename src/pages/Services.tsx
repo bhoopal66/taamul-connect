@@ -153,23 +153,79 @@ const Services = () => {
       <Header />
       
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-navy-light overflow-hidden">
+      <section className="relative pt-32 pb-24 bg-gradient-to-br from-primary via-primary to-navy-light overflow-hidden">
+        {/* Background Pattern */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute top-0 left-0 w-72 h-72 bg-white/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3" />
+        </div>
+        
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="max-w-4xl mx-auto text-center text-white">
-            <p className="font-semibold mb-4 uppercase tracking-wide text-sm text-white/80">
-              Our Services
-            </p>
-            <h1 className="text-display-md md:text-display-lg mb-6">
-              Comprehensive Business{" "}
-              <span className="text-gold">Financing Solutions</span>
-            </h1>
-            <p className="text-lg md:text-xl text-white/90 max-w-3xl mx-auto mb-8">
-              From startups to established corporations, we offer a complete range of financing products and advisory services to fuel your business growth and optimize your capital structure.
-            </p>
-            <div className="flex justify-center">
-              <Button size="lg" variant="heroOutline" asChild>
-                <Link to="/contact">Talk to an Expert</Link>
-              </Button>
+          <AnimatedSection className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <p className="font-semibold mb-4 uppercase tracking-widest text-sm text-gold">
+                Our Services
+              </p>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+                Comprehensive Business{" "}
+                <span className="text-gold">Financing Solutions</span>
+              </h1>
+              <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10">
+                From startups to established corporations, we offer a complete range of financing products and advisory services to fuel your business growth.
+              </p>
+              
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
+                <Button size="xl" variant="hero" asChild>
+                  <Link to="/contact">
+                    Get Started Today
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
+                </Button>
+                <Button size="xl" variant="heroOutline" asChild>
+                  <Link to="/how-it-works">See How It Works</Link>
+                </Button>
+              </div>
+            </div>
+            
+            {/* Stats Grid */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+              <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <div className="text-3xl md:text-4xl font-bold text-gold mb-2">15+</div>
+                <div className="text-sm text-white/70">Partner Banks</div>
+              </div>
+              <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <div className="text-3xl md:text-4xl font-bold text-gold mb-2">AED 500M+</div>
+                <div className="text-sm text-white/70">Loans Facilitated</div>
+              </div>
+              <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <div className="text-3xl md:text-4xl font-bold text-gold mb-2">10+</div>
+                <div className="text-sm text-white/70">Financing Products</div>
+              </div>
+              <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+                <div className="text-3xl md:text-4xl font-bold text-gold mb-2">100%</div>
+                <div className="text-sm text-white/70">Free Consultation</div>
+              </div>
+            </div>
+            
+            {/* Trust Badges */}
+            <div className="flex flex-wrap items-center justify-center gap-6 mt-10 pt-10 border-t border-white/10">
+              <div className="flex items-center gap-2 text-white/60">
+                <Shield className="h-5 w-5" />
+                <span className="text-sm">Secure & Confidential</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/60">
+                <CheckCircle className="h-5 w-5" />
+                <span className="text-sm">UAE Licensed</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/60">
+                <Users className="h-5 w-5" />
+                <span className="text-sm">Dedicated Experts</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/60">
+                <Building2 className="h-5 w-5" />
+                <span className="text-sm">All Business Sizes</span>
+              </div>
             </div>
           </AnimatedSection>
         </div>
