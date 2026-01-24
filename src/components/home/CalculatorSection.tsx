@@ -10,7 +10,7 @@ const benefits = [
   "Prevent incomplete documentation delays",
   "Access to 15+ leading UAE banks",
   "Competitive interest rates from 7% p.a.",
-  "Flexible tenure up to 60 months",
+  "Flexible tenure up to 48 months",
   "Minimal documentation required",
   "Dedicated relationship manager",
 ];
