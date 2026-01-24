@@ -23,8 +23,8 @@ const features = [
   },
   {
     icon: Clock,
-    title: "Preserve Cash Flow",
-    description: "Acquire assets without depleting working capital reserves",
+    title: "Quick Approval",
+    description: "Streamlined documentation process with faster turnaround times",
   },
   {
     icon: Car,
