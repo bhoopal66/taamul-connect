@@ -13,6 +13,9 @@ import {
   Calculator,
   Info,
   CreditCard,
+  TrendingUp,
+  Zap,
+  BadgeCheck,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
@@ -171,6 +174,109 @@ const BusinessLoans = () => {
           <p className="text-sm text-muted-foreground text-center mt-8">
             *Interest rates are subject to lender's discretion and may vary based on credit assessment.
           </p>
+        </div>
+      </section>
+
+      {/* POS Machine Loan Section */}
+      <section className="py-24 bg-muted">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-medium mb-6">
+                <CreditCard className="h-4 w-4" />
+                POS Machine Financing
+              </div>
+              <h2 className="text-display-sm text-foreground mb-6">
+                Loan Against <span className="text-primary">POS Machine</span>
+              </h2>
+              <p className="text-lg text-muted-foreground mb-8">
+                Leverage your POS transaction history to access quick financing. Ideal for retail businesses, 
+                restaurants, and service providers with consistent card payment volumes.
+              </p>
+              
+              <div className="grid sm:grid-cols-2 gap-4 mb-8">
+                <div className="flex items-center gap-3 p-4 bg-card rounded-xl">
+                  <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
+                    <Zap className="h-5 w-5 text-success" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Quick Processing</p>
+                    <p className="text-sm text-muted-foreground">Faster approvals</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3 p-4 bg-card rounded-xl">
+                  <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center">
+                    <TrendingUp className="h-5 w-5 text-accent" />
+                  </div>
+                  <div>
+                    <p className="font-semibold text-foreground">Based on Sales</p>
+                    <p className="text-sm text-muted-foreground">Transaction-based limits</p>
+                  </div>
+                </div>
+              </div>
+
+              <Button asChild size="lg">
+                <Link to="/contact" className="flex items-center gap-2">
+                  Apply for POS Loan
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+
+            <div className="space-y-6">
+              {/* POS Eligibility */}
+              <div className="bg-card rounded-2xl p-6 shadow-card">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-lg bg-success/10 flex items-center justify-center">
+                    <BadgeCheck className="h-5 w-5 text-success" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">POS Loan Eligibility</h3>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    "Active POS machine with minimum 6 months history",
+                    "Minimum monthly POS turnover of AED 50,000",
+                    "Valid trade license in UAE",
+                    "Business bank account with POS transactions",
+                    "No outstanding defaults on existing loans",
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
+                      <p className="text-foreground text-sm">{item}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* POS Application Process */}
+              <div className="bg-card rounded-2xl p-6 shadow-card">
+                <div className="flex items-center gap-3 mb-5">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <FileText className="h-5 w-5 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Application Process</h3>
+                </div>
+                <div className="space-y-4">
+                  {[
+                    { step: "1", title: "Submit Application", desc: "Fill out the online form with business details" },
+                    { step: "2", title: "POS Data Review", desc: "We analyze your transaction history" },
+                    { step: "3", title: "Quick Assessment", desc: "Receive eligibility confirmation" },
+                    { step: "4", title: "Fund Disbursement", desc: "Get funds credited to your account" },
+                  ].map((item, index) => (
+                    <div key={index} className="flex items-start gap-4">
+                      <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+                        <span className="text-sm font-bold text-primary">{item.step}</span>
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground">{item.title}</p>
+                        <p className="text-sm text-muted-foreground">{item.desc}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
