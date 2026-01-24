@@ -285,7 +285,19 @@ const HeroSection = () => {
                     transition={{ duration: 0.5, delay: 0.7, type: "spring" }}
                     className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4"
                   >
-                    <CheckCircle2 className="h-8 w-8 text-primary" />
+                    <motion.div
+                      animate={{ 
+                        scale: [1, 1.1, 1],
+                        opacity: [1, 0.8, 1]
+                      }}
+                      transition={{ 
+                        duration: 2, 
+                        repeat: Infinity, 
+                        ease: "easeInOut" 
+                      }}
+                    >
+                      <CheckCircle2 className="h-8 w-8 text-primary" />
+                    </motion.div>
                   </motion.div>
                   <h3 className="text-2xl font-bold text-primary mb-2">100% Free</h3>
                   <p className="text-lg font-semibold text-primary">No Strings Attached.</p>
