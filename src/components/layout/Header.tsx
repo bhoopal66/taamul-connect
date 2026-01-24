@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-import taamulLogo from "@/assets/taamul-logo.png";
+import taamulLogo from "@/assets/taamul-logo-new.png";
 const loanServices = [
   { name: "Business Loans", href: "/loans/business-loans", description: "Fixed-term financing for business growth" },
   { name: "Working Capital", href: "/loans/working-capital", description: "Manage daily operations smoothly" },
