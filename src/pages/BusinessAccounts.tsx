@@ -15,6 +15,11 @@ import {
   Clock,
   Award,
   Headphones,
+  MessageSquare,
+  Search,
+  FileCheck,
+  Send,
+  CheckCircle2,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
@@ -59,26 +64,31 @@ const accountTypes = [
 const processSteps = [
   {
     step: "01",
+    icon: MessageSquare,
     title: "Consultation",
     description: "We understand your business needs, transaction volumes, and banking requirements to recommend the right account type.",
   },
   {
     step: "02",
+    icon: Search,
     title: "Bank Selection",
     description: "Based on your profile, we match you with the most suitable banks from our partner network for higher approval rates.",
   },
   {
     step: "03",
+    icon: FileCheck,
     title: "Document Preparation",
     description: "Our team reviews and prepares all required documentation to ensure a complete, error-free application.",
   },
   {
     step: "04",
+    icon: Send,
     title: "Application Submission",
     description: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
   },
   {
     step: "05",
+    icon: CheckCircle2,
     title: "Account Activation",
     description: "Once approved, we assist with account activation, online banking setup, and any additional services you need.",
   },
@@ -358,9 +368,14 @@ const BusinessAccounts = () => {
               <div className="space-y-8">
                 {processSteps.map((step, index) => (
                   <AnimatedItem key={step.step} index={index} baseDelay={0.1}>
-                    <div className="flex gap-6 items-start">
-                      <div className="relative z-10 w-16 h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center font-bold text-xl flex-shrink-0 shadow-lg">
-                        {step.step}
+                    <div className="flex gap-6 items-start group">
+                      <div className="relative z-10 flex-shrink-0">
+                        <div className="w-16 h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
+                          <step.icon className="h-7 w-7" />
+                        </div>
+                        <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
+                          {step.step}
+                        </span>
                       </div>
                       <div className="flex-1 pb-8">
                         <h3 className="text-xl font-semibold text-foreground mb-2">
