@@ -189,7 +189,7 @@ const EquipmentFinancing = () => {
               Ready to Upgrade Your Equipment?
             </h2>
             <p className="text-xl text-[hsl(var(--background))]/80 mb-10">
-              Get financing approval within 48 hours. Start using your equipment immediately.
+              Finance your equipment with competitive terms. Start your application today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="xl">

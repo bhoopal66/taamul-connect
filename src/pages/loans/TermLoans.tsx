@@ -203,7 +203,7 @@ const TermLoans = () => {
               Ready to Grow Your Business?
             </h2>
             <p className="text-xl text-[hsl(var(--background))]/80 mb-10">
-              Start your application today and get pre-approved within 48 hours.
+              Start your application today. Our experts will guide you through the process.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="xl">

@@ -20,7 +20,7 @@ const features = [
   {
     icon: Zap,
     title: "Quick Disbursement",
-    description: "Funds available within 72 hours to address immediate cash flow needs",
+    description: "Fast access to funds to address immediate cash flow needs",
   },
   {
     icon: Percent,
