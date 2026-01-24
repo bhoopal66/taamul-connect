@@ -265,22 +265,21 @@ const BusinessLoans = () => {
             </div>
             
             <div className="bg-white/10 rounded-xl p-6 mb-6">
-              <div className="grid sm:grid-cols-3 gap-4 text-center">
-                <div className="p-4">
-                  <p className="text-sm text-white/70 mb-1">Annual POS Turnover</p>
-                  <p className="text-2xl font-bold text-white">AED 1,200,000</p>
-                </div>
-                <div className="p-4 flex items-center justify-center">
-                  <span className="text-2xl text-accent font-bold">×</span>
-                </div>
-                <div className="p-4">
-                  <p className="text-sm text-white/70 mb-1">Multiplier</p>
-                  <p className="text-2xl font-bold text-white">80%</p>
-                </div>
+              <div className="text-center mb-6">
+                <p className="text-sm text-white/70 mb-2">Formula</p>
+                <p className="text-xl font-bold text-white">Annual POS Turnover × 80%</p>
               </div>
-              <div className="border-t border-white/20 mt-4 pt-4 text-center">
-                <p className="text-sm text-white/70 mb-1">Potential Loan Amount</p>
-                <p className="text-3xl font-bold text-accent">AED 960,000</p>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="bg-white/10 rounded-xl p-5 text-center border border-white/10">
+                  <p className="text-sm text-white/70 mb-2">Wio Bank</p>
+                  <p className="text-sm text-white/60 mb-1">Maximum Limit</p>
+                  <p className="text-2xl font-bold text-accent">AED 1,000,000</p>
+                </div>
+                <div className="bg-white/10 rounded-xl p-5 text-center border border-white/10">
+                  <p className="text-sm text-white/70 mb-2">RAK Bank</p>
+                  <p className="text-sm text-white/60 mb-1">Maximum Limit</p>
+                  <p className="text-2xl font-bold text-accent">AED 5,000,000</p>
+                </div>
               </div>
             </div>
             
