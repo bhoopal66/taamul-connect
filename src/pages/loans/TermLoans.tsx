@@ -81,7 +81,8 @@ const TermLoans = () => {
 
             <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
               Fixed-term financing solutions for capital investments, expansion projects,
-              and business growth with predictable monthly repayments.
+              and business growth. We streamline applications to help you get quick approval
+              with predictable monthly repayments.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
