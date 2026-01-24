@@ -74,17 +74,6 @@ const BusinessAccountsSection = () => {
           ))}
         </div>
 
-        {/* CTA */}
-        <AnimatedSection delay={0.4} direction="none">
-          <div className="text-center">
-            <Button asChild variant="cta" size="xl">
-              <Link to="/business-accounts" className="flex items-center gap-2">
-                Compare All Account Types
-                <ArrowRight className="h-5 w-5" />
-              </Link>
-            </Button>
-          </div>
-        </AnimatedSection>
       </div>
     </section>
   );
