@@ -45,11 +45,6 @@ const features = [
     title: "Quick Approval",
     description: "Streamlined documentation process with faster turnaround times",
   },
-  {
-    icon: CreditCard,
-    title: "Loan Against POS Machine",
-    description: "Get financing based on your POS transaction history and sales volume",
-  },
 ];
 
 const eligibility = [
