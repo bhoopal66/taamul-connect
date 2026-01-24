@@ -109,15 +109,15 @@ const Header = () => {
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center">
+            <div className="hidden lg:flex items-center gap-8">
               <NavigationMenu>
-                <NavigationMenuList className="gap-1">
+                <NavigationMenuList className="gap-6">
                   <NavigationMenuItem>
                     <Link
                       to="/"
                       className={cn(
-                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
-                        isActive("/") ? "text-accent bg-accent/5" : "text-foreground"
+                        "text-[15px] font-medium transition-colors hover:text-accent",
+                        isActive("/") ? "text-accent" : "text-foreground"
                       )}
                     >
                       Home
@@ -128,7 +128,7 @@ const Header = () => {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       className={cn(
-                        "px-4 py-2 text-sm font-medium bg-transparent hover:bg-muted",
+                        "text-[15px] font-medium bg-transparent hover:bg-transparent hover:text-accent data-[state=open]:bg-transparent px-0 h-auto",
                         isLoanActive() ? "text-accent" : "text-foreground"
                       )}
                     >
@@ -177,7 +177,7 @@ const Header = () => {
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
                       className={cn(
-                        "px-4 py-2 text-sm font-medium bg-transparent hover:bg-muted",
+                        "text-[15px] font-medium bg-transparent hover:bg-transparent hover:text-accent data-[state=open]:bg-transparent px-0 h-auto",
                         isServiceActive() ? "text-accent" : "text-foreground"
                       )}
                     >
@@ -227,12 +227,12 @@ const Header = () => {
                     <Link
                       to="/business-accounts"
                       className={cn(
-                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent text-center leading-tight",
-                        isActive("/business-accounts") ? "text-accent bg-accent/5" : "text-foreground"
+                        "text-[15px] font-medium transition-colors hover:text-accent leading-tight",
+                        isActive("/business-accounts") ? "text-accent" : "text-foreground"
                       )}
                     >
-                      <span className="block">Business</span>
-                      <span className="block">Accounts</span>
+                      <span className="block text-center">Business</span>
+                      <span className="block text-center text-[13px]">Accounts</span>
                     </Link>
                   </NavigationMenuItem>
 
@@ -240,8 +240,8 @@ const Header = () => {
                     <Link
                       to="/how-it-works"
                       className={cn(
-                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
-                        isActive("/how-it-works") ? "text-accent bg-accent/5" : "text-foreground"
+                        "text-[15px] font-medium transition-colors hover:text-accent",
+                        isActive("/how-it-works") ? "text-accent" : "text-foreground"
                       )}
                     >
                       How It Works
@@ -252,8 +252,8 @@ const Header = () => {
                     <Link
                       to="/about"
                       className={cn(
-                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
-                        isActive("/about") ? "text-accent bg-accent/5" : "text-foreground"
+                        "text-[15px] font-medium transition-colors hover:text-accent",
+                        isActive("/about") ? "text-accent" : "text-foreground"
                       )}
                     >
                       About
@@ -264,8 +264,8 @@ const Header = () => {
                     <Link
                       to="/contact"
                       className={cn(
-                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
-                        isActive("/contact") ? "text-accent bg-accent/5" : "text-foreground"
+                        "text-[15px] font-medium transition-colors hover:text-accent",
+                        isActive("/contact") ? "text-accent" : "text-foreground"
                       )}
                     >
                       Contact
