@@ -91,11 +91,6 @@ const EquipmentFinancing = () => {
                   <ArrowRight className="h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="heroOutline" size="xl">
-                <a href="#calculator" className="flex items-center gap-2">
-                  Check Eligibility
-                </a>
-              </Button>
             </div>
           </div>
         </div>
