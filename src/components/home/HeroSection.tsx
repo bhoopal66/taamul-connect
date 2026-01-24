@@ -22,7 +22,7 @@ const heroSlides = [
     badgeIcon: Award,
     title: "Unlock Your Business Potential with",
     highlight: "Smart Financing",
-    description: "Access flexible business loans from AED 100,000 to AED 50 million. Partner with UAE's leading banks through our streamlined application process.",
+    description: "Access flexible business loans from AED 100,000 to AED\u00A050\u00A0million. Partner with UAE's leading banks through our streamlined application process.",
     backgroundImage: heroSlide1,
     stats: [
       { icon: Building2, value: "15+", label: "Years Experience" },
