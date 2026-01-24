@@ -2,6 +2,7 @@ import { useState } from "react";
 import { z } from "zod";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { motion } from "framer-motion";
 import {
   MapPin,
   Phone,
@@ -10,6 +11,9 @@ import {
   Send,
   Building2,
   MessageSquare,
+  Shield,
+  CheckCircle2,
+  Headphones,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -139,19 +143,92 @@ const Contact = () => {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 gradient-hero">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-              Contact Us
-            </p>
-            <h1 className="text-display-md text-white mb-6">
-              Let's Discuss Your Financing Needs
-            </h1>
-            <p className="text-xl text-white/80">
+      <section className="pt-32 pb-20 gradient-hero relative overflow-hidden">
+        {/* Background Effects */}
+        <div className="absolute inset-0 opacity-10">
+          <motion.div 
+            className="absolute top-20 left-10 w-72 h-72 bg-accent rounded-full blur-3xl"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.15, 0.1] }}
+            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div 
+            className="absolute bottom-10 right-10 w-96 h-96 bg-secondary rounded-full blur-3xl"
+            animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.12, 0.1] }}
+            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+        </div>
+
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Badge */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-accent text-sm font-medium mb-6"
+            >
+              <Headphones className="h-4 w-4" />
+              Expert Support Available
+            </motion.div>
+
+            {/* Heading */}
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
+            >
+              Let's Discuss Your{" "}
+              <span className="text-accent">Financing Needs</span>
+            </motion.h1>
+
+            {/* Subheading */}
+            <motion.p 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-white/80 mb-10 max-w-2xl mx-auto"
+            >
               Our team of experts is ready to help you find the perfect financial solution for your business.
-            </p>
+            </motion.p>
+
+            {/* Trust Indicators */}
+            <motion.div 
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="flex flex-wrap justify-center gap-6 md:gap-10"
+            >
+              <div className="flex items-center gap-2 text-white/90">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                  <CheckCircle2 className="h-5 w-5 text-accent" />
+                </div>
+                <span className="text-sm font-medium">Free Consultation</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                  <Clock className="h-5 w-5 text-accent" />
+                </div>
+                <span className="text-sm font-medium">24hr Response</span>
+              </div>
+              <div className="flex items-center gap-2 text-white/90">
+                <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                  <Shield className="h-5 w-5 text-accent" />
+                </div>
+                <span className="text-sm font-medium">Confidential</span>
+              </div>
+            </motion.div>
           </div>
+        </div>
+
+        {/* Bottom Wave */}
+        <div className="absolute bottom-0 left-0 right-0">
+          <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full">
+            <path
+              d="M0 120L60 110C120 100 240 80 360 70C480 60 600 60 720 65C840 70 960 80 1080 85C1200 90 1320 90 1380 90L1440 90V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0Z"
+              fill="hsl(var(--muted))"
+            />
+          </svg>
         </div>
       </section>
 
