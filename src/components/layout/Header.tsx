@@ -227,11 +227,12 @@ const Header = () => {
                     <Link
                       to="/business-accounts"
                       className={cn(
-                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
+                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent text-center leading-tight",
                         isActive("/business-accounts") ? "text-accent bg-accent/5" : "text-foreground"
                       )}
                     >
-                      Business Accounts
+                      <span className="block">Business</span>
+                      <span className="block">Accounts</span>
                     </Link>
                   </NavigationMenuItem>
 
