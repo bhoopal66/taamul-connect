@@ -112,7 +112,7 @@ const CorporateLoans = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-display-sm text-foreground mb-4">
-              Enterprise-Grade Financing
+              Structured Financing
             </h2>
             <p className="text-lg text-muted-foreground">
               Sophisticated financial solutions for complex corporate requirements.
