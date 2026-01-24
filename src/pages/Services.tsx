@@ -37,7 +37,7 @@ const faqItems = [
   },
   {
     question: "How long does the loan approval process take?",
-    answer: "Our streamlined process typically takes 5-7 working days from complete document submission to approval. Simple working capital facilities may be approved within 48-72 hours, while larger corporate loans or complex structures may take 2-3 weeks depending on the due diligence required.",
+    answer: "Our streamlined process typically takes 3-5 days from complete document submission to approval. Simple working capital facilities may be approved within 48-72 hours, while larger corporate loans or complex structures may take 2-3 weeks depending on the due diligence required. Terms and conditions apply.",
   },
   {
     question: "What interest rates can I expect?",
