@@ -89,7 +89,7 @@ const Header = () => {
       {/* Main Header */}
       <header
         className={cn(
-          "sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-card border-b",
+          "sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-white border-b",
           isScrolled ? "shadow-card border-border" : "border-transparent"
         )}
       >
