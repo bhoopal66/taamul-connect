@@ -66,30 +66,35 @@ const processSteps = [
     step: "01",
     icon: MessageSquare,
     title: "Consultation",
+    duration: "1 Day",
     description: "We understand your business needs, transaction volumes, and banking requirements to recommend the right account type.",
   },
   {
     step: "02",
     icon: Search,
     title: "Bank Selection",
+    duration: "1-2 Days",
     description: "Based on your profile, we match you with the most suitable banks from our partner network for higher approval rates.",
   },
   {
     step: "03",
     icon: FileCheck,
     title: "Document Preparation",
+    duration: "2-3 Days",
     description: "Our team reviews and prepares all required documentation to ensure a complete, error-free application.",
   },
   {
     step: "04",
     icon: Send,
     title: "Application Submission",
+    duration: "2-4 Weeks",
     description: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
   },
   {
     step: "05",
     icon: CheckCircle2,
     title: "Account Activation",
+    duration: "1-2 Days",
     description: "Once approved, we assist with account activation, online banking setup, and any additional services you need.",
   },
 ];
@@ -378,9 +383,15 @@ const BusinessAccounts = () => {
                         </span>
                       </div>
                       <div className="flex-1 pb-8">
-                        <h3 className="text-xl font-semibold text-foreground mb-2">
-                          {step.title}
-                        </h3>
+                        <div className="flex items-center gap-3 mb-2">
+                          <h3 className="text-xl font-semibold text-foreground">
+                            {step.title}
+                          </h3>
+                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-accent/10 text-accent text-xs font-medium">
+                            <Clock className="h-3 w-3" />
+                            {step.duration}
+                          </span>
+                        </div>
                         <p className="text-muted-foreground leading-relaxed">
                           {step.description}
                         </p>
