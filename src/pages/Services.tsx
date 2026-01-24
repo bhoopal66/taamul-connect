@@ -120,7 +120,7 @@ const loanServices = [
   },
   {
     icon: Users,
-    title: "Syndicated",
+    title: "Syndicated Loans",
     description: "Access larger loan amounts through our network of partner banks and financial institutions.",
     details: "Our extensive network of banking partners enables us to structure and syndicate larger financing requirements, giving you access to capital beyond single-lender limits.",
     features: ["Access to larger amounts", "Multiple lender options", "Competitive terms", "Single point of contact"],

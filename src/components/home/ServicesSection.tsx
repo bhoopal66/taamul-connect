@@ -59,7 +59,7 @@ const services = [
   },
   {
     icon: Users,
-    title: "Syndicated",
+    title: "Syndicated Loans",
     description: "Access larger loan amounts through our network of partner banks and financial institutions.",
     href: "/loans/syndicated",
   },
