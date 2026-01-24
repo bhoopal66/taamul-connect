@@ -288,7 +288,7 @@ const HeroSection = () => {
                     <CheckCircle2 className="h-8 w-8 text-accent" />
                   </motion.div>
                   <h3 className="text-2xl font-bold text-foreground mb-2">100% Free</h3>
-                  <p className="text-lg font-semibold text-accent">No Strings Attached</p>
+                  <p className="text-lg font-semibold text-accent">No Strings Attached.</p>
                 </div>
                 
                 <div className="space-y-4">
