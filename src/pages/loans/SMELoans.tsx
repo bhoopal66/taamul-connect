@@ -44,7 +44,7 @@ const features = [
 
 const eligibility = [
   "Registered business in UAE for minimum 1 year",
-  "Annual turnover between AED 500,000 - AED 50 million",
+  "Annual turnover over AED 5 million",
   "Valid trade license with SME classification",
   "No drop in turnover on year-on-year basis",
   "Audited or management accounts available",
