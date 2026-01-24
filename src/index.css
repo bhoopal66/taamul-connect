@@ -14,15 +14,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap");
 
-@import url("https://fonts.googleapis.com/css2?family=Inter&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Lora&display=swap");
-
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
-
 @layer base {
   :root {
-    /* TAAMUL Corporate Color Palette - Green & Gold */
+    /* TAAMUL Corporate Color Palette */
     --background: 209 40% 96%;
     --foreground: 222 47% 11%;
 
@@ -32,19 +26,19 @@
     --popover: 214 31% 91%;
     --popover-foreground: 222 47% 11%;
 
-    /* Primary - Deep Corporate Green */
-    --primary: 204 80.2469% 15.8824%;
+    /* Primary - Deep Navy Blue */
+    --primary: 200 98% 39%;
     --primary-foreground: 204 100% 97%;
 
-    /* Secondary - Forest Green */
+    /* Secondary - Medium Blue */
     --secondary: 215 24% 26%;
     --secondary-foreground: 210 40% 98%;
 
-    /* Muted - Sage Gray */
+    /* Muted - Light Gray */
     --muted: 215 20% 65%;
     --muted-foreground: 222 47% 11%;
 
-    /* Accent - Rich Gold */
+    /* Accent - Sky Blue */
     --accent: 210 40% 98%;
     --accent-foreground: 215 19% 34%;
 
@@ -58,25 +52,24 @@
     --radius: 0.5rem;
 
     /* Custom tokens */
-    --green-dark: 152 50% 20%;
-    --green-light: 152 40% 35%;
+    --navy-dark: 207 60% 22%;
+    --navy-light: 207 45% 42%;
     --success: 142 70% 40%;
     --success-foreground: 0 0% 100%;
-    --gold: 43 85% 50%;
-    --gold-light: 45 90% 65%;
+    --gold: 45 90% 55%;
 
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(152, 50%, 18%) 0%, hsl(152, 45%, 25%) 50%, hsl(152, 40%, 32%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(120, 10%, 98%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(152, 45%, 30%) 0%, hsl(152, 50%, 20%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(207, 60%, 22%) 0%, hsl(207, 58%, 30%) 50%, hsl(207, 50%, 36%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0, 0%, 100%) 0%, hsl(210, 20%, 98%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(207, 80%, 55%) 0%, hsl(207, 58%, 30%) 100%);
 
     /* Shadows */
     --shadow-sm: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 1px 2px -1px hsl(0 0% 0% / 0.1);
     --shadow-md: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 2px 4px -1px hsl(0 0% 0% / 0.1);
     --shadow-lg: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 4px 6px -1px hsl(0 0% 0% / 0.1);
     --shadow-xl: 0 1px 3px 0px hsl(0 0% 0% / 0.1), 0 8px 10px -1px hsl(0 0% 0% / 0.1);
-    --shadow-card: 0 4px 20px hsl(152 45% 25% / 0.08);
-    --shadow-elevated: 0 8px 30px hsl(152 45% 25% / 0.12);
+    --shadow-card: 0 4px 20px hsl(207 58% 30% / 0.08);
+    --shadow-elevated: 0 8px 30px hsl(207 58% 30% / 0.12);
 
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 222 47% 11%;
@@ -132,10 +125,10 @@
     --input: 215 19% 34%;
     --ring: 198 93% 59%;
 
-    --green-dark: 152 50% 8%;
-    --green-light: 152 45% 45%;
+    --navy-dark: 207 60% 8%;
+    --navy-light: 207 45% 50%;
 
-    --sidebar-background: 150 20% 8%;
+    --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 210 40% 98%;
     --sidebar-primary: 198 93% 59%;
     --sidebar-primary-foreground: 204 80% 15%;

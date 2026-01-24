@@ -18,11 +18,14 @@ export default {
   				'Inter',
   				'ui-sans-serif',
   				'system-ui',
-  				'sans-serif',
-  				'Apple Color Emoji',
-  				'Segoe UI Emoji',
-  				'Segoe UI Symbol',
-  				'Noto Color Emoji'
+  				'-apple-system',
+  				'BlinkMacSystemFont',
+  				'Segoe UI',
+  				'Roboto',
+  				'Helvetica Neue',
+  				'Arial',
+  				'Noto Sans',
+  				'sans-serif'
   			],
   			serif: [
   				'Lora',
@@ -109,9 +112,9 @@ export default {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
   			},
-  			green: {
-  				dark: 'hsl(var(--green-dark))',
-  				light: 'hsl(var(--green-light))'
+  			navy: {
+  				dark: 'hsl(var(--navy-dark))',
+  				light: 'hsl(var(--navy-light))'
   			},
   			success: {
   				DEFAULT: 'hsl(var(--success))',

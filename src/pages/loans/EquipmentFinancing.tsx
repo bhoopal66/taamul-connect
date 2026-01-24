@@ -19,22 +19,22 @@ const features = [
   {
     icon: Cog,
     title: "100% Equipment Financing",
-    description: "Finance the full cost of machinery and equipment with minimal or no down payment required",
+    description: "Finance the full cost of machinery and equipment with no down payment",
   },
   {
     icon: Clock,
-    title: "Preserve Working Capital",
-    description: "Acquire essential assets without depleting your operational cash reserves",
+    title: "Preserve Cash Flow",
+    description: "Acquire assets without depleting working capital reserves",
   },
   {
     icon: Car,
-    title: "Comprehensive Asset Coverage",
-    description: "Finance machinery, commercial vehicles, technology systems, and specialized equipment",
+    title: "All Asset Types",
+    description: "Finance machinery, vehicles, technology, and specialized equipment",
   },
   {
     icon: Wrench,
-    title: "Flexible Financing Structures",
-    description: "Choose from lease-to-own, hire purchase, or traditional financing arrangements",
+    title: "Maintenance Included",
+    description: "Optional packages that include maintenance and insurance coverage",
   },
 ];
 

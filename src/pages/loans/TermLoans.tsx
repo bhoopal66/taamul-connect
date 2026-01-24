@@ -18,30 +18,30 @@ import { Button } from "@/components/ui/button";
 const features = [
   {
     icon: Banknote,
-    title: "Flexible Loan Amounts",
-    description: "Financing from AED 250,000 to AED 50 million tailored to your business requirements",
+    title: "Flexible Amounts",
+    description: "Loans from AED 100,000 to AED 50 million based on your business needs",
   },
   {
     icon: Percent,
-    title: "Competitive Interest Rates",
-    description: "Attractive rates starting from 7% p.a. with a transparent fee structure",
+    title: "Competitive Rates",
+    description: "Interest rates starting from 7% p.a. with transparent fee structure",
   },
   {
     icon: Calendar,
-    title: "Extended Tenure Options",
-    description: "Repayment periods extending up to 60 months with flexible EMI schedules",
+    title: "Long Tenure",
+    description: "Repayment periods up to 60 months with customizable EMI options",
   },
   {
     icon: Clock,
-    title: "Streamlined Approval Process",
-    description: "Efficient processing with pre-approval decisions within 48 business hours",
+    title: "Quick Approval",
+    description: "Get pre-approved within 48 hours with minimal documentation",
   },
 ];
 
 const eligibility = [
-  "Business operating in UAE for a minimum of 1 year",
+  "Business operating in UAE for at least 1 year",
   "Minimum annual turnover of AED 1 million",
-  "Valid trade license in good standing",
+  "Valid trade license and company registration",
   "Audited financial statements for 2+ years",
   "Positive credit history with no defaults",
   "UAE residence visa for business owners",
@@ -51,9 +51,7 @@ const documents = [
   "Trade License and Memorandum of Association",
   "Audited financial statements (2 years)",
   "Bank statements (12 months)",
-  "Office Ejari (tenancy contract)",
-  "VAT Certificate & VAT Return",
-  "Corporate Tax Certificate",
+  "Company profile and business plan",
   "Passport copies of shareholders",
   "Emirates ID of authorized signatories",
 ];

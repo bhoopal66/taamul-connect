@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 import {
   CheckCircle2,
   ArrowRight,
-  Rocket,
-  Percent,
   Users,
+  Percent,
+  Building2,
   Shield,
   FileText,
-  Clock,
-  Briefcase,
+  Handshake,
+  TrendingUp,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -17,46 +17,46 @@ import { Button } from "@/components/ui/button";
 
 const features = [
   {
-    icon: Rocket,
-    title: "Growth Focused",
-    description: "Financing designed specifically to help SMEs scale and expand operations",
-  },
-  {
-    icon: Clock,
-    title: "Fast Processing",
-    description: "Simplified approval process with decisions within 48-72 hours",
-  },
-  {
     icon: Users,
-    title: "Dedicated Support",
-    description: "Personal relationship manager who understands SME challenges",
+    title: "Multiple Lenders",
+    description: "Access larger amounts through our network of partner banks and NBFCs",
   },
   {
-    icon: Briefcase,
-    title: "Flexible Terms",
-    description: "Customized repayment schedules aligned with your cash flow cycles",
+    icon: TrendingUp,
+    title: "Higher Limits",
+    description: "Secure financing beyond single-bank limits for major projects",
+  },
+  {
+    icon: Handshake,
+    title: "Risk Distribution",
+    description: "Spread risk across multiple financial institutions for better terms",
+  },
+  {
+    icon: Percent,
+    title: "Competitive Pricing",
+    description: "Benefit from competitive bidding between participating lenders",
   },
 ];
 
 const eligibility = [
-  "Registered business in UAE for minimum 1 year",
-  "Annual turnover between AED 500,000 - AED 50 million",
-  "Valid trade license with SME classification",
-  "Minimum 51% ownership by UAE residents/nationals",
-  "Audited or management accounts available",
-  "No major defaults or legal issues",
+  "Loan requirement exceeding AED 10 million",
+  "Business operating for minimum 3 years",
+  "Strong financial track record and ratings",
+  "Audited financials for 3+ years",
+  "Clear project/purpose for funds utilization",
+  "Ability to provide adequate security",
 ];
 
 const documents = [
-  "Trade License and MOA/AOA",
-  "Financial statements (1-2 years)",
-  "Bank statements (6-12 months)",
-  "VAT registration and returns",
-  "Passport and Emirates ID of owners",
-  "Business plan (for startups)",
+  "Detailed business plan and projections",
+  "Audited financial statements (3 years)",
+  "Project feasibility study",
+  "Existing banking relationships details",
+  "Collateral documentation",
+  "Board resolution and corporate documents",
 ];
 
-const SMELoans = () => {
+const CoLending = () => {
   return (
     <div className="min-h-screen">
       <Header />
@@ -70,18 +70,18 @@ const SMELoans = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
-              <Rocket className="h-4 w-4" />
+              <Users className="h-4 w-4" />
               Business Loans
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              SME Financing{" "}
+              Co-Lending{" "}
               <span className="text-accent">Solutions</span>
             </h1>
 
             <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
-              Tailored financing solutions designed specifically for small and medium 
-              enterprises in the UAE. Fuel your growth with the right funding partner.
+              Access larger loan amounts through our network of partner banks and 
+              financial institutions. Ideal for major expansion projects.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
@@ -112,10 +112,10 @@ const SMELoans = () => {
         <div className="container mx-auto px-4">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-display-sm text-foreground mb-4">
-              Why SMEs Choose Us
+              Benefits of Co-Lending
             </h2>
             <p className="text-lg text-muted-foreground">
-              We understand the unique challenges of growing businesses in the UAE market.
+              Unlock larger financing through our consortium lending arrangements.
             </p>
           </div>
 
@@ -183,10 +183,10 @@ const SMELoans = () => {
         <div className="container mx-auto px-4 relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-display-sm text-[hsl(var(--background))] mb-6">
-              Ready to Scale Your SME?
+              Need Large-Scale Financing?
             </h2>
             <p className="text-xl text-[hsl(var(--background))]/80 mb-10">
-              Join 500+ SMEs that have accelerated their growth with our financing solutions.
+              Let us structure a co-lending arrangement tailored to your requirements.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button asChild variant="hero" size="xl">
@@ -209,4 +209,4 @@ const SMELoans = () => {
   );
 };
 
-export default SMELoans;
+export default CoLending;
