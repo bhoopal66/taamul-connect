@@ -405,12 +405,15 @@ const BusinessAccounts = () => {
 
           {/* Total Timeline Badge */}
           <AnimatedSection delay={0.4} direction="none" className="mt-12 text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-primary/10 border border-primary/20">
+            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-primary/10 border border-primary/20 mb-4">
               <Clock className="h-5 w-5 text-primary" />
               <span className="text-lg font-semibold text-foreground">
                 Total: <span className="text-primary">7-10 Days</span>
               </span>
             </div>
+            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
+              *Timeline is subject to customer risk profile and business activity. We do not guarantee account opening; final approval is at the sole discretion of the bank.
+            </p>
           </AnimatedSection>
         </div>
       </section>
