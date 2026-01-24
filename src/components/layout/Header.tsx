@@ -174,7 +174,7 @@ const Header = () => {
                         isServiceActive() ? "text-accent" : "text-foreground"
                       )}
                     >
-                      Suite of Services
+                      Services
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="w-[400px] p-6 bg-card border border-border rounded-lg shadow-elevated">
@@ -344,7 +344,7 @@ const Header = () => {
                   isServiceActive() ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
                 )}
               >
-                <span>Suite of Services</span>
+                <span>Services</span>
                 <ChevronDown
                   className={cn(
                     "h-4 w-4 transition-transform duration-200",
