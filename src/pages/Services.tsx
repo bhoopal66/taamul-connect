@@ -167,13 +167,7 @@ const Services = () => {
             <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               From startups to established corporations, we offer a complete range of financing products and advisory services to fuel your business growth and optimize your capital structure.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
-                <Link to="/apply">
-                  Apply Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              </Button>
+            <div className="flex justify-center">
               <Button size="lg" variant="outline" asChild>
                 <Link to="/contact">Talk to an Expert</Link>
               </Button>
