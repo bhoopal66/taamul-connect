@@ -130,6 +130,9 @@ const SMELoans = () => {
               </div>
             ))}
           </div>
+          <p className="text-sm text-muted-foreground text-center mt-8">
+            *Interest rates are subject to lender's discretion and may vary based on credit assessment.
+          </p>
         </div>
       </section>
 
