@@ -198,16 +198,16 @@ const HeroSection = () => {
                         >
                           <Link 
                             to="/business-accounts"
-                            className="inline-flex items-center gap-3 px-5 py-3 bg-primary hover:bg-primary/90 border border-accent rounded-xl text-primary-foreground transition-all duration-300 group shadow-lg"
+                            className="inline-flex items-center gap-3 px-5 py-3 bg-accent hover:bg-accent/90 border border-accent rounded-xl text-primary transition-all duration-300 group shadow-lg"
                           >
-                            <div className="w-10 h-10 rounded-lg bg-accent flex items-center justify-center">
+                            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
                               <Landmark className="h-5 w-5 text-accent" />
                             </div>
                             <div>
-                              <p className="text-sm text-primary-foreground/80">Need a</p>
-                              <p className="text-lg font-bold text-accent uppercase tracking-wide group-hover:underline">BUSINESS BANK ACCOUNT?</p>
+                              <p className="text-sm text-primary/70">Need a</p>
+                              <p className="text-lg font-bold text-primary uppercase tracking-wide group-hover:underline">BUSINESS BANK ACCOUNT?</p>
                             </div>
-                            <ArrowRight className="h-5 w-5 text-accent opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
+                            <ArrowRight className="h-5 w-5 text-primary opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300" />
                           </Link>
                         </motion.div>
 
