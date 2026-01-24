@@ -11,7 +11,7 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
-
+import taamulLogo from "@/assets/taamul-logo.png";
 const loanServices = [
   { name: "Term Loans", href: "/loans/term-loans", description: "Fixed-term financing for business growth" },
   { name: "Working Capital", href: "/loans/working-capital", description: "Manage daily operations smoothly" },
@@ -96,11 +96,8 @@ const Header = () => {
         <div className="container mx-auto px-4">
           <nav className="flex items-center justify-between h-16 lg:h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">T</span>
-              </div>
-              <span className="font-bold text-xl text-foreground leading-tight">TAAMUL</span>
+            <Link to="/" className="flex items-center">
+              <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-12 w-auto" />
             </Link>
 
             {/* Desktop Navigation */}

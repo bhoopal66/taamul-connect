@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Twitter, Facebook } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
+import taamulLogo from "@/assets/taamul-logo.png";
 const Footer = () => {
   return (
     <footer className="bg-navy-dark text-white">
@@ -11,11 +11,8 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="space-y-6">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-lg bg-white flex items-center justify-center">
-                <span className="text-primary font-bold text-xl">T</span>
-              </div>
-              <span className="font-bold text-xl">TAAMUL</span>
+            <div className="flex items-center">
+              <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-12 w-auto brightness-0 invert" />
             </div>
             <p className="text-white/80 leading-relaxed">
               TAAMUL Credit Review Services LLC is your trusted partner for business financing solutions in the UAE. We connect businesses with the right financial products.
