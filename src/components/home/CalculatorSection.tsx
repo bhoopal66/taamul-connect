@@ -38,8 +38,8 @@ const CalculatorSection = () => {
     // Calculation: turnover divided by 8
     let amount = turnover / 8;
 
-    // Cap at 30M
-    return Math.min(amount, 30000000);
+    // Cap at 3M
+    return Math.min(amount, 3000000);
   }, [turnover]);
 
   const formatCurrency = (value: number) => {
