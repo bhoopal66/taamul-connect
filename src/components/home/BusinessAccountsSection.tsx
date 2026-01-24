@@ -90,8 +90,8 @@ const BusinessAccountsSection = () => {
               </Link>
             </Button>
             <Button asChild variant="outline" size="xl">
-              <Link to="/contact" className="flex items-center gap-2">
-                Get Started
+              <Link to="/services" className="flex items-center gap-2">
+                Comprehensive Business Financing Solutions
                 <ArrowRight className="h-5 w-5" />
               </Link>
             </Button>
