@@ -14,7 +14,7 @@ const Footer = () => {
             <div className="flex items-center">
               <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-[2.85rem] w-auto brightness-0 invert" />
             </div>
-            <p className="text-white/80 leading-relaxed">
+            <p className="text-white leading-relaxed">
               TAAMUL Credit Review Services LLC is your trusted partner for business financing solutions in the UAE. We connect businesses with the right financial products.
             </p>
             <div className="flex gap-4">
@@ -44,32 +44,32 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6">Services</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/loans/business-loans" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/loans/business-loans" className="text-white hover:text-accent transition-colors">
                   Business Loans
                 </Link>
               </li>
               <li>
-                <Link to="/loans/working-capital" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/loans/working-capital" className="text-white hover:text-accent transition-colors">
                   Working Capital
                 </Link>
               </li>
               <li>
-                <Link to="/loans/sme-loans" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/loans/sme-loans" className="text-white hover:text-accent transition-colors">
                   SME Loans
                 </Link>
               </li>
               <li>
-                <Link to="/loans/corporate-loans" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/loans/corporate-loans" className="text-white hover:text-accent transition-colors">
                   Corporate Loans
                 </Link>
               </li>
               <li>
-                <Link to="/loans/trade-finance" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/loans/trade-finance" className="text-white hover:text-accent transition-colors">
                   Trade Finance
                 </Link>
               </li>
               <li>
-                <Link to="/business-accounts" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/business-accounts" className="text-white hover:text-accent transition-colors">
                   Business Accounts
                 </Link>
               </li>
@@ -81,32 +81,32 @@ const Footer = () => {
             <h4 className="text-lg font-semibold mb-6">Resources</h4>
             <ul className="space-y-3">
               <li>
-                <Link to="/how-it-works" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/how-it-works" className="text-white hover:text-accent transition-colors">
                   How It Works
                 </Link>
               </li>
               <li>
-                <Link to="/about" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/about" className="text-white hover:text-accent transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="text-white/80 hover:text-white transition-colors">
+                <Link to="/contact" className="text-white hover:text-accent transition-colors">
                   Contact
                 </Link>
               </li>
               <li>
-                <a href="#calculator" className="text-white/80 hover:text-white transition-colors">
+                <a href="#calculator" className="text-white hover:text-accent transition-colors">
                   Loan Calculator
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                <a href="#" className="text-white hover:text-accent transition-colors">
                   FAQs
                 </a>
               </li>
               <li>
-                <a href="#" className="text-white/80 hover:text-white transition-colors">
+                <a href="#" className="text-white hover:text-accent transition-colors">
                   Blog
                 </a>
               </li>
@@ -119,19 +119,19 @@ const Footer = () => {
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="h-5 w-5 mt-1 text-accent" />
-                <span className="text-white/80">
+                <span className="text-white">
                   319 Gharhoud Star Building, Dubai, UAE
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-accent" />
-                <a href="tel:+97142345678" className="text-white/80 hover:text-white transition-colors">
+                <a href="tel:+97142345678" className="text-white hover:text-accent transition-colors">
                   +971 4 234 5678
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-5 w-5 text-accent" />
-                <a href="mailto:info@taamul.ae" className="text-white/80 hover:text-white transition-colors">
+                <a href="mailto:info@taamul.ae" className="text-white hover:text-accent transition-colors">
                   info@taamul.ae
                 </a>
               </li>
@@ -159,17 +159,17 @@ const Footer = () => {
       <div className="border-t border-white/10">
         <div className="container mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-white/60 text-sm">
+            <p className="text-white text-sm">
               © 2024 TAAMUL Credit Review Services LLC. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="text-white/60 hover:text-white transition-colors">
+              <a href="#" className="text-white hover:text-accent transition-colors">
                 Privacy Policy
               </a>
-              <a href="#" className="text-white/60 hover:text-white transition-colors">
+              <a href="#" className="text-white hover:text-accent transition-colors">
                 Terms of Service
               </a>
-              <a href="#" className="text-white/60 hover:text-white transition-colors">
+              <a href="#" className="text-white hover:text-accent transition-colors">
                 Cookie Policy
               </a>
             </div>
