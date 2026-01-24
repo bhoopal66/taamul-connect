@@ -34,7 +34,7 @@ const features = [
   {
     icon: Calendar,
     title: "Long Tenure",
-    description: "Repayment periods up to 60 months with customizable EMI options",
+    description: "Repayment periods up to maximum 48 months with customizable EMI options",
   },
   {
     icon: Clock,
