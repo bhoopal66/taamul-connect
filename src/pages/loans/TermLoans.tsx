@@ -188,6 +188,9 @@ const TermLoans = () => {
               </div>
             </div>
           </div>
+          <p className="text-sm text-muted-foreground text-center mt-8">
+            *Banks may request additional documents at their discretion based on customer profile and business activity.
+          </p>
         </div>
       </section>
 
