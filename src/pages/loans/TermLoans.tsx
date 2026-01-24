@@ -48,7 +48,7 @@ const eligibility = [
 ];
 
 const documents = [
-  "Trade License and Memorandum of Association",
+  "Trade License, Office Ejari & Memorandum of Association",
   "Audited financial statements (2 years)",
   "Bank statements (12 months)",
   "Company profile and business plan",
