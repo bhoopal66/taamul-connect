@@ -27,7 +27,7 @@ const heroSlides = [
     stats: [
       { icon: Building2, value: "15+", label: "Years Experience" },
       { icon: Users, value: "500+", label: "Businesses Served" },
-      { icon: Award, value: "AED 2B+", label: "Loans Facilitated" },
+      { icon: Award, value: "AED 800M+", label: "Loans Facilitated" },
     ],
   },
   {
