@@ -1,35 +1,38 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Globe } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+} from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
 
 const loanServices = [
-  { name: "Term Loans", href: "/loans/term-loans" },
-  { name: "Working Capital", href: "/loans/working-capital" },
-  { name: "Secured Loans", href: "/loans/secured-loans" },
-  { name: "SME Loans", href: "/loans/sme-loans" },
-  { name: "Corporate Loans", href: "/loans/corporate-loans" },
-  { name: "Equipment Financing", href: "/loans/equipment-financing" },
-  { name: "Trade Finance", href: "/loans/trade-finance" },
-  { name: "Co-Lending", href: "/loans/co-lending" },
+  { name: "Term Loans", href: "/loans/term-loans", description: "Fixed-term financing for business growth" },
+  { name: "Working Capital", href: "/loans/working-capital", description: "Manage daily operations smoothly" },
+  { name: "Secured Loans", href: "/loans/secured-loans", description: "Asset-backed financing solutions" },
+  { name: "SME Loans", href: "/loans/sme-loans", description: "Tailored for small & medium enterprises" },
+  { name: "Corporate Loans", href: "/loans/corporate-loans", description: "Large-scale corporate financing" },
+  { name: "Equipment Financing", href: "/loans/equipment-financing", description: "Fund machinery & equipment" },
+  { name: "Trade Finance", href: "/loans/trade-finance", description: "Import/export financing solutions" },
+  { name: "Co-Lending", href: "/loans/co-lending", description: "Partnership lending programs" },
 ];
 
 const advisoryServices = [
-  { name: "Debt Advisory & Structuring", href: "/services/debt-advisory" },
-  { name: "Mezzanine & Hybrid Financing", href: "/services/mezzanine-financing" },
+  { name: "Debt Advisory & Structuring", href: "/services/debt-advisory", description: "Optimize your debt portfolio" },
+  { name: "Mezzanine & Hybrid Financing", href: "/services/mezzanine-financing", description: "Flexible capital solutions" },
 ];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [language, setLanguage] = useState<"EN" | "AR">("EN");
+  const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -40,116 +43,374 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    setIsMobileMenuOpen(false);
+    setOpenMobileDropdown(null);
+  }, [location.pathname]);
+
   const isActive = (path: string) => location.pathname === path;
+  const isLoanActive = () => location.pathname.startsWith("/loans/");
+  const isServiceActive = () => location.pathname.startsWith("/services");
+
+  const toggleMobileDropdown = (dropdown: string) => {
+    setOpenMobileDropdown(openMobileDropdown === dropdown ? null : dropdown);
+  };
 
   return (
-    <header
-      className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled
-          ? "bg-card/95 backdrop-blur-md shadow-card"
-          : "bg-transparent"
-      )}
-    >
-      <div className="container mx-auto px-4">
-        <nav className="flex items-center justify-between h-20">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">T</span>
+    <>
+      {/* Top Bar */}
+      <div className="hidden lg:block bg-primary text-primary-foreground">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between h-10 text-sm">
+            <div className="flex items-center gap-6">
+              <a href="tel:+97142234567" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Phone className="h-3.5 w-3.5" />
+                +971 4 223 4567
+              </a>
+              <a href="mailto:info@taamul.ae" className="flex items-center gap-2 hover:text-accent transition-colors">
+                <Mail className="h-3.5 w-3.5" />
+                info@taamul.ae
+              </a>
             </div>
-            <span
-              className={cn(
-                "font-bold text-xl transition-colors",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
-              )}
-            >
-              TAAMUL
-            </span>
-          </Link>
+            <div className="flex items-center gap-4">
+              <span className="text-primary-foreground/80">UAE's Trusted Business Finance Partner</span>
+              <button
+                onClick={() => setLanguage(language === "EN" ? "AR" : "EN")}
+                className="flex items-center gap-1.5 px-3 py-1 rounded bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+              >
+                <Globe className="h-3.5 w-3.5" />
+                {language}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-8">
+      {/* Main Header */}
+      <header
+        className={cn(
+          "sticky top-0 left-0 right-0 z-50 transition-all duration-300 bg-card border-b",
+          isScrolled ? "shadow-card border-border" : "border-transparent"
+        )}
+      >
+        <div className="container mx-auto px-4">
+          <nav className="flex items-center justify-between h-16 lg:h-20">
+            {/* Logo */}
+            <Link to="/" className="flex items-center gap-3">
+              <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
+                <span className="text-primary-foreground font-bold text-xl">T</span>
+              </div>
+              <div className="flex flex-col">
+                <span className="font-bold text-xl text-foreground leading-tight">TAAMUL</span>
+                <span className="text-[10px] text-muted-foreground uppercase tracking-wider hidden sm:block">
+                  Credit Services
+                </span>
+              </div>
+            </Link>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex items-center">
+              <NavigationMenu>
+                <NavigationMenuList className="gap-1">
+                  <NavigationMenuItem>
+                    <Link
+                      to="/"
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
+                        isActive("/") ? "text-accent bg-accent/5" : "text-foreground"
+                      )}
+                    >
+                      Home
+                    </Link>
+                  </NavigationMenuItem>
+
+                  {/* Loans Mega Menu */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium bg-transparent hover:bg-muted",
+                        isLoanActive() ? "text-accent" : "text-foreground"
+                      )}
+                    >
+                      Loans
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[600px] p-6 bg-card border border-border rounded-lg shadow-elevated">
+                        <div className="mb-4 pb-3 border-b border-border">
+                          <h3 className="font-semibold text-foreground">Loan Products</h3>
+                          <p className="text-sm text-muted-foreground">Comprehensive financing solutions for your business</p>
+                        </div>
+                        <div className="grid grid-cols-2 gap-2">
+                          {loanServices.map((loan) => (
+                            <NavigationMenuLink key={loan.href} asChild>
+                              <Link
+                                to={loan.href}
+                                className={cn(
+                                  "block p-3 rounded-lg hover:bg-muted transition-colors group",
+                                  isActive(loan.href) && "bg-accent/5"
+                                )}
+                              >
+                                <span className={cn(
+                                  "font-medium text-sm group-hover:text-accent transition-colors",
+                                  isActive(loan.href) ? "text-accent" : "text-foreground"
+                                )}>
+                                  {loan.name}
+                                </span>
+                                <p className="text-xs text-muted-foreground mt-0.5">{loan.description}</p>
+                              </Link>
+                            </NavigationMenuLink>
+                          ))}
+                        </div>
+                        <div className="mt-4 pt-3 border-t border-border">
+                          <Link
+                            to="/services"
+                            className="text-sm text-accent hover:text-accent/80 font-medium"
+                          >
+                            View all services →
+                          </Link>
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  {/* Services Dropdown */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium bg-transparent hover:bg-muted",
+                        isServiceActive() ? "text-accent" : "text-foreground"
+                      )}
+                    >
+                      Services
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[400px] p-6 bg-card border border-border rounded-lg shadow-elevated">
+                        <div className="mb-4 pb-3 border-b border-border">
+                          <h3 className="font-semibold text-foreground">Advisory Services</h3>
+                          <p className="text-sm text-muted-foreground">Strategic financial consulting</p>
+                        </div>
+                        <div className="space-y-2">
+                          <NavigationMenuLink asChild>
+                            <Link
+                              to="/services"
+                              className="block p-3 rounded-lg bg-accent/5 hover:bg-accent/10 transition-colors"
+                            >
+                              <span className="font-medium text-sm text-accent">All Services</span>
+                              <p className="text-xs text-muted-foreground mt-0.5">Complete overview of our offerings</p>
+                            </Link>
+                          </NavigationMenuLink>
+                          {advisoryServices.map((service) => (
+                            <NavigationMenuLink key={service.href} asChild>
+                              <Link
+                                to={service.href}
+                                className={cn(
+                                  "block p-3 rounded-lg hover:bg-muted transition-colors group",
+                                  isActive(service.href) && "bg-accent/5"
+                                )}
+                              >
+                                <span className={cn(
+                                  "font-medium text-sm group-hover:text-accent transition-colors",
+                                  isActive(service.href) ? "text-accent" : "text-foreground"
+                                )}>
+                                  {service.name}
+                                </span>
+                                <p className="text-xs text-muted-foreground mt-0.5">{service.description}</p>
+                              </Link>
+                            </NavigationMenuLink>
+                          ))}
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <Link
+                      to="/business-accounts"
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
+                        isActive("/business-accounts") ? "text-accent bg-accent/5" : "text-foreground"
+                      )}
+                    >
+                      Business Accounts
+                    </Link>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <Link
+                      to="/how-it-works"
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
+                        isActive("/how-it-works") ? "text-accent bg-accent/5" : "text-foreground"
+                      )}
+                    >
+                      How It Works
+                    </Link>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <Link
+                      to="/about"
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
+                        isActive("/about") ? "text-accent bg-accent/5" : "text-foreground"
+                      )}
+                    >
+                      About
+                    </Link>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <Link
+                      to="/contact"
+                      className={cn(
+                        "px-4 py-2 text-sm font-medium rounded-md transition-colors hover:bg-muted hover:text-accent",
+                        isActive("/contact") ? "text-accent bg-accent/5" : "text-foreground"
+                      )}
+                    >
+                      Contact
+                    </Link>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </div>
+
+            {/* Right Side - CTA */}
+            <div className="hidden lg:flex items-center gap-3">
+              <Button asChild variant="outline" size="default">
+                <Link to="/contact">Get Quote</Link>
+              </Button>
+              <Button asChild variant="default" size="default">
+                <Link to="/apply">Apply Now</Link>
+              </Button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="lg:hidden p-2 rounded-md hover:bg-muted transition-colors"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6 text-foreground" />
+              ) : (
+                <Menu className="h-6 w-6 text-foreground" />
+              )}
+            </button>
+          </nav>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+          className={cn(
+            "lg:hidden overflow-hidden transition-all duration-300 bg-card border-t border-border",
+            isMobileMenuOpen ? "max-h-[calc(100vh-4rem)]" : "max-h-0"
+          )}
+        >
+          <div className="container mx-auto px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
             <Link
               to="/"
               className={cn(
-                "font-medium transition-colors hover:text-accent",
-                isActive("/")
-                  ? "text-accent"
-                  : isScrolled
-                  ? "text-foreground"
-                  : "text-primary-foreground"
+                "block px-4 py-3 rounded-lg font-medium transition-colors",
+                isActive("/") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
               Home
             </Link>
 
-            {/* Loans Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger
+            {/* Mobile Loans Accordion */}
+            <div>
+              <button
+                onClick={() => toggleMobileDropdown("loans")}
                 className={cn(
-                  "flex items-center gap-1 font-medium transition-colors hover:text-accent",
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                  "w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-colors",
+                  isLoanActive() ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
                 )}
               >
-                Loans <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56 bg-card border-border shadow-elevated">
-                {loanServices.map((loan) => (
-                  <DropdownMenuItem key={loan.href} asChild>
+                <span>Loans</span>
+                <ChevronDown
+                  className={cn(
+                    "h-4 w-4 transition-transform duration-200",
+                    openMobileDropdown === "loans" && "rotate-180"
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  "overflow-hidden transition-all duration-200",
+                  openMobileDropdown === "loans" ? "max-h-96" : "max-h-0"
+                )}
+              >
+                <div className="pl-4 py-2 space-y-1">
+                  {loanServices.map((loan) => (
                     <Link
+                      key={loan.href}
                       to={loan.href}
-                      className="w-full cursor-pointer hover:bg-muted"
+                      className={cn(
+                        "block px-4 py-2.5 rounded-lg text-sm transition-colors",
+                        isActive(loan.href) ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
+                      )}
                     >
                       {loan.name}
                     </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  ))}
+                </div>
+              </div>
+            </div>
 
-            {/* Services Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger
+            {/* Mobile Services Accordion */}
+            <div>
+              <button
+                onClick={() => toggleMobileDropdown("services")}
                 className={cn(
-                  "flex items-center gap-1 font-medium transition-colors hover:text-accent",
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                  "w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-colors",
+                  isServiceActive() ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
                 )}
               >
-                Services <ChevronDown className="h-4 w-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-64 bg-card border-border shadow-elevated">
-                <DropdownMenuItem asChild>
+                <span>Services</span>
+                <ChevronDown
+                  className={cn(
+                    "h-4 w-4 transition-transform duration-200",
+                    openMobileDropdown === "services" && "rotate-180"
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  "overflow-hidden transition-all duration-200",
+                  openMobileDropdown === "services" ? "max-h-60" : "max-h-0"
+                )}
+              >
+                <div className="pl-4 py-2 space-y-1">
                   <Link
                     to="/services"
-                    className="w-full cursor-pointer hover:bg-muted font-medium"
+                    className={cn(
+                      "block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors",
+                      isActive("/services") ? "bg-accent/10 text-accent" : "text-accent hover:bg-muted"
+                    )}
                   >
                     All Services
                   </Link>
-                </DropdownMenuItem>
-                <div className="border-t border-border my-1" />
-                {advisoryServices.map((service) => (
-                  <DropdownMenuItem key={service.href} asChild>
+                  {advisoryServices.map((service) => (
                     <Link
+                      key={service.href}
                       to={service.href}
-                      className="w-full cursor-pointer hover:bg-muted"
+                      className={cn(
+                        "block px-4 py-2.5 rounded-lg text-sm transition-colors",
+                        isActive(service.href) ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
+                      )}
                     >
                       {service.name}
                     </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  ))}
+                </div>
+              </div>
+            </div>
 
             <Link
               to="/business-accounts"
               className={cn(
-                "font-medium transition-colors hover:text-accent",
-                isActive("/business-accounts")
-                  ? "text-accent"
-                  : isScrolled
-                  ? "text-foreground"
-                  : "text-primary-foreground"
+                "block px-4 py-3 rounded-lg font-medium transition-colors",
+                isActive("/business-accounts") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
               Business Accounts
@@ -158,8 +419,8 @@ const Header = () => {
             <Link
               to="/how-it-works"
               className={cn(
-                "font-medium transition-colors hover:text-accent",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+                "block px-4 py-3 rounded-lg font-medium transition-colors",
+                isActive("/how-it-works") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
               How It Works
@@ -168,8 +429,8 @@ const Header = () => {
             <Link
               to="/about"
               className={cn(
-                "font-medium transition-colors hover:text-accent",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+                "block px-4 py-3 rounded-lg font-medium transition-colors",
+                isActive("/about") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
               About
@@ -178,162 +439,46 @@ const Header = () => {
             <Link
               to="/contact"
               className={cn(
-                "font-medium transition-colors hover:text-accent",
-                isScrolled ? "text-foreground" : "text-primary-foreground"
+                "block px-4 py-3 rounded-lg font-medium transition-colors",
+                isActive("/contact") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
               Contact
             </Link>
-          </div>
 
-          {/* Right Side */}
-          <div className="hidden lg:flex items-center gap-4">
-            {/* Language Toggle */}
-            <button
-              onClick={() => setLanguage(language === "EN" ? "AR" : "EN")}
-              className={cn(
-                "flex items-center gap-1 px-3 py-1.5 rounded-md text-sm font-medium transition-colors",
-                isScrolled
-                  ? "text-foreground hover:bg-muted"
-                  : "text-primary-foreground hover:bg-primary-foreground/10"
-              )}
-            >
-              <Globe className="h-4 w-4" />
-              {language}
-            </button>
-
-            <Button asChild variant={isScrolled ? "default" : "hero"} size="lg">
-              <Link to="/apply">Apply Now</Link>
-            </Button>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X
-                className={cn(
-                  "h-6 w-6",
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                )}
-              />
-            ) : (
-              <Menu
-                className={cn(
-                  "h-6 w-6",
-                  isScrolled ? "text-foreground" : "text-primary-foreground"
-                )}
-              />
-            )}
-          </button>
-        </nav>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="lg:hidden bg-card border-t border-border animate-fade-in-up">
-            <div className="py-4 space-y-2">
-              <Link
-                to="/"
-                className="block px-4 py-3 text-foreground hover:bg-muted rounded-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Home
-              </Link>
-
-              <div className="px-4 py-2">
-                <p className="text-sm font-semibold text-muted-foreground mb-2">
-                  Loan Services
-                </p>
-                <div className="space-y-1 pl-2">
-                  {loanServices.map((loan) => (
-                    <Link
-                      key={loan.href}
-                      to={loan.href}
-                      className="block py-2 text-foreground hover:text-accent"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {loan.name}
-                    </Link>
-                  ))}
-                </div>
+            {/* Mobile Actions */}
+            <div className="pt-4 mt-4 border-t border-border space-y-3">
+              <div className="flex items-center justify-between px-4 py-2 bg-muted/50 rounded-lg">
+                <span className="text-sm text-muted-foreground">Language</span>
+                <button
+                  onClick={() => setLanguage(language === "EN" ? "AR" : "EN")}
+                  className="flex items-center gap-2 px-3 py-1.5 bg-card rounded-md text-sm font-medium border border-border"
+                >
+                  <Globe className="h-4 w-4" />
+                  {language === "EN" ? "English" : "العربية"}
+                </button>
               </div>
 
-              <div className="px-4 py-2">
-                <p className="text-sm font-semibold text-muted-foreground mb-2">
-                  Advisory Services
-                </p>
-                <div className="space-y-1 pl-2">
-                  <Link
-                    to="/services"
-                    className="block py-2 text-accent font-medium hover:text-accent"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    View All Services
-                  </Link>
-                  {advisoryServices.map((service) => (
-                    <Link
-                      key={service.href}
-                      to={service.href}
-                      className="block py-2 text-foreground hover:text-accent"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {service.name}
-                    </Link>
-                  ))}
-                </div>
+              <div className="flex items-center gap-3 px-4">
+                <a href="tel:+97142234567" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
+                  <Phone className="h-4 w-4" />
+                  +971 4 223 4567
+                </a>
               </div>
 
-              <Link
-                to="/business-accounts"
-                className="block px-4 py-3 text-foreground hover:bg-muted rounded-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Business Accounts
-              </Link>
-
-              <Link
-                to="/how-it-works"
-                className="block px-4 py-3 text-foreground hover:bg-muted rounded-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                How It Works
-              </Link>
-
-              <Link
-                to="/about"
-                className="block px-4 py-3 text-foreground hover:bg-muted rounded-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                About
-              </Link>
-
-              <Link
-                to="/contact"
-                className="block px-4 py-3 text-foreground hover:bg-muted rounded-lg"
-                onClick={() => setIsMobileMenuOpen(false)}
-              >
-                Contact
-              </Link>
-
-              <div className="px-4 pt-4 space-y-3">
+              <div className="grid grid-cols-2 gap-3">
+                <Button asChild variant="outline" size="lg" className="w-full">
+                  <Link to="/contact">Get Quote</Link>
+                </Button>
                 <Button asChild variant="default" size="lg" className="w-full">
                   <Link to="/apply">Apply Now</Link>
                 </Button>
-                <button
-                  onClick={() => setLanguage(language === "EN" ? "AR" : "EN")}
-                  className="w-full flex items-center justify-center gap-2 px-4 py-2 text-foreground hover:bg-muted rounded-lg"
-                >
-                  <Globe className="h-4 w-4" />
-                  {language === "EN" ? "العربية" : "English"}
-                </button>
               </div>
             </div>
           </div>
-        )}
-      </div>
-    </header>
+        </div>
+      </header>
+    </>
   );
 };
 
