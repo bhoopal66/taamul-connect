@@ -277,9 +277,6 @@ const Header = () => {
 
             {/* Right Side - CTA */}
             <div className="hidden lg:flex items-center gap-3">
-              <Button asChild variant="outline" size="default">
-                <Link to="/contact">Get Quote</Link>
-              </Button>
               <Button asChild variant="default" size="default">
                 <Link to="/apply">Apply Now</Link>
               </Button>
