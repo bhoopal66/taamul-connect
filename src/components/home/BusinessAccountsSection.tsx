@@ -74,6 +74,29 @@ const BusinessAccountsSection = () => {
           ))}
         </div>
 
+        {/* CTA Buttons */}
+        <AnimatedSection delay={0.4} direction="none">
+          <div className="flex flex-wrap justify-center gap-4">
+            <Button asChild variant="cta" size="xl">
+              <Link to="/contact" className="flex items-center gap-2">
+                Open an Account
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="xl">
+              <Link to="/business-accounts" className="flex items-center gap-2">
+                Learn More
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+            <Button asChild variant="outline" size="xl">
+              <Link to="/apply" className="flex items-center gap-2">
+                Get Started
+                <ArrowRight className="h-5 w-5" />
+              </Link>
+            </Button>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
   );
