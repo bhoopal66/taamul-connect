@@ -52,12 +52,12 @@ const eligibility = [
 ];
 
 const documents = [
-  "Detailed business plan and projections",
+  "Trade License, Office Ejari & Memorandum of Association",
   "Audited financial statements (3 years)",
-  "Project feasibility study",
-  "Existing banking relationships details",
-  "Collateral documentation",
-  "Board resolution and corporate documents",
+  "Detailed business plan and projections",
+  "Passport copies of shareholders & EID of authorised signatory",
+  "VAT returns of last 4 Qtrs",
+  "Collateral documentation and board resolution",
 ];
 
 const whyChooseUs = [

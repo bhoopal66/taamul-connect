@@ -52,12 +52,12 @@ const eligibility = [
 ];
 
 const documents = [
-  "Trade License, Office Ejari & import/export activity",
+  "Trade License, Office Ejari & Memorandum of Association",
   "Import/Export code registration",
+  "Bank statements (6-12 months)",
   "Passport copies of shareholders & EID of authorised signatory",
   "VAT returns of last 4 Qtrs",
-  "Insurance policy for goods",
-  "Supplier/Buyer contracts and history",
+  "Supplier/Buyer contracts and insurance policy",
 ];
 
 const whyChooseUs = [
