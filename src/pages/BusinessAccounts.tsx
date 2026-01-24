@@ -154,8 +154,8 @@ const benefits = [
   },
   {
     icon: Clock,
-    title: "24/7 Online Banking",
-    description: "Access your accounts anytime, anywhere with our secure digital banking platform.",
+    title: "100% Client Focus",
+    description: "Your success is our priority with dedicated support and personalized financial solutions.",
   },
   {
     icon: Award,
