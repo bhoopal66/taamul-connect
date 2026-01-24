@@ -46,7 +46,7 @@ const CalculatorSection = () => {
                   <Calculator className="h-6 w-6 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">Loan Eligibility Calculator</h3>
+                  <h3 className="text-2xl font-bold text-foreground">Business Loan Eligibility</h3>
                   <p className="text-muted-foreground">Get an instant estimate</p>
                 </div>
               </div>
