@@ -18,9 +18,8 @@ const loanServices = [
   { name: "Secured Loans", href: "/loans/secured-loans", description: "Asset-backed financing solutions" },
   { name: "SME Loans", href: "/loans/sme-loans", description: "Tailored for small & medium enterprises" },
   { name: "Corporate Loans", href: "/loans/corporate-loans", description: "Large-scale corporate financing" },
-  { name: "Equipment Financing", href: "/loans/equipment-financing", description: "Fund machinery & equipment" },
+  { name: "Machinery Loan", href: "/loans/equipment-financing", description: "Fund machinery & equipment" },
   { name: "Trade Finance", href: "/loans/trade-finance", description: "Import/export financing solutions" },
-  { name: "Co-Lending", href: "/loans/co-lending", description: "Partnership lending programs" },
 ];
 
 const advisoryServices = [

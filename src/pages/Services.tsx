@@ -118,14 +118,6 @@ const loanServices = [
     features: ["Letters of Credit", "Bank Guarantees", "Import/Export financing", "Supply chain solutions"],
     href: "/loans/trade-finance",
   },
-  {
-    icon: Users,
-    title: "Co-Lending",
-    description: "Access larger loan amounts through our network of partner banks and financial institutions.",
-    details: "Our extensive network of banking partners enables us to structure and syndicate larger financing requirements, giving you access to capital beyond single-lender limits.",
-    features: ["Access to larger amounts", "Multiple lender options", "Competitive terms", "Single point of contact"],
-    href: "/loans/co-lending",
-  },
 ];
 
 const advisoryServices = [

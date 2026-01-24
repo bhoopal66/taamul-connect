@@ -112,10 +112,10 @@ export default {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
   			},
-  			navy: {
-  				dark: 'hsl(var(--navy-dark))',
-  				light: 'hsl(var(--navy-light))'
-  			},
+			green: {
+				dark: 'hsl(var(--green-dark))',
+				light: 'hsl(var(--green-light))'
+			},
   			success: {
   				DEFAULT: 'hsl(var(--success))',
   				foreground: 'hsl(var(--success-foreground))'

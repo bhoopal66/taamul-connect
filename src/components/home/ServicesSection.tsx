@@ -58,12 +58,6 @@ const services = [
     href: "/loans/trade-finance",
   },
   {
-    icon: Users,
-    title: "Co-Lending",
-    description: "Access larger loan amounts through our network of partner banks and financial institutions.",
-    href: "/loans/co-lending",
-  },
-  {
     icon: TrendingUp,
     title: "Debt Advisory & Structuring",
     description: "Optimize your capital structure and secure improved loan terms through expert debt advisory.",

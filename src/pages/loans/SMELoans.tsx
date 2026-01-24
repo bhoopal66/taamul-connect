@@ -18,33 +18,33 @@ import { Button } from "@/components/ui/button";
 const features = [
   {
     icon: Rocket,
-    title: "Growth Focused",
-    description: "Financing designed specifically to help SMEs scale and expand operations",
+    title: "Growth-Oriented Financing",
+    description: "Tailored solutions designed specifically to help SMEs scale and expand operations",
   },
   {
     icon: Clock,
-    title: "Fast Processing",
-    description: "Simplified approval process with decisions within 48-72 hours",
+    title: "Efficient Processing",
+    description: "Streamlined approval process with decisions typically within 48-72 business hours",
   },
   {
     icon: Users,
-    title: "Dedicated Support",
-    description: "Personal relationship manager who understands SME challenges",
+    title: "Dedicated Relationship Management",
+    description: "Personal account manager who understands the unique challenges of SME businesses",
   },
   {
     icon: Briefcase,
-    title: "Flexible Terms",
-    description: "Customized repayment schedules aligned with your cash flow cycles",
+    title: "Flexible Repayment Terms",
+    description: "Customized payment schedules aligned with your business cash flow cycles",
   },
 ];
 
 const eligibility = [
-  "Registered business in UAE for minimum 1 year",
+  "Registered business in UAE for a minimum of 1 year",
   "Annual turnover between AED 500,000 - AED 50 million",
   "Valid trade license with SME classification",
-  "Minimum 51% ownership by UAE residents/nationals",
   "Audited or management accounts available",
-  "No major defaults or legal issues",
+  "Clear credit history with no major defaults or legal issues",
+  "Business owners with valid UAE residence visa",
 ];
 
 const documents = [
@@ -53,7 +53,7 @@ const documents = [
   "Bank statements (6-12 months)",
   "VAT registration and returns",
   "Passport and Emirates ID of owners",
-  "Business plan (for startups)",
+  "Business plan (for newer enterprises)",
 ];
 
 const SMELoans = () => {

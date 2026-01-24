@@ -164,6 +164,7 @@ const requirements = [
       "Emirates ID of all partners/shareholders",
       "Passport copies of all partners/shareholders",
       "Proof of business address (Ejari/Tenancy contract)",
+      "Bank statement (latest 3 months)",
       "Board resolution for authorized signatories",
     ],
   },
@@ -171,10 +172,12 @@ const requirements = [
     title: "For Free Zone Companies",
     documents: [
       "Free Zone Trade License",
-      "Certificate of Incorporation",
+      "Certificate of Formation/Incorporation",
+      "MOA/AOA (Memorandum & Articles of Association)",
       "Share Certificate",
       "Emirates ID of all shareholders",
       "Passport copies of all shareholders",
+      "Bank statement (latest 3 months)",
       "Lease agreement from Free Zone authority",
     ],
   },
@@ -185,8 +188,8 @@ const requirements = [
       "Memorandum & Articles of Association",
       "Certificate of Good Standing",
       "Passport copies of all directors/shareholders",
-      "Proof of residential address",
-      "Reference letter from existing bank",
+      "Reference letter from bank (if available)",
+      "Board resolution (optional)",
     ],
   },
 ];
@@ -215,7 +218,7 @@ const benefits = [
   {
     icon: Award,
     title: "Partner Bank Network",
-    description: "Choose from UAE's top banks including ADCB, Mashreq, RAK Bank, and more.",
+    description: "Choose from UAE's leading financial institutions including Mashreq, RAK Bank, and more.",
   },
   {
     icon: Headphones,

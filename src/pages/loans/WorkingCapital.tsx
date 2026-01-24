@@ -19,42 +19,42 @@ import { Button } from "@/components/ui/button";
 const features = [
   {
     icon: Zap,
-    title: "Quick Disbursement",
-    description: "Funds available within 72 hours to address immediate cash flow needs",
+    title: "Rapid Fund Disbursement",
+    description: "Access to funds within 72 business hours to address immediate operational needs",
   },
   {
     icon: Percent,
-    title: "Competitive Rates",
-    description: "Interest rates from 8% p.a. with flexible repayment structures",
+    title: "Competitive Interest Rates",
+    description: "Attractive rates from 8% p.a. with flexible repayment structures",
   },
   {
     icon: TrendingUp,
-    title: "Revolving Facility",
-    description: "Draw, repay, and redraw funds as per your business requirements",
+    title: "Revolving Credit Facility",
+    description: "Draw, repay, and redraw funds according to your business cash flow requirements",
   },
   {
     icon: Clock,
-    title: "Minimal Documentation",
-    description: "Streamlined process with reduced paperwork for faster approval",
+    title: "Simplified Documentation",
+    description: "Efficient processing with streamlined paperwork for expedited approval",
   },
 ];
 
 const eligibility = [
-  "Business operating in UAE for at least 1 year",
-  "Minimum annual turnover of AED 500,000",
-  "Valid trade license and company registration",
-  "Bank statements showing regular transactions",
-  "Positive cash flow from operations",
-  "No major defaults in credit history",
+  "Business operating in UAE for a minimum of 1 year",
+  "Minimum annual turnover of AED 750,000",
+  "Valid trade license in good standing",
+  "Bank statements demonstrating regular business transactions",
+  "Positive operational cash flow",
+  "No significant defaults in credit history",
 ];
 
 const documents = [
+  "Emirates ID (EID) of shareholders/directors",
   "Trade License and Memorandum of Association",
-  "Bank statements (6-12 months)",
-  "VAT returns (if applicable)",
-  "Accounts receivable aging report",
-  "Passport copies of shareholders",
-  "Company profile",
+  "Bank statements (latest 6-12 months)",
+  "VAT Certificate & Corporate Tax Certificate",
+  "Accounts Receivable & Payable Aging Report",
+  "Company profile and business overview",
 ];
 
 const WorkingCapital = () => {

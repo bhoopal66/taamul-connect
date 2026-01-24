@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 
 const Footer = () => {
   return (
-    <footer className="bg-navy-dark text-primary-foreground">
+    <footer className="bg-green-dark text-primary-foreground">
       {/* Main Footer */}
       <div className="container mx-auto px-4 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
@@ -128,8 +128,8 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-accent" />
-                <a href="tel:+97142345678" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
-                  +971 4 234 5678
+                <a href="tel:+97142234567" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+                  +971 4 223 4567
                 </a>
               </li>
               <li className="flex items-center gap-3">
