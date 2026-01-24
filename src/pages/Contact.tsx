@@ -70,7 +70,7 @@ const contactInfo = [
     icon: Building2,
     title: "Head Office",
     details: [
-      "TAAMUL CREDIT REVIEW Services LLC",
+      "Taamul Credit Review Services LLC",
       "319 Gharhoud Star Building",
       "Dubai, UAE",
     ],
