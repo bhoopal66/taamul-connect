@@ -117,8 +117,8 @@ const Header = () => {
                     </Link>
                   </NavigationMenuItem>
 
-                  {/* Loans Mega Menu */}
-                  <NavigationMenuItem>
+                  {/* Loans Mega Menu - Always Visible */}
+                  <NavigationMenuItem className="relative">
                     <NavigationMenuTrigger
                       className={cn(
                         "text-[15px] font-medium bg-transparent hover:bg-transparent hover:text-accent data-[state=open]:bg-transparent px-0 h-auto",
@@ -127,7 +127,7 @@ const Header = () => {
                     >
                       Loans
                     </NavigationMenuTrigger>
-                    <NavigationMenuContent>
+                    <NavigationMenuContent className="data-[state=closed]:animate-none data-[state=open]:animate-none" forceMount>
                       <div className="w-[600px] p-6 bg-card border border-border rounded-lg shadow-elevated">
                         <div className="mb-4 pb-3 border-b border-border">
                           <h3 className="font-semibold text-foreground">Loan Products</h3>
