@@ -75,15 +75,15 @@ const About = () => {
 
   const team = [
     {
-      name: "Bhoopal Narayanaswamy",
-      role: "Founder & CEO",
-      bio: "Chartered Accountant with 30+ years' MENA experience, specializing in financial due diligence, structuring, investment management, audits, performance management, and CFO services.",
+      nameKey: "about.team.bhoopal.name",
+      roleKey: "about.team.bhoopal.role",
+      bioKey: "about.team.bhoopal.bio",
       image: teamBhoopal
     },
     {
-      name: "Geetha Subramaniam",
-      role: "Founder & Director",
-      bio: "20+ years of experience in finance and management. CFA Level II candidate.",
+      nameKey: "about.team.geetha.name",
+      roleKey: "about.team.geetha.role",
+      bioKey: "about.team.geetha.bio",
       image: null
     }
   ];
@@ -298,7 +298,7 @@ const About = () => {
                         <div className="absolute inset-0 bg-gold/30 rounded-full blur-2xl scale-125" />
                         <img 
                           src={member.image} 
-                          alt={member.name}
+                          alt={t(member.nameKey)}
                           className="relative w-48 h-48 rounded-full object-cover object-top ring-[6px] ring-white/50 shadow-2xl group-hover:scale-110 transition-transform duration-500"
                         />
                       </div>
@@ -307,7 +307,7 @@ const About = () => {
                         <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl scale-125" />
                         <div className="relative w-48 h-48 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-[6px] ring-white/50 shadow-2xl group-hover:scale-110 transition-transform duration-500">
                           <span className="text-5xl font-bold text-white">
-                            {member.name.split(' ').map(n => n[0]).join('')}
+                            {t(member.nameKey).split(' ').map(n => n[0]).join('')}
                           </span>
                         </div>
                       </div>
@@ -318,14 +318,14 @@ const About = () => {
                 {/* Content */}
                 <div className="p-8 text-center">
                   <h3 className="text-xl font-bold text-foreground mb-1">
-                    {member.name}
+                    {t(member.nameKey)}
                   </h3>
                   <p className="text-primary font-semibold mb-4">
-                    {member.role}
+                    {t(member.roleKey)}
                   </p>
                   <div className="w-12 h-0.5 bg-primary/30 mx-auto mb-4" />
                   <p className="text-muted-foreground text-sm leading-relaxed">
-                    {member.bio}
+                    {t(member.bioKey)}
                   </p>
                 </div>
               </div>

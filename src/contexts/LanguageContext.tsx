@@ -562,7 +562,17 @@ const translations = {
       team: {
         title: "Meet the Founders",
         subtitle: "Decades of combined experience in finance, banking, and business advisory",
-        ourLeadership: "Our Leadership"
+        ourLeadership: "Our Leadership",
+        bhoopal: {
+          name: "Bhoopal Narayanaswamy",
+          role: "Founder & CEO",
+          bio: "Chartered Accountant with 30+ years' MENA experience, specializing in financial due diligence, structuring, investment management, audits, performance management, and CFO services."
+        },
+        geetha: {
+          name: "Geetha Subramaniam",
+          role: "Founder & Director",
+          bio: "20+ years of experience in finance and management. CFA Level II candidate."
+        }
       },
       whyPartner: {
         title: "Why Partner With TAAMUL?",
@@ -1185,7 +1195,17 @@ const translations = {
       team: {
         title: "تعرف على المؤسسين",
         subtitle: "عقود من الخبرة المشتركة في التمويل والمصارف والاستشارات التجارية",
-        ourLeadership: "قيادتنا"
+        ourLeadership: "قيادتنا",
+        bhoopal: {
+          name: "بوبال ناراياناسوامي",
+          role: "المؤسس والرئيس التنفيذي",
+          bio: "محاسب قانوني معتمد بخبرة تزيد عن 30 عاماً في منطقة الشرق الأوسط وشمال أفريقيا، متخصص في العناية الواجبة المالية والهيكلة وإدارة الاستثمار والتدقيق وإدارة الأداء وخدمات المدير المالي."
+        },
+        geetha: {
+          name: "جيثا سوبرامانيام",
+          role: "المؤسسة والمديرة",
+          bio: "أكثر من 20 عاماً من الخبرة في التمويل والإدارة. مرشحة للمستوى الثاني من شهادة CFA."
+        }
       },
       whyPartner: {
         title: "لماذا تشترك مع تعامل؟",
