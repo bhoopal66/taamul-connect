@@ -18,71 +18,63 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
 
-const services = [
-  {
-    icon: TrendingUp,
-    title: "Capital Structure Optimization",
-    description: "Designing the right mix of short-term and long-term debt to enhance liquidity and financial stability.",
-  },
-  {
-    icon: RefreshCw,
-    title: "Debt Refinancing & Liability Restructuring",
-    description: "Securing improved loan terms, reducing financial costs, and restructuring existing obligations to free up capital.",
-  },
-  {
-    icon: Handshake,
-    title: "Structuring & Negotiation Support",
-    description: "Negotiating with banks, credit funds, and private lenders to secure the most competitive financing terms.",
-  },
-  {
-    icon: BarChart3,
-    title: "Financial Risk Analysis & Scenario Planning",
-    description: "Assessing capital requirements, debt repayment strategies, and financial risks to ensure sustainable debt servicing.",
-  },
-];
-
-const benefits = [
-  "Reduce overall cost of capital through strategic debt structuring",
-  "Improve cash flow management with optimized repayment schedules",
-  "Access to 50+ banking partners for competitive terms",
-  "Expert guidance through complex financial negotiations",
-  "Tailored solutions aligned with your business objectives",
-  "Ongoing support for covenant compliance and monitoring",
-];
-
-const processSteps = [
-  "Initial consultation and financial health assessment",
-  "Analysis of current debt portfolio and capital structure",
-  "Development of customized restructuring strategy",
-  "Lender negotiation and term sheet finalization",
-  "Implementation and ongoing monitoring support",
-];
-
-const whyChooseUs = [
-  {
-    icon: Target,
-    title: "Strategic Expertise",
-    description: "Deep understanding of capital markets and lending dynamics in the UAE",
-  },
-  {
-    icon: Users,
-    title: "Banking Relationships",
-    description: "Direct access to 50+ partner banks and financial institutions",
-  },
-  {
-    icon: Zap,
-    title: "Fast Execution",
-    description: "Streamlined processes for quick turnaround on complex transactions",
-  },
-  {
-    icon: Shield,
-    title: "Risk Mitigation",
-    description: "Comprehensive risk analysis to protect your financial interests",
-  },
-];
+const serviceIcons = [TrendingUp, RefreshCw, Handshake, BarChart3];
+const whyChooseIcons = [Target, Users, Zap, Shield];
 
 const DebtAdvisory = () => {
+  const { t, isRTL } = useLanguage();
+
+  const services = [
+    {
+      icon: TrendingUp,
+      titleKey: "debtAdvisory.services.capitalStructure",
+      descKey: "debtAdvisory.services.capitalStructureDesc",
+    },
+    {
+      icon: RefreshCw,
+      titleKey: "debtAdvisory.services.debtRefinancing",
+      descKey: "debtAdvisory.services.debtRefinancingDesc",
+    },
+    {
+      icon: Handshake,
+      titleKey: "debtAdvisory.services.structuringNegotiation",
+      descKey: "debtAdvisory.services.structuringNegotiationDesc",
+    },
+    {
+      icon: BarChart3,
+      titleKey: "debtAdvisory.services.riskAnalysis",
+      descKey: "debtAdvisory.services.riskAnalysisDesc",
+    },
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: Target,
+      titleKey: "debtAdvisory.whyChoose.strategicExpertise",
+      descKey: "debtAdvisory.whyChoose.strategicExpertiseDesc",
+    },
+    {
+      icon: Users,
+      titleKey: "debtAdvisory.whyChoose.bankingRelationships",
+      descKey: "debtAdvisory.whyChoose.bankingRelationshipsDesc",
+    },
+    {
+      icon: Zap,
+      titleKey: "debtAdvisory.whyChoose.fastExecution",
+      descKey: "debtAdvisory.whyChoose.fastExecutionDesc",
+    },
+    {
+      icon: Shield,
+      titleKey: "debtAdvisory.whyChoose.riskMitigation",
+      descKey: "debtAdvisory.whyChoose.riskMitigationDesc",
+    },
+  ];
+
+  const benefits = ["b1", "b2", "b3", "b4", "b5", "b6"];
+  const processSteps = ["p1", "p2", "p3", "p4", "p5"];
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -94,31 +86,30 @@ const DebtAdvisory = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
+          <div className={`max-w-3xl ${isRTL ? 'mr-0 ml-auto text-right' : ''}`}>
+            <div className={`inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <Building2 className="h-4 w-4" />
-              Advisory Services
+              {t("debtAdvisory.badge")}
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              Debt Advisory &{" "}
-              <span className="text-accent">Structuring</span>
+              {t("debtAdvisory.title")}{" "}
+              <span className="text-accent">{t("debtAdvisory.titleHighlight")}</span>
             </h1>
 
             <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
-              Enhancing financial flexibility through tailored debt solutions. 
-              We help businesses optimize their capital structure and secure the best financing terms.
+              {t("debtAdvisory.description")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Get Consultation
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t("debtAdvisory.getConsultation")}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact">{t("common.contactUs")}</Link>
               </Button>
             </div>
           </div>
@@ -138,29 +129,29 @@ const DebtAdvisory = () => {
       {/* Services Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-foreground mb-4">
-              Our Debt Advisory Services
+              {t("debtAdvisory.servicesTitle")}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Comprehensive solutions to optimize your debt portfolio and enhance financial stability.
+              {t("debtAdvisory.servicesDesc")}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-8">
             {services.map((service) => (
               <div
-                key={service.title}
-                className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1"
+                key={service.titleKey}
+                className={`bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 ${isRTL ? 'mr-0 ml-auto' : ''}`}>
                   <service.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
+                  {t(service.descKey)}
                 </p>
               </div>
             ))}
@@ -175,30 +166,30 @@ const DebtAdvisory = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-white mb-4">
-              The <span className="text-accent">Taamul</span> Advantage
+              {t("debtAdvisory.advantageTitle")} <span className="text-accent">{t("debtAdvisory.advantageHighlight")}</span> {t("debtAdvisory.advantageWord")}
             </h2>
             <p className="text-lg text-white/80">
-              Expert debt advisory services backed by deep market expertise and strong lender relationships.
+              {t("debtAdvisory.advantageDesc")}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseUs.map((item, index) => (
               <motion.div
-                key={item.title}
+                key={item.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'mr-0 ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/70">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
+                <p className="text-sm text-white/70">{t(item.descKey)}</p>
               </motion.div>
             ))}
           </div>
@@ -210,38 +201,38 @@ const DebtAdvisory = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Benefits */}
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-success" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Key Benefits</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t("debtAdvisory.keyBenefits")}</h3>
               </div>
               <div className="space-y-4">
-                {benefits.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                {benefits.map((key) => (
+                  <div key={key} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-                    <p className="text-foreground">{item}</p>
+                    <p className="text-foreground">{t(`debtAdvisory.benefits.${key}`)}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Process */}
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                   <FileText className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Our Process</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t("debtAdvisory.ourProcess")}</h3>
               </div>
               <div className="space-y-4">
-                {processSteps.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                {processSteps.map((key, index) => (
+                  <div key={key} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                       <span className="text-sm font-semibold text-accent">{index + 1}</span>
                     </div>
-                    <p className="text-foreground">{item}</p>
+                    <p className="text-foreground">{t(`debtAdvisory.process.${key}`)}</p>
                   </div>
                 ))}
               </div>
@@ -257,22 +248,22 @@ const DebtAdvisory = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className={`max-w-3xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-[hsl(var(--background))] mb-6">
-              Optimize Your Debt Structure Today
+              {t("debtAdvisory.ctaTitle")}
             </h2>
             <p className="text-xl text-[hsl(var(--background))]/80 mb-10">
-              Let our experts help you navigate complex financial decisions and secure optimal terms.
+              {t("debtAdvisory.ctaDesc")}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Schedule Consultation
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t("debtAdvisory.scheduleConsultation")}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/about">Learn About Us</Link>
+                <Link to="/about">{t("debtAdvisory.learnAboutUs")}</Link>
               </Button>
             </div>
           </div>

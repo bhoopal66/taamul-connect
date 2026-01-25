@@ -290,6 +290,117 @@ const translations = {
         a4: "Interest rates depend on multiple factors including loan type, amount, tenure, collateral, and your company's financial profile. Rates typically range from 7% to 15% per annum."
       }
     },
+    // Debt Advisory Page
+    debtAdvisory: {
+      badge: "Advisory Services",
+      title: "Debt Advisory &",
+      titleHighlight: "Structuring",
+      description: "Enhancing financial flexibility through tailored debt solutions. We help businesses optimize their capital structure and secure the best financing terms.",
+      getConsultation: "Get Consultation",
+      servicesTitle: "Our Debt Advisory Services",
+      servicesDesc: "Comprehensive solutions to optimize your debt portfolio and enhance financial stability.",
+      services: {
+        capitalStructure: "Capital Structure Optimization",
+        capitalStructureDesc: "Designing the right mix of short-term and long-term debt to enhance liquidity and financial stability.",
+        debtRefinancing: "Debt Refinancing & Liability Restructuring",
+        debtRefinancingDesc: "Securing improved loan terms, reducing financial costs, and restructuring existing obligations to free up capital.",
+        structuringNegotiation: "Structuring & Negotiation Support",
+        structuringNegotiationDesc: "Negotiating with banks, credit funds, and private lenders to secure the most competitive financing terms.",
+        riskAnalysis: "Financial Risk Analysis & Scenario Planning",
+        riskAnalysisDesc: "Assessing capital requirements, debt repayment strategies, and financial risks to ensure sustainable debt servicing."
+      },
+      advantageTitle: "The",
+      advantageHighlight: "Taamul",
+      advantageWord: "Advantage",
+      advantageDesc: "Expert debt advisory services backed by deep market expertise and strong lender relationships.",
+      whyChoose: {
+        strategicExpertise: "Strategic Expertise",
+        strategicExpertiseDesc: "Deep understanding of capital markets and lending dynamics in the UAE",
+        bankingRelationships: "Banking Relationships",
+        bankingRelationshipsDesc: "Direct access to 50+ partner banks and financial institutions",
+        fastExecution: "Fast Execution",
+        fastExecutionDesc: "Streamlined processes for quick turnaround on complex transactions",
+        riskMitigation: "Risk Mitigation",
+        riskMitigationDesc: "Comprehensive risk analysis to protect your financial interests"
+      },
+      keyBenefits: "Key Benefits",
+      ourProcess: "Our Process",
+      benefits: {
+        b1: "Reduce overall cost of capital through strategic debt structuring",
+        b2: "Improve cash flow management with optimized repayment schedules",
+        b3: "Access to 50+ banking partners for competitive terms",
+        b4: "Expert guidance through complex financial negotiations",
+        b5: "Tailored solutions aligned with your business objectives",
+        b6: "Ongoing support for covenant compliance and monitoring"
+      },
+      process: {
+        p1: "Initial consultation and financial health assessment",
+        p2: "Analysis of current debt portfolio and capital structure",
+        p3: "Development of customized restructuring strategy",
+        p4: "Lender negotiation and term sheet finalization",
+        p5: "Implementation and ongoing monitoring support"
+      },
+      ctaTitle: "Optimize Your Debt Structure Today",
+      ctaDesc: "Let our experts help you navigate complex financial decisions and secure optimal terms.",
+      scheduleConsultation: "Schedule Consultation",
+      learnAboutUs: "Learn About Us"
+    },
+    // Mezzanine Financing Page
+    mezzanineFinancing: {
+      badge: "Hybrid Financing",
+      title: "Mezzanine &",
+      titleHighlight: "Hybrid Financing",
+      description: "Flexible capital solutions for expansion and restructuring. Access growth funding without diluting your ownership stake.",
+      exploreOptions: "Explore Options",
+      servicesTitle: "Flexible Financing Solutions",
+      servicesDesc: "Tailored hybrid financing options that bridge the gap between debt and equity.",
+      services: {
+        structuredMezzanine: "Structured Mezzanine Financing",
+        structuredMezzanineDesc: "Bridging the gap between senior debt and equity for companies requiring growth capital without ownership dilution.",
+        subordinatedDebt: "Subordinated Debt & Convertible Instruments",
+        subordinatedDebtDesc: "Providing flexible funding with structured repayment options and investor-aligned incentives.",
+        specialSituations: "Special Situations & Distressed Financing",
+        specialSituationsDesc: "Assisting businesses with turnaround capital, bridging finance, and complex restructuring solutions.",
+        customPayment: "Custom Payment & Exit Structures",
+        customPaymentDesc: "Designing repayment models that align with cash flow cycles and long-term business objectives."
+      },
+      advantageTitle: "The",
+      advantageHighlight: "Taamul",
+      advantageWord: "Advantage",
+      advantageDesc: "Flexible hybrid financing solutions designed for growth-focused businesses.",
+      whyChoose: {
+        tailoredStructures: "Tailored Structures",
+        tailoredStructuresDesc: "Custom financing solutions designed around your specific business needs",
+        growthFocus: "Growth Focus",
+        growthFocusDesc: "Capital solutions that fuel expansion without sacrificing ownership",
+        balancedTerms: "Balanced Terms",
+        balancedTermsDesc: "Optimal balance between cost of capital and repayment flexibility",
+        quickTurnaround: "Quick Turnaround",
+        quickTurnaroundDesc: "Efficient execution for time-sensitive transactions and opportunities"
+      },
+      keyBenefits: "Key Benefits",
+      idealUseCases: "Ideal Use Cases",
+      benefits: {
+        b1: "Access growth capital without diluting equity ownership",
+        b2: "Flexible repayment structures aligned with cash flow",
+        b3: "Bridge financing for acquisitions and expansion",
+        b4: "Preserve working capital for operational needs",
+        b5: "Customized terms based on business requirements",
+        b6: "Expert guidance through complex financing structures"
+      },
+      useCases: {
+        u1: "Business expansion and market entry",
+        u2: "Acquisition financing and buyouts",
+        u3: "Management buyouts (MBOs)",
+        u4: "Capital restructuring and turnarounds",
+        u5: "Real estate development projects",
+        u6: "Bridge financing for strategic transactions"
+      },
+      ctaTitle: "Unlock Growth Without Dilution",
+      ctaDesc: "Explore flexible financing structures tailored to your business needs and growth objectives.",
+      talkToExpert: "Talk to Expert",
+      learnAboutUs: "Learn About Us"
+    },
     // How It Works Page
     howItWorks: {
       title: "How It Works",
@@ -1317,6 +1428,117 @@ const translations = {
       posBenefit4: "توثيق بسيط مطلوب",
       posBenefit5: "مثالي لشركات التجزئة والمطاعم والخدمات",
       talkAboutPos: "تحدث مع خبير حول قروض نقاط البيع"
+    },
+    // Debt Advisory Page
+    debtAdvisory: {
+      badge: "الخدمات الاستشارية",
+      title: "استشارات وهيكلة",
+      titleHighlight: "الديون",
+      description: "تعزيز المرونة المالية من خلال حلول ديون مخصصة. نساعد الشركات في تحسين هيكل رأس المال وتأمين أفضل شروط التمويل.",
+      getConsultation: "احصل على استشارة",
+      servicesTitle: "خدماتنا الاستشارية للديون",
+      servicesDesc: "حلول شاملة لتحسين محفظة ديونك وتعزيز الاستقرار المالي.",
+      services: {
+        capitalStructure: "تحسين هيكل رأس المال",
+        capitalStructureDesc: "تصميم المزيج الصحيح من الديون قصيرة وطويلة الأجل لتعزيز السيولة والاستقرار المالي.",
+        debtRefinancing: "إعادة تمويل الديون وإعادة هيكلة الالتزامات",
+        debtRefinancingDesc: "تأمين شروط قروض محسنة، وخفض التكاليف المالية، وإعادة هيكلة الالتزامات الحالية لتحرير رأس المال.",
+        structuringNegotiation: "دعم الهيكلة والتفاوض",
+        structuringNegotiationDesc: "التفاوض مع البنوك وصناديق الائتمان والمقرضين الخاصين لتأمين أكثر شروط التمويل تنافسية.",
+        riskAnalysis: "تحليل المخاطر المالية والتخطيط للسيناريوهات",
+        riskAnalysisDesc: "تقييم متطلبات رأس المال واستراتيجيات سداد الديون والمخاطر المالية لضمان خدمة ديون مستدامة."
+      },
+      advantageTitle: "ميزة",
+      advantageHighlight: "تعامل",
+      advantageWord: "",
+      advantageDesc: "خدمات استشارية متخصصة في الديون مدعومة بخبرة سوقية عميقة وعلاقات قوية مع المقرضين.",
+      whyChoose: {
+        strategicExpertise: "الخبرة الاستراتيجية",
+        strategicExpertiseDesc: "فهم عميق لأسواق رأس المال وديناميكيات الإقراض في الإمارات",
+        bankingRelationships: "العلاقات المصرفية",
+        bankingRelationshipsDesc: "وصول مباشر إلى أكثر من 50 بنك شريك ومؤسسة مالية",
+        fastExecution: "التنفيذ السريع",
+        fastExecutionDesc: "عمليات مبسطة للتحول السريع في المعاملات المعقدة",
+        riskMitigation: "تخفيف المخاطر",
+        riskMitigationDesc: "تحليل شامل للمخاطر لحماية مصالحك المالية"
+      },
+      keyBenefits: "الفوائد الرئيسية",
+      ourProcess: "عمليتنا",
+      benefits: {
+        b1: "خفض التكلفة الإجمالية لرأس المال من خلال هيكلة الديون الاستراتيجية",
+        b2: "تحسين إدارة التدفق النقدي مع جداول سداد محسنة",
+        b3: "الوصول إلى أكثر من 50 شريك مصرفي للحصول على شروط تنافسية",
+        b4: "إرشاد الخبراء خلال المفاوضات المالية المعقدة",
+        b5: "حلول مخصصة تتوافق مع أهداف عملك",
+        b6: "دعم مستمر للامتثال للشروط والمراقبة"
+      },
+      process: {
+        p1: "الاستشارة الأولية وتقييم الصحة المالية",
+        p2: "تحليل محفظة الديون الحالية وهيكل رأس المال",
+        p3: "تطوير استراتيجية إعادة هيكلة مخصصة",
+        p4: "التفاوض مع المقرضين ووضع اللمسات النهائية على صحيفة الشروط",
+        p5: "التنفيذ ودعم المراقبة المستمرة"
+      },
+      ctaTitle: "حسّن هيكل ديونك اليوم",
+      ctaDesc: "دع خبراءنا يساعدونك في التنقل عبر القرارات المالية المعقدة وتأمين الشروط المثلى.",
+      scheduleConsultation: "جدولة استشارة",
+      learnAboutUs: "تعرف علينا"
+    },
+    // Mezzanine Financing Page
+    mezzanineFinancing: {
+      badge: "التمويل المختلط",
+      title: "التمويل المتوسط و",
+      titleHighlight: "المختلط",
+      description: "حلول رأس مال مرنة للتوسع وإعادة الهيكلة. احصل على تمويل النمو دون تخفيف حصتك في الملكية.",
+      exploreOptions: "استكشف الخيارات",
+      servicesTitle: "حلول تمويل مرنة",
+      servicesDesc: "خيارات تمويل مختلطة مصممة لسد الفجوة بين الديون وحقوق الملكية.",
+      services: {
+        structuredMezzanine: "التمويل المتوسط المهيكل",
+        structuredMezzanineDesc: "سد الفجوة بين الديون الرئيسية وحقوق الملكية للشركات التي تحتاج رأس مال للنمو دون تخفيف الملكية.",
+        subordinatedDebt: "الديون الثانوية والأدوات القابلة للتحويل",
+        subordinatedDebtDesc: "توفير تمويل مرن مع خيارات سداد مهيكلة وحوافز متوافقة مع المستثمرين.",
+        specialSituations: "الحالات الخاصة والتمويل المتعثر",
+        specialSituationsDesc: "مساعدة الشركات برأس مال التحول والتمويل الجسري وحلول إعادة الهيكلة المعقدة.",
+        customPayment: "هياكل الدفع والخروج المخصصة",
+        customPaymentDesc: "تصميم نماذج سداد تتوافق مع دورات التدفق النقدي وأهداف العمل طويلة الأجل."
+      },
+      advantageTitle: "ميزة",
+      advantageHighlight: "تعامل",
+      advantageWord: "",
+      advantageDesc: "حلول تمويل مختلطة مرنة مصممة للشركات التي تركز على النمو.",
+      whyChoose: {
+        tailoredStructures: "هياكل مخصصة",
+        tailoredStructuresDesc: "حلول تمويل مخصصة مصممة حول احتياجات عملك المحددة",
+        growthFocus: "التركيز على النمو",
+        growthFocusDesc: "حلول رأس المال التي تغذي التوسع دون التضحية بالملكية",
+        balancedTerms: "شروط متوازنة",
+        balancedTermsDesc: "توازن مثالي بين تكلفة رأس المال ومرونة السداد",
+        quickTurnaround: "تحول سريع",
+        quickTurnaroundDesc: "تنفيذ فعال للمعاملات الحساسة للوقت والفرص"
+      },
+      keyBenefits: "الفوائد الرئيسية",
+      idealUseCases: "حالات الاستخدام المثالية",
+      benefits: {
+        b1: "الوصول إلى رأس مال النمو دون تخفيف ملكية الأسهم",
+        b2: "هياكل سداد مرنة متوافقة مع التدفق النقدي",
+        b3: "تمويل جسري للاستحواذات والتوسع",
+        b4: "الحفاظ على رأس المال العامل للاحتياجات التشغيلية",
+        b5: "شروط مخصصة بناءً على متطلبات العمل",
+        b6: "إرشاد الخبراء خلال هياكل التمويل المعقدة"
+      },
+      useCases: {
+        u1: "توسع الأعمال ودخول السوق",
+        u2: "تمويل الاستحواذ والشراء",
+        u3: "الاستحواذ الإداري (MBOs)",
+        u4: "إعادة هيكلة رأس المال والتحولات",
+        u5: "مشاريع التطوير العقاري",
+        u6: "التمويل الجسري للمعاملات الاستراتيجية"
+      },
+      ctaTitle: "أطلق النمو بدون تخفيف",
+      ctaDesc: "استكشف هياكل تمويل مرنة مصممة لاحتياجات عملك وأهداف النمو.",
+      talkToExpert: "تحدث مع خبير",
+      learnAboutUs: "تعرف علينا"
     }
   }
 };

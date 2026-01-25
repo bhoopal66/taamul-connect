@@ -19,72 +19,60 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { Button } from "@/components/ui/button";
-
-const services = [
-  {
-    icon: Layers,
-    title: "Structured Mezzanine Financing",
-    description: "Bridging the gap between senior debt and equity for companies requiring growth capital without ownership dilution.",
-  },
-  {
-    icon: FileCheck,
-    title: "Subordinated Debt & Convertible Instruments",
-    description: "Providing flexible funding with structured repayment options and investor-aligned incentives.",
-  },
-  {
-    icon: LifeBuoy,
-    title: "Special Situations & Distressed Financing",
-    description: "Assisting businesses with turnaround capital, bridging finance, and complex restructuring solutions.",
-  },
-  {
-    icon: CalendarClock,
-    title: "Custom Payment & Exit Structures",
-    description: "Designing repayment models that align with cash flow cycles and long-term business objectives.",
-  },
-];
-
-const benefits = [
-  "Access growth capital without diluting equity ownership",
-  "Flexible repayment structures aligned with cash flow",
-  "Bridge financing for acquisitions and expansion",
-  "Preserve working capital for operational needs",
-  "Customized terms based on business requirements",
-  "Expert guidance through complex financing structures",
-];
-
-const useCases = [
-  "Business expansion and market entry",
-  "Acquisition financing and buyouts",
-  "Management buyouts (MBOs)",
-  "Capital restructuring and turnarounds",
-  "Real estate development projects",
-  "Bridge financing for strategic transactions",
-];
-
-const whyChooseUs = [
-  {
-    icon: Target,
-    title: "Tailored Structures",
-    description: "Custom financing solutions designed around your specific business needs",
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth Focus",
-    description: "Capital solutions that fuel expansion without sacrificing ownership",
-  },
-  {
-    icon: Scale,
-    title: "Balanced Terms",
-    description: "Optimal balance between cost of capital and repayment flexibility",
-  },
-  {
-    icon: Zap,
-    title: "Quick Turnaround",
-    description: "Efficient execution for time-sensitive transactions and opportunities",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const MezzanineFinancing = () => {
+  const { t, isRTL } = useLanguage();
+
+  const services = [
+    {
+      icon: Layers,
+      titleKey: "mezzanineFinancing.services.structuredMezzanine",
+      descKey: "mezzanineFinancing.services.structuredMezzanineDesc",
+    },
+    {
+      icon: FileCheck,
+      titleKey: "mezzanineFinancing.services.subordinatedDebt",
+      descKey: "mezzanineFinancing.services.subordinatedDebtDesc",
+    },
+    {
+      icon: LifeBuoy,
+      titleKey: "mezzanineFinancing.services.specialSituations",
+      descKey: "mezzanineFinancing.services.specialSituationsDesc",
+    },
+    {
+      icon: CalendarClock,
+      titleKey: "mezzanineFinancing.services.customPayment",
+      descKey: "mezzanineFinancing.services.customPaymentDesc",
+    },
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: Target,
+      titleKey: "mezzanineFinancing.whyChoose.tailoredStructures",
+      descKey: "mezzanineFinancing.whyChoose.tailoredStructuresDesc",
+    },
+    {
+      icon: TrendingUp,
+      titleKey: "mezzanineFinancing.whyChoose.growthFocus",
+      descKey: "mezzanineFinancing.whyChoose.growthFocusDesc",
+    },
+    {
+      icon: Scale,
+      titleKey: "mezzanineFinancing.whyChoose.balancedTerms",
+      descKey: "mezzanineFinancing.whyChoose.balancedTermsDesc",
+    },
+    {
+      icon: Zap,
+      titleKey: "mezzanineFinancing.whyChoose.quickTurnaround",
+      descKey: "mezzanineFinancing.whyChoose.quickTurnaroundDesc",
+    },
+  ];
+
+  const benefits = ["b1", "b2", "b3", "b4", "b5", "b6"];
+  const useCases = ["u1", "u2", "u3", "u4", "u5", "u6"];
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -96,31 +84,30 @@ const MezzanineFinancing = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
+          <div className={`max-w-3xl ${isRTL ? 'mr-0 ml-auto text-right' : ''}`}>
+            <div className={`inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <Building2 className="h-4 w-4" />
-              Hybrid Financing
+              {t("mezzanineFinancing.badge")}
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              Mezzanine &{" "}
-              <span className="text-accent">Hybrid Financing</span>
+              {t("mezzanineFinancing.title")}{" "}
+              <span className="text-accent">{t("mezzanineFinancing.titleHighlight")}</span>
             </h1>
 
             <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
-              Flexible capital solutions for expansion and restructuring. 
-              Access growth funding without diluting your ownership stake.
+              {t("mezzanineFinancing.description")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Explore Options
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t("mezzanineFinancing.exploreOptions")}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact">{t("common.contactUs")}</Link>
               </Button>
             </div>
           </div>
@@ -140,29 +127,29 @@ const MezzanineFinancing = () => {
       {/* Services Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-foreground mb-4">
-              Flexible Financing Solutions
+              {t("mezzanineFinancing.servicesTitle")}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Tailored hybrid financing options that bridge the gap between debt and equity.
+              {t("mezzanineFinancing.servicesDesc")}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 gap-8">
             {services.map((service) => (
               <div
-                key={service.title}
-                className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1"
+                key={service.titleKey}
+                className={`bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 ${isRTL ? 'mr-0 ml-auto' : ''}`}>
                   <service.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">
-                  {service.title}
+                  {t(service.titleKey)}
                 </h3>
                 <p className="text-muted-foreground leading-relaxed">
-                  {service.description}
+                  {t(service.descKey)}
                 </p>
               </div>
             ))}
@@ -177,30 +164,30 @@ const MezzanineFinancing = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-white mb-4">
-              The <span className="text-accent">Taamul</span> Advantage
+              {t("mezzanineFinancing.advantageTitle")} <span className="text-accent">{t("mezzanineFinancing.advantageHighlight")}</span> {t("mezzanineFinancing.advantageWord")}
             </h2>
             <p className="text-lg text-white/80">
-              Flexible hybrid financing solutions designed for growth-focused businesses.
+              {t("mezzanineFinancing.advantageDesc")}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseUs.map((item, index) => (
               <motion.div
-                key={item.title}
+                key={item.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'mr-0 ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/70">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
+                <p className="text-sm text-white/70">{t(item.descKey)}</p>
               </motion.div>
             ))}
           </div>
@@ -212,36 +199,36 @@ const MezzanineFinancing = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {/* Benefits */}
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-success" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Key Benefits</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t("mezzanineFinancing.keyBenefits")}</h3>
               </div>
               <div className="space-y-4">
-                {benefits.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                {benefits.map((key) => (
+                  <div key={key} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-                    <p className="text-foreground">{item}</p>
+                    <p className="text-foreground">{t(`mezzanineFinancing.benefits.${key}`)}</p>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Use Cases */}
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                   <FileText className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Ideal Use Cases</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t("mezzanineFinancing.idealUseCases")}</h3>
               </div>
               <div className="space-y-4">
-                {useCases.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                {useCases.map((key) => (
+                  <div key={key} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                    <p className="text-foreground">{item}</p>
+                    <p className="text-foreground">{t(`mezzanineFinancing.useCases.${key}`)}</p>
                   </div>
                 ))}
               </div>
@@ -257,22 +244,22 @@ const MezzanineFinancing = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className={`max-w-3xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-[hsl(var(--background))] mb-6">
-              Unlock Growth Without Dilution
+              {t("mezzanineFinancing.ctaTitle")}
             </h2>
             <p className="text-xl text-[hsl(var(--background))]/80 mb-10">
-              Explore flexible financing structures tailored to your business needs and growth objectives.
+              {t("mezzanineFinancing.ctaDesc")}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Talk to Expert
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t("mezzanineFinancing.talkToExpert")}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/about">Learn About Us</Link>
+                <Link to="/about">{t("mezzanineFinancing.learnAboutUs")}</Link>
               </Button>
             </div>
           </div>
