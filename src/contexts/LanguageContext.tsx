@@ -719,6 +719,12 @@ const translations = {
       minimalDocumentationDesc: "Streamlined process with reduced paperwork for faster approval",
       workingCapitalCtaTitle: "Need Funds for Daily Operations?",
       workingCapitalCtaDesc: "Quick approval process – get your working capital fast. Keep your business running smoothly.",
+      workingCapital: {
+        bankStatements: "Bank statements showing regular cash flow",
+        positiveCashFlow: "Positive operating cash flows",
+        arReport: "Accounts receivable aging report",
+        companyProfile: "Company profile and business overview",
+      },
       // Secured Loans
       securedLoansTitle: "Secured Business",
       securedLoansHighlight: "Loans",
@@ -1548,6 +1554,12 @@ const translations = {
       minimalDocumentationDesc: "عملية مبسطة مع أوراق أقل للموافقة الأسرع",
       workingCapitalCtaTitle: "هل تحتاج أموال للعمليات اليومية؟",
       workingCapitalCtaDesc: "عملية موافقة سريعة – احصل على رأس المال العامل بسرعة. حافظ على سير عملك بسلاسة.",
+      workingCapital: {
+        bankStatements: "كشوف حساب بنكية تظهر التدفق النقدي المنتظم",
+        positiveCashFlow: "تدفقات نقدية تشغيلية إيجابية",
+        arReport: "تقرير تقادم الذمم المدينة",
+        companyProfile: "ملف الشركة ونظرة عامة على العمل",
+      },
       // Secured Loans
       securedLoansTitle: "قروض الأعمال",
       securedLoansHighlight: "المضمونة",
