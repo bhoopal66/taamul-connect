@@ -80,18 +80,6 @@ const team = [
     role: "Founder & Director",
     bio: "20+ years of experience in finance and management. CFA Level II candidate.",
     image: null
-  },
-  {
-    name: "Sayid Shaheen Alam",
-    role: "Director, Partnerships",
-    bio: "Seasoned banking professional with frontline sales and relationship expertise, ex-Emirates Islamic and ADIB, specializing in corporate banking and team development.",
-    image: null
-  },
-  {
-    name: "Fatima Al Zahra",
-    role: "Client Relations Manager",
-    bio: "Dedicated to ensuring exceptional client experience throughout the financing journey.",
-    image: null
   }
 ];
 
