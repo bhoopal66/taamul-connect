@@ -124,13 +124,13 @@ const Footer = () => {
               <li className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <MapPin className="h-5 w-5 mt-1 text-accent" />
                 <span className="text-white">
-                  319 Gharhoud Star Building, Dubai, UAE
+                  {t('footer.address')}
                 </span>
               </li>
               <li className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <Phone className="h-5 w-5 text-accent" />
-                <a href="tel:+97142345678" className="text-white hover:text-accent transition-colors">
-                  +971 4 234 5678
+                <a href="tel:+97142345678" className="text-white hover:text-accent transition-colors" dir="ltr">
+                  {t('footer.phone')}
                 </a>
               </li>
               <li className={`flex items-center gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
