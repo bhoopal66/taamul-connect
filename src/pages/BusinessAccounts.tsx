@@ -32,6 +32,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const accountTypes = [
   {
@@ -197,6 +198,7 @@ const faqs = [
 ];
 
 const BusinessAccounts = () => {
+  const { t, isRTL } = useLanguage();
 
   return (
     <div className="min-h-screen bg-background">
