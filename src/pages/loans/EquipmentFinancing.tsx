@@ -46,7 +46,7 @@ const eligibility = [
   "Business operating in UAE for at least 1 year",
   "Minimum annual turnover of AED 1 million",
   "Equipment from approved manufacturers/dealers",
-  "Valid trade license matching with relevant activity in equipment finance",
+  "Valid trade license matching with relevant activity",
   "Clear equipment specifications and quotations",
   "Positive operating cash flows",
 ];
