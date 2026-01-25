@@ -145,7 +145,7 @@ const BusinessLoans = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="bg-white rounded-2xl p-6 shadow-elevated"
             >
-              <h3 className="text-lg font-bold text-primary mb-5 flex items-center gap-2">
+              <h3 className="text-xl font-bold text-primary mb-5 flex items-center gap-2">
                 <Banknote className="h-5 w-5 text-accent" />
                 Funding Options
               </h3>
@@ -179,8 +179,8 @@ const BusinessLoans = () => {
                   <div key={index} className="flex gap-3">
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-primary font-medium text-sm">{item.title}</p>
-                      <p className="text-muted-foreground text-xs">{item.desc}</p>
+                      <p className="text-primary font-medium text-base">{item.title}</p>
+                      <p className="text-muted-foreground text-sm">{item.desc}</p>
                     </div>
                   </div>
                 ))}
