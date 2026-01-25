@@ -168,6 +168,10 @@ const BusinessLoans = () => {
                     desc: "Pay suppliers later and protect your cash flow.",
                   },
                   {
+                    title: "Bank Guarantees",
+                    desc: "Secure contracts and tenders with bank-backed performance guarantees.",
+                  },
+                  {
                     title: "Alternative & Sharia-Compliant Funding",
                     desc: "Fast approvals through regulated platforms.",
                   },
