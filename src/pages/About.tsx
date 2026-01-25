@@ -76,9 +76,9 @@ const team = [
     image: null
   },
   {
-    name: "Sarah Mitchell",
-    role: "Head of Operations",
-    bio: "Expert in credit analysis and loan structuring with 15 years of experience in corporate banking.",
+    name: "Geetha Subramaniam",
+    role: "Founder & Director",
+    bio: "20+ years of experience in finance and management. CFA Level II candidate.",
     image: null
   },
   {
