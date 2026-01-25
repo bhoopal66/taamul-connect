@@ -302,7 +302,7 @@ const Services = () => {
             <div className={`flex items-center gap-4 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <div className="h-1 w-12 bg-primary rounded-full"></div>
               <p className="text-accent font-semibold uppercase tracking-wide text-sm">
-                {t('services.faq')}
+                {t('services.faqTitle')}
               </p>
             </div>
             <div className={`flex flex-col md:flex-row md:items-end md:justify-between gap-4 ${isRTL ? 'md:flex-row-reverse' : ''}`}>

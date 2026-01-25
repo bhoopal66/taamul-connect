@@ -366,7 +366,22 @@ const translations = {
       forFreeZone: "For Free Zone Companies",
       forOffshore: "For Offshore Companies",
       faq: "Frequently Asked Questions",
-      commonQuestions: "Common Questions About Business Accounts"
+      commonQuestions: "Common Questions About Business Accounts",
+      faqDesc: "Find answers to common questions about business accounts.",
+      faqItems: {
+        q1: "How long does it take to open a business account?",
+        a1: "The account opening process typically takes 5-7 working days once all documents are submitted. Some banks may expedite the process for certain account types or existing customers.",
+        q2: "Can I open a business account without a physical office?",
+        a2: "Yes, many free zone companies can open accounts using their free zone address. However, some banks may require proof of a physical business presence for certain account types.",
+        q3: "What is the minimum initial deposit required?",
+        a3: "The minimum initial deposit varies by account type. Current accounts typically require AED 10,000, while corporate accounts may require AED 500,000 or more. WPS accounts have no minimum balance requirement.",
+        q4: "Can I open multiple business accounts with different banks?",
+        a4: "Yes, you can open accounts with multiple banks. In fact, we recommend maintaining accounts with 2-3 banks for better financial flexibility and backup options.",
+        q5: "Do you help with account opening for new businesses?",
+        a5: "Absolutely! We specialize in helping new businesses open their first corporate accounts. We'll guide you through the documentation requirements and connect you with banks that are most receptive to new business accounts.",
+        q6: "What if my application is rejected?",
+        a6: "If your application is rejected by one bank, we'll help you understand the reasons and work with alternative banks that may be more suitable for your business profile. Our extensive network increases your chances of approval."
+      }
     },
     // Footer
     footer: {
@@ -884,9 +899,19 @@ const translations = {
       advisoryServices: "الخدمات الاستشارية",
       strategicFinancial: "الاستشارات المالية الاستراتيجية",
       advisoryServicesDesc: "بالإضافة إلى التمويل، يساعدك مستشارونا الخبراء في تحسين هيكل رأس المال والوصول إلى حلول تمويل مبتكرة للنمو المستدام.",
-      faq: "الأسئلة الشائعة",
+      faqTitle: "الأسئلة الشائعة",
       faqHeading: "أسئلة شائعة حول تمويل الأعمال",
-      faqDesc: "اعثر على إجابات لأكثر الأسئلة شيوعاً حول خدماتنا وعملية التمويل."
+      faqDesc: "اعثر على إجابات لأكثر الأسئلة شيوعاً حول خدماتنا وعملية التمويل.",
+      faq: {
+        q1: "ما هي متطلبات الأهلية الأساسية للحصول على قرض تجاري؟",
+        a1: "للتأهل للحصول على قرض تجاري، يجب أن تكون شركتك مسجلة في الإمارات لمدة 1-2 سنة على الأقل، ولديها رخصة تجارية سارية، وتُظهر إيرادات ثابتة (عادة 500 ألف درهم أو أكثر سنوياً)، ولديها سجل ائتماني جيد.",
+        q2: "ما هي المستندات المطلوبة لتقديم طلب القرض؟",
+        a2: "تشمل الوثائق القياسية: الرخصة التجارية السارية، مستندات تسجيل الشركة (عقد التأسيس/النظام الأساسي)، كشوف حساب بنكية لمدة 6-12 شهراً، البيانات المالية المدققة لآخر سنتين، نسخ الهوية الإماراتية وجواز السفر للمساهمين، وشهادة التسجيل الضريبي.",
+        q3: "كم تستغرق عملية الموافقة على القرض؟",
+        a3: "تستغرق عمليتنا المبسطة عادة 3-5 أيام من تقديم المستندات الكاملة حتى الموافقة. قد تتم الموافقة على تسهيلات رأس المال العامل البسيطة خلال 48-72 ساعة، بينما قد تستغرق القروض المؤسسية الكبيرة 2-3 أسابيع.",
+        q4: "ما هي أسعار الفائدة المتوقعة؟",
+        a4: "تعتمد أسعار الفائدة على عوامل متعددة بما في ذلك نوع القرض والمبلغ والمدة والضمانات والملف المالي لشركتك. تتراوح الأسعار عادة بين 7% و15% سنوياً."
+      }
     },
     // How It Works Page
     howItWorks: {
@@ -964,7 +989,22 @@ const translations = {
       forFreeZone: "لشركات المناطق الحرة",
       forOffshore: "للشركات الخارجية",
       faq: "الأسئلة الشائعة",
-      commonQuestions: "أسئلة شائعة حول حسابات الأعمال"
+      commonQuestions: "أسئلة شائعة حول حسابات الأعمال",
+      faqDesc: "اعثر على إجابات للأسئلة الشائعة حول حسابات الأعمال.",
+      faqItems: {
+        q1: "كم من الوقت يستغرق فتح حساب تجاري؟",
+        a1: "تستغرق عملية فتح الحساب عادة 5-7 أيام عمل بعد تقديم جميع المستندات. قد تُسرّع بعض البنوك العملية لأنواع معينة من الحسابات أو العملاء الحاليين.",
+        q2: "هل يمكنني فتح حساب تجاري بدون مكتب فعلي؟",
+        a2: "نعم، يمكن للعديد من شركات المناطق الحرة فتح حسابات باستخدام عنوان المنطقة الحرة. ومع ذلك، قد تطلب بعض البنوك إثبات وجود مكان عمل فعلي لأنواع معينة من الحسابات.",
+        q3: "ما هو الحد الأدنى للإيداع المطلوب؟",
+        a3: "يختلف الحد الأدنى للإيداع حسب نوع الحساب. تتطلب الحسابات الجارية عادة 10,000 درهم، بينما قد تتطلب حسابات الشركات 500,000 درهم أو أكثر. لا توجد متطلبات حد أدنى للرصيد لحسابات WPS.",
+        q4: "هل يمكنني فتح حسابات تجارية متعددة في بنوك مختلفة؟",
+        a4: "نعم، يمكنك فتح حسابات في بنوك متعددة. في الواقع، نوصي بالحفاظ على حسابات في 2-3 بنوك لمرونة مالية أفضل وخيارات احتياطية.",
+        q5: "هل تساعدون في فتح حسابات للشركات الجديدة؟",
+        a5: "بالتأكيد! نحن متخصصون في مساعدة الشركات الجديدة في فتح حساباتها المؤسسية الأولى. سنرشدك خلال متطلبات التوثيق ونربطك بالبنوك الأكثر تقبلاً لحسابات الشركات الجديدة.",
+        q6: "ماذا لو تم رفض طلبي؟",
+        a6: "إذا تم رفض طلبك من بنك واحد، سنساعدك في فهم الأسباب والعمل مع بنوك بديلة قد تكون أكثر ملاءمة لملف عملك. شبكتنا الواسعة تزيد من فرص موافقتك."
+      }
     },
     // Footer
     footer: {

@@ -172,28 +172,28 @@ const benefits = [
 
 const faqs = [
   {
-    question: "How long does it take to open a business account?",
-    answer: "The account opening process typically takes 5-7 working days once all documents are submitted. Some banks may expedite the process for certain account types or existing customers.",
+    questionKey: "businessAccounts.faqItems.q1",
+    answerKey: "businessAccounts.faqItems.a1",
   },
   {
-    question: "Can I open a business account without a physical office?",
-    answer: "Yes, many free zone companies can open accounts using their free zone address. However, some banks may require proof of a physical business presence for certain account types.",
+    questionKey: "businessAccounts.faqItems.q2",
+    answerKey: "businessAccounts.faqItems.a2",
   },
   {
-    question: "What is the minimum initial deposit required?",
-    answer: "The minimum initial deposit varies by account type. Current accounts typically require AED 10,000, while corporate accounts may require AED 500,000 or more. WPS accounts have no minimum balance requirement.",
+    questionKey: "businessAccounts.faqItems.q3",
+    answerKey: "businessAccounts.faqItems.a3",
   },
   {
-    question: "Can I open multiple business accounts with different banks?",
-    answer: "Yes, you can open accounts with multiple banks. In fact, we recommend maintaining accounts with 2-3 banks for better financial flexibility and backup options.",
+    questionKey: "businessAccounts.faqItems.q4",
+    answerKey: "businessAccounts.faqItems.a4",
   },
   {
-    question: "Do you help with account opening for new businesses?",
-    answer: "Absolutely! We specialize in helping new businesses open their first corporate accounts. We'll guide you through the documentation requirements and connect you with banks that are most receptive to new business accounts.",
+    questionKey: "businessAccounts.faqItems.q5",
+    answerKey: "businessAccounts.faqItems.a5",
   },
   {
-    question: "What if my application is rejected?",
-    answer: "If your application is rejected by one bank, we'll help you understand the reasons and work with alternative banks that may be more suitable for your business profile. Our extensive network increases your chances of approval.",
+    questionKey: "businessAccounts.faqItems.q6",
+    answerKey: "businessAccounts.faqItems.a6",
   },
 ];
 
@@ -479,15 +479,15 @@ const BusinessAccounts = () => {
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto">
-            <AnimatedSection className="text-center mb-12">
+            <AnimatedSection className={`text-center mb-12 ${isRTL ? 'text-right' : ''}`}>
               <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-                FAQ
+                {t('businessAccounts.faq')}
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-                Frequently Asked Questions
+                {t('businessAccounts.commonQuestions')}
               </h2>
               <p className="text-lg text-muted-foreground">
-                Find answers to common questions about business accounts.
+                {t('businessAccounts.faqDesc')}
               </p>
             </AnimatedSection>
 
@@ -497,13 +497,13 @@ const BusinessAccounts = () => {
                   <AccordionItem
                     key={index}
                     value={`item-${index}`}
-                    className="bg-card rounded-xl border border-border px-6 data-[state=open]:border-primary/30 data-[state=open]:shadow-card transition-all duration-300"
+                    className={`bg-card rounded-xl border border-border px-6 data-[state=open]:border-primary/30 data-[state=open]:shadow-card transition-all duration-300 ${isRTL ? 'text-right' : ''}`}
                   >
-                    <AccordionTrigger className="text-left text-foreground hover:no-underline py-5 text-lg font-medium">
-                      {faq.question}
+                    <AccordionTrigger className={`text-foreground hover:no-underline py-5 text-lg font-medium ${isRTL ? 'text-right flex-row-reverse' : 'text-left'}`}>
+                      {t(faq.questionKey)}
                     </AccordionTrigger>
                     <AccordionContent className="text-muted-foreground pb-5 text-base leading-relaxed">
-                      {faq.answer}
+                      {t(faq.answerKey)}
                     </AccordionContent>
                   </AccordionItem>
                 ))}
