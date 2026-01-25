@@ -86,6 +86,11 @@ const benefits = [
     icon: Users,
     title: "Dedicated Support",
     description: "A relationship manager guides you through every step of the journey"
+  },
+  {
+    icon: ArrowRight,
+    title: "Expert Guidance",
+    description: "Our specialists navigate complex banking requirements so you don't have to"
   }
 ];
 
