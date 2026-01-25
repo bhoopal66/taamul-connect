@@ -243,44 +243,61 @@ const About = () => {
       </section>
 
       {/* Team Section */}
-      <section className="py-20 bg-muted/30">
+      <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
+              Our Leadership
+            </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Leadership Team
+              Meet the Founders
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Experienced professionals dedicated to your business success
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Decades of combined experience in finance, banking, and business advisory
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch max-w-4xl mx-auto">
             {team.map((member, index) => (
               <div 
                 key={index}
-                className="bg-card rounded-xl overflow-hidden shadow-md border border-border hover:shadow-lg transition-shadow"
+                className="group flex-1 max-w-md bg-card rounded-2xl overflow-hidden shadow-lg border border-border hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
               >
-                {/* Avatar Placeholder */}
-                <div className="h-48 bg-gradient-to-br from-primary/20 to-accent/20 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-primary/30 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-primary">
-                      {member.name.split(' ').map(n => n[0]).join('')}
-                    </span>
+                {/* Avatar Section */}
+                <div className="relative h-56 bg-gradient-to-br from-primary via-primary/80 to-navy-light overflow-hidden">
+                  {/* Decorative Pattern */}
+                  <div className="absolute inset-0 opacity-10">
+                    <div className="absolute top-4 right-4 w-32 h-32 border border-white/30 rounded-full" />
+                    <div className="absolute bottom-4 left-4 w-24 h-24 border border-white/30 rounded-full" />
+                  </div>
+                  
+                  {/* Avatar */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-4 ring-white/30 group-hover:scale-105 transition-transform duration-300">
+                      <span className="text-4xl font-bold text-white">
+                        {member.name.split(' ').map(n => n[0]).join('')}
+                      </span>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="p-6">
-                  <h3 className="text-lg font-semibold text-foreground mb-1">
+                {/* Content */}
+                <div className="p-8 text-center">
+                  <h3 className="text-xl font-bold text-foreground mb-1">
                     {member.name}
                   </h3>
-                  <p className="text-sm text-primary font-medium mb-3">
+                  <p className="text-primary font-semibold mb-4">
                     {member.role}
                   </p>
-                  <p className="text-sm text-muted-foreground mb-4">
+                  <div className="w-12 h-0.5 bg-primary/30 mx-auto mb-4" />
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {member.bio}
                   </p>
-                  <button className="text-primary hover:text-primary/80 transition-colors">
-                    <Linkedin className="h-5 w-5" />
+                  
+                  {/* LinkedIn */}
+                  <button className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300">
+                    <Linkedin className="h-4 w-4" />
+                    <span className="text-sm font-medium">Connect</span>
                   </button>
                 </div>
               </div>
