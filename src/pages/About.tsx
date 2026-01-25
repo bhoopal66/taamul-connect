@@ -102,7 +102,7 @@ const team = [
 
 const stats = [
   { value: "500+", label: "Businesses Funded" },
-  { value: "AED 500M+", label: "Loans Facilitated" },
+  { value: "AED 800M+", label: "Loans Facilitated" },
   { value: "10+", label: "Banking Partners" },
   { value: "95%", label: "Client Satisfaction" }
 ];
