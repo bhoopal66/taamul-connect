@@ -102,7 +102,7 @@ const EquipmentFinancing = () => {
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              New & Used Equipment{" "}
+              New & Used* Equipment{" "}
               <span className="text-accent">Financing</span>
             </h1>
 
