@@ -49,41 +49,41 @@ const EquipmentFinancing = () => {
   const eligibility = [
     t('loanPages.eligibility1Year'),
     t('loanPages.minTurnover1M'),
-    "Equipment from approved manufacturers/dealers",
-    "Valid trade license matching with relevant activity",
-    "Clear equipment specifications and quotations",
-    "Positive operating cash flows",
+    t('loanPages.equipment.eligibility.approvedManufacturers'),
+    t('loanPages.equipment.eligibility.validLicense'),
+    t('loanPages.equipment.eligibility.clearSpecs'),
+    t('loanPages.equipment.eligibility.positiveCashFlow'),
   ];
 
   const documents = [
-    "Trade License, Office Ejari & company documents",
-    "Equipment quotation from authorized dealer",
+    t('loanPages.equipment.documents.tradeLicense'),
+    t('loanPages.equipment.documents.quotation'),
     t('loanPages.bankStatements6to12'),
     t('loanPages.passportCopies'),
     t('loanPages.vatReturns'),
-    "Equipment specifications and brochures",
+    t('loanPages.equipment.documents.specs'),
   ];
 
   const whyChooseUs = [
     {
       icon: Factory,
-      title: "All Industries",
-      description: "Manufacturing, construction, logistics, healthcare, and more",
+      titleKey: 'loanPages.equipment.advantage.allIndustries',
+      descKey: 'loanPages.equipment.advantage.allIndustriesDesc',
     },
     {
       icon: Truck,
-      title: "Fleet Financing",
-      description: "Special programs for commercial vehicles and fleet expansion",
+      titleKey: 'loanPages.equipment.advantage.fleetFinancing',
+      descKey: 'loanPages.equipment.advantage.fleetFinancingDesc',
     },
     {
       icon: BadgeCheck,
-      title: "Approved Dealers",
-      description: "Network of verified equipment suppliers and manufacturers",
+      titleKey: 'loanPages.equipment.advantage.approvedDealers',
+      descKey: 'loanPages.equipment.advantage.approvedDealersDesc',
     },
     {
       icon: Shield,
-      title: "Asset Protection",
-      description: "Equipment acts as collateral, protecting your other assets",
+      titleKey: 'loanPages.equipment.advantage.assetProtection',
+      descKey: 'loanPages.equipment.advantage.assetProtectionDesc',
     },
   ];
 
@@ -114,7 +114,7 @@ const EquipmentFinancing = () => {
             </p>
             
             <p className="text-sm text-[hsl(var(--background))]/60 mb-8">
-              *Terms and conditions apply
+              *{t('loanPages.equipment.termsApply')}
             </p>
 
             <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
@@ -187,7 +187,7 @@ const EquipmentFinancing = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseUs.map((item, index) => (
               <motion.div
-                key={item.title}
+                key={item.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -197,8 +197,8 @@ const EquipmentFinancing = () => {
                 <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/70">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
+                <p className="text-sm text-white/70">{t(item.descKey)}</p>
               </motion.div>
             ))}
           </div>
