@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { MessageCircle, Phone, X } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MessageCircle, Phone, ArrowUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -12,15 +12,29 @@ import { Label } from "@/components/ui/label";
 
 const FloatingButtons = () => {
   const [isCallbackOpen, setIsCallbackOpen] = useState(false);
+  const [showBackToTop, setShowBackToTop] = useState(false);
   const [callbackForm, setCallbackForm] = useState({
     name: "",
     phone: "",
     preferredTime: "",
   });
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowBackToTop(window.scrollY > 300);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const handleWhatsApp = () => {
     const message = encodeURIComponent("Hi, I'm interested in learning more about TAAMUL's business financing solutions.");
     window.open(`https://wa.me/97142345678?text=${message}`, "_blank");
+  };
+
+  const handleBackToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleCallbackSubmit = (e: React.FormEvent) => {
@@ -41,6 +55,17 @@ const FloatingButtons = () => {
       >
         <MessageCircle className="h-7 w-7 text-success-foreground" />
       </button>
+
+      {/* Back to Top Button - Above Callback Button */}
+      {showBackToTop && (
+        <button
+          onClick={handleBackToTop}
+          className="fixed bottom-24 right-6 z-40 w-12 h-12 bg-primary rounded-full shadow-elevated flex items-center justify-center hover:scale-110 transition-all duration-200 animate-fade-in"
+          aria-label="Back to top"
+        >
+          <ArrowUp className="h-5 w-5 text-primary-foreground" />
+        </button>
+      )}
 
       {/* Callback Button - Bottom Right */}
       <button
