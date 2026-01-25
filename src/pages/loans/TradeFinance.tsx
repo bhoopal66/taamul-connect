@@ -47,70 +47,70 @@ const TradeFinance = () => {
   ];
 
   const eligibility = [
-    "Established import/export business in UAE",
-    "Minimum 2 years of trade operations",
-    "Annual trade volume of AED 5 million+",
-    "Valid import/export code and licenses",
-    "Established relationships with suppliers/buyers",
-    "Clean track record with customs authorities",
+    t('loanPages.trade.eligibility.established'),
+    t('loanPages.trade.eligibility.minYears'),
+    t('loanPages.trade.eligibility.annualVolume'),
+    t('loanPages.trade.eligibility.validCodes'),
+    t('loanPages.trade.eligibility.relationships'),
+    t('loanPages.trade.eligibility.cleanRecord'),
   ];
 
   const documents = [
     t('loanPages.tradeLicenseMOA'),
-    "Import/Export code registration",
+    t('loanPages.trade.documents.importExportCode'),
     t('loanPages.bankStatements6to12'),
     t('loanPages.passportCopies'),
     t('loanPages.vatReturns'),
-    "Supplier/Buyer contracts and insurance policy",
+    t('loanPages.trade.documents.contracts'),
   ];
 
   const fundingOptions = [
     {
-      title: "Letters of Credit (LC)",
-      desc: "Bank-backed LCs for secure international transactions.",
+      titleKey: 'loanPages.trade.funding.lc',
+      descKey: 'loanPages.trade.funding.lcDesc',
     },
     {
-      title: "Import/Export Financing",
-      desc: "Pre and post-shipment financing for smooth trade operations.",
+      titleKey: 'loanPages.trade.funding.importExport',
+      descKey: 'loanPages.trade.funding.importExportDesc',
     },
     {
-      title: "Bank Guarantees",
-      desc: "Performance, advance payment, and bid bond guarantees.",
+      titleKey: 'loanPages.trade.funding.guarantees',
+      descKey: 'loanPages.trade.funding.guaranteesDesc',
     },
     {
-      title: "Documentary Collections",
-      desc: "Secure payment processing through banking channels.",
+      titleKey: 'loanPages.trade.funding.documentary',
+      descKey: 'loanPages.trade.funding.documentaryDesc',
     },
     {
-      title: "Trade Credit Insurance",
-      desc: "Protect against buyer default and political risks.",
+      titleKey: 'loanPages.trade.funding.insurance',
+      descKey: 'loanPages.trade.funding.insuranceDesc',
     },
     {
-      title: "Supply Chain Financing",
-      desc: "Optimize working capital across your supply chain.",
+      titleKey: 'loanPages.trade.funding.supplyChain',
+      descKey: 'loanPages.trade.funding.supplyChainDesc',
     },
   ];
 
   const whyChooseUs = [
     {
       icon: Globe,
-      title: "Global Network",
-      description: "Banking partnerships across major trade corridors worldwide",
+      titleKey: 'loanPages.trade.advantage.globalNetwork',
+      descKey: 'loanPages.trade.advantage.globalNetworkDesc',
     },
     {
       icon: Package,
-      title: "End-to-End Support",
-      description: "From LC issuance to shipment tracking and payment release",
+      titleKey: 'loanPages.trade.advantage.endToEnd',
+      descKey: 'loanPages.trade.advantage.endToEndDesc',
     },
     {
       icon: Anchor,
-      title: "Port Expertise",
-      description: "Deep understanding of UAE's major port operations",
+      titleKey: 'loanPages.trade.advantage.portExpertise',
+      descKey: 'loanPages.trade.advantage.portExpertiseDesc',
     },
     {
       icon: Shield,
-      title: "Risk Mitigation",
-      description: "Secure transactions with trusted banking instruments",
+      titleKey: 'loanPages.trade.advantage.riskMitigation',
+      descKey: 'loanPages.trade.advantage.riskMitigationDesc',
     },
   ];
 
@@ -160,15 +160,15 @@ const TradeFinance = () => {
             >
               <h3 className={`text-xl font-bold text-primary mb-5 flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <FileCheck className="h-5 w-5 text-accent" />
-                Funding Options
+                {t('loanPages.trade.fundingOptions')}
               </h3>
               <div className="space-y-4">
                 {fundingOptions.map((item, index) => (
                   <div key={index} className={`flex gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
-                      <p className="text-primary font-medium text-base">{item.title}</p>
-                      <p className="text-muted-foreground text-sm">{item.desc}</p>
+                      <p className="text-primary font-medium text-base">{t(item.titleKey)}</p>
+                      <p className="text-muted-foreground text-sm">{t(item.descKey)}</p>
                     </div>
                   </div>
                 ))}
@@ -236,7 +236,7 @@ const TradeFinance = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseUs.map((item, index) => (
               <motion.div
-                key={item.title}
+                key={item.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -246,8 +246,8 @@ const TradeFinance = () => {
                 <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/70">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
+                <p className="text-sm text-white/70">{t(item.descKey)}</p>
               </motion.div>
             ))}
           </div>

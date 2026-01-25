@@ -47,43 +47,43 @@ const Syndicated = () => {
   ];
 
   const eligibility = [
-    "Loan requirement exceeding AED 10 million",
+    t('loanPages.syndicated.eligibility.minLoan'),
     t('loanPages.eligibility3Years'),
-    "Strong financial track record and ratings",
+    t('loanPages.syndicated.eligibility.strongRecord'),
     t('loanPages.auditedFinancials3Years'),
-    "Clear project/purpose for funds utilization",
-    "Ability to provide adequate security",
+    t('loanPages.syndicated.eligibility.clearPurpose'),
+    t('loanPages.syndicated.eligibility.adequateSecurity'),
   ];
 
   const documents = [
     t('loanPages.tradeLicenseMOA'),
-    "Audited financial statements (3 years)",
-    "Detailed business plan and projections",
+    t('loanPages.syndicated.documents.auditedFinancials'),
+    t('loanPages.syndicated.documents.businessPlan'),
     t('loanPages.passportCopies'),
     t('loanPages.vatReturns'),
-    "Collateral documentation and board resolution",
+    t('loanPages.syndicated.documents.collateral'),
   ];
 
   const whyChooseUs = [
     {
       icon: Network,
-      title: "Lender Network",
-      description: "Access to 15+ banks and NBFCs for consortium arrangements",
+      titleKey: 'loanPages.syndicated.advantage.lenderNetwork',
+      descKey: 'loanPages.syndicated.advantage.lenderNetworkDesc',
     },
     {
       icon: Scale,
-      title: "Deal Structuring",
-      description: "Expert team to structure optimal lending arrangements",
+      titleKey: 'loanPages.syndicated.advantage.dealStructuring',
+      descKey: 'loanPages.syndicated.advantage.dealStructuringDesc',
     },
     {
       icon: Handshake,
-      title: "Single Point Contact",
-      description: "We manage all lender relationships on your behalf",
+      titleKey: 'loanPages.syndicated.advantage.singlePoint',
+      descKey: 'loanPages.syndicated.advantage.singlePointDesc',
     },
     {
       icon: BadgeCheck,
-      title: "Proven Track Record",
-      description: "Successfully arranged AED 500M+ in syndicated facilities",
+      titleKey: 'loanPages.syndicated.advantage.provenTrack',
+      descKey: 'loanPages.syndicated.advantage.provenTrackDesc',
     },
   ];
 
@@ -180,7 +180,7 @@ const Syndicated = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {whyChooseUs.map((item, index) => (
               <motion.div
-                key={item.title}
+                key={item.titleKey}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -190,8 +190,8 @@ const Syndicated = () => {
                 <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
-                <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                <p className="text-sm text-white/70">{item.description}</p>
+                <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
+                <p className="text-sm text-white/70">{t(item.descKey)}</p>
               </motion.div>
             ))}
           </div>
