@@ -531,7 +531,7 @@ const BusinessLoans = () => {
                 ].map((key, index) => (
                   <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                    <p className="text-white/90 text-sm">{t(key)}</p>
+                    <p className={`text-white/90 text-sm ${isRTL ? 'text-right flex-1' : ''}`}>{t(key)}</p>
                   </div>
                 ))}
               </div>
@@ -564,9 +564,9 @@ const BusinessLoans = () => {
               </div>
               <div className="space-y-4">
                 {eligibility.map((key, index) => (
-                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse text-right' : ''}`}>
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-                    <p className="text-foreground">{t(key)}</p>
+                    <p className={`text-foreground ${isRTL ? 'text-right flex-1' : ''}`}>{t(key)}</p>
                   </div>
                 ))}
               </div>
@@ -582,9 +582,9 @@ const BusinessLoans = () => {
               </div>
               <div className="space-y-4">
                 {documents.map((key, index) => (
-                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse text-right' : ''}`}>
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                    <p className="text-foreground">{t(key)}</p>
+                    <p className={`text-foreground ${isRTL ? 'text-right flex-1' : ''}`}>{t(key)}</p>
                   </div>
                 ))}
               </div>
