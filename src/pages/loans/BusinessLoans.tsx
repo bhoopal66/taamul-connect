@@ -53,7 +53,7 @@ const eligibility = [
   "Valid trade license",
   "Audited financial statements for 2+ years",
   "Positive credit history with no defaults",
-  "UAE residence visa for business owners",
+  "UAE residence visa for signatories",
 ];
 
 const documents = [
