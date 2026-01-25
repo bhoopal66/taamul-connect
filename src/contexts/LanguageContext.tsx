@@ -247,6 +247,28 @@ const translations = {
       teamAvailable: "Our team is available during business hours to answer your questions.",
       callNow: "Call Now",
       whatsappUs: "WhatsApp Us",
+      successTitle: "Message Sent Successfully",
+      successDescription: "We'll get back to you within 24 hours.",
+      validation: {
+        nameRequired: "Name is required",
+        nameTooLong: "Name must be less than 100 characters",
+        invalidEmail: "Invalid email address",
+        emailTooLong: "Email must be less than 255 characters",
+        phoneRequired: "Phone number is required",
+        phoneTooLong: "Phone number must be less than 20 characters",
+        companyTooLong: "Company name must be less than 200 characters",
+        subjectRequired: "Please select a subject",
+        messageRequired: "Message is required",
+        messageTooLong: "Message must be less than 1000 characters"
+      },
+      officeDetails: {
+        companyName: "Taamul Credit Review Services LLC",
+        address1: "319 Gharhoud Star Building",
+        address2: "Dubai, UAE",
+        hours1: "Mon - Fri: 10:00 AM - 2:00 PM",
+        hours2: "Sat: 10:00 AM - 2:00 PM",
+        hours3: "Sun: Closed"
+      },
       subjects: {
         businessLoan: "Business Loan Inquiry",
         accountOpening: "Account Opening",
@@ -991,6 +1013,28 @@ const translations = {
       teamAvailable: "فريقنا متاح خلال ساعات العمل للإجابة على أسئلتك.",
       callNow: "اتصل الآن",
       whatsappUs: "راسلنا على واتساب",
+      successTitle: "تم إرسال الرسالة بنجاح",
+      successDescription: "سنتواصل معك خلال 24 ساعة.",
+      validation: {
+        nameRequired: "الاسم مطلوب",
+        nameTooLong: "يجب أن يكون الاسم أقل من 100 حرف",
+        invalidEmail: "عنوان البريد الإلكتروني غير صالح",
+        emailTooLong: "يجب أن يكون البريد الإلكتروني أقل من 255 حرفاً",
+        phoneRequired: "رقم الهاتف مطلوب",
+        phoneTooLong: "يجب أن يكون رقم الهاتف أقل من 20 حرفاً",
+        companyTooLong: "يجب أن يكون اسم الشركة أقل من 200 حرف",
+        subjectRequired: "يرجى اختيار موضوع",
+        messageRequired: "الرسالة مطلوبة",
+        messageTooLong: "يجب أن تكون الرسالة أقل من 1000 حرف"
+      },
+      officeDetails: {
+        companyName: "شركة تعامل لخدمات مراجعة الائتمان ذ.م.م",
+        address1: "319 مبنى غرهود ستار",
+        address2: "دبي، الإمارات العربية المتحدة",
+        hours1: "الاثنين - الجمعة: 10:00 ص - 2:00 م",
+        hours2: "السبت: 10:00 ص - 2:00 م",
+        hours3: "الأحد: مغلق"
+      },
       subjects: {
         businessLoan: "استفسار عن قرض تجاري",
         accountOpening: "فتح حساب",

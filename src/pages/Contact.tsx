@@ -48,29 +48,29 @@ const Contact = () => {
     name: z
       .string()
       .trim()
-      .min(1, { message: t('contact.fullName') + " is required" })
-      .max(100, { message: "Name must be less than 100 characters" }),
+      .min(1, { message: t('contact.validation.nameRequired') })
+      .max(100, { message: t('contact.validation.nameTooLong') }),
     email: z
       .string()
       .trim()
-      .email({ message: "Invalid email address" })
-      .max(255, { message: "Email must be less than 255 characters" }),
+      .email({ message: t('contact.validation.invalidEmail') })
+      .max(255, { message: t('contact.validation.emailTooLong') }),
     phone: z
       .string()
       .trim()
-      .min(1, { message: t('contact.phoneNumber') + " is required" })
-      .max(20, { message: "Phone number must be less than 20 characters" }),
+      .min(1, { message: t('contact.validation.phoneRequired') })
+      .max(20, { message: t('contact.validation.phoneTooLong') }),
     company: z
       .string()
       .trim()
-      .max(200, { message: "Company name must be less than 200 characters" })
+      .max(200, { message: t('contact.validation.companyTooLong') })
       .optional(),
-    subject: z.string().min(1, { message: "Please select a subject" }),
+    subject: z.string().min(1, { message: t('contact.validation.subjectRequired') }),
     message: z
       .string()
       .trim()
-      .min(1, { message: t('contact.message') + " is required" })
-      .max(1000, { message: "Message must be less than 1000 characters" }),
+      .min(1, { message: t('contact.validation.messageRequired') })
+      .max(1000, { message: t('contact.validation.messageTooLong') }),
   });
 
   type ContactFormData = z.infer<typeof contactSchema>;
@@ -79,10 +79,10 @@ const Contact = () => {
     {
       icon: Building2,
       titleKey: "contact.headOffice",
-      details: [
-        "Taamul Credit Review Services LLC",
-        "319 Gharhoud Star Building",
-        "Dubai, UAE",
+      detailKeys: [
+        "contact.officeDetails.companyName",
+        "contact.officeDetails.address1",
+        "contact.officeDetails.address2",
       ],
     },
     {
@@ -98,10 +98,10 @@ const Contact = () => {
     {
       icon: Clock,
       titleKey: "contact.officeHours",
-      details: [
-        "Mon - Fri: 10:00 AM - 2:00 PM",
-        "Sat: 10:00 AM - 2:00 PM",
-        "Sun: Closed",
+      detailKeys: [
+        "contact.officeDetails.hours1",
+        "contact.officeDetails.hours2",
+        "contact.officeDetails.hours3",
       ],
     },
   ];
@@ -132,8 +132,8 @@ const Contact = () => {
     setIsSubmitting(false);
     
     toast({
-      title: "Message Sent Successfully",
-      description: "We'll get back to you within 24 hours.",
+      title: t('contact.successTitle'),
+      description: t('contact.successDescription'),
     });
     
     form.reset();
@@ -364,23 +364,6 @@ const Contact = () => {
                     )}
                   />
 
-                  <FormField
-                    control={form.control}
-                    name="message"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Message *</FormLabel>
-                        <FormControl>
-                          <Textarea
-                            placeholder="Tell us about your financing needs..."
-                            className="min-h-[120px] resize-none"
-                            {...field}
-                          />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
 
                   <Button
                     type="submit"
@@ -417,11 +400,19 @@ const Contact = () => {
                     <h3 className="text-lg font-semibold text-foreground mb-2">
                       {t(info.titleKey)}
                     </h3>
-                    {info.details.map((detail, index) => (
-                      <p key={index} className="text-muted-foreground text-sm">
-                        {detail}
-                      </p>
-                    ))}
+                    {info.detailKeys ? (
+                      info.detailKeys.map((key, index) => (
+                        <p key={index} className="text-muted-foreground text-sm">
+                          {t(key)}
+                        </p>
+                      ))
+                    ) : (
+                      info.details?.map((detail, index) => (
+                        <p key={index} className="text-muted-foreground text-sm">
+                          {detail}
+                        </p>
+                      ))
+                    )}
                   </div>
                 ))}
               </div>
