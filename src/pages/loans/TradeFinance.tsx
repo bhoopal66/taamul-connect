@@ -139,7 +139,7 @@ const TradeFinance = () => {
                 {fundingOptions.map((item, index) => (
                   <div key={index} className={`flex gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div className={isRTL ? 'text-right' : ''}>
+                    <div className={`flex-1 ${isRTL ? 'text-right' : 'text-left'}`}>
                       <p className="text-primary font-medium text-base">{t(item.titleKey)}</p>
                       <p className="text-muted-foreground text-sm">{t(item.descKey)}</p>
                     </div>
