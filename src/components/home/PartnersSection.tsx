@@ -20,6 +20,7 @@ const fintechPartners = [
   { name: "Zelo", abbr: "ZELO" },
   { name: "Flow 48", abbr: "FLOW 48" },
   { name: "in24", abbr: "IN24" },
+  { name: "Flo 488", abbr: "FLO 488" },
 ];
 
 const PartnersSection = () => {
