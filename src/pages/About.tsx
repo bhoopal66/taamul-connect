@@ -70,9 +70,9 @@ const values = [
 
 const team = [
   {
-    name: "Ahmed Al Rashid",
+    name: "Bhoopal Narayanaswamy",
     role: "Founder & CEO",
-    bio: "20+ years in UAE banking and financial services. Former senior executive at a leading UAE bank.",
+    bio: "Chartered Accountant with 30+ years' MENA experience, specializing in financial due diligence, structuring, investment management, audits, performance management, and CFO services.",
     image: null
   },
   {
