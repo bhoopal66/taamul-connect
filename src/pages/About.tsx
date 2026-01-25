@@ -13,8 +13,7 @@ import {
   Building2,
   Handshake,
   ArrowRight,
-  CheckCircle2,
-  Linkedin
+  CheckCircle2
 } from "lucide-react";
 
 const milestones = [
@@ -293,12 +292,6 @@ const About = () => {
                   <p className="text-muted-foreground text-sm leading-relaxed">
                     {member.bio}
                   </p>
-                  
-                  {/* LinkedIn */}
-                  <button className="mt-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-all duration-300">
-                    <Linkedin className="h-4 w-4" />
-                    <span className="text-sm font-medium">Connect</span>
-                  </button>
                 </div>
               </div>
             ))}
