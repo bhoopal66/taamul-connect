@@ -264,29 +264,33 @@ const About = () => {
                 className="group flex-1 max-w-md bg-card rounded-2xl overflow-hidden shadow-lg border border-border hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
               >
                 {/* Avatar Section */}
-                <div className="relative h-64 bg-gradient-to-br from-primary via-primary/80 to-navy-light overflow-hidden">
+                <div className="relative h-80 bg-gradient-to-br from-primary via-primary/80 to-navy-light overflow-hidden">
                   {/* Decorative Pattern */}
                   <div className="absolute inset-0 opacity-10">
-                    <div className="absolute top-4 right-4 w-32 h-32 border border-white/30 rounded-full" />
-                    <div className="absolute bottom-4 left-4 w-24 h-24 border border-white/30 rounded-full" />
+                    <div className="absolute top-4 right-4 w-40 h-40 border-2 border-white/30 rounded-full" />
+                    <div className="absolute bottom-4 left-4 w-32 h-32 border-2 border-white/30 rounded-full" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 border border-white/10 rounded-full" />
                   </div>
                   
                   {/* Avatar */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     {member.image ? (
                       <div className="relative">
-                        <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl scale-110" />
+                        <div className="absolute inset-0 bg-gold/30 rounded-full blur-2xl scale-125" />
                         <img 
                           src={member.image} 
                           alt={member.name}
-                          className="relative w-36 h-36 rounded-full object-cover object-top ring-4 ring-white/40 shadow-2xl group-hover:scale-105 transition-transform duration-300"
+                          className="relative w-48 h-48 rounded-full object-cover object-top ring-[6px] ring-white/50 shadow-2xl group-hover:scale-110 transition-transform duration-500"
                         />
                       </div>
                     ) : (
-                      <div className="w-36 h-36 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-4 ring-white/40 shadow-2xl group-hover:scale-105 transition-transform duration-300">
-                        <span className="text-4xl font-bold text-white">
-                          {member.name.split(' ').map(n => n[0]).join('')}
-                        </span>
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-white/10 rounded-full blur-2xl scale-125" />
+                        <div className="relative w-48 h-48 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-[6px] ring-white/50 shadow-2xl group-hover:scale-110 transition-transform duration-500">
+                          <span className="text-5xl font-bold text-white">
+                            {member.name.split(' ').map(n => n[0]).join('')}
+                          </span>
+                        </div>
                       </div>
                     )}
                   </div>
