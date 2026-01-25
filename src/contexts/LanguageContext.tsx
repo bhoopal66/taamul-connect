@@ -276,7 +276,7 @@ const translations = {
       advisoryServices: "Advisory Services",
       strategicFinancial: "Strategic Financial Advisory",
       advisoryServicesDesc: "Beyond financing, our expert advisors help you optimize your capital structure and access innovative funding solutions for sustainable growth.",
-      faq: "Frequently Asked Questions",
+      faqTitle: "Frequently Asked Questions",
       faqHeading: "Common Questions About Business Financing",
       faqDesc: "Find answers to the most common questions about our services and financing process.",
       faq: {
