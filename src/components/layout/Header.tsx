@@ -1,4 +1,4 @@
-import { useState, useEffect, forwardRef } from "react";
+import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, ChevronDown, Globe, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -14,7 +14,7 @@ import { cn } from "@/lib/utils";
 import { useLanguage } from "@/contexts/LanguageContext";
 import taamulLogo from "@/assets/taamul-logo-new.png";
 
-const Header = forwardRef<HTMLDivElement>((_, ref) => {
+const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
@@ -447,8 +447,6 @@ const Header = forwardRef<HTMLDivElement>((_, ref) => {
       </header>
     </>
   );
-});
-
-Header.displayName = "Header";
+};
 
 export default Header;
