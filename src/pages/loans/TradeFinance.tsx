@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import {
   CheckCircle2,
   ArrowRight,
   Ship,
-  Percent,
   Clock,
   Shield,
   FileText,
