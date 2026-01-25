@@ -83,11 +83,6 @@ const benefits = [
     description: "Your data is protected with bank-grade security throughout the process"
   },
   {
-    icon: Shield,
-    title: "Secure & Confidential",
-    description: "Your data is protected with bank-grade security throughout the process"
-  },
-  {
     icon: Users,
     title: "Dedicated Support",
     description: "A relationship manager guides you through every step of the journey"
