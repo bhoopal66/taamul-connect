@@ -264,7 +264,7 @@ const About = () => {
                 className="group flex-1 max-w-md bg-card rounded-2xl overflow-hidden shadow-lg border border-border hover:shadow-2xl hover:border-primary/20 transition-all duration-300"
               >
                 {/* Avatar Section */}
-                <div className="relative h-56 bg-gradient-to-br from-primary via-primary/80 to-navy-light overflow-hidden">
+                <div className="relative h-64 bg-gradient-to-br from-primary via-primary/80 to-navy-light overflow-hidden">
                   {/* Decorative Pattern */}
                   <div className="absolute inset-0 opacity-10">
                     <div className="absolute top-4 right-4 w-32 h-32 border border-white/30 rounded-full" />
@@ -274,13 +274,16 @@ const About = () => {
                   {/* Avatar */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     {member.image ? (
-                      <img 
-                        src={member.image} 
-                        alt={member.name}
-                        className="w-28 h-28 rounded-full object-cover ring-4 ring-white/30 group-hover:scale-105 transition-transform duration-300"
-                      />
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gold/20 rounded-full blur-xl scale-110" />
+                        <img 
+                          src={member.image} 
+                          alt={member.name}
+                          className="relative w-36 h-36 rounded-full object-cover object-top ring-4 ring-white/40 shadow-2xl group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
                     ) : (
-                      <div className="w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-4 ring-white/30 group-hover:scale-105 transition-transform duration-300">
+                      <div className="w-36 h-36 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-4 ring-white/40 shadow-2xl group-hover:scale-105 transition-transform duration-300">
                         <span className="text-4xl font-bold text-white">
                           {member.name.split(' ').map(n => n[0]).join('')}
                         </span>
