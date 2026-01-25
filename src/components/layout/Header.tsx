@@ -11,30 +11,32 @@ import {
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
 import { cn } from "@/lib/utils";
+import { useLanguage } from "@/contexts/LanguageContext";
 import taamulLogo from "@/assets/taamul-logo-new.png";
-const loanServices = [
-  { name: "Business Loans", href: "/loans/business-loans", description: "Fixed-term financing for business growth" },
-  { name: "Working Capital", href: "/loans/working-capital", description: "Manage daily operations smoothly" },
-  { name: "Secured Loans", href: "/loans/secured-loans", description: "Asset-backed financing solutions" },
-  { name: "SME Loans", href: "/loans/sme-loans", description: "Tailored for small & medium enterprises" },
-  { name: "Corporate Loans", href: "/loans/corporate-loans", description: "Large-scale corporate financing" },
-  { name: "Equipment Financing", href: "/loans/equipment-financing", description: "Fund machinery & equipment" },
-  { name: "Trade Finance", href: "/loans/trade-finance", description: "Import/export financing solutions" },
-  { name: "Syndicated Loans", href: "/loans/syndicated", description: "Partnership lending programs" },
-];
-
-const advisoryServices = [
-  { name: "Debt Advisory & Structuring", href: "/services/debt-advisory", description: "Optimize your debt portfolio" },
-  { name: "Mezzanine & Hybrid Financing", href: "/services/mezzanine-financing", description: "Flexible capital solutions" },
-  { name: "Bank Financing", href: "/services", description: "Comprehensive bank loan products" },
-];
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [language, setLanguage] = useState<"EN" | "AR">("EN");
   const [openMobileDropdown, setOpenMobileDropdown] = useState<string | null>(null);
   const location = useLocation();
+  const { language, setLanguage, t, isRTL } = useLanguage();
+
+  const loanServices = [
+    { name: t('loanServices.businessLoans'), href: "/loans/business-loans", description: t('loanServices.businessLoansDesc') },
+    { name: t('loanServices.workingCapital'), href: "/loans/working-capital", description: t('loanServices.workingCapitalDesc') },
+    { name: t('loanServices.securedLoans'), href: "/loans/secured-loans", description: t('loanServices.securedLoansDesc') },
+    { name: t('loanServices.smeLoans'), href: "/loans/sme-loans", description: t('loanServices.smeLoansDesc') },
+    { name: t('loanServices.corporateLoans'), href: "/loans/corporate-loans", description: t('loanServices.corporateLoansDesc') },
+    { name: t('loanServices.equipmentFinancing'), href: "/loans/equipment-financing", description: t('loanServices.equipmentFinancingDesc') },
+    { name: t('loanServices.tradeFinance'), href: "/loans/trade-finance", description: t('loanServices.tradeFinanceDesc') },
+    { name: t('loanServices.syndicatedLoans'), href: "/loans/syndicated", description: t('loanServices.syndicatedLoansDesc') },
+  ];
+
+  const advisoryServices = [
+    { name: t('advisoryServices.debtAdvisory'), href: "/services/debt-advisory", description: t('advisoryServices.debtAdvisoryDesc') },
+    { name: t('advisoryServices.mezzanineFinancing'), href: "/services/mezzanine-financing", description: t('advisoryServices.mezzanineFinancingDesc') },
+    { name: t('advisoryServices.bankFinancing'), href: "/services", description: t('advisoryServices.bankFinancingDesc') },
+  ];
 
   useEffect(() => {
     const handleScroll = () => {
@@ -57,30 +59,34 @@ const Header = () => {
     setOpenMobileDropdown(openMobileDropdown === dropdown ? null : dropdown);
   };
 
+  const toggleLanguage = () => {
+    setLanguage(language === 'en' ? 'ar' : 'en');
+  };
+
   return (
     <>
       {/* Top Bar */}
       <div className="hidden lg:block bg-primary text-primary-foreground">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-10 text-sm">
-            <div className="flex items-center gap-6">
-              <a href="tel:+97142234567" className="flex items-center gap-2 hover:text-accent transition-colors">
+          <div className={cn("flex items-center justify-between h-10 text-sm", isRTL && "flex-row-reverse")}>
+            <div className={cn("flex items-center gap-6", isRTL && "flex-row-reverse")}>
+              <a href="tel:+97142234567" className={cn("flex items-center gap-2 hover:text-accent transition-colors", isRTL && "flex-row-reverse")}>
                 <Phone className="h-3.5 w-3.5" />
                 +971 4 223 4567
               </a>
-              <a href="mailto:info@taamul.ae" className="flex items-center gap-2 hover:text-accent transition-colors">
+              <a href="mailto:info@taamul.ae" className={cn("flex items-center gap-2 hover:text-accent transition-colors", isRTL && "flex-row-reverse")}>
                 <Mail className="h-3.5 w-3.5" />
                 info@taamul.ae
               </a>
             </div>
-            <div className="flex items-center gap-4">
-              <span className="text-primary-foreground/80">UAE's Trusted Business Finance Partner</span>
+            <div className={cn("flex items-center gap-4", isRTL && "flex-row-reverse")}>
+              <span className="text-primary-foreground/80">{t('topBar.tagline')}</span>
               <button
-                onClick={() => setLanguage(language === "EN" ? "AR" : "EN")}
-                className="flex items-center gap-1.5 px-3 py-1 rounded bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors"
+                onClick={toggleLanguage}
+                className={cn("flex items-center gap-1.5 px-3 py-1 rounded bg-primary-foreground/10 hover:bg-primary-foreground/20 transition-colors", isRTL && "flex-row-reverse")}
               >
                 <Globe className="h-3.5 w-3.5" />
-                {language}
+                {language === 'en' ? 'العربية' : 'English'}
               </button>
             </div>
           </div>
@@ -95,16 +101,16 @@ const Header = () => {
         )}
       >
         <div className="container mx-auto px-4">
-          <nav className="flex items-center justify-between h-16 lg:h-20">
+          <nav className={cn("flex items-center justify-between h-16 lg:h-20", isRTL && "flex-row-reverse")}>
             {/* Logo */}
             <Link to="/" className="flex items-center">
               <img src={taamulLogo} alt="Taamul Credit Review Services" className="h-[8.25rem] w-auto" />
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden lg:flex items-center gap-8">
+            <div className={cn("hidden lg:flex items-center gap-8", isRTL && "flex-row-reverse")}>
               <NavigationMenu>
-                <NavigationMenuList className="gap-6">
+                <NavigationMenuList className={cn("gap-6", isRTL && "flex-row-reverse")}>
                   <NavigationMenuItem>
                     <Link
                       to="/"
@@ -113,7 +119,7 @@ const Header = () => {
                         isActive("/") ? "text-accent" : "text-foreground"
                       )}
                     >
-                      Home
+                      {t('nav.home')}
                     </Link>
                   </NavigationMenuItem>
 
@@ -125,13 +131,13 @@ const Header = () => {
                         isLoanActive() ? "text-accent" : "text-foreground"
                       )}
                     >
-                      Loans
+                      {t('nav.loans')}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="w-[600px] p-6 bg-card border border-border rounded-lg shadow-elevated">
-                        <div className="mb-4 pb-3 border-b border-border">
-                          <h3 className="font-semibold text-foreground">Loan Products</h3>
-                          <p className="text-sm text-muted-foreground">Comprehensive financing solutions for your business</p>
+                        <div className={cn("mb-4 pb-3 border-b border-border", isRTL && "text-right")}>
+                          <h3 className="font-semibold text-foreground">{t('nav.loanProducts')}</h3>
+                          <p className="text-sm text-muted-foreground">{t('nav.comprehensiveFinancing')}</p>
                         </div>
                         <div className="grid grid-cols-2 gap-2">
                           {loanServices.map((loan) => (
@@ -140,7 +146,8 @@ const Header = () => {
                                 to={loan.href}
                                 className={cn(
                                   "block p-3 rounded-lg hover:bg-muted transition-colors group",
-                                  isActive(loan.href) && "bg-accent/5"
+                                  isActive(loan.href) && "bg-accent/5",
+                                  isRTL && "text-right"
                                 )}
                               >
                                 <span className={cn(
@@ -154,12 +161,12 @@ const Header = () => {
                             </NavigationMenuLink>
                           ))}
                         </div>
-                        <div className="mt-4 pt-3 border-t border-border">
+                        <div className={cn("mt-4 pt-3 border-t border-border", isRTL && "text-right")}>
                           <Link
                             to="/services"
                             className="text-sm text-accent hover:text-accent/80 font-medium"
                           >
-                            View all services →
+                            {t('nav.viewAllServices')} {isRTL ? '←' : '→'}
                           </Link>
                         </div>
                       </div>
@@ -174,7 +181,7 @@ const Header = () => {
                         isServiceActive() ? "text-accent" : "text-foreground"
                       )}
                     >
-                      Services
+                      {t('nav.services')}
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>
                       <div className="w-[400px] p-6 bg-card border border-border rounded-lg shadow-elevated">
@@ -185,7 +192,8 @@ const Header = () => {
                                 to={service.href}
                                 className={cn(
                                   "block p-3 rounded-lg hover:bg-muted transition-colors group",
-                                  isActive(service.href) && "bg-accent/5"
+                                  isActive(service.href) && "bg-accent/5",
+                                  isRTL && "text-right"
                                 )}
                               >
                                 <span className={cn(
@@ -211,8 +219,8 @@ const Header = () => {
                         isActive("/business-accounts") ? "text-accent" : "text-foreground"
                       )}
                     >
-                      <span className="block text-center">Business</span>
-                      <span className="block text-center text-[13px]">Accounts</span>
+                      <span className="block text-center">{t('nav.businessAccounts').split(' ')[0]}</span>
+                      <span className="block text-center text-[13px]">{t('nav.businessAccounts').split(' ').slice(1).join(' ')}</span>
                     </Link>
                   </NavigationMenuItem>
 
@@ -224,7 +232,7 @@ const Header = () => {
                         isActive("/how-it-works") ? "text-accent" : "text-foreground"
                       )}
                     >
-                      How It Works
+                      {t('nav.howItWorks')}
                     </Link>
                   </NavigationMenuItem>
 
@@ -236,7 +244,7 @@ const Header = () => {
                         isActive("/about") ? "text-accent" : "text-foreground"
                       )}
                     >
-                      About
+                      {t('nav.about')}
                     </Link>
                   </NavigationMenuItem>
 
@@ -248,7 +256,7 @@ const Header = () => {
                         isActive("/contact") ? "text-accent" : "text-foreground"
                       )}
                     >
-                      Contact
+                      {t('nav.contact')}
                     </Link>
                   </NavigationMenuItem>
                 </NavigationMenuList>
@@ -256,9 +264,9 @@ const Header = () => {
             </div>
 
             {/* Right Side - CTA */}
-            <div className="hidden lg:flex items-center gap-3">
+            <div className={cn("hidden lg:flex items-center gap-3", isRTL && "flex-row-reverse")}>
               <Button asChild variant="default" size="default">
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact">{t('nav.contactUs')}</Link>
               </Button>
             </div>
 
@@ -284,7 +292,19 @@ const Header = () => {
             isMobileMenuOpen ? "max-h-[calc(100vh-4rem)]" : "max-h-0"
           )}
         >
-          <div className="container mx-auto px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto">
+          <div className={cn("container mx-auto px-4 py-4 space-y-1 max-h-[70vh] overflow-y-auto", isRTL && "text-right")}>
+            {/* Language Toggle for Mobile */}
+            <button
+              onClick={toggleLanguage}
+              className={cn("w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium bg-primary/10 text-primary mb-2", isRTL && "flex-row-reverse")}
+            >
+              <span className={cn("flex items-center gap-2", isRTL && "flex-row-reverse")}>
+                <Globe className="h-4 w-4" />
+                {language === 'en' ? 'Switch to Arabic' : 'التبديل إلى الإنجليزية'}
+              </span>
+              <span>{language === 'en' ? 'العربية' : 'English'}</span>
+            </button>
+
             <Link
               to="/"
               className={cn(
@@ -292,7 +312,7 @@ const Header = () => {
                 isActive("/") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
-              Home
+              {t('nav.home')}
             </Link>
 
             {/* Mobile Loans Accordion */}
@@ -301,10 +321,11 @@ const Header = () => {
                 onClick={() => toggleMobileDropdown("loans")}
                 className={cn(
                   "w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-colors",
-                  isLoanActive() ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
+                  isLoanActive() ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted",
+                  isRTL && "flex-row-reverse"
                 )}
               >
-                <span>Loans</span>
+                <span>{t('nav.loans')}</span>
                 <ChevronDown
                   className={cn(
                     "h-4 w-4 transition-transform duration-200",
@@ -318,7 +339,7 @@ const Header = () => {
                   openMobileDropdown === "loans" ? "max-h-96" : "max-h-0"
                 )}
               >
-                <div className="pl-4 py-2 space-y-1">
+                <div className={cn("pl-4 py-2 space-y-1", isRTL && "pl-0 pr-4")}>
                   {loanServices.map((loan) => (
                     <Link
                       key={loan.href}
@@ -341,10 +362,11 @@ const Header = () => {
                 onClick={() => toggleMobileDropdown("services")}
                 className={cn(
                   "w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-colors",
-                  isServiceActive() ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
+                  isServiceActive() ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted",
+                  isRTL && "flex-row-reverse"
                 )}
               >
-                <span>Services</span>
+                <span>{t('nav.services')}</span>
                 <ChevronDown
                   className={cn(
                     "h-4 w-4 transition-transform duration-200",
@@ -358,7 +380,7 @@ const Header = () => {
                   openMobileDropdown === "services" ? "max-h-60" : "max-h-0"
                 )}
               >
-                <div className="pl-4 py-2 space-y-1">
+                <div className={cn("pl-4 py-2 space-y-1", isRTL && "pl-0 pr-4")}>
                   {advisoryServices.map((service) => (
                     <Link
                       key={service.href}
@@ -382,7 +404,7 @@ const Header = () => {
                 isActive("/business-accounts") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
-              Business Accounts
+              {t('nav.businessAccounts')}
             </Link>
 
             <Link
@@ -392,7 +414,7 @@ const Header = () => {
                 isActive("/how-it-works") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
-              How It Works
+              {t('nav.howItWorks')}
             </Link>
 
             <Link
@@ -402,7 +424,7 @@ const Header = () => {
                 isActive("/about") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
-              About
+              {t('nav.about')}
             </Link>
 
             <Link
@@ -412,34 +434,13 @@ const Header = () => {
                 isActive("/contact") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
               )}
             >
-              Contact
+              {t('nav.contact')}
             </Link>
 
-            {/* Mobile Actions */}
-            <div className="pt-4 mt-4 border-t border-border space-y-3">
-              <div className="flex items-center justify-between px-4 py-2 bg-muted/50 rounded-lg">
-                <span className="text-sm text-muted-foreground">Language</span>
-                <button
-                  onClick={() => setLanguage(language === "EN" ? "AR" : "EN")}
-                  className="flex items-center gap-2 px-3 py-1.5 bg-card rounded-md text-sm font-medium border border-border"
-                >
-                  <Globe className="h-4 w-4" />
-                  {language === "EN" ? "English" : "العربية"}
-                </button>
-              </div>
-
-              <div className="flex items-center gap-3 px-4">
-                <a href="tel:+97142234567" className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground">
-                  <Phone className="h-4 w-4" />
-                  +971 4 223 4567
-                </a>
-              </div>
-
-              <div className="flex justify-center">
-                <Button asChild variant="default" size="lg" className="w-full">
-                  <Link to="/contact">Contact Us</Link>
-                </Button>
-              </div>
+            <div className="pt-4">
+              <Button asChild className="w-full" size="lg">
+                <Link to="/contact">{t('nav.contactUs')}</Link>
+              </Button>
             </div>
           </div>
         </div>

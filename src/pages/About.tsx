@@ -2,6 +2,8 @@ import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { cn } from "@/lib/utils";
 import teamBhoopal from "@/assets/team-bhoopal.jpg";
 import { 
   Target, 
@@ -17,80 +19,90 @@ import {
   CheckCircle2
 } from "lucide-react";
 
-const milestones = [
-  {
-    year: "2021",
-    title: "Founded in Dubai",
-    description: "TAAMUL Credit Review Services LLC was established in Dubai with a vision to simplify business financing in the UAE."
-  },
-  {
-    year: "2023",
-    title: "RAKBANK Partnership",
-    description: "Established our first major lender partnership with RAKBANK, expanding access to business financing solutions."
-  },
-  {
-    year: "2024",
-    title: "UBL & Ruya Bank Partnerships",
-    description: "Strengthened our lending network by partnering with UBL and Ruya Bank, offering more diverse financing options."
-  },
-  {
-    year: "2025",
-    title: "NBF & WIO Bank Partnerships",
-    description: "Expanded partnerships with National Bank of Fujairah (NBF) and WIO Bank, further enhancing our lending capabilities."
-  },
-  {
-    year: "2025",
-    title: "Fintech Partnerships",
-    description: "Partnered with leading fintech platforms including Credible X, Flapcap, Comfi, Funding Souq, Zelo, and Flow 48."
-  }
-];
-
-const values = [
-  {
-    icon: Shield,
-    title: "Integrity",
-    description: "We operate with complete transparency and honesty in every client interaction and banking relationship."
-  },
-  {
-    icon: Users,
-    title: "Client-Centric",
-    description: "Your success is our success. We tailor solutions to meet your unique business needs and goals."
-  },
-  {
-    icon: TrendingUp,
-    title: "Excellence",
-    description: "We strive for the highest standards in service delivery, continuously improving our processes."
-  },
-  {
-    icon: Handshake,
-    title: "Partnership",
-    description: "We build lasting relationships with clients and banks, founded on trust and mutual respect."
-  }
-];
-
-const team = [
-  {
-    name: "Bhoopal Narayanaswamy",
-    role: "Founder & CEO",
-    bio: "Chartered Accountant with 30+ years' MENA experience, specializing in financial due diligence, structuring, investment management, audits, performance management, and CFO services.",
-    image: teamBhoopal
-  },
-  {
-    name: "Geetha Subramaniam",
-    role: "Founder & Director",
-    bio: "20+ years of experience in finance and management. CFA Level II candidate.",
-    image: null
-  }
-];
-
-const stats = [
-  { value: "500+", label: "Businesses Funded" },
-  { value: "AED 800M+", label: "Loans Facilitated" },
-  { value: "10+", label: "Banking Partners" },
-  { value: "95%", label: "Client Satisfaction" }
-];
-
 const About = () => {
+  const { t, isRTL } = useLanguage();
+
+  const milestones = [
+    {
+      year: "2021",
+      title: t('about.milestones.founded'),
+      description: t('about.milestones.foundedDesc')
+    },
+    {
+      year: "2023",
+      title: t('about.milestones.rakbank'),
+      description: t('about.milestones.rakbankDesc')
+    },
+    {
+      year: "2024",
+      title: t('about.milestones.ublRuya'),
+      description: t('about.milestones.ublRuyaDesc')
+    },
+    {
+      year: "2025",
+      title: t('about.milestones.nbfWio'),
+      description: t('about.milestones.nbfWioDesc')
+    },
+    {
+      year: "2025",
+      title: t('about.milestones.fintech'),
+      description: t('about.milestones.fintechDesc')
+    }
+  ];
+
+  const values = [
+    {
+      icon: Shield,
+      title: t('about.values.integrity'),
+      description: t('about.values.integrityDesc')
+    },
+    {
+      icon: Users,
+      title: t('about.values.clientCentric'),
+      description: t('about.values.clientCentricDesc')
+    },
+    {
+      icon: TrendingUp,
+      title: t('about.values.excellence'),
+      description: t('about.values.excellenceDesc')
+    },
+    {
+      icon: Handshake,
+      title: t('about.values.partnership'),
+      description: t('about.values.partnershipDesc')
+    }
+  ];
+
+  const team = [
+    {
+      name: "Bhoopal Narayanaswamy",
+      role: "Founder & CEO",
+      bio: "Chartered Accountant with 30+ years' MENA experience, specializing in financial due diligence, structuring, investment management, audits, performance management, and CFO services.",
+      image: teamBhoopal
+    },
+    {
+      name: "Geetha Subramaniam",
+      role: "Founder & Director",
+      bio: "20+ years of experience in finance and management. CFA Level II candidate.",
+      image: null
+    }
+  ];
+
+  const stats = [
+    { value: "500+", label: t('about.stats.businessesFunded') },
+    { value: "AED 800M+", label: t('about.stats.loansFacilitated') },
+    { value: "10+", label: t('about.stats.bankingPartners') },
+    { value: "95%", label: t('about.stats.clientSatisfaction') }
+  ];
+
+  const benefits = [
+    t('about.whyPartner.benefits.access'),
+    t('about.whyPartner.benefits.dedicated'),
+    t('about.whyPartner.benefits.fastTrack'),
+    t('about.whyPartner.benefits.noUpfront'),
+    t('about.whyPartner.benefits.expert')
+  ];
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -98,13 +110,12 @@ const About = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-navy-light">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-primary-foreground">
+          <div className={cn("max-w-4xl mx-auto text-center text-primary-foreground", isRTL && "text-right")}>
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
-              About TAAMUL
+              {t('about.title')}
             </h1>
-            <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
-              We are a trusted Direct Selling Agent (DSA) bridging the gap between 
-              ambitious UAE businesses and the financing they need to grow.
+            <p className={cn("text-xl text-white mb-8 max-w-3xl mx-auto", isRTL && "mx-0")}>
+              {t('about.subtitle')}
             </p>
           </div>
         </div>
@@ -113,7 +124,7 @@ const About = () => {
       {/* Stats Bar */}
       <section className="py-8 bg-card border-b border-border">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className={cn("grid grid-cols-2 md:grid-cols-4 gap-8", isRTL && "direction-rtl")}>
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-3xl md:text-4xl font-bold text-primary mb-1">
@@ -129,32 +140,26 @@ const About = () => {
       {/* Mission & Vision */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          <div className={cn("grid md:grid-cols-2 gap-12 max-w-5xl mx-auto", isRTL && "direction-rtl")}>
             {/* Mission */}
-            <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
-              <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6">
+            <div className={cn("bg-card rounded-2xl p-8 shadow-lg border border-border", isRTL && "text-right")}>
+              <div className={cn("w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-6", isRTL && "mr-0 ml-auto")}>
                 <Target className="h-7 w-7 text-primary" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">Our Mission</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">{t('about.mission.title')}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To empower UAE businesses with seamless access to tailored financing solutions. 
-                We simplify the complex world of business lending by connecting companies with 
-                the right banking partners, ensuring faster approvals, competitive rates, and 
-                a hassle-free experience from application to disbursement.
+                {t('about.mission.description')}
               </p>
             </div>
 
             {/* Vision */}
-            <div className="bg-card rounded-2xl p-8 shadow-lg border border-border">
-              <div className="w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6">
+            <div className={cn("bg-card rounded-2xl p-8 shadow-lg border border-border", isRTL && "text-right")}>
+              <div className={cn("w-14 h-14 rounded-xl bg-accent/10 flex items-center justify-center mb-6", isRTL && "mr-0 ml-auto")}>
                 <Eye className="h-7 w-7 text-accent" />
               </div>
-              <h2 className="text-2xl font-bold text-foreground mb-4">Our Vision</h2>
+              <h2 className="text-2xl font-bold text-foreground mb-4">{t('about.vision.title')}</h2>
               <p className="text-muted-foreground leading-relaxed">
-                To become the most trusted financial intermediary in the UAE, known for 
-                transforming how businesses access capital. We envision a future where 
-                every viable business can secure the funding it needs to thrive, supported 
-                by technology and guided by expertise.
+                {t('about.vision.description')}
               </p>
             </div>
           </div>
@@ -164,33 +169,47 @@ const About = () => {
       {/* Our Story / Timeline */}
       <section className="py-20 bg-muted/30">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className={cn("text-center mb-16", isRTL && "text-right")}>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our Journey
+              {t('about.journey.title')}
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              From a small team with a big vision to a leading financial services partner
+            <p className={cn("text-muted-foreground max-w-2xl mx-auto", isRTL && "mx-0")}>
+              {t('about.journey.subtitle')}
             </p>
           </div>
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Timeline Line */}
-              <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-0.5 bg-primary/20 transform md:-translate-x-1/2" />
+              <div className={cn(
+                "absolute top-0 bottom-0 w-0.5 bg-primary/20 transform",
+                isRTL ? "right-4 md:right-1/2 md:translate-x-1/2" : "left-4 md:left-1/2 md:-translate-x-1/2"
+              )} />
 
               {milestones.map((milestone, index) => (
                 <div 
-                  key={milestone.year}
-                  className={`relative flex items-start gap-8 mb-12 last:mb-0 ${
-                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                  }`}
+                  key={index}
+                  className={cn(
+                    "relative flex items-start gap-8 mb-12 last:mb-0",
+                    index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse',
+                    isRTL && "flex-row-reverse"
+                  )}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-4 md:left-1/2 w-4 h-4 bg-primary rounded-full transform -translate-x-1/2 mt-6 z-10 ring-4 ring-background" />
+                  <div className={cn(
+                    "absolute w-4 h-4 bg-primary rounded-full transform mt-6 z-10 ring-4 ring-background",
+                    isRTL ? "right-4 md:right-1/2 translate-x-1/2" : "left-4 md:left-1/2 -translate-x-1/2"
+                  )} />
 
                   {/* Content */}
-                  <div className={`ml-12 md:ml-0 md:w-1/2 ${index % 2 === 0 ? 'md:pr-12 md:text-right' : 'md:pl-12'}`}>
-                    <div className="bg-card rounded-xl p-6 shadow-md border border-border">
+                  <div className={cn(
+                    "md:w-1/2",
+                    isRTL ? "mr-12 md:mr-0" : "ml-12 md:ml-0",
+                    index % 2 === 0 
+                      ? (isRTL ? 'md:pl-12 md:text-left' : 'md:pr-12 md:text-right')
+                      : (isRTL ? 'md:pr-12 md:text-right' : 'md:pl-12')
+                  )}>
+                    <div className={cn("bg-card rounded-xl p-6 shadow-md border border-border", isRTL && "text-right")}>
                       <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-sm font-bold rounded-full mb-3">
                         {milestone.year}
                       </span>
@@ -212,16 +231,16 @@ const About = () => {
       {/* Values */}
       <section className="py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className={cn("text-center mb-16", isRTL && "text-right")}>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Our Values
+              {t('about.values.title')}
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              The principles that guide every interaction and decision we make
+            <p className={cn("text-muted-foreground max-w-2xl mx-auto", isRTL && "mx-0")}>
+              {t('about.values.subtitle')}
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          <div className={cn("grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto", isRTL && "direction-rtl")}>
             {values.map((value, index) => (
               <div 
                 key={index}
@@ -245,19 +264,19 @@ const About = () => {
       {/* Team Section */}
       <section className="py-24 bg-gradient-to-b from-muted/30 to-background">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
+          <div className={cn("text-center mb-16", isRTL && "text-right")}>
             <span className="inline-block px-4 py-1.5 bg-primary/10 text-primary text-sm font-semibold rounded-full mb-4">
-              Our Leadership
+              {t('about.team.ourLeadership')}
             </span>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Meet the Founders
+              {t('about.team.title')}
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Decades of combined experience in finance, banking, and business advisory
+            <p className={cn("text-muted-foreground max-w-2xl mx-auto text-lg", isRTL && "mx-0")}>
+              {t('about.team.subtitle')}
             </p>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-8 justify-center items-stretch max-w-4xl mx-auto">
+          <div className={cn("flex flex-col md:flex-row gap-8 justify-center items-stretch max-w-4xl mx-auto", isRTL && "md:flex-row-reverse")}>
             {team.map((member, index) => (
               <div 
                 key={index}
@@ -319,25 +338,17 @@ const About = () => {
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-5xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
+            <div className={cn("grid md:grid-cols-2 gap-12 items-center", isRTL && "direction-rtl")}>
+              <div className={isRTL ? "text-right" : ""}>
                 <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-6">
-                  Why Partner With TAAMUL?
+                  {t('about.whyPartner.title')}
                 </h2>
                 <p className="text-muted-foreground mb-8">
-                  We combine deep banking relationships, industry expertise, and a 
-                  client-first approach to deliver financing solutions that truly 
-                  work for your business.
+                  {t('about.whyPartner.description')}
                 </p>
                 <ul className="space-y-4">
-                  {[
-                    "Access to 10+ banking partners with competitive rates",
-                    "Dedicated relationship manager for personalized service",
-                    "Fast-track processing with average 7-10 day approval",
-                    "No upfront fees - we succeed when you succeed",
-                    "Expert guidance through every step of the process"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-start gap-3">
+                  {benefits.map((item, index) => (
+                    <li key={index} className={cn("flex items-start gap-3", isRTL && "flex-row-reverse")}>
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
                       <span className="text-foreground">{item}</span>
                     </li>
@@ -349,19 +360,19 @@ const About = () => {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-card rounded-xl p-5 text-center shadow-sm">
                     <Award className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="text-sm font-medium text-foreground">Authorised DSA</div>
+                    <div className="text-sm font-medium text-foreground">{t('about.whyPartner.badges.authorisedDsa')}</div>
                   </div>
                   <div className="bg-card rounded-xl p-5 text-center shadow-sm">
                     <Building2 className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="text-sm font-medium text-foreground">8+ Years in Dubai</div>
+                    <div className="text-sm font-medium text-foreground">{t('about.whyPartner.badges.yearsInDubai')}</div>
                   </div>
                   <div className="bg-card rounded-xl p-5 text-center shadow-sm">
                     <Users className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="text-sm font-medium text-foreground">Expert Team</div>
+                    <div className="text-sm font-medium text-foreground">{t('about.whyPartner.badges.expertTeam')}</div>
                   </div>
                   <div className="bg-card rounded-xl p-5 text-center shadow-sm">
                     <Heart className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="text-sm font-medium text-foreground">Client First</div>
+                    <div className="text-sm font-medium text-foreground">{t('about.whyPartner.badges.clientFirst')}</div>
                   </div>
                 </div>
               </div>
@@ -373,23 +384,23 @@ const About = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-primary to-navy-light">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center text-primary-foreground">
+          <div className={cn("max-w-3xl mx-auto text-center text-primary-foreground", isRTL && "text-right")}>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Work With Us?
+              {t('about.cta.title')}
             </h2>
             <p className="text-xl text-white mb-8">
-              Let's discuss how we can help your business secure the funding it needs to grow.
+              {t('about.cta.subtitle')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={cn("flex flex-col sm:flex-row gap-4 justify-center", isRTL && "sm:flex-row-reverse")}>
               <Button asChild size="xl" variant="hero">
                 <Link to="/contact">
-                  Contact Us
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  {t('nav.contactUs')}
+                  <ArrowRight className={cn("h-5 w-5", isRTL ? "mr-2 rotate-180" : "ml-2")} />
                 </Link>
               </Button>
               <Button asChild size="xl" variant="heroOutline">
                 <Link to="/contact">
-                  Contact Us
+                  {t('nav.contactUs')}
                 </Link>
               </Button>
             </div>

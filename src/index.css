@@ -20,6 +20,9 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono&display=swap");
 
+/* Arabic font */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap');
+
 @layer base {
   :root {
     /* TAAMUL Corporate Color Palette */
@@ -168,6 +171,11 @@
   body {
     @apply bg-background text-foreground antialiased;
     font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] body {
+    font-family: 'Noto Sans Arabic', 'Inter', system-ui, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
