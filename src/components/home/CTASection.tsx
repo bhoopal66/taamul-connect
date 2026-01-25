@@ -3,8 +3,11 @@ import { motion } from "framer-motion";
 import { ArrowRight, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CTASection = () => {
+  const { t, isRTL } = useLanguage();
+
   return (
     <section className="py-24 gradient-hero relative overflow-hidden">
       {/* Background Pattern */}
@@ -22,24 +25,24 @@ const CTASection = () => {
       </div>
 
       <div className="container mx-auto px-4 relative z-10">
-        <AnimatedSection className="max-w-3xl mx-auto text-center">
+        <AnimatedSection className={`max-w-3xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
           <h2 className="text-display-sm md:text-display text-primary-foreground mb-6">
-            Ready to Accelerate Your Business Growth?
+            {t('ctaSection.heading')}
           </h2>
           <p className="text-xl text-primary-foreground/80 mb-10">
-            Get pre-approved in 48 hours. Our experts are ready to find the perfect financing solution for your business.
+            {t('ctaSection.description')}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
             <Button asChild variant="hero" size="xl">
-              <Link to="/contact" className="flex items-center gap-2">
-                Contact Us
-                <ArrowRight className="h-5 w-5" />
+              <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {t('common.contactUs')}
+                <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
               </Link>
             </Button>
             <Button asChild variant="heroOutline" size="xl">
-              <a href="tel:+97142345678" className="flex items-center gap-2">
+              <a href="tel:+97142345678" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <Phone className="h-5 w-5" />
-                Call +971 4 234 5678
+                {t('ctaSection.callNow')} +971 4 234 5678
               </a>
             </Button>
           </div>

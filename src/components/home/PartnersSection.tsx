@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection } from "@/components/ui/animated-section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const partnerBanks = [
   { name: "RAKBANK", abbr: "RAKBANK" },
@@ -22,22 +23,26 @@ const fintechPartners = [
 ];
 
 const PartnersSection = () => {
+  const { t, isRTL } = useLanguage();
+
   return (
     <section className="py-16 bg-muted overflow-hidden">
       <div className="container mx-auto px-4 mb-10">
-        <AnimatedSection className="text-center">
+        <AnimatedSection className={`text-center ${isRTL ? 'text-right' : ''}`}>
           <p className="text-accent font-semibold mb-2 uppercase tracking-wide text-sm">
-            Our Partners
+            {t('partnersSection.title')}
           </p>
           <h2 className="text-2xl font-bold text-foreground">
-            Banking & Fintech Partners
+            {t('partnersSection.heading')}
           </h2>
         </AnimatedSection>
       </div>
 
       {/* Banking Partners Marquee */}
       <AnimatedSection delay={0.2} direction="none">
-        <p className="text-center text-sm font-medium text-muted-foreground mb-4">Banking Partners</p>
+        <p className="text-center text-sm font-medium text-muted-foreground mb-4">
+          {t('partnersSection.bankingPartners')}
+        </p>
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted to-transparent z-10" />
@@ -61,7 +66,9 @@ const PartnersSection = () => {
 
       {/* Fintech Partners Marquee */}
       <AnimatedSection delay={0.3} direction="none" className="mt-8">
-        <p className="text-center text-sm font-medium text-muted-foreground mb-4">Fintech Partners</p>
+        <p className="text-center text-sm font-medium text-muted-foreground mb-4">
+          {t('partnersSection.fintechPartners')}
+        </p>
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-muted to-transparent z-10" />
           <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-muted to-transparent z-10" />
@@ -86,9 +93,9 @@ const PartnersSection = () => {
       {/* CTA Button */}
       <AnimatedSection delay={0.4} direction="none" className="text-center mt-10">
         <Button asChild variant="default" size="lg">
-          <Link to="/contact" className="flex items-center gap-2">
-            Talk to Expert
-            <ArrowRight className="h-5 w-5" />
+          <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+            {t('common.talkToExpert')}
+            <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
           </Link>
         </Button>
       </AnimatedSection>

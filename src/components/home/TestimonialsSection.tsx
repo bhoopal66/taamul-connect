@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { Quote, Star, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const testimonials = [
   {
@@ -28,19 +29,21 @@ const testimonials = [
 ];
 
 const TestimonialsSection = () => {
+  const { t, isRTL } = useLanguage();
+
   return (
     <section className="py-24 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <AnimatedSection className="text-center max-w-3xl mx-auto mb-16">
+        <AnimatedSection className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
           <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-            Testimonials
+            {t('testimonialsSection.title')}
           </p>
           <h2 className="text-display-sm text-foreground mb-4">
-            Trusted by Businesses Across the UAE
+            {t('testimonialsSection.heading')}
           </h2>
           <p className="text-lg text-muted-foreground">
-            See what our clients say about their experience working with TAAMUL.
+            {t('testimonialsSection.description')}
           </p>
         </AnimatedSection>
 
@@ -48,16 +51,16 @@ const TestimonialsSection = () => {
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((testimonial, index) => (
             <AnimatedItem key={index} index={index} baseDelay={0.1}>
-              <div className="bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 relative h-full">
+              <div className={`bg-card rounded-2xl p-8 shadow-card hover:shadow-elevated transition-all duration-300 relative h-full ${isRTL ? 'text-right' : ''}`}>
                 {/* Quote Icon */}
-                <div className="absolute -top-4 left-8">
+                <div className={`absolute -top-4 ${isRTL ? 'right-8' : 'left-8'}`}>
                   <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
                     <Quote className="h-4 w-4 text-accent-foreground" />
                   </div>
                 </div>
 
                 {/* Rating */}
-                <div className="flex gap-1 mb-4 pt-2">
+                <div className={`flex gap-1 mb-4 pt-2 ${isRTL ? 'flex-row-reverse justify-end' : ''}`}>
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-gold text-gold" />
                   ))}
@@ -69,7 +72,7 @@ const TestimonialsSection = () => {
                 </p>
 
                 {/* Author */}
-                <div className="flex items-center gap-4 pt-4 border-t border-border">
+                <div className={`flex items-center gap-4 pt-4 border-t border-border ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center">
                     <span className="text-lg font-bold text-primary">
                       {testimonial.author.charAt(0)}
@@ -92,9 +95,9 @@ const TestimonialsSection = () => {
         {/* CTA Button */}
         <AnimatedSection delay={0.3} direction="none" className="text-center mt-12">
           <Button asChild variant="default" size="lg">
-            <Link to="/contact" className="flex items-center gap-2">
-              Talk to Expert
-              <ArrowRight className="h-5 w-5" />
+            <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+              {t('common.talkToExpert')}
+              <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
             </Link>
           </Button>
         </AnimatedSection>
