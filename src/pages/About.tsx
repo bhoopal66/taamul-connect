@@ -350,7 +350,7 @@ const About = () => {
                   {benefits.map((item, index) => (
                     <li key={index} className={cn("flex items-start gap-3", isRTL && "flex-row-reverse")}>
                       <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
-                      <span className="text-foreground">{item}</span>
+                      <span className={cn("text-foreground", isRTL && "text-right flex-1")}>{item}</span>
                     </li>
                   ))}
                 </ul>
