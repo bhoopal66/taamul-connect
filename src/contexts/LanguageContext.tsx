@@ -492,12 +492,56 @@ const translations = {
       processDesc: "Our streamlined 5-step process ensures a smooth account opening experience.",
       totalDays: "Total: 7-10 Days",
       processDisclaimer: "*Timeline is subject to customer risk profile and business activity. We do not guarantee account opening; final approval is at the sole discretion of the bank.",
+      process: {
+        consultation: "Consultation",
+        consultationDuration: "Day 1",
+        consultationDesc: "We understand your business needs, transaction volumes, and banking requirements to recommend the right account type.",
+        documentCollection: "Document Collection",
+        documentCollectionDuration: "1 Day",
+        documentCollectionDesc: "Our team collects and reviews all required documentation to ensure a complete, error-free application.",
+        bankSelection: "Bank Selection",
+        bankSelectionDuration: "1-2 Days",
+        bankSelectionDesc: "Based on your profile, we match you with the most suitable banks from our partner network for higher approval rates.",
+        applicationSubmission: "Application Submission",
+        applicationSubmissionDuration: "2-3 Days",
+        applicationSubmissionDesc: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
+        approval: "Approval",
+        approvalDuration: "4-7 Days",
+        approvalDesc: "Bank reviews and approves your application. We assist with account activation and online banking setup."
+      },
       requiredDocuments: "Required Documents",
       documentationReqs: "Documentation Requirements",
       documentationDesc: "Prepare the following documents based on your company type.",
       forMainland: "For UAE Mainland Companies",
       forFreeZone: "For Free Zone Companies",
       forOffshore: "For Offshore Companies",
+      documents: {
+        mainland: {
+          tradeLicense: "Valid Trade License",
+          moa: "Memorandum of Association (MOA)",
+          emiratesId: "Emirates ID of all partners/shareholders",
+          passport: "Passport copies of all partners/shareholders",
+          address: "Proof of business address (Ejari/Tenancy contract)",
+          boardResolution: "Board resolution for authorized signatories"
+        },
+        freezone: {
+          tradeLicense: "Free Zone Trade License",
+          incorporation: "Certificate of Incorporation",
+          shareCertificate: "Share Certificate",
+          emiratesId: "Emirates ID of all shareholders",
+          passport: "Passport copies of all shareholders",
+          lease: "Lease agreement from Free Zone authority"
+        },
+        offshore: {
+          incorporation: "Certificate of Incorporation",
+          moa: "Memorandum & Articles of Association",
+          goodStanding: "Certificate of Good Standing",
+          passport: "Passport copies of all directors/shareholders",
+          address: "Proof of residential address",
+          reference: "Reference letter from existing bank"
+        }
+      },
+      documentsDisclaimer: "*Banks may request additional documents at their discretion based on customer profile and business activity.",
       faq: "Frequently Asked Questions",
       commonQuestions: "Common Questions About Business Accounts",
       faqDesc: "Find answers to common questions about business accounts.",
@@ -514,7 +558,10 @@ const translations = {
         a5: "Absolutely! We specialize in helping new businesses open their first corporate accounts. We'll guide you through the documentation requirements and connect you with banks that are most receptive to new business accounts.",
         q6: "What if my application is rejected?",
         a6: "If your application is rejected by one bank, we'll help you understand the reasons and work with alternative banks that may be more suitable for your business profile. Our extensive network increases your chances of approval."
-      }
+      },
+      ctaHeading: "Ready to Open Your Business Account?",
+      ctaDesc: "Our team will help you choose the right account and guide you through the application process with our partner banks.",
+      speakToAdvisor: "Speak to an Advisor"
     },
     // Footer
     footer: {
@@ -1233,12 +1280,56 @@ const translations = {
       processDesc: "عمليتنا المبسطة من 5 خطوات تضمن تجربة فتح حساب سلسة.",
       totalDays: "المجموع: 7-10 أيام",
       processDisclaimer: "*الجدول الزمني يخضع لملف المخاطر للعميل ونشاط العمل. لا نضمن فتح الحساب؛ الموافقة النهائية هي وفقاً لتقدير البنك وحده.",
+      process: {
+        consultation: "الاستشارة",
+        consultationDuration: "اليوم 1",
+        consultationDesc: "نفهم احتياجات عملك وحجم المعاملات ومتطلبات الخدمات المصرفية للتوصية بنوع الحساب المناسب.",
+        documentCollection: "جمع المستندات",
+        documentCollectionDuration: "يوم واحد",
+        documentCollectionDesc: "يجمع فريقنا ويراجع جميع الوثائق المطلوبة لضمان تقديم طلب كامل وخالي من الأخطاء.",
+        bankSelection: "اختيار البنك",
+        bankSelectionDuration: "1-2 أيام",
+        bankSelectionDesc: "بناءً على ملفك الشخصي، نطابقك مع أنسب البنوك من شبكة شركائنا لمعدلات موافقة أعلى.",
+        applicationSubmission: "تقديم الطلب",
+        applicationSubmissionDuration: "2-3 أيام",
+        applicationSubmissionDesc: "نقدم طلبك مباشرة إلى البنك ونتابع نيابة عنك طوال العملية.",
+        approval: "الموافقة",
+        approvalDuration: "4-7 أيام",
+        approvalDesc: "يراجع البنك طلبك ويوافق عليه. نساعد في تفعيل الحساب وإعداد الخدمات المصرفية عبر الإنترنت."
+      },
       requiredDocuments: "المستندات المطلوبة",
       documentationReqs: "متطلبات التوثيق",
       documentationDesc: "جهز المستندات التالية بناءً على نوع شركتك.",
       forMainland: "للشركات في البر الرئيسي للإمارات",
       forFreeZone: "لشركات المناطق الحرة",
       forOffshore: "للشركات الخارجية",
+      documents: {
+        mainland: {
+          tradeLicense: "رخصة تجارية سارية",
+          moa: "عقد التأسيس",
+          emiratesId: "الهوية الإماراتية لجميع الشركاء/المساهمين",
+          passport: "نسخ جوازات السفر لجميع الشركاء/المساهمين",
+          address: "إثبات عنوان العمل (إيجاري/عقد الإيجار)",
+          boardResolution: "قرار مجلس الإدارة للمفوضين بالتوقيع"
+        },
+        freezone: {
+          tradeLicense: "رخصة تجارية للمنطقة الحرة",
+          incorporation: "شهادة التأسيس",
+          shareCertificate: "شهادة الأسهم",
+          emiratesId: "الهوية الإماراتية لجميع المساهمين",
+          passport: "نسخ جوازات السفر لجميع المساهمين",
+          lease: "اتفاقية الإيجار من هيئة المنطقة الحرة"
+        },
+        offshore: {
+          incorporation: "شهادة التأسيس",
+          moa: "عقد التأسيس والنظام الأساسي",
+          goodStanding: "شهادة حسن السيرة",
+          passport: "نسخ جوازات السفر لجميع المديرين/المساهمين",
+          address: "إثبات عنوان السكن",
+          reference: "خطاب مرجعي من البنك الحالي"
+        }
+      },
+      documentsDisclaimer: "*قد تطلب البنوك مستندات إضافية وفقاً لتقديرها بناءً على ملف العميل ونشاط العمل.",
       faq: "الأسئلة الشائعة",
       commonQuestions: "أسئلة شائعة حول حسابات الأعمال",
       faqDesc: "اعثر على إجابات للأسئلة الشائعة حول حسابات الأعمال.",
@@ -1255,7 +1346,10 @@ const translations = {
         a5: "بالتأكيد! نحن متخصصون في مساعدة الشركات الجديدة في فتح حساباتها المؤسسية الأولى. سنرشدك خلال متطلبات التوثيق ونربطك بالبنوك الأكثر تقبلاً لحسابات الشركات الجديدة.",
         q6: "ماذا لو تم رفض طلبي؟",
         a6: "إذا تم رفض طلبك من بنك واحد، سنساعدك في فهم الأسباب والعمل مع بنوك بديلة قد تكون أكثر ملاءمة لملف عملك. شبكتنا الواسعة تزيد من فرص موافقتك."
-      }
+      },
+      ctaHeading: "هل أنت مستعد لفتح حسابك التجاري؟",
+      ctaDesc: "سيساعدك فريقنا في اختيار الحساب المناسب وإرشادك خلال عملية التقديم مع بنوكنا الشريكة.",
+      speakToAdvisor: "تحدث مع مستشار"
     },
     // Footer
     footer: {

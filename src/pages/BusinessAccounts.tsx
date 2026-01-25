@@ -34,171 +34,152 @@ import FloatingButtons from "@/components/layout/FloatingButtons";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const accountTypes = [
-  {
-    icon: Wallet,
-    title: "Current Account",
-    description: "Day-to-day business transactions",
-  },
-  {
-    icon: Users,
-    title: "WPS Account",
-    description: "Streamlined payroll management",
-  },
-  {
-    icon: PiggyBank,
-    title: "Business Savings",
-    description: "Earn interest on idle funds",
-  },
-  {
-    icon: Lock,
-    title: "Escrow Account",
-    description: "Secure third-party transactions",
-  },
-  {
-    icon: Building2,
-    title: "Corporate Account",
-    description: "Enterprise-grade banking solutions",
-  },
-];
-
-const processSteps = [
-  {
-    step: "01",
-    icon: MessageSquare,
-    title: "Consultation",
-    duration: "Day 1",
-    description: "We understand your business needs, transaction volumes, and banking requirements to recommend the right account type.",
-  },
-  {
-    step: "02",
-    icon: FileCheck,
-    title: "Document Collection",
-    duration: "1 Day",
-    description: "Our team collects and reviews all required documentation to ensure a complete, error-free application.",
-  },
-  {
-    step: "03",
-    icon: Search,
-    title: "Bank Selection",
-    duration: "1-2 Days",
-    description: "Based on your profile, we match you with the most suitable banks from our partner network for higher approval rates.",
-  },
-  {
-    step: "04",
-    icon: Send,
-    title: "Application Submission",
-    duration: "2-3 Days",
-    description: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
-  },
-  {
-    step: "05",
-    icon: CheckCircle2,
-    title: "Approval",
-    duration: "4-7 Days",
-    description: "Bank reviews and approves your application. We assist with account activation and online banking setup.",
-  },
-];
-
-
-const requirements = [
-  {
-    title: "For UAE Mainland Companies",
-    documents: [
-      "Valid Trade License",
-      "Memorandum of Association (MOA)",
-      "Emirates ID of all partners/shareholders",
-      "Passport copies of all partners/shareholders",
-      "Proof of business address (Ejari/Tenancy contract)",
-      "Board resolution for authorized signatories",
-    ],
-  },
-  {
-    title: "For Free Zone Companies",
-    documents: [
-      "Free Zone Trade License",
-      "Certificate of Incorporation",
-      "Share Certificate",
-      "Emirates ID of all shareholders",
-      "Passport copies of all shareholders",
-      "Lease agreement from Free Zone authority",
-    ],
-  },
-  {
-    title: "For Offshore Companies",
-    documents: [
-      "Certificate of Incorporation",
-      "Memorandum & Articles of Association",
-      "Certificate of Good Standing",
-      "Passport copies of all directors/shareholders",
-      "Proof of residential address",
-      "Reference letter from existing bank",
-    ],
-  },
-];
-
-const benefits = [
-  {
-    icon: Shield,
-    title: "Bank-Level Security",
-    description: "Your funds are protected by world-class security protocols and insurance.",
-  },
-  {
-    icon: Zap,
-    title: "Fast Account Opening",
-    description: "Get your business account set up within 5-7 working days with our streamlined process.",
-  },
-  {
-    icon: Globe,
-    title: "Multi-Currency Support",
-    description: "Conduct international business seamlessly with multi-currency account options.",
-  },
-  {
-    icon: Clock,
-    title: "100% Client Focus",
-    description: "Your success is our priority with dedicated support and personalized financial solutions.",
-  },
-  {
-    icon: Award,
-    title: "Partner Bank Network",
-    description: "Choose from UAE's top banks including ADCB, Mashreq, RAK Bank, and more.",
-  },
-  {
-    icon: Headphones,
-    title: "Dedicated Support",
-    description: "Our specialists guide you through the entire process from application to approval.",
-  },
-];
-
-const faqs = [
-  {
-    questionKey: "businessAccounts.faqItems.q1",
-    answerKey: "businessAccounts.faqItems.a1",
-  },
-  {
-    questionKey: "businessAccounts.faqItems.q2",
-    answerKey: "businessAccounts.faqItems.a2",
-  },
-  {
-    questionKey: "businessAccounts.faqItems.q3",
-    answerKey: "businessAccounts.faqItems.a3",
-  },
-  {
-    questionKey: "businessAccounts.faqItems.q4",
-    answerKey: "businessAccounts.faqItems.a4",
-  },
-  {
-    questionKey: "businessAccounts.faqItems.q5",
-    answerKey: "businessAccounts.faqItems.a5",
-  },
-  {
-    questionKey: "businessAccounts.faqItems.q6",
-    answerKey: "businessAccounts.faqItems.a6",
-  },
-];
-
 const BusinessAccounts = () => {
   const { t, isRTL } = useLanguage();
+
+  const accountTypes = [
+    {
+      icon: Wallet,
+      titleKey: "businessAccountsSection.currentAccount",
+      descKey: "businessAccountsSection.currentAccountDesc",
+    },
+    {
+      icon: Users,
+      titleKey: "businessAccountsSection.wpsAccount",
+      descKey: "businessAccountsSection.wpsAccountDesc",
+    },
+    {
+      icon: PiggyBank,
+      titleKey: "businessAccountsSection.businessSavings",
+      descKey: "businessAccountsSection.businessSavingsDesc",
+    },
+    {
+      icon: Lock,
+      titleKey: "businessAccountsSection.escrowAccount",
+      descKey: "businessAccountsSection.escrowAccountDesc",
+    },
+    {
+      icon: Building2,
+      titleKey: "businessAccountsSection.corporateAccount",
+      descKey: "businessAccountsSection.corporateAccountDesc",
+    },
+  ];
+
+  const processSteps = [
+    {
+      step: "01",
+      icon: MessageSquare,
+      titleKey: "businessAccounts.process.consultation",
+      durationKey: "businessAccounts.process.consultationDuration",
+      descKey: "businessAccounts.process.consultationDesc",
+    },
+    {
+      step: "02",
+      icon: FileCheck,
+      titleKey: "businessAccounts.process.documentCollection",
+      durationKey: "businessAccounts.process.documentCollectionDuration",
+      descKey: "businessAccounts.process.documentCollectionDesc",
+    },
+    {
+      step: "03",
+      icon: Search,
+      titleKey: "businessAccounts.process.bankSelection",
+      durationKey: "businessAccounts.process.bankSelectionDuration",
+      descKey: "businessAccounts.process.bankSelectionDesc",
+    },
+    {
+      step: "04",
+      icon: Send,
+      titleKey: "businessAccounts.process.applicationSubmission",
+      durationKey: "businessAccounts.process.applicationSubmissionDuration",
+      descKey: "businessAccounts.process.applicationSubmissionDesc",
+    },
+    {
+      step: "05",
+      icon: CheckCircle2,
+      titleKey: "businessAccounts.process.approval",
+      durationKey: "businessAccounts.process.approvalDuration",
+      descKey: "businessAccounts.process.approvalDesc",
+    },
+  ];
+
+  const requirements = [
+    {
+      titleKey: "businessAccounts.forMainland",
+      documentsKeys: [
+        "businessAccounts.documents.mainland.tradeLicense",
+        "businessAccounts.documents.mainland.moa",
+        "businessAccounts.documents.mainland.emiratesId",
+        "businessAccounts.documents.mainland.passport",
+        "businessAccounts.documents.mainland.address",
+        "businessAccounts.documents.mainland.boardResolution",
+      ],
+    },
+    {
+      titleKey: "businessAccounts.forFreeZone",
+      documentsKeys: [
+        "businessAccounts.documents.freezone.tradeLicense",
+        "businessAccounts.documents.freezone.incorporation",
+        "businessAccounts.documents.freezone.shareCertificate",
+        "businessAccounts.documents.freezone.emiratesId",
+        "businessAccounts.documents.freezone.passport",
+        "businessAccounts.documents.freezone.lease",
+      ],
+    },
+    {
+      titleKey: "businessAccounts.forOffshore",
+      documentsKeys: [
+        "businessAccounts.documents.offshore.incorporation",
+        "businessAccounts.documents.offshore.moa",
+        "businessAccounts.documents.offshore.goodStanding",
+        "businessAccounts.documents.offshore.passport",
+        "businessAccounts.documents.offshore.address",
+        "businessAccounts.documents.offshore.reference",
+      ],
+    },
+  ];
+
+  const benefits = [
+    {
+      icon: Shield,
+      titleKey: "businessAccounts.benefits.bankSecurity",
+      descKey: "businessAccounts.benefits.bankSecurityDesc",
+    },
+    {
+      icon: Zap,
+      titleKey: "businessAccounts.benefits.fastOpening",
+      descKey: "businessAccounts.benefits.fastOpeningDesc",
+    },
+    {
+      icon: Globe,
+      titleKey: "businessAccounts.benefits.multiCurrency",
+      descKey: "businessAccounts.benefits.multiCurrencyDesc",
+    },
+    {
+      icon: Clock,
+      titleKey: "businessAccounts.benefits.clientFocus",
+      descKey: "businessAccounts.benefits.clientFocusDesc",
+    },
+    {
+      icon: Award,
+      titleKey: "businessAccounts.benefits.partnerNetwork",
+      descKey: "businessAccounts.benefits.partnerNetworkDesc",
+    },
+    {
+      icon: Headphones,
+      titleKey: "businessAccounts.benefits.dedicatedSupport",
+      descKey: "businessAccounts.benefits.dedicatedSupportDesc",
+    },
+  ];
+
+  const faqs = [
+    { questionKey: "businessAccounts.faqItems.q1", answerKey: "businessAccounts.faqItems.a1" },
+    { questionKey: "businessAccounts.faqItems.q2", answerKey: "businessAccounts.faqItems.a2" },
+    { questionKey: "businessAccounts.faqItems.q3", answerKey: "businessAccounts.faqItems.a3" },
+    { questionKey: "businessAccounts.faqItems.q4", answerKey: "businessAccounts.faqItems.a4" },
+    { questionKey: "businessAccounts.faqItems.q5", answerKey: "businessAccounts.faqItems.a5" },
+    { questionKey: "businessAccounts.faqItems.q6", answerKey: "businessAccounts.faqItems.a6" },
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -219,15 +200,15 @@ const BusinessAccounts = () => {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className={`max-w-4xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
             <motion.span 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-accent text-sm font-medium mb-6"
+              className={`inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-accent text-sm font-medium mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}
             >
               <Building2 className="h-4 w-4" />
-              Business Banking Solutions
+              {t('businessAccounts.badge')}
             </motion.span>
             <motion.h1 
               initial={{ opacity: 0, y: 30 }}
@@ -235,8 +216,8 @@ const BusinessAccounts = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight"
             >
-              Choose the Right Account <br className="hidden md:block" />
-              <span className="text-accent">for Your Business</span>
+              {t('businessAccounts.heading')} <br className="hidden md:block" />
+              <span className="text-accent">{t('businessAccounts.headingHighlight')}</span>
             </motion.h1>
             <motion.p 
               initial={{ opacity: 0, y: 30 }}
@@ -244,18 +225,18 @@ const BusinessAccounts = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-white mb-10 max-w-2xl mx-auto"
             >
-              Compare our range of business accounts across UAE's top banks and find the perfect fit for your company's banking needs.
+              {t('businessAccounts.description')}
             </motion.p>
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="flex flex-col sm:flex-row gap-4 justify-center"
+              className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}
             >
               <Button asChild variant="hero" size="xl">
-                <a href="#accounts" className="flex items-center gap-2">
-                  Explore Accounts
-                  <ArrowRight className="h-5 w-5" />
+                <a href="#accounts" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('businessAccounts.exploreAccounts')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </a>
               </Button>
               <Button
@@ -265,7 +246,7 @@ const BusinessAccounts = () => {
                 className="border-white text-white hover:bg-white/10"
               >
                 <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
+                  {t('common.contactUs')}
                 </Link>
               </Button>
             </motion.div>
@@ -276,30 +257,30 @@ const BusinessAccounts = () => {
       {/* Benefits Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center max-w-3xl mx-auto mb-14">
+          <AnimatedSection className={`text-center max-w-3xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
             <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-              Why Choose Us
+              {t('businessAccounts.whyChooseUs')}
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Business Banking Made Simple
+              {t('businessAccounts.businessBankingSimple')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              We connect you with the best banking solutions tailored to your business needs.
+              {t('businessAccounts.businessBankingDesc')}
             </p>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => (
               <AnimatedItem key={index} index={index} baseDelay={0.1}>
-                <div className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-elevated transition-all duration-300 h-full">
-                  <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors">
+                <div className={`group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-elevated transition-all duration-300 h-full ${isRTL ? 'text-right' : ''}`}>
+                  <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 group-hover:bg-primary/20 transition-colors ${isRTL ? 'ml-auto' : ''}`}>
                     <benefit.icon className="h-7 w-7 text-primary" />
                   </div>
                   <h3 className="text-xl font-semibold text-foreground mb-2">
-                    {benefit.title}
+                    {t(benefit.titleKey)}
                   </h3>
                   <p className="text-muted-foreground">
-                    {benefit.description}
+                    {t(benefit.descKey)}
                   </p>
                 </div>
               </AnimatedItem>
@@ -311,30 +292,30 @@ const BusinessAccounts = () => {
       {/* Account Types Grid */}
       <section id="accounts" className="py-20 bg-muted scroll-mt-20">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
+          <AnimatedSection className={`text-center max-w-3xl mx-auto mb-12 ${isRTL ? 'text-right' : ''}`}>
             <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-              Account Types
+              {t('businessAccounts.accountTypes')}
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              We Help You Open Any Business Account
+              {t('businessAccounts.weHelpOpen')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              From current accounts to escrow solutions, we guide you to the right choice.
+              {t('businessAccounts.accountTypesDesc')}
             </p>
           </AnimatedSection>
 
           <div className="flex flex-wrap justify-center gap-6 mb-12">
             {accountTypes.map((account, index) => (
-              <AnimatedItem key={account.title} index={index} baseDelay={0.1}>
-                <div className="flex flex-col items-center p-6 bg-card rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 min-w-[180px] border border-border hover:border-primary/30">
+              <AnimatedItem key={index} index={index} baseDelay={0.1}>
+                <div className={`flex flex-col items-center p-6 bg-card rounded-2xl shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 min-w-[180px] border border-border hover:border-primary/30 ${isRTL ? 'text-right' : ''}`}>
                   <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
                     <account.icon className="h-8 w-8 text-primary" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground text-center mb-2">
-                    {account.title}
+                    {t(account.titleKey)}
                   </h3>
                   <p className="text-sm text-muted-foreground text-center">
-                    {account.description}
+                    {t(account.descKey)}
                   </p>
                 </div>
               </AnimatedItem>
@@ -343,9 +324,9 @@ const BusinessAccounts = () => {
 
           <AnimatedSection delay={0.3} direction="none" className="text-center">
             <Button asChild variant="default" size="lg">
-              <Link to="/contact" className="flex items-center gap-2">
-                Talk to Expert
-                <ArrowRight className="h-5 w-5" />
+              <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {t('common.talkToExpert')}
+                <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
               </Link>
             </Button>
           </AnimatedSection>
@@ -355,47 +336,47 @@ const BusinessAccounts = () => {
       {/* How We Do It Section */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center max-w-3xl mx-auto mb-14">
+          <AnimatedSection className={`text-center max-w-3xl mx-auto mb-14 ${isRTL ? 'text-right' : ''}`}>
             <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-              Our Process
+              {t('businessAccounts.ourProcess')}
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              How We Help You Open an Account
+              {t('businessAccounts.howWeHelp')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Our streamlined 5-step process ensures a smooth account opening experience.
+              {t('businessAccounts.processDesc')}
             </p>
           </AnimatedSection>
 
           <div className="max-w-4xl mx-auto">
             <div className="relative">
               {/* Vertical Line */}
-              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-border hidden md:block" />
+              <div className={`absolute ${isRTL ? 'right-8' : 'left-8'} top-0 bottom-0 w-0.5 bg-border hidden md:block`} />
               
               <div className="space-y-8">
                 {processSteps.map((step, index) => (
                   <AnimatedItem key={step.step} index={index} baseDelay={0.1}>
-                    <div className="flex gap-6 items-start group">
+                    <div className={`flex gap-6 items-start group ${isRTL ? 'flex-row-reverse' : ''}`}>
                       <div className="relative z-10 flex-shrink-0">
                         <div className="w-16 h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
                           <step.icon className="h-7 w-7" />
                         </div>
-                        <span className="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center">
+                        <span className={`absolute -top-2 ${isRTL ? '-left-2' : '-right-2'} w-6 h-6 rounded-full bg-accent text-accent-foreground text-xs font-bold flex items-center justify-center`}>
                           {step.step}
                         </span>
                       </div>
-                      <div className="flex-1 pb-8">
-                        <div className="flex items-center gap-3 mb-2">
+                      <div className={`flex-1 pb-8 ${isRTL ? 'text-right' : ''}`}>
+                        <div className={`flex items-center gap-3 mb-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                           <h3 className="text-xl font-semibold text-foreground">
-                            {step.title}
+                            {t(step.titleKey)}
                           </h3>
-                          <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-accent/10 text-accent text-xs font-medium">
+                          <span className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-accent/10 text-accent text-xs font-medium ${isRTL ? 'flex-row-reverse' : ''}`}>
                             <Clock className="h-3 w-3" />
-                            {step.duration}
+                            {t(step.durationKey)}
                           </span>
                         </div>
                         <p className="text-muted-foreground leading-relaxed">
-                          {step.description}
+                          {t(step.descKey)}
                         </p>
                       </div>
                     </div>
@@ -407,58 +388,57 @@ const BusinessAccounts = () => {
 
           {/* Total Timeline Badge */}
           <AnimatedSection delay={0.4} direction="none" className="mt-12 text-center">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-primary/10 border border-primary/20 mb-4">
+            <div className={`inline-flex items-center gap-3 px-6 py-3 rounded-2xl bg-primary/10 border border-primary/20 mb-4 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <Clock className="h-5 w-5 text-primary" />
               <span className="text-lg font-semibold text-foreground">
-                Total: <span className="text-primary">7-10 Days</span>
+                {t('businessAccounts.totalDays')}
               </span>
             </div>
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto mb-6">
-              *Timeline is subject to customer risk profile and business activity. We do not guarantee account opening; final approval is at the sole discretion of the bank.
+            <p className={`text-sm text-muted-foreground max-w-2xl mx-auto mb-6 ${isRTL ? 'text-right' : ''}`}>
+              {t('businessAccounts.processDisclaimer')}
             </p>
             <Button asChild variant="default" size="lg">
-              <Link to="/contact" className="flex items-center gap-2">
-                Talk to Expert
-                <ArrowRight className="h-5 w-5" />
+              <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                {t('common.talkToExpert')}
+                <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
               </Link>
             </Button>
           </AnimatedSection>
         </div>
       </section>
 
-
       {/* Requirements Section */}
       <section className="py-20 bg-muted">
         <div className="container mx-auto px-4">
-          <AnimatedSection className="text-center max-w-3xl mx-auto mb-12">
+          <AnimatedSection className={`text-center max-w-3xl mx-auto mb-12 ${isRTL ? 'text-right' : ''}`}>
             <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-              Required Documents
+              {t('businessAccounts.requiredDocuments')}
             </p>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Documentation Requirements
+              {t('businessAccounts.documentationReqs')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Prepare the following documents based on your company type.
+              {t('businessAccounts.documentationDesc')}
             </p>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className={`grid grid-cols-1 md:grid-cols-3 gap-8 ${isRTL ? 'md:grid-flow-dense' : ''}`}>
             {requirements.map((req, index) => (
-              <AnimatedItem key={req.title} index={index} baseDelay={0.1}>
-                <div className="bg-card rounded-2xl p-8 shadow-card border border-border hover:border-primary/30 transition-all duration-300 group h-full">
-                  <div className="flex items-center gap-3 mb-6">
+              <AnimatedItem key={index} index={index} baseDelay={0.1}>
+                <div className={`bg-card rounded-2xl p-8 shadow-card border border-border hover:border-primary/30 transition-all duration-300 group h-full ${isRTL ? 'text-right' : ''}`}>
+                  <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <div className="w-10 h-10 rounded-xl bg-primary text-primary-foreground flex items-center justify-center font-bold">
                       {index + 1}
                     </div>
                     <h3 className="text-xl font-semibold text-foreground">
-                      {req.title}
+                      {t(req.titleKey)}
                     </h3>
                   </div>
                   <ul className="space-y-3">
-                    {req.documents.map((doc) => (
-                      <li key={doc} className="flex items-start gap-3">
+                    {req.documentsKeys.map((docKey) => (
+                      <li key={docKey} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                         <Check className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                        <span className="text-muted-foreground">{doc}</span>
+                        <span className="text-muted-foreground">{t(docKey)}</span>
                       </li>
                     ))}
                   </ul>
@@ -468,8 +448,8 @@ const BusinessAccounts = () => {
           </div>
 
           <AnimatedSection delay={0.3} direction="none" className="mt-8 text-center">
-            <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
-              *Banks may request additional documents at their discretion based on customer profile and business activity.
+            <p className={`text-sm text-muted-foreground max-w-2xl mx-auto ${isRTL ? 'text-right' : ''}`}>
+              {t('businessAccounts.documentsDisclaimer')}
             </p>
           </AnimatedSection>
         </div>
@@ -528,18 +508,18 @@ const BusinessAccounts = () => {
           />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <AnimatedSection className="max-w-3xl mx-auto text-center">
+          <AnimatedSection className={`max-w-3xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
-              Ready to Open Your Business Account?
+              {t('businessAccounts.ctaHeading')}
             </h2>
-            <p className="text-xl text-white/80 mb-10">
-              Our team will help you choose the right account and guide you through the application process with our partner banks.
+            <p className="text-xl text-white mb-10">
+              {t('businessAccounts.ctaDesc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.contactUs')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button
@@ -548,9 +528,9 @@ const BusinessAccounts = () => {
                 size="xl"
                 className="border-white text-white hover:bg-white/10"
               >
-                <a href="tel:+97144521111" className="flex items-center gap-2">
+                <a href="tel:+97144521111" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                   <Phone className="h-5 w-5" />
-                  Speak to an Advisor
+                  {t('businessAccounts.speakToAdvisor')}
                 </a>
               </Button>
             </div>
