@@ -187,7 +187,7 @@ const Contact = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-white/80 mb-10 max-w-2xl mx-auto"
+              className="text-xl text-white mb-10 max-w-2xl mx-auto"
             >
               Our team of experts is ready to help you find the perfect financial solution for your business.
             </motion.p>
@@ -199,19 +199,19 @@ const Contact = () => {
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-wrap justify-center gap-6 md:gap-10"
             >
-              <div className="flex items-center gap-2 text-white/90">
+              <div className="flex items-center gap-2 text-white">
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                   <CheckCircle2 className="h-5 w-5 text-accent" />
                 </div>
                 <span className="text-sm font-medium">Free Consultation</span>
               </div>
-              <div className="flex items-center gap-2 text-white/90">
+              <div className="flex items-center gap-2 text-white">
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                   <Clock className="h-5 w-5 text-accent" />
                 </div>
                 <span className="text-sm font-medium">Quick Response</span>
               </div>
-              <div className="flex items-center gap-2 text-white/90">
+              <div className="flex items-center gap-2 text-white">
                 <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                   <Shield className="h-5 w-5 text-accent" />
                 </div>
