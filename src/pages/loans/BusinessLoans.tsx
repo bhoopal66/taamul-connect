@@ -105,87 +105,36 @@ const BusinessLoans = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
-                <Building2 className="h-4 w-4" />
-                Business Loans
-              </div>
-
-              <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-                Business Loans for{" "}
-                <span className="text-accent">Business Expansion</span>
-              </h1>
-
-              <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
-                Fixed-term financing solutions for capital investments, expansion projects,
-                and business growth. We streamline applications to help you get quick approval
-                with predictable monthly repayments.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button asChild variant="hero" size="xl">
-                  <Link to="/contact" className="flex items-center gap-2">
-                    Contact Us
-                    <ArrowRight className="h-5 w-5" />
-                  </Link>
-                </Button>
-                <Button asChild variant="heroOutline" size="xl">
-                  <a href="#calculator" className="flex items-center gap-2">
-                    Check Eligibility
-                  </a>
-                </Button>
-              </div>
+          <div className="max-w-3xl">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
+              <Building2 className="h-4 w-4" />
+              Business Loans
             </div>
 
-            {/* Funding Options Card */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-2xl p-6 shadow-elevated"
-            >
-              <h3 className="text-xl font-bold text-primary mb-5 flex items-center gap-2">
-                <Banknote className="h-5 w-5 text-accent" />
-                Funding Options
-              </h3>
-              <div className="space-y-4">
-                {[
-                  {
-                    title: "Business Loans & Credit Facilities",
-                    desc: "Structured SME loans, overdrafts & credit lines from UAE banks.",
-                  },
-                  {
-                    title: "Invoice Financing",
-                    desc: "Unlock cash from unpaid invoices without waiting for customer payments.",
-                  },
-                  {
-                    title: "Revenue-Based Financing",
-                    desc: "Flexible funding with repayments linked to your business revenue.",
-                  },
-                  {
-                    title: "B2B Buy Now, Pay Later",
-                    desc: "Pay suppliers later and protect your cash flow.",
-                  },
-                  {
-                    title: "Bank Guarantees",
-                    desc: "Secure contracts and tenders with bank-backed performance guarantees.",
-                  },
-                  {
-                    title: "Alternative & Sharia-Compliant Funding",
-                    desc: "Fast approvals through regulated platforms.",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="flex gap-3">
-                    <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
-                    <div>
-                      <p className="text-primary font-medium text-base">{item.title}</p>
-                      <p className="text-muted-foreground text-sm">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
+            <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
+              Business Loans for{" "}
+              <span className="text-accent">Business Expansion</span>
+            </h1>
+
+            <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
+              Fixed-term financing solutions for capital investments, expansion projects,
+              and business growth. We streamline applications to help you get quick approval
+              with predictable monthly repayments.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button asChild variant="hero" size="xl">
+                <Link to="/contact" className="flex items-center gap-2">
+                  Contact Us
+                  <ArrowRight className="h-5 w-5" />
+                </Link>
+              </Button>
+              <Button asChild variant="heroOutline" size="xl">
+                <a href="#calculator" className="flex items-center gap-2">
+                  Check Eligibility
+                </a>
+              </Button>
+            </div>
           </div>
         </div>
 

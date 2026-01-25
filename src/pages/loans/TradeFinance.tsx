@@ -95,30 +95,81 @@ const TradeFinance = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
-              <Ship className="h-4 w-4" />
-              Business Loans
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
+                <Ship className="h-4 w-4" />
+                Trade Finance
+              </div>
+
+              <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
+                Trade Finance{" "}
+                <span className="text-accent">Solutions</span>
+              </h1>
+
+              <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
+                Facilitate international trade with LCs, guarantees, and import/export 
+                financing solutions. Secure your cross-border transactions.
+              </p>
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button asChild variant="hero" size="xl">
+                  <Link to="/contact" className="flex items-center gap-2">
+                    Contact Us
+                    <ArrowRight className="h-5 w-5" />
+                  </Link>
+                </Button>
+              </div>
             </div>
 
-            <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              Trade Finance{" "}
-              <span className="text-accent">Solutions</span>
-            </h1>
-
-            <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
-              Facilitate international trade with LCs, guarantees, and import/export 
-              financing solutions. Secure your cross-border transactions.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
-                </Link>
-              </Button>
-            </div>
+            {/* Funding Options Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-2xl p-6 shadow-elevated"
+            >
+              <h3 className="text-xl font-bold text-primary mb-5 flex items-center gap-2">
+                <FileCheck className="h-5 w-5 text-accent" />
+                Funding Options
+              </h3>
+              <div className="space-y-4">
+                {[
+                  {
+                    title: "Letters of Credit (LC)",
+                    desc: "Bank-backed LCs for secure international transactions.",
+                  },
+                  {
+                    title: "Import/Export Financing",
+                    desc: "Pre and post-shipment financing for smooth trade operations.",
+                  },
+                  {
+                    title: "Bank Guarantees",
+                    desc: "Performance, advance payment, and bid bond guarantees.",
+                  },
+                  {
+                    title: "Documentary Collections",
+                    desc: "Secure payment processing through banking channels.",
+                  },
+                  {
+                    title: "Trade Credit Insurance",
+                    desc: "Protect against buyer default and political risks.",
+                  },
+                  {
+                    title: "Supply Chain Financing",
+                    desc: "Optimize working capital across your supply chain.",
+                  },
+                ].map((item, index) => (
+                  <div key={index} className="flex gap-3">
+                    <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
+                    <div>
+                      <p className="text-primary font-medium text-base">{item.title}</p>
+                      <p className="text-muted-foreground text-sm">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.div>
           </div>
         </div>
 
