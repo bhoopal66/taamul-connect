@@ -7,8 +7,8 @@ const testimonials = [
   {
     quote: "TAAMUL helped us secure AED 8 million in working capital within just 3 weeks. Their team understood our industry and found us the perfect banking partner.",
     author: "Alex",
-    position: "CFO",
-    company: "Four Dimension LLC",
+    position: "CEO",
+    company: "FORE FRONT FACILITIES MANAGEMENT LLC",
     rating: 5,
   },
   {
