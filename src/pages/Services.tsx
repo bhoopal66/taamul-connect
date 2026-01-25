@@ -170,7 +170,7 @@ const Services = () => {
                 Comprehensive Business{" "}
                 <span className="text-gold">Financing Solutions</span>
               </h1>
-              <p className="text-lg md:text-xl text-white/80 max-w-3xl mx-auto mb-10">
+              <p className="text-lg md:text-xl text-white max-w-3xl mx-auto mb-10">
                 From startups to established corporations, we offer a complete range of financing products and advisory services to fuel your business growth.
               </p>
               
@@ -192,37 +192,37 @@ const Services = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
               <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
                 <div className="text-3xl md:text-4xl font-bold text-gold mb-2">15+</div>
-                <div className="text-sm text-white/70">Partner Banks</div>
+                <div className="text-sm text-white">Partner Banks</div>
               </div>
               <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
                 <div className="text-3xl md:text-4xl font-bold text-gold mb-2">AED 500M+</div>
-                <div className="text-sm text-white/70">Loans Facilitated</div>
+                <div className="text-sm text-white">Loans Facilitated</div>
               </div>
               <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
                 <div className="text-3xl md:text-4xl font-bold text-gold mb-2">10+</div>
-                <div className="text-sm text-white/70">Financing Products</div>
+                <div className="text-sm text-white">Financing Products</div>
               </div>
               <div className="text-center p-6 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
                 <div className="text-3xl md:text-4xl font-bold text-gold mb-2">100%</div>
-                <div className="text-sm text-white/70">Free Consultation</div>
+                <div className="text-sm text-white">Free Consultation</div>
               </div>
             </div>
             
             {/* Trust Badges */}
             <div className="flex flex-wrap items-center justify-center gap-6 mt-10 pt-10 border-t border-white/10">
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-white">
                 <Shield className="h-5 w-5" />
                 <span className="text-sm">Secure & Confidential</span>
               </div>
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-white">
                 <CheckCircle className="h-5 w-5" />
                 <span className="text-sm">UAE Licensed</span>
               </div>
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-white">
                 <Users className="h-5 w-5" />
                 <span className="text-sm">Dedicated Experts</span>
               </div>
-              <div className="flex items-center gap-2 text-white/60">
+              <div className="flex items-center gap-2 text-white">
                 <Building2 className="h-5 w-5" />
                 <span className="text-sm">All Business Sizes</span>
               </div>

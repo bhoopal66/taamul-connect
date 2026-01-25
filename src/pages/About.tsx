@@ -116,10 +116,10 @@ const About = () => {
       <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary to-navy-light">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center text-primary-foreground">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
               About TAAMUL
             </h1>
-            <p className="text-xl opacity-90 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-white mb-8 max-w-3xl mx-auto">
               We are a trusted Direct Selling Agent (DSA) bridging the gap between 
               ambitious UAE businesses and the financing they need to grow.
             </p>
@@ -365,10 +365,10 @@ const About = () => {
       <section className="py-20 bg-gradient-to-br from-primary via-primary to-navy-light">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center text-primary-foreground">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
               Ready to Work With Us?
             </h2>
-            <p className="text-xl opacity-90 mb-8">
+            <p className="text-xl text-white mb-8">
               Let's discuss how we can help your business secure the funding it needs to grow.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">

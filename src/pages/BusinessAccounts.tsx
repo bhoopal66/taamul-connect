@@ -240,7 +240,7 @@ const BusinessAccounts = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="text-xl text-white/80 mb-10 max-w-2xl mx-auto"
+              className="text-xl text-white mb-10 max-w-2xl mx-auto"
             >
               Compare our range of business accounts across UAE's top banks and find the perfect fit for your company's banking needs.
             </motion.p>

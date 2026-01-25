@@ -112,11 +112,11 @@ const HowItWorks = () => {
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
               How It Works
             </h1>
-            <p className="text-xl text-white/90 mb-8">
+            <p className="text-xl text-white mb-8">
               From application to disbursement, we've streamlined the business loan process 
               to get you funded faster with minimum hassle.
             </p>
-            <div className="flex items-center justify-center gap-2 text-lg">
+            <div className="flex items-center justify-center gap-2 text-lg text-white">
               <Clock className="h-5 w-5" />
               <span>Average processing time: <strong>7-10 Days</strong></span>
             </div>
