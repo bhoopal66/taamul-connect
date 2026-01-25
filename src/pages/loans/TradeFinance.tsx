@@ -9,14 +9,11 @@ import {
   FileText,
   FileCheck,
   CreditCard,
-  Globe,
-  Package,
-  Anchor,
 } from "lucide-react";
-import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
+import TaamulAdvantageSection from "@/components/loans/TaamulAdvantageSection";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -90,30 +87,6 @@ const TradeFinance = () => {
       descKey: 'loanPages.trade.funding.supplyChainDesc',
     },
   ];
-
-  const whyChooseUs = [
-    {
-      icon: Globe,
-      titleKey: 'loanPages.trade.advantage.globalNetwork',
-      descKey: 'loanPages.trade.advantage.globalNetworkDesc',
-    },
-    {
-      icon: Package,
-      titleKey: 'loanPages.trade.advantage.endToEnd',
-      descKey: 'loanPages.trade.advantage.endToEndDesc',
-    },
-    {
-      icon: Anchor,
-      titleKey: 'loanPages.trade.advantage.portExpertise',
-      descKey: 'loanPages.trade.advantage.portExpertiseDesc',
-    },
-    {
-      icon: Shield,
-      titleKey: 'loanPages.trade.advantage.riskMitigation',
-      descKey: 'loanPages.trade.advantage.riskMitigationDesc',
-    },
-  ];
-
   return (
     <div className="min-h-screen">
       <Header />
@@ -213,46 +186,8 @@ const TradeFinance = () => {
         </div>
       </section>
 
-      {/* Why Choose Us - Dark Section */}
-      <section className="py-24 gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
-            <h2 className="text-display-sm text-white mb-4">
-              {isRTL ? (
-                <><span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
-              ) : (
-                <>The <span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
-              )}
-            </h2>
-            <p className="text-lg text-white/80">
-              {t('loanPages.advantageDesc')}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseUs.map((item, index) => (
-              <motion.div
-                key={item.titleKey}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
-              >
-                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
-                  <item.icon className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
-                <p className="text-sm text-white/70">{t(item.descKey)}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Taamul Advantage Section */}
+      <TaamulAdvantageSection />
 
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">

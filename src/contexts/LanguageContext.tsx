@@ -924,6 +924,20 @@ const translations = {
       endToEndSupport: "End-to-End Application Support",
       endToEndSupportDesc: "From documentation to disbursement, we guide you through every step of the process"
     },
+    // Taamul Advantage Section (Shared across all loan pages)
+    taamulAdvantage: {
+      description: "Partner with UAE's trusted business finance specialists for a seamless funding experience.",
+      authorizedDSA: "Authorized DSA",
+      authorizedDSADesc: "Official Direct Selling Agent for leading UAE banks and financial institutions.",
+      noFees: "No Fees",
+      noFeesDesc: "Zero consultancy fees, no success charges – we earn from bank partnerships only.",
+      multipleOptions: "Multiple Options",
+      multipleOptionsDesc: "Access 15+ banking and fintech partners under one roof for the best terms.",
+      smeFriendly: "SME & Startup Friendly",
+      smeFriendlyDesc: "Tailored solutions designed specifically for growing businesses and new ventures.",
+      endToEnd: "End-to-End Support",
+      endToEndDesc: "Complete application assistance from documentation to final disbursement.",
+    },
     // Business Loans Page
     businessLoansPage: {
       loanCalculator: "Loan Eligibility Calculator",
@@ -1711,6 +1725,20 @@ const translations = {
       smeStartupFriendlyDesc: "خيارات تمويل مخصصة مصممة خصيصاً للشركات الصغيرة والمؤسسات الناشئة",
       endToEndSupport: "دعم من البداية إلى النهاية",
       endToEndSupportDesc: "من التوثيق إلى الصرف، نرشدك خلال كل خطوة من العملية"
+    },
+    // Taamul Advantage Section (Shared across all loan pages)
+    taamulAdvantage: {
+      description: "تعاون مع متخصصي تمويل الأعمال الموثوقين في الإمارات لتجربة تمويل سلسة.",
+      authorizedDSA: "وكيل مبيعات معتمد",
+      authorizedDSADesc: "وكيل مبيعات مباشر رسمي للبنوك والمؤسسات المالية الرائدة في الإمارات.",
+      noFees: "بدون رسوم",
+      noFeesDesc: "صفر رسوم استشارية، بدون رسوم نجاح – نكسب من شراكات البنوك فقط.",
+      multipleOptions: "خيارات متعددة",
+      multipleOptionsDesc: "الوصول إلى أكثر من 15 شريكاً مصرفياً وتقنياً تحت سقف واحد للحصول على أفضل الشروط.",
+      smeFriendly: "صديق للمشاريع الصغيرة",
+      smeFriendlyDesc: "حلول مخصصة مصممة خصيصاً للشركات النامية والمشاريع الجديدة.",
+      endToEnd: "دعم شامل",
+      endToEndDesc: "مساعدة كاملة في التقديم من التوثيق إلى الصرف النهائي.",
     },
     // Business Loans Page
     businessLoansPage: {
