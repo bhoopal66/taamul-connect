@@ -82,9 +82,9 @@ const team = [
     image: null
   },
   {
-    name: "Mohammed Hassan",
-    role: "Director of Partnerships",
-    bio: "Manages relationships with 10+ banking partners. Previously led SME banking at a regional bank.",
+    name: "Sayid Shaheen Alam",
+    role: "Director, Partnerships",
+    bio: "Seasoned banking professional with frontline sales and relationship expertise, ex-Emirates Islamic and ADIB, specializing in corporate banking and team development.",
     image: null
   },
   {
