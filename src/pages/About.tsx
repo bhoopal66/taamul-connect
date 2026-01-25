@@ -41,7 +41,7 @@ const milestones = [
   {
     year: "2025",
     title: "Fintech Partnerships",
-    description: "Partnered with leading fintech platforms including Credible X, Flapcap, Comfi, Funding Souq, Zelo, Flow 48, in24, and Flo 488."
+    description: "Partnered with leading fintech platforms including Credible X, Flapcap, Comfi, Funding Souq, Zelo, and Flow 48."
   }
 ];
 
