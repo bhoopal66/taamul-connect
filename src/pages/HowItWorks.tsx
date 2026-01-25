@@ -90,7 +90,7 @@ const benefits = [
   {
     icon: ArrowRight,
     title: "Expert Guidance",
-    description: "Our specialists navigate complex banking requirements so you don't have to"
+    description: "Benefit from our deep industry knowledge and strong banking relationships"
   }
 ];
 
