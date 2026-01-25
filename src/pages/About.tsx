@@ -24,29 +24,19 @@ const milestones = [
     description: "TAAMUL Credit Review Services LLC was established in Dubai with a vision to simplify business financing in the UAE."
   },
   {
-    year: "2019",
-    title: "Banking Partnerships",
-    description: "Secured partnerships with 5 major UAE banks, expanding our lending network and product offerings."
-  },
-  {
-    year: "2020",
-    title: "Digital Transformation",
-    description: "Launched our digital platform, streamlining the application process and reducing approval times by 60%."
-  },
-  {
-    year: "2021",
-    title: "SME Focus",
-    description: "Expanded our SME lending programs, helping over 500 small businesses secure funding."
-  },
-  {
     year: "2023",
-    title: "Market Leadership",
-    description: "Became one of the leading DSAs in the UAE with 10+ banking partners and AED 500M+ in facilitated loans."
+    title: "RAKBANK Partnership",
+    description: "Established our first major lender partnership with RAKBANK, expanding access to business financing solutions."
   },
   {
     year: "2024",
-    title: "Innovation & Growth",
-    description: "Introduced AI-powered eligibility assessment and expanded into new financing verticals."
+    title: "UBL & Ruya Bank Partnerships",
+    description: "Strengthened our lending network by partnering with UBL and Ruya Bank, offering more diverse financing options."
+  },
+  {
+    year: "2025",
+    title: "NBF & WIO Bank Partnerships",
+    description: "Expanded partnerships with National Bank of Fujairah (NBF) and WIO Bank, further enhancing our lending capabilities."
   }
 ];
 
