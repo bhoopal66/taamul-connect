@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import { Button } from "@/components/ui/button";
+import teamBhoopal from "@/assets/team-bhoopal.jpg";
 import { 
   Target, 
   Eye, 
@@ -72,7 +73,7 @@ const team = [
     name: "Bhoopal Narayanaswamy",
     role: "Founder & CEO",
     bio: "Chartered Accountant with 30+ years' MENA experience, specializing in financial due diligence, structuring, investment management, audits, performance management, and CFO services.",
-    image: null
+    image: teamBhoopal
   },
   {
     name: "Geetha Subramaniam",
@@ -272,11 +273,19 @@ const About = () => {
                   
                   {/* Avatar */}
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-4 ring-white/30 group-hover:scale-105 transition-transform duration-300">
-                      <span className="text-4xl font-bold text-white">
-                        {member.name.split(' ').map(n => n[0]).join('')}
-                      </span>
-                    </div>
+                    {member.image ? (
+                      <img 
+                        src={member.image} 
+                        alt={member.name}
+                        className="w-28 h-28 rounded-full object-cover ring-4 ring-white/30 group-hover:scale-105 transition-transform duration-300"
+                      />
+                    ) : (
+                      <div className="w-28 h-28 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center ring-4 ring-white/30 group-hover:scale-105 transition-transform duration-300">
+                        <span className="text-4xl font-bold text-white">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 </div>
                 
