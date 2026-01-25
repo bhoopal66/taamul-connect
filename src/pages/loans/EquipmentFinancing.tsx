@@ -102,13 +102,17 @@ const EquipmentFinancing = () => {
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              Equipment{" "}
+              New & Used Equipment{" "}
               <span className="text-accent">Financing</span>
             </h1>
 
-            <p className="text-xl text-[hsl(var(--background))]/80 mb-8 max-w-2xl">
-              Acquire machinery, vehicles, and equipment without impacting your 
+            <p className="text-xl text-[hsl(var(--background))]/80 mb-4 max-w-2xl">
+              Acquire new or used machinery, vehicles, and equipment without impacting your 
               working capital. The equipment serves as its own collateral.
+            </p>
+            
+            <p className="text-sm text-[hsl(var(--background))]/60 mb-8">
+              *Terms and conditions apply
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
