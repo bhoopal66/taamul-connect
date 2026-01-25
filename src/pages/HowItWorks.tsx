@@ -12,89 +12,79 @@ import {
   Shield,
   Users
 } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    title: "Consultation",
-    description: "We understand your business needs, transaction volumes, and financing requirements to recommend the right solution.",
-    icon: MessageSquare,
-    details: [
-      "Business profile review",
-      "Requirements assessment",
-      "Solution recommendation",
-      "Timeline discussion"
-    ]
-  },
-  {
-    number: "02",
-    title: "Document Collection",
-    description: "Our team collects and reviews all required documentation to ensure a complete, error-free application.",
-    icon: FileCheck,
-    details: [
-      "Trade License & MOA",
-      "VAT returns (last 4 Qtrs)",
-      "Bank statements",
-      "Passport & EID copies"
-    ]
-  },
-  {
-    number: "03",
-    title: "Bank Selection",
-    description: "Based on your profile, we match you with the most suitable banks from our partner network for higher approval rates.",
-    icon: Search,
-    details: [
-      "Compare multiple bank offers",
-      "Match terms to your needs",
-      "Negotiate best rates",
-      "Present top options"
-    ]
-  },
-  {
-    number: "04",
-    title: "Application Submission",
-    description: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
-    icon: Send,
-    details: [
-      "Complete application filing",
-      "Document submission",
-      "Bank coordination",
-      "Progress tracking"
-    ]
-  },
-  {
-    number: "05",
-    title: "Approval",
-    description: "Bank reviews and approves your application. We assist with final setup and any additional services you need.",
-    icon: CheckCircle2,
-    details: [
-      "Bank credit review",
-      "Terms finalization",
-      "Approval confirmation",
-      "Account/loan activation"
-    ]
-  }
-];
-
-const benefits = [
-  {
-    icon: Shield,
-    title: "Secure & Confidential",
-    description: "Your data is protected with bank-grade security throughout the process"
-  },
-  {
-    icon: Users,
-    title: "Dedicated Support",
-    description: "A relationship manager guides you through every step of the journey"
-  },
-  {
-    icon: ArrowRight,
-    title: "Expert Guidance",
-    description: "Benefit from our deep industry knowledge and strong banking relationships"
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorks = () => {
+  const { t, isRTL } = useLanguage();
+
+  const steps = [
+    {
+      number: "01",
+      titleKey: "howItWorks.steps.consultation",
+      descKey: "howItWorks.steps.consultationDesc",
+      icon: MessageSquare,
+      detailsKeys: ["howItWorks.steps.consultationDetails.0", "howItWorks.steps.consultationDetails.1", "howItWorks.steps.consultationDetails.2", "howItWorks.steps.consultationDetails.3"]
+    },
+    {
+      number: "02",
+      titleKey: "howItWorks.steps.documentCollection",
+      descKey: "howItWorks.steps.documentCollectionDesc",
+      icon: FileCheck,
+      detailsKeys: ["howItWorks.steps.documentCollectionDetails.0", "howItWorks.steps.documentCollectionDetails.1", "howItWorks.steps.documentCollectionDetails.2", "howItWorks.steps.documentCollectionDetails.3"]
+    },
+    {
+      number: "03",
+      titleKey: "howItWorks.steps.bankSelection",
+      descKey: "howItWorks.steps.bankSelectionDesc",
+      icon: Search,
+      detailsKeys: ["howItWorks.steps.bankSelectionDetails.0", "howItWorks.steps.bankSelectionDetails.1", "howItWorks.steps.bankSelectionDetails.2", "howItWorks.steps.bankSelectionDetails.3"]
+    },
+    {
+      number: "04",
+      titleKey: "howItWorks.steps.applicationSubmission",
+      descKey: "howItWorks.steps.applicationSubmissionDesc",
+      icon: Send,
+      detailsKeys: ["howItWorks.steps.applicationSubmissionDetails.0", "howItWorks.steps.applicationSubmissionDetails.1", "howItWorks.steps.applicationSubmissionDetails.2", "howItWorks.steps.applicationSubmissionDetails.3"]
+    },
+    {
+      number: "05",
+      titleKey: "howItWorks.steps.approval",
+      descKey: "howItWorks.steps.approvalDesc",
+      icon: CheckCircle2,
+      detailsKeys: ["howItWorks.steps.approvalDetails.0", "howItWorks.steps.approvalDetails.1", "howItWorks.steps.approvalDetails.2", "howItWorks.steps.approvalDetails.3"]
+    }
+  ];
+
+  const benefits = [
+    {
+      icon: Shield,
+      titleKey: "howItWorks.benefits.secureConfidential",
+      descKey: "howItWorks.benefits.secureConfidentialDesc"
+    },
+    {
+      icon: Users,
+      titleKey: "howItWorks.benefits.dedicatedSupport",
+      descKey: "howItWorks.benefits.dedicatedSupportDesc"
+    },
+    {
+      icon: ArrowRight,
+      titleKey: "howItWorks.benefits.expertGuidance",
+      descKey: "howItWorks.benefits.expertGuidanceDesc"
+    }
+  ];
+
+  // Get details array from translation
+  const getDetails = (stepIndex: number) => {
+    const stepKeys = ['consultation', 'documentCollection', 'bankSelection', 'applicationSubmission', 'approval'];
+    const detailsKey = `howItWorks.steps.${stepKeys[stepIndex]}Details`;
+    const details = t(detailsKey);
+    // If translation returns the key, use hardcoded fallback
+    if (typeof details === 'string' && details === detailsKey) {
+      return steps[stepIndex].detailsKeys.map((_, i) => t(`${detailsKey}.${i}`));
+    }
+    return Array.isArray(details) ? details : steps[stepIndex].detailsKeys.map(k => t(k));
+  };
+
   return (
     <div className="min-h-screen bg-background">
       <Header />
@@ -102,13 +92,12 @@ const HowItWorks = () => {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary to-navy-light">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center text-white">
+          <div className={`max-w-3xl mx-auto text-center text-white ${isRTL ? 'text-right' : ''}`}>
             <h1 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-              How It Works
+              {t('howItWorks.heading')}
             </h1>
             <p className="text-xl text-white mb-8">
-              From application to disbursement, we've streamlined the business loan process 
-              to get you funded faster with minimum hassle.
+              {t('howItWorks.description')}
             </p>
           </div>
         </div>
@@ -122,10 +111,10 @@ const HowItWorks = () => {
               <div key={step.number} className="relative">
                 {/* Connector Line */}
                 {index < steps.length - 1 && (
-                  <div className="absolute left-8 top-24 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/20 hidden md:block" />
+                  <div className={`absolute ${isRTL ? 'right-8' : 'left-8'} top-24 bottom-0 w-0.5 bg-gradient-to-b from-primary to-primary/20 hidden md:block`} />
                 )}
                 
-                <div className="flex flex-col md:flex-row gap-6 mb-12 last:mb-0">
+                <div className={`flex flex-col md:flex-row gap-6 mb-12 last:mb-0 ${isRTL ? 'md:flex-row-reverse' : ''}`}>
                   {/* Step Number & Icon */}
                   <div className="flex-shrink-0">
                     <div className="w-16 h-16 rounded-2xl bg-primary text-primary-foreground flex items-center justify-center shadow-lg relative z-10">
@@ -134,25 +123,25 @@ const HowItWorks = () => {
                   </div>
                   
                   {/* Content Card */}
-                  <div className="flex-grow bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border hover:shadow-xl transition-shadow">
+                  <div className={`flex-grow bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border hover:shadow-xl transition-shadow ${isRTL ? 'text-right' : ''}`}>
                     <div className="mb-4">
                       <span className="text-sm font-bold text-primary tracking-wider">
-                        STEP {step.number}
+                        {t('howItWorks.step')} {step.number}
                       </span>
                       <h3 className="text-2xl font-bold text-foreground mt-1">
-                        {step.title}
+                        {t(step.titleKey)}
                       </h3>
                     </div>
                     
                     <p className="text-muted-foreground mb-6">
-                      {step.description}
+                      {t(step.descKey)}
                     </p>
                     
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {step.details.map((detail, i) => (
-                        <div key={i} className="flex items-center gap-2">
+                      {getDetails(index).map((detail, i) => (
+                        <div key={i} className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                           <CheckCircle2 className="h-4 w-4 text-success flex-shrink-0" />
-                          <span className="text-sm text-foreground">{detail}</span>
+                          <span className="text-sm text-foreground">{typeof detail === 'string' ? detail : t(steps[index].detailsKeys[i])}</span>
                         </div>
                       ))}
                     </div>
@@ -167,12 +156,12 @@ const HowItWorks = () => {
       {/* Benefits Section */}
       <section className="py-16 bg-muted/50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
+          <div className={`text-center mb-12 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-3xl font-bold text-foreground mb-4">
-              Why Choose Our Process?
+              {t('howItWorks.whyChoose')}
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We've designed every step to maximize efficiency and minimize your effort
+              {t('howItWorks.whyChooseDesc')}
             </p>
           </div>
           
@@ -180,16 +169,16 @@ const HowItWorks = () => {
             {benefits.map((benefit, index) => (
               <div 
                 key={index}
-                className="bg-card rounded-xl p-6 text-center shadow-md border border-border"
+                className={`bg-card rounded-xl p-6 text-center shadow-md border border-border ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
+                <div className={`w-14 h-14 rounded-full bg-primary/10 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto mr-0' : 'mx-auto'}`}>
                   <benefit.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-lg font-semibold text-foreground mb-2">
-                  {benefit.title}
+                  {t(benefit.titleKey)}
                 </h3>
                 <p className="text-sm text-muted-foreground">
-                  {benefit.description}
+                  {t(benefit.descKey)}
                 </p>
               </div>
             ))}
@@ -200,24 +189,23 @@ const HowItWorks = () => {
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-br from-primary via-primary to-navy-light">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center text-primary-foreground">
+          <div className={`max-w-3xl mx-auto text-center text-primary-foreground ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Get Started?
+              {t('howItWorks.ctaHeading')}
             </h2>
             <p className="text-xl opacity-90 mb-8">
-              Take the first step towards securing the funding your business needs. 
-              Our team is ready to guide you through the process.
+              {t('howItWorks.ctaDesc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild size="xl" variant="hero">
-                <Link to="/contact">
-                  Talk to Expert
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.talkToExpert')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
             </div>
-            <p className="text-sm text-white/70 mt-6 max-w-2xl mx-auto">
-              *Timeline is subject to customer risk profile and business activity. Final approval is at the sole discretion of the bank.
+            <p className={`text-sm text-white/70 mt-6 max-w-2xl mx-auto ${isRTL ? 'text-right' : ''}`}>
+              {t('howItWorks.disclaimer')}
             </p>
           </div>
         </div>
