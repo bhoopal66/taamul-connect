@@ -19,7 +19,7 @@ const fintechPartners = [
   { name: "Funding Souq", abbr: "FUNDING SOUQ" },
   { name: "Zelo", abbr: "ZELO" },
   { name: "Flow 48", abbr: "FLOW 48" },
-  { name: "Flow 24", abbr: "FLOW 24" },
+  { name: "in24", abbr: "IN24" },
 ];
 
 const PartnersSection = () => {
