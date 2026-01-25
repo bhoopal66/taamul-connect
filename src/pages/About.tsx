@@ -340,7 +340,7 @@ const About = () => {
                 <div className="grid grid-cols-2 gap-6">
                   <div className="bg-card rounded-xl p-5 text-center shadow-sm">
                     <Award className="h-8 w-8 text-primary mx-auto mb-2" />
-                    <div className="text-sm font-medium text-foreground">Licensed DSA</div>
+                    <div className="text-sm font-medium text-foreground">Authorised DSA</div>
                   </div>
                   <div className="bg-card rounded-xl p-5 text-center shadow-sm">
                     <Building2 className="h-8 w-8 text-primary mx-auto mb-2" />
