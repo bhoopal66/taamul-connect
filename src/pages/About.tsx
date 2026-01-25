@@ -37,6 +37,11 @@ const milestones = [
     year: "2025",
     title: "NBF & WIO Bank Partnerships",
     description: "Expanded partnerships with National Bank of Fujairah (NBF) and WIO Bank, further enhancing our lending capabilities."
+  },
+  {
+    year: "2025",
+    title: "Fintech Partnerships",
+    description: "Partnered with leading fintech platforms including Credible X, Flapcap, Comfi, Funding Souq, Zelo, Flow 48, in24, and Flo 488."
   }
 ];
 
