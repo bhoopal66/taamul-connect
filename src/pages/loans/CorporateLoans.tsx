@@ -18,72 +18,75 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { Button } from "@/components/ui/button";
-
-const features = [
-  {
-    icon: Banknote,
-    title: "Large Loan Amounts",
-    description: "Access financing from AED 10 million to AED 500 million for major initiatives",
-  },
-  {
-    icon: Percent,
-    title: "Premium Rates",
-    description: "Preferential interest rates starting from 5.5% p.a. for qualified corporates",
-  },
-  {
-    icon: Globe,
-    title: "Multi-Currency Options",
-    description: "Financing available in AED, USD, EUR and other major currencies",
-  },
-  {
-    icon: Clock,
-    title: "Quick Approval",
-    description: "Streamlined documentation process with faster turnaround times",
-  },
-];
-
-const eligibility = [
-  "Established corporation with 5+ years of operations",
-  "Annual turnover exceeding AED 50 million",
-  "Strong credit rating and financial track record",
-  "Audited financial statements for 3+ years",
-  "Clear corporate governance structure",
-  "Profitable operations with positive EBITDA",
-];
-
-const documents = [
-  "Certificate of Incorporation, Office Ejari & MOA/AOA",
-  "Audited financial statements (3 years)",
-  "Board resolution for loan application",
-  "Passport copies of shareholders & EID of authorised signatory",
-  "VAT returns of last 4 Qtrs",
-  "Existing facility letters and obligations",
-];
-
-const whyChooseUs = [
-  {
-    icon: Landmark,
-    title: "Premium Banking",
-    description: "Access to exclusive corporate banking relationships and premium services",
-  },
-  {
-    icon: Globe,
-    title: "Global Reach",
-    description: "Multi-currency facilities and international banking partnerships",
-  },
-  {
-    icon: Target,
-    title: "Strategic Advisory",
-    description: "Expert guidance on structuring complex financing arrangements",
-  },
-  {
-    icon: TrendingUp,
-    title: "Growth Focus",
-    description: "Flexible facilities that scale with your corporate expansion plans",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CorporateLoans = () => {
+  const { t, isRTL } = useLanguage();
+
+  const features = [
+    {
+      icon: Banknote,
+      title: t('loanPages.largeLoanAmounts'),
+      description: t('loanPages.largeLoanAmountsDesc'),
+    },
+    {
+      icon: Percent,
+      title: t('loanPages.premiumRates'),
+      description: t('loanPages.premiumRatesDesc'),
+    },
+    {
+      icon: Globe,
+      title: t('loanPages.multiCurrencyOptions'),
+      description: t('loanPages.multiCurrencyOptionsDesc'),
+    },
+    {
+      icon: Clock,
+      title: t('loanPages.quickApproval'),
+      description: t('loanPages.quickApprovalDesc'),
+    },
+  ];
+
+  const eligibility = [
+    t('loanPages.eligibility5Years'),
+    t('loanPages.minTurnover50M'),
+    "Strong credit rating and financial track record",
+    t('loanPages.auditedFinancials3Years'),
+    "Clear corporate governance structure",
+    "Profitable operations with positive EBITDA",
+  ];
+
+  const documents = [
+    "Certificate of Incorporation, Office Ejari & MOA/AOA",
+    "Audited financial statements (3 years)",
+    "Board resolution for loan application",
+    t('loanPages.passportCopies'),
+    t('loanPages.vatReturns'),
+    "Existing facility letters and obligations",
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: Landmark,
+      title: "Premium Banking",
+      description: "Access to exclusive corporate banking relationships and premium services",
+    },
+    {
+      icon: Globe,
+      title: "Global Reach",
+      description: "Multi-currency facilities and international banking partnerships",
+    },
+    {
+      icon: Target,
+      title: "Strategic Advisory",
+      description: "Expert guidance on structuring complex financing arrangements",
+    },
+    {
+      icon: TrendingUp,
+      title: "Growth Focus",
+      description: "Flexible facilities that scale with your corporate expansion plans",
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -95,27 +98,26 @@ const CorporateLoans = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
+          <div className={`max-w-3xl ${isRTL ? 'mr-0 text-right' : ''}`}>
+            <div className={`inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <Building2 className="h-4 w-4" />
-              Business Loans
+              {t('loanPages.businessLoans')}
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              Corporate{" "}
-              <span className="text-accent">Financing</span>
+              {t('loanPages.corporateLoansTitle')}{" "}
+              <span className="text-accent">{t('loanPages.corporateLoansHighlight')}</span>
             </h1>
 
             <p className="text-xl text-[hsl(var(--background))] mb-8 max-w-2xl">
-              Large-scale financing solutions for established corporations. 
-              Competitive rates and flexible terms for your strategic initiatives.
+              {t('loanPages.corporateLoansDesc')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.contactUs')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
             </div>
@@ -132,19 +134,19 @@ const CorporateLoans = () => {
       {/* Features Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-foreground mb-4">
-              Structured Financing
+              {t('loanPages.corporateLoansFeaturesTitle')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Sophisticated financial solutions for complex corporate requirements.
+              {t('loanPages.corporateLoansFeaturesDesc')}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature) => (
-              <div key={feature.title} className="bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <div key={feature.title} className={`bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 ${isRTL ? 'text-right' : ''}`}>
+                <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 ${isRTL ? 'ml-auto' : ''}`}>
                   <feature.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
@@ -152,8 +154,8 @@ const CorporateLoans = () => {
               </div>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground text-center mt-8">
-            *Interest rates and loan amounts are subject to lender's discretion and may vary based on credit assessment.
+          <p className={`text-sm text-muted-foreground text-center mt-8 ${isRTL ? 'text-right' : ''}`}>
+            {t('loanPages.disclaimer')}
           </p>
         </div>
       </section>
@@ -165,12 +167,16 @@ const CorporateLoans = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-white mb-4">
-              The <span className="text-accent">Taamul</span> Advantage
+              {isRTL ? (
+                <><span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              ) : (
+                <>The <span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              )}
             </h2>
             <p className="text-lg text-white/80">
-              Premium corporate financing solutions backed by our extensive banking network.
+              {t('loanPages.advantageDesc')}
             </p>
           </div>
 
@@ -182,9 +188,9 @@ const CorporateLoans = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
@@ -198,17 +204,17 @@ const CorporateLoans = () => {
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+          <div className={`grid lg:grid-cols-2 gap-12 ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right lg:col-start-2' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-success" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Eligibility Criteria</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('loanPages.eligibilityCriteria')}</h3>
               </div>
               <div className="space-y-4">
                 {eligibility.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
                     <p className="text-foreground">{item}</p>
                   </div>
@@ -216,16 +222,16 @@ const CorporateLoans = () => {
               </div>
             </div>
 
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right lg:col-start-1' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                   <FileText className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Required Documents</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('loanPages.requiredDocuments')}</h3>
               </div>
               <div className="space-y-4">
                 {documents.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <p className="text-foreground">{item}</p>
                   </div>
@@ -233,8 +239,8 @@ const CorporateLoans = () => {
               </div>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground text-center mt-8">
-            *Banks may request additional documents at their discretion based on customer profile and business activity.
+          <p className={`text-sm text-muted-foreground text-center mt-8 ${isRTL ? 'text-right' : ''}`}>
+            {t('loanPages.documentsDisclaimer')}
           </p>
         </div>
       </section>
@@ -246,22 +252,22 @@ const CorporateLoans = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className={`max-w-3xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-[hsl(var(--background))] mb-6">
-              Let's Discuss Your Corporate Needs
+              {t('loanPages.corporateLoansCtaTitle')}
             </h2>
             <p className="text-xl text-[hsl(var(--background))] mb-10">
-              Our corporate banking team is ready to structure the right solution for you.
+              {t('loanPages.corporateLoansCtaDesc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.contactUs')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/contact">Talk to Expert</Link>
+                <Link to="/contact">{t('common.talkToExpert')}</Link>
               </Button>
             </div>
           </div>

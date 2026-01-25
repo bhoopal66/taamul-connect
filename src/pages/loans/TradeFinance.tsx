@@ -18,72 +18,102 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { Button } from "@/components/ui/button";
-
-const features = [
-  {
-    icon: FileCheck,
-    title: "Letters of Credit",
-    description: "Secure your international transactions with bank-backed LCs",
-  },
-  {
-    icon: Ship,
-    title: "Import/Export Finance",
-    description: "Pre and post-shipment financing for smooth trade operations",
-  },
-  {
-    icon: CreditCard,
-    title: "Bank Guarantees",
-    description: "Performance, advance payment, and bid bond guarantees",
-  },
-  {
-    icon: Clock,
-    title: "Quick Approval",
-    description: "Streamlined documentation process with faster turnaround times",
-  },
-];
-
-const eligibility = [
-  "Established import/export business in UAE",
-  "Minimum 2 years of trade operations",
-  "Annual trade volume of AED 5 million+",
-  "Valid import/export code and licenses",
-  "Established relationships with suppliers/buyers",
-  "Clean track record with customs authorities",
-];
-
-const documents = [
-  "Trade License, Office Ejari & Memorandum of Association",
-  "Import/Export code registration",
-  "Bank statements (6-12 months)",
-  "Passport copies of shareholders & EID of authorised signatory",
-  "VAT returns of last 4 Qtrs",
-  "Supplier/Buyer contracts and insurance policy",
-];
-
-const whyChooseUs = [
-  {
-    icon: Globe,
-    title: "Global Network",
-    description: "Banking partnerships across major trade corridors worldwide",
-  },
-  {
-    icon: Package,
-    title: "End-to-End Support",
-    description: "From LC issuance to shipment tracking and payment release",
-  },
-  {
-    icon: Anchor,
-    title: "Port Expertise",
-    description: "Deep understanding of UAE's major port operations",
-  },
-  {
-    icon: Shield,
-    title: "Risk Mitigation",
-    description: "Secure transactions with trusted banking instruments",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TradeFinance = () => {
+  const { t, isRTL } = useLanguage();
+
+  const features = [
+    {
+      icon: FileCheck,
+      title: t('loanPages.lettersOfCredit'),
+      description: t('loanPages.lettersOfCreditDesc'),
+    },
+    {
+      icon: Ship,
+      title: t('loanPages.importExportFinance'),
+      description: t('loanPages.importExportFinanceDesc'),
+    },
+    {
+      icon: CreditCard,
+      title: t('loanPages.bankGuarantees'),
+      description: t('loanPages.bankGuaranteesDesc'),
+    },
+    {
+      icon: Clock,
+      title: t('loanPages.quickApproval'),
+      description: t('loanPages.quickApprovalDesc'),
+    },
+  ];
+
+  const eligibility = [
+    "Established import/export business in UAE",
+    "Minimum 2 years of trade operations",
+    "Annual trade volume of AED 5 million+",
+    "Valid import/export code and licenses",
+    "Established relationships with suppliers/buyers",
+    "Clean track record with customs authorities",
+  ];
+
+  const documents = [
+    t('loanPages.tradeLicenseMOA'),
+    "Import/Export code registration",
+    t('loanPages.bankStatements6to12'),
+    t('loanPages.passportCopies'),
+    t('loanPages.vatReturns'),
+    "Supplier/Buyer contracts and insurance policy",
+  ];
+
+  const fundingOptions = [
+    {
+      title: "Letters of Credit (LC)",
+      desc: "Bank-backed LCs for secure international transactions.",
+    },
+    {
+      title: "Import/Export Financing",
+      desc: "Pre and post-shipment financing for smooth trade operations.",
+    },
+    {
+      title: "Bank Guarantees",
+      desc: "Performance, advance payment, and bid bond guarantees.",
+    },
+    {
+      title: "Documentary Collections",
+      desc: "Secure payment processing through banking channels.",
+    },
+    {
+      title: "Trade Credit Insurance",
+      desc: "Protect against buyer default and political risks.",
+    },
+    {
+      title: "Supply Chain Financing",
+      desc: "Optimize working capital across your supply chain.",
+    },
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: Globe,
+      title: "Global Network",
+      description: "Banking partnerships across major trade corridors worldwide",
+    },
+    {
+      icon: Package,
+      title: "End-to-End Support",
+      description: "From LC issuance to shipment tracking and payment release",
+    },
+    {
+      icon: Anchor,
+      title: "Port Expertise",
+      description: "Deep understanding of UAE's major port operations",
+    },
+    {
+      icon: Shield,
+      title: "Risk Mitigation",
+      description: "Secure transactions with trusted banking instruments",
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -95,28 +125,27 @@ const TradeFinance = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
+          <div className={`grid lg:grid-cols-2 gap-12 items-center ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
+            <div className={isRTL ? 'text-right lg:col-start-2' : ''}>
+              <div className={`inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <Ship className="h-4 w-4" />
-                Trade Finance
+                {t('loanPages.tradeFinanceTitle')}
               </div>
 
               <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-                Trade Finance{" "}
-                <span className="text-accent">Solutions</span>
+                {t('loanPages.tradeFinanceTitle')}{" "}
+                <span className="text-accent">{t('loanPages.tradeFinanceHighlight')}</span>
               </h1>
 
               <p className="text-xl text-[hsl(var(--background))] mb-8 max-w-2xl">
-                Facilitate international trade with LCs, guarantees, and import/export 
-                financing solutions. Secure your cross-border transactions.
+                {t('loanPages.tradeFinanceDesc')}
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
                 <Button asChild variant="hero" size="xl">
-                  <Link to="/contact" className="flex items-center gap-2">
-                    Contact Us
-                    <ArrowRight className="h-5 w-5" />
+                  <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                    {t('common.contactUs')}
+                    <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                   </Link>
                 </Button>
               </div>
@@ -124,43 +153,18 @@ const TradeFinance = () => {
 
             {/* Funding Options Card */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: isRTL ? -20 : 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="bg-white rounded-2xl p-6 shadow-elevated"
+              className={`bg-white rounded-2xl p-6 shadow-elevated ${isRTL ? 'lg:col-start-1 text-right' : ''}`}
             >
-              <h3 className="text-xl font-bold text-primary mb-5 flex items-center gap-2">
+              <h3 className={`text-xl font-bold text-primary mb-5 flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <FileCheck className="h-5 w-5 text-accent" />
                 Funding Options
               </h3>
               <div className="space-y-4">
-                {[
-                  {
-                    title: "Letters of Credit (LC)",
-                    desc: "Bank-backed LCs for secure international transactions.",
-                  },
-                  {
-                    title: "Import/Export Financing",
-                    desc: "Pre and post-shipment financing for smooth trade operations.",
-                  },
-                  {
-                    title: "Bank Guarantees",
-                    desc: "Performance, advance payment, and bid bond guarantees.",
-                  },
-                  {
-                    title: "Documentary Collections",
-                    desc: "Secure payment processing through banking channels.",
-                  },
-                  {
-                    title: "Trade Credit Insurance",
-                    desc: "Protect against buyer default and political risks.",
-                  },
-                  {
-                    title: "Supply Chain Financing",
-                    desc: "Optimize working capital across your supply chain.",
-                  },
-                ].map((item, index) => (
-                  <div key={index} className="flex gap-3">
+                {fundingOptions.map((item, index) => (
+                  <div key={index} className={`flex gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="text-primary font-medium text-base">{item.title}</p>
@@ -183,19 +187,19 @@ const TradeFinance = () => {
       {/* Features Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-foreground mb-4">
-              Comprehensive Trade Solutions
+              {t('loanPages.tradeFinanceFeaturesTitle')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Everything you need to manage international trade with confidence.
+              {t('loanPages.tradeFinanceFeaturesDesc')}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature) => (
-              <div key={feature.title} className="bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <div key={feature.title} className={`bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 ${isRTL ? 'text-right' : ''}`}>
+                <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 ${isRTL ? 'ml-auto' : ''}`}>
                   <feature.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
@@ -203,8 +207,8 @@ const TradeFinance = () => {
               </div>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground text-center mt-8">
-            *Interest rates and loan amounts are subject to lender's discretion and may vary based on credit assessment.
+          <p className={`text-sm text-muted-foreground text-center mt-8 ${isRTL ? 'text-right' : ''}`}>
+            {t('loanPages.disclaimer')}
           </p>
         </div>
       </section>
@@ -216,12 +220,16 @@ const TradeFinance = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-white mb-4">
-              The <span className="text-accent">Taamul</span> Advantage
+              {isRTL ? (
+                <><span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              ) : (
+                <>The <span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              )}
             </h2>
             <p className="text-lg text-white/80">
-              Seamless trade financing backed by our global banking network.
+              {t('loanPages.advantageDesc')}
             </p>
           </div>
 
@@ -233,9 +241,9 @@ const TradeFinance = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
@@ -249,17 +257,17 @@ const TradeFinance = () => {
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+          <div className={`grid lg:grid-cols-2 gap-12 ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right lg:col-start-2' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-success" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Eligibility Criteria</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('loanPages.eligibilityCriteria')}</h3>
               </div>
               <div className="space-y-4">
                 {eligibility.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
                     <p className="text-foreground">{item}</p>
                   </div>
@@ -267,16 +275,16 @@ const TradeFinance = () => {
               </div>
             </div>
 
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right lg:col-start-1' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                   <FileText className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Required Documents</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('loanPages.requiredDocuments')}</h3>
               </div>
               <div className="space-y-4">
                 {documents.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <p className="text-foreground">{item}</p>
                   </div>
@@ -284,8 +292,8 @@ const TradeFinance = () => {
               </div>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground text-center mt-8">
-            *Banks may request additional documents at their discretion based on customer profile and business activity.
+          <p className={`text-sm text-muted-foreground text-center mt-8 ${isRTL ? 'text-right' : ''}`}>
+            {t('loanPages.documentsDisclaimer')}
           </p>
         </div>
       </section>
@@ -297,22 +305,22 @@ const TradeFinance = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className={`max-w-3xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-[hsl(var(--background))] mb-6">
-              Expand Your Global Trade
+              {t('loanPages.tradeFinanceCtaTitle')}
             </h2>
             <p className="text-xl text-[hsl(var(--background))] mb-10">
-              Secure your international transactions with our trade finance solutions.
+              {t('loanPages.tradeFinanceCtaDesc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.contactUs')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/contact">Talk to Expert</Link>
+                <Link to="/contact">{t('common.talkToExpert')}</Link>
               </Button>
             </div>
           </div>

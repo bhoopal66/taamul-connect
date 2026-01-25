@@ -18,72 +18,75 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { Button } from "@/components/ui/button";
-
-const features = [
-  {
-    icon: Users,
-    title: "Multiple Lenders",
-    description: "Access larger amounts through our network of partner banks and NBFCs",
-  },
-  {
-    icon: TrendingUp,
-    title: "Higher Limits",
-    description: "Secure financing beyond single-bank limits for major projects",
-  },
-  {
-    icon: Handshake,
-    title: "Risk Distribution",
-    description: "Spread risk across multiple financial institutions for better terms",
-  },
-  {
-    icon: Percent,
-    title: "Competitive Pricing",
-    description: "Benefit from competitive bidding between participating lenders",
-  },
-];
-
-const eligibility = [
-  "Loan requirement exceeding AED 10 million",
-  "Business operating for minimum 3 years",
-  "Strong financial track record and ratings",
-  "Audited financials for 3+ years",
-  "Clear project/purpose for funds utilization",
-  "Ability to provide adequate security",
-];
-
-const documents = [
-  "Trade License, Office Ejari & Memorandum of Association",
-  "Audited financial statements (3 years)",
-  "Detailed business plan and projections",
-  "Passport copies of shareholders & EID of authorised signatory",
-  "VAT returns of last 4 Qtrs",
-  "Collateral documentation and board resolution",
-];
-
-const whyChooseUs = [
-  {
-    icon: Network,
-    title: "Lender Network",
-    description: "Access to 15+ banks and NBFCs for consortium arrangements",
-  },
-  {
-    icon: Scale,
-    title: "Deal Structuring",
-    description: "Expert team to structure optimal lending arrangements",
-  },
-  {
-    icon: Handshake,
-    title: "Single Point Contact",
-    description: "We manage all lender relationships on your behalf",
-  },
-  {
-    icon: BadgeCheck,
-    title: "Proven Track Record",
-    description: "Successfully arranged AED 500M+ in syndicated facilities",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Syndicated = () => {
+  const { t, isRTL } = useLanguage();
+
+  const features = [
+    {
+      icon: Users,
+      title: t('loanPages.multipleLenders'),
+      description: t('loanPages.multipleLendersDesc'),
+    },
+    {
+      icon: TrendingUp,
+      title: t('loanPages.higherLimits'),
+      description: t('loanPages.higherLimitsDesc'),
+    },
+    {
+      icon: Handshake,
+      title: t('loanPages.riskDistribution'),
+      description: t('loanPages.riskDistributionDesc'),
+    },
+    {
+      icon: Percent,
+      title: t('loanPages.competitivePricing'),
+      description: t('loanPages.competitivePricingDesc'),
+    },
+  ];
+
+  const eligibility = [
+    "Loan requirement exceeding AED 10 million",
+    t('loanPages.eligibility3Years'),
+    "Strong financial track record and ratings",
+    t('loanPages.auditedFinancials3Years'),
+    "Clear project/purpose for funds utilization",
+    "Ability to provide adequate security",
+  ];
+
+  const documents = [
+    t('loanPages.tradeLicenseMOA'),
+    "Audited financial statements (3 years)",
+    "Detailed business plan and projections",
+    t('loanPages.passportCopies'),
+    t('loanPages.vatReturns'),
+    "Collateral documentation and board resolution",
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: Network,
+      title: "Lender Network",
+      description: "Access to 15+ banks and NBFCs for consortium arrangements",
+    },
+    {
+      icon: Scale,
+      title: "Deal Structuring",
+      description: "Expert team to structure optimal lending arrangements",
+    },
+    {
+      icon: Handshake,
+      title: "Single Point Contact",
+      description: "We manage all lender relationships on your behalf",
+    },
+    {
+      icon: BadgeCheck,
+      title: "Proven Track Record",
+      description: "Successfully arranged AED 500M+ in syndicated facilities",
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -95,27 +98,26 @@ const Syndicated = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
+          <div className={`max-w-3xl ${isRTL ? 'mr-0 text-right' : ''}`}>
+            <div className={`inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <Users className="h-4 w-4" />
-              Business Loans
+              {t('loanPages.businessLoans')}
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              Syndicated{" "}
-              <span className="text-accent">Loans</span>
+              {t('loanPages.syndicatedTitle')}{" "}
+              <span className="text-accent">{t('loanPages.syndicatedHighlight')}</span>
             </h1>
 
             <p className="text-xl text-[hsl(var(--background))] mb-8 max-w-2xl">
-              Access larger loan amounts through our network of partner banks and 
-              financial institutions. Ideal for major expansion projects.
+              {t('loanPages.syndicatedDesc')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.contactUs')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
             </div>
@@ -132,19 +134,19 @@ const Syndicated = () => {
       {/* Features Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-foreground mb-4">
-              Benefits of Syndicated Loans
+              {t('loanPages.syndicatedFeaturesTitle')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Unlock larger financing through our consortium lending arrangements.
+              {t('loanPages.syndicatedFeaturesDesc')}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature) => (
-              <div key={feature.title} className="bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <div key={feature.title} className={`bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 ${isRTL ? 'text-right' : ''}`}>
+                <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 ${isRTL ? 'ml-auto' : ''}`}>
                   <feature.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
@@ -162,12 +164,16 @@ const Syndicated = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-white mb-4">
-              The <span className="text-accent">Taamul</span> Advantage
+              {isRTL ? (
+                <><span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              ) : (
+                <>The <span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              )}
             </h2>
             <p className="text-lg text-white/80">
-              Expert syndication services for large-scale financing needs.
+              {t('loanPages.advantageDesc')}
             </p>
           </div>
 
@@ -179,9 +185,9 @@ const Syndicated = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
@@ -195,17 +201,17 @@ const Syndicated = () => {
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+          <div className={`grid lg:grid-cols-2 gap-12 ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right lg:col-start-2' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-success" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Eligibility Criteria</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('loanPages.eligibilityCriteria')}</h3>
               </div>
               <div className="space-y-4">
                 {eligibility.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
                     <p className="text-foreground">{item}</p>
                   </div>
@@ -213,16 +219,16 @@ const Syndicated = () => {
               </div>
             </div>
 
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right lg:col-start-1' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                   <FileText className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Required Documents</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('loanPages.requiredDocuments')}</h3>
               </div>
               <div className="space-y-4">
                 {documents.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <p className="text-foreground">{item}</p>
                   </div>
@@ -230,8 +236,8 @@ const Syndicated = () => {
               </div>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground text-center mt-8">
-            *Banks may request additional documents at their discretion based on customer profile and business activity.
+          <p className={`text-sm text-muted-foreground text-center mt-8 ${isRTL ? 'text-right' : ''}`}>
+            {t('loanPages.documentsDisclaimer')}
           </p>
         </div>
       </section>
@@ -243,22 +249,22 @@ const Syndicated = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className={`max-w-3xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-[hsl(var(--background))] mb-6">
-              Need Large-Scale Financing?
+              {t('loanPages.syndicatedCtaTitle')}
             </h2>
             <p className="text-xl text-[hsl(var(--background))] mb-10">
-              Let us structure a syndicated lending arrangement tailored to your requirements.
+              {t('loanPages.syndicatedCtaDesc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.contactUs')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/contact">Talk to Expert</Link>
+                <Link to="/contact">{t('common.talkToExpert')}</Link>
               </Button>
             </div>
           </div>

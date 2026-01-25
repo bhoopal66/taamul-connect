@@ -19,72 +19,75 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { Button } from "@/components/ui/button";
-
-const features = [
-  {
-    icon: Zap,
-    title: "Quick Disbursement",
-    description: "Fast access to funds to address immediate cash flow needs",
-  },
-  {
-    icon: Percent,
-    title: "Competitive Rates",
-    description: "Interest rates from 8% p.a. with flexible repayment structures",
-  },
-  {
-    icon: TrendingUp,
-    title: "Revolving Facility",
-    description: "Draw, repay, and redraw funds as per your business requirements",
-  },
-  {
-    icon: Clock,
-    title: "Minimal Documentation",
-    description: "Streamlined process with reduced paperwork for faster approval",
-  },
-];
-
-const eligibility = [
-  "Business operating in UAE for at least 1 year",
-  "Minimum annual turnover of AED 500,000",
-  "Valid trade license",
-  "Bank statements showing regular transactions",
-  "Positive cash flow from operations",
-  "No major defaults in credit history",
-];
-
-const documents = [
-  "Trade License, Office Ejari & Memorandum of Association",
-  "Bank statements (6-12 months)",
-  "VAT returns of last 4 Qtrs",
-  "Accounts receivable aging report",
-  "Passport copies of shareholders & EID of authorised signatory",
-  "Company profile",
-];
-
-const whyChooseUs = [
-  {
-    icon: RefreshCw,
-    title: "Revolving Credit",
-    description: "Flexible draw and repay facility that adapts to your business cycles",
-  },
-  {
-    icon: Wallet,
-    title: "Cash Flow Focus",
-    description: "Designed to bridge gaps and maintain smooth daily operations",
-  },
-  {
-    icon: Target,
-    title: "Tailored Limits",
-    description: "Credit limits based on your specific business turnover and needs",
-  },
-  {
-    icon: Shield,
-    title: "Bank Partnerships",
-    description: "Access to 15+ partner banks for the best rates and terms",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WorkingCapital = () => {
+  const { t, isRTL } = useLanguage();
+
+  const features = [
+    {
+      icon: Zap,
+      title: t('loanPages.quickDisbursement'),
+      description: t('loanPages.quickDisbursementDesc'),
+    },
+    {
+      icon: Percent,
+      title: t('loanPages.competitiveRates'),
+      description: t('loanPages.competitiveRatesDesc'),
+    },
+    {
+      icon: TrendingUp,
+      title: t('loanPages.revolvingFacility'),
+      description: t('loanPages.revolvingFacilityDesc'),
+    },
+    {
+      icon: Clock,
+      title: t('loanPages.minimalDocumentation'),
+      description: t('loanPages.minimalDocumentationDesc'),
+    },
+  ];
+
+  const eligibility = [
+    t('loanPages.eligibility1Year'),
+    t('loanPages.minTurnover500K'),
+    t('loanPages.validTradeLicense'),
+    "Bank statements showing regular transactions",
+    "Positive cash flow from operations",
+    t('loanPages.positiveCredit'),
+  ];
+
+  const documents = [
+    t('loanPages.tradeLicenseMOA'),
+    t('loanPages.bankStatements6to12'),
+    t('loanPages.vatReturns'),
+    "Accounts receivable aging report",
+    t('loanPages.passportCopies'),
+    "Company profile",
+  ];
+
+  const whyChooseUs = [
+    {
+      icon: RefreshCw,
+      title: "Revolving Credit",
+      description: "Flexible draw and repay facility that adapts to your business cycles",
+    },
+    {
+      icon: Wallet,
+      title: "Cash Flow Focus",
+      description: "Designed to bridge gaps and maintain smooth daily operations",
+    },
+    {
+      icon: Target,
+      title: "Tailored Limits",
+      description: "Credit limits based on your specific business turnover and needs",
+    },
+    {
+      icon: Shield,
+      title: "Bank Partnerships",
+      description: "Access to 15+ partner banks for the best rates and terms",
+    },
+  ];
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -96,27 +99,26 @@ const WorkingCapital = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6">
+          <div className={`max-w-3xl ${isRTL ? 'mr-0 text-right' : ''}`}>
+            <div className={`inline-flex items-center gap-2 px-4 py-2 bg-[hsl(var(--background))]/10 rounded-full text-[hsl(var(--background))]/90 text-sm font-medium backdrop-blur-sm mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
               <TrendingUp className="h-4 w-4" />
-              Business Loans
+              {t('loanPages.businessLoans')}
             </div>
 
             <h1 className="text-display-sm md:text-display text-[hsl(var(--background))] mb-6">
-              Working Capital{" "}
-              <span className="text-accent">Solutions</span>
+              {t('loanPages.workingCapitalTitle')}{" "}
+              <span className="text-accent">{t('loanPages.workingCapitalHighlight')}</span>
             </h1>
 
             <p className="text-xl text-[hsl(var(--background))] mb-8 max-w-2xl">
-              Bridge cash flow gaps and maintain smooth operations with flexible 
-              working capital financing designed for UAE businesses.
+              {t('loanPages.workingCapitalDesc')}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className={`flex flex-col sm:flex-row gap-4 ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.contactUs')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
             </div>
@@ -133,19 +135,19 @@ const WorkingCapital = () => {
       {/* Features Section */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-4">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-foreground mb-4">
-              Why Choose Our Working Capital Loans?
+              {t('loanPages.workingCapitalFeaturesTitle')}
             </h2>
             <p className="text-lg text-muted-foreground">
-              Keep your business running smoothly with quick access to operational funds.
+              {t('loanPages.workingCapitalFeaturesDesc')}
             </p>
           </div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {features.map((feature) => (
-              <div key={feature.title} className="bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1">
-                <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+              <div key={feature.title} className={`bg-card rounded-2xl p-6 shadow-card hover:shadow-elevated transition-all duration-300 hover:-translate-y-1 ${isRTL ? 'text-right' : ''}`}>
+                <div className={`w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5 ${isRTL ? 'ml-auto' : ''}`}>
                   <feature.icon className="h-7 w-7 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-3">{feature.title}</h3>
@@ -153,8 +155,8 @@ const WorkingCapital = () => {
               </div>
             ))}
           </div>
-          <p className="text-sm text-muted-foreground text-center mt-8">
-            *Interest rates and loan amounts are subject to lender's discretion and may vary based on credit assessment.
+          <p className={`text-sm text-muted-foreground text-center mt-8 ${isRTL ? 'text-right' : ''}`}>
+            {t('loanPages.disclaimer')}
           </p>
         </div>
       </section>
@@ -166,12 +168,16 @@ const WorkingCapital = () => {
           <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-white mb-4">
-              The <span className="text-accent">Taamul</span> Advantage
+              {t('loanPages.taamulAdvantage').includes('Taamul') ? (
+                <>The <span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              ) : (
+                <><span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.taamulAdvantage')}</>
+              )}
             </h2>
             <p className="text-lg text-white/80">
-              Flexible financing solutions designed to keep your business moving forward.
+              {t('loanPages.advantageDesc')}
             </p>
           </div>
 
@@ -183,9 +189,9 @@ const WorkingCapital = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20"
+                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
               >
-                <div className="w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4">
+                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
                   <item.icon className="h-6 w-6 text-white" />
                 </div>
                 <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
@@ -199,17 +205,17 @@ const WorkingCapital = () => {
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">
         <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+          <div className={`grid lg:grid-cols-2 gap-12 ${isRTL ? 'lg:grid-flow-dense' : ''}`}>
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right lg:col-start-2' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-success/10 flex items-center justify-center">
                   <Shield className="h-6 w-6 text-success" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Eligibility Criteria</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('loanPages.eligibilityCriteria')}</h3>
               </div>
               <div className="space-y-4">
                 {eligibility.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-success flex-shrink-0 mt-0.5" />
                     <p className="text-foreground">{item}</p>
                   </div>
@@ -217,16 +223,16 @@ const WorkingCapital = () => {
               </div>
             </div>
 
-            <div className="bg-card rounded-2xl p-8 shadow-card">
-              <div className="flex items-center gap-3 mb-6">
+            <div className={`bg-card rounded-2xl p-8 shadow-card ${isRTL ? 'text-right lg:col-start-1' : ''}`}>
+              <div className={`flex items-center gap-3 mb-6 ${isRTL ? 'flex-row-reverse' : ''}`}>
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                   <FileText className="h-6 w-6 text-accent" />
                 </div>
-                <h3 className="text-2xl font-bold text-foreground">Required Documents</h3>
+                <h3 className="text-2xl font-bold text-foreground">{t('loanPages.requiredDocuments')}</h3>
               </div>
               <div className="space-y-4">
                 {documents.map((item, index) => (
-                  <div key={index} className="flex items-start gap-3">
+                  <div key={index} className={`flex items-start gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <p className="text-foreground">{item}</p>
                   </div>
@@ -234,8 +240,8 @@ const WorkingCapital = () => {
               </div>
             </div>
           </div>
-          <p className="text-sm text-muted-foreground text-center mt-8">
-            *Banks may request additional documents at their discretion based on customer profile and business activity.
+          <p className={`text-sm text-muted-foreground text-center mt-8 ${isRTL ? 'text-right' : ''}`}>
+            {t('loanPages.documentsDisclaimer')}
           </p>
         </div>
       </section>
@@ -247,22 +253,22 @@ const WorkingCapital = () => {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <div className="max-w-3xl mx-auto text-center">
+          <div className={`max-w-3xl mx-auto text-center ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-[hsl(var(--background))] mb-6">
-              Need Funds for Daily Operations?
+              {t('loanPages.workingCapitalCtaTitle')}
             </h2>
             <p className="text-xl text-[hsl(var(--background))] mb-10">
-              Quick approval process – get your working capital fast. Keep your business running smoothly.
+              {t('loanPages.workingCapitalCtaDesc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className={`flex flex-col sm:flex-row gap-4 justify-center ${isRTL ? 'sm:flex-row-reverse' : ''}`}>
               <Button asChild variant="hero" size="xl">
-                <Link to="/contact" className="flex items-center gap-2">
-                  Contact Us
-                  <ArrowRight className="h-5 w-5" />
+                <Link to="/contact" className={`flex items-center gap-2 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  {t('common.contactUs')}
+                  <ArrowRight className={`h-5 w-5 ${isRTL ? 'rotate-180' : ''}`} />
                 </Link>
               </Button>
               <Button asChild variant="heroOutline" size="xl">
-                <Link to="/contact">Talk to Expert</Link>
+                <Link to="/contact">{t('common.talkToExpert')}</Link>
               </Button>
             </div>
           </div>
