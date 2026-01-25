@@ -20,7 +20,7 @@ import {
 const milestones = [
   {
     year: "2021",
-    title: "Foundation",
+    title: "Founded in Dubai",
     description: "TAAMUL Credit Review Services LLC was established in Dubai with a vision to simplify business financing in the UAE."
   },
   {
