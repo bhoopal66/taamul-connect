@@ -492,7 +492,7 @@ const BusinessLoans = () => {
                 {[
                   "Active POS machine with minimum 6 months history",
                   "Minimum monthly POS turnover of AED 50,000",
-                  "Annual POS turnover must be at least 30% of total annual turnover",
+                  "Annual POS turnover must be at least 30% to 40% of total annual turnover",
                   "Valid trade license in UAE",
                   "Business bank account with POS transactions",
                   "No outstanding defaults on existing loans",
