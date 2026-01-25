@@ -9,7 +9,6 @@ import {
   Send, 
   CheckCircle2,
   ArrowRight,
-  Clock,
   Shield,
   Users
 } from "lucide-react";
@@ -20,7 +19,6 @@ const steps = [
     title: "Consultation",
     description: "We understand your business needs, transaction volumes, and financing requirements to recommend the right solution.",
     icon: MessageSquare,
-    duration: "Day 1",
     details: [
       "Business profile review",
       "Requirements assessment",
@@ -33,7 +31,6 @@ const steps = [
     title: "Document Collection",
     description: "Our team collects and reviews all required documentation to ensure a complete, error-free application.",
     icon: FileCheck,
-    duration: "1 Day",
     details: [
       "Trade License & MOA",
       "VAT returns (last 4 Qtrs)",
@@ -46,7 +43,6 @@ const steps = [
     title: "Bank Selection",
     description: "Based on your profile, we match you with the most suitable banks from our partner network for higher approval rates.",
     icon: Search,
-    duration: "1-2 Days",
     details: [
       "Compare multiple bank offers",
       "Match terms to your needs",
@@ -59,7 +55,6 @@ const steps = [
     title: "Application Submission",
     description: "We submit your application directly to the bank and follow up on your behalf throughout the process.",
     icon: Send,
-    duration: "2-3 Days",
     details: [
       "Complete application filing",
       "Document submission",
@@ -72,7 +67,6 @@ const steps = [
     title: "Approval",
     description: "Bank reviews and approves your application. We assist with final setup and any additional services you need.",
     icon: CheckCircle2,
-    duration: "4-7 Days",
     details: [
       "Bank credit review",
       "Terms finalization",
@@ -84,9 +78,9 @@ const steps = [
 
 const benefits = [
   {
-    icon: Clock,
-    title: "Fast Processing",
-    description: "Get from consultation to approval in as little as 7-10 business days"
+    icon: Shield,
+    title: "Secure & Confidential",
+    description: "Your data is protected with bank-grade security throughout the process"
   },
   {
     icon: Shield,
@@ -116,10 +110,6 @@ const HowItWorks = () => {
               From application to disbursement, we've streamlined the business loan process 
               to get you funded faster with minimum hassle.
             </p>
-            <div className="flex items-center justify-center gap-2 text-lg text-white">
-              <Clock className="h-5 w-5" />
-              <span>Average processing time: <strong>7-10 Days</strong></span>
-            </div>
           </div>
         </div>
       </section>
@@ -145,21 +135,13 @@ const HowItWorks = () => {
                   
                   {/* Content Card */}
                   <div className="flex-grow bg-card rounded-2xl p-6 md:p-8 shadow-lg border border-border hover:shadow-xl transition-shadow">
-                    <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                      <div>
-                        <span className="text-sm font-bold text-primary tracking-wider">
-                          STEP {step.number}
-                        </span>
-                        <h3 className="text-2xl font-bold text-foreground mt-1">
-                          {step.title}
-                        </h3>
-                      </div>
-                      <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-full">
-                        <Clock className="h-4 w-4 text-muted-foreground" />
-                        <span className="text-sm font-medium text-muted-foreground">
-                          {step.duration}
-                        </span>
-                      </div>
+                    <div className="mb-4">
+                      <span className="text-sm font-bold text-primary tracking-wider">
+                        STEP {step.number}
+                      </span>
+                      <h3 className="text-2xl font-bold text-foreground mt-1">
+                        {step.title}
+                      </h3>
                     </div>
                     
                     <p className="text-muted-foreground mb-6">
