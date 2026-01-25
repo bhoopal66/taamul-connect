@@ -13,9 +13,9 @@ const testimonials = [
   },
   {
     quote: "As an SME, we struggled to get traditional bank financing. TAAMUL's expertise opened doors we didn't know existed. Highly recommended for any business owner.",
-    author: "Sarah Williams",
-    position: "Managing Director",
-    company: "Tech Solutions FZCO",
+    author: "Kashif",
+    position: "Consultant",
+    company: "Kurshid Impex",
     rating: 5,
   },
   {
