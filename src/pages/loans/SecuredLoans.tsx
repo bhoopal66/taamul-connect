@@ -46,16 +46,16 @@ const SecuredLoans = () => {
   const eligibility = [
     t('loanPages.eligibility2Years'),
     t('loanPages.minTurnover2M'),
-    "Clear title to collateral assets",
-    "Property valuation from approved valuers",
-    "No existing liens on proposed collateral",
-    "Positive net worth and profitable operations",
+    t('loanPages.clearTitleCollateral'),
+    t('loanPages.propertyValuation'),
+    t('loanPages.noExistingLiens'),
+    t('loanPages.positiveNetWorth'),
   ];
 
   const documents = [
     t('loanPages.tradeLicenseMOA'),
-    "Audited financial statements (2-3 years)",
-    "Property title deed and valuation report",
+    t('loanPages.auditedFinancials2to3Years'),
+    t('loanPages.propertyTitleDeed'),
     t('loanPages.bankStatements12'),
     t('loanPages.passportCopies'),
     t('loanPages.vatReturns'),

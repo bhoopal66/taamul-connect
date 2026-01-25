@@ -46,19 +46,19 @@ const CorporateLoans = () => {
   const eligibility = [
     t('loanPages.eligibility5Years'),
     t('loanPages.minTurnover50M'),
-    "Strong credit rating and financial track record",
+    t('loanPages.strongCreditRating'),
     t('loanPages.auditedFinancials3Years'),
-    "Clear corporate governance structure",
-    "Profitable operations with positive EBITDA",
+    t('loanPages.clearCorporateGovernance'),
+    t('loanPages.profitableOperations'),
   ];
 
   const documents = [
-    "Certificate of Incorporation, Office Ejari & MOA/AOA",
-    "Audited financial statements (3 years)",
-    "Board resolution for loan application",
+    t('loanPages.certificateIncorporation'),
+    t('loanPages.auditedFinancials3YearsDoc'),
+    t('loanPages.boardResolution'),
     t('loanPages.passportCopies'),
     t('loanPages.vatReturns'),
-    "Existing facility letters and obligations",
+    t('loanPages.existingFacilityLetters'),
   ];
 
   return (

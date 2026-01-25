@@ -908,12 +908,37 @@ const translations = {
       auditedFinancials3Years: "Audited financial statements for 3+ years",
       positiveCredit: "Positive credit history with no defaults",
       uaeResidenceVisa: "UAE residence visa for signatories",
+      // SME Loans eligibility
+      validTradeLicenseEjari: "Valid trade license and Ejari",
+      noTurnoverDrop: "No drop in turnover on year-on-year basis",
+      auditedOrManagement: "Audited or management accounts available",
+      noMajorDefaults: "No major defaults or legal issues",
+      // Corporate Loans eligibility
+      strongCreditRating: "Strong credit rating and financial track record",
+      clearCorporateGovernance: "Clear corporate governance structure",
+      profitableOperations: "Profitable operations with positive EBITDA",
+      // Secured Loans eligibility
+      clearTitleCollateral: "Clear title to collateral assets",
+      propertyValuation: "Property valuation from approved valuers",
+      noExistingLiens: "No existing liens on proposed collateral",
+      positiveNetWorth: "Positive net worth and profitable operations",
       // Common documents
       tradeLicenseMOA: "Trade License, Office Ejari & Memorandum of Association",
       bankStatements6to12: "Bank statements (6-12 months)",
       bankStatements12: "Bank statements (12 months)",
       passportCopies: "Passport copies of shareholders & EID of authorised signatory",
       vatReturns: "VAT returns of last 4 Qtrs",
+      // SME documents
+      businessPlanStartups: "Business plan (for startups)",
+      financialStatements1to2: "Financial statements (1-2 years)",
+      // Corporate documents
+      certificateIncorporation: "Certificate of Incorporation, Office Ejari & MOA/AOA",
+      auditedFinancials3YearsDoc: "Audited financial statements (3 years)",
+      boardResolution: "Board resolution for loan application",
+      existingFacilityLetters: "Existing facility letters and obligations",
+      // Secured documents
+      auditedFinancials2to3Years: "Audited financial statements (2-3 years)",
+      propertyTitleDeed: "Property title deed and valuation report",
       // Advantages
       authorizedDSA: "Authorized Direct Selling Agent (DSA)",
       authorizedDSADesc: "We work directly with leading banks and financial institutions as an authorized partner",
@@ -1712,12 +1737,37 @@ const translations = {
       auditedFinancials3Years: "بيانات مالية مدققة لمدة 3 سنوات أو أكثر",
       positiveCredit: "سجل ائتماني إيجابي بدون تعثرات",
       uaeResidenceVisa: "تأشيرة إقامة إماراتية للموقعين",
+      // SME Loans eligibility
+      validTradeLicenseEjari: "رخصة تجارية سارية وإيجاري",
+      noTurnoverDrop: "عدم انخفاض رقم الأعمال على أساس سنوي",
+      auditedOrManagement: "توفر حسابات مدققة أو إدارية",
+      noMajorDefaults: "عدم وجود تعثرات كبيرة أو مشاكل قانونية",
+      // Corporate Loans eligibility
+      strongCreditRating: "تصنيف ائتماني قوي وسجل مالي متين",
+      clearCorporateGovernance: "هيكل حوكمة مؤسسية واضح",
+      profitableOperations: "عمليات مربحة مع EBITDA إيجابي",
+      // Secured Loans eligibility
+      clearTitleCollateral: "ملكية واضحة لأصول الضمان",
+      propertyValuation: "تقييم عقاري من مقيمين معتمدين",
+      noExistingLiens: "عدم وجود رهونات على الضمان المقترح",
+      positiveNetWorth: "صافي قيمة إيجابية وعمليات مربحة",
       // Common documents
       tradeLicenseMOA: "الرخصة التجارية وإيجاري المكتب وعقد التأسيس",
       bankStatements6to12: "كشوف حساب بنكية (6-12 شهراً)",
       bankStatements12: "كشوف حساب بنكية (12 شهراً)",
       passportCopies: "نسخ جوازات السفر للمساهمين والهوية الإماراتية للموقع المخول",
       vatReturns: "إقرارات ضريبة القيمة المضافة لآخر 4 أرباع",
+      // SME documents
+      businessPlanStartups: "خطة العمل (للشركات الناشئة)",
+      financialStatements1to2: "بيانات مالية (1-2 سنة)",
+      // Corporate documents
+      certificateIncorporation: "شهادة التأسيس وإيجاري المكتب وعقد التأسيس",
+      auditedFinancials3YearsDoc: "بيانات مالية مدققة (3 سنوات)",
+      boardResolution: "قرار مجلس الإدارة لطلب القرض",
+      existingFacilityLetters: "خطابات التسهيلات الحالية والالتزامات",
+      // Secured documents
+      auditedFinancials2to3Years: "بيانات مالية مدققة (2-3 سنوات)",
+      propertyTitleDeed: "سند ملكية العقار وتقرير التقييم",
       // Advantages
       authorizedDSA: "وكيل مبيعات مباشر معتمد (DSA)",
       authorizedDSADesc: "نعمل مباشرة مع البنوك والمؤسسات المالية الرائدة كشريك معتمد",

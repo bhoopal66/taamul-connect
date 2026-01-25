@@ -46,19 +46,19 @@ const SMELoans = () => {
   const eligibility = [
     t('loanPages.eligibility3Years'),
     t('loanPages.minTurnover5M'),
-    "Valid trade license and Ejari",
-    "No drop in turnover on year-on-year basis",
-    "Audited or management accounts available",
-    "No major defaults or legal issues",
+    t('loanPages.validTradeLicenseEjari'),
+    t('loanPages.noTurnoverDrop'),
+    t('loanPages.auditedOrManagement'),
+    t('loanPages.noMajorDefaults'),
   ];
 
   const documents = [
-    "Trade License, Office Ejari & MOA/AOA",
-    "Financial statements (1-2 years)",
+    t('loanPages.tradeLicenseMOA'),
+    t('loanPages.financialStatements1to2'),
     t('loanPages.bankStatements6to12'),
     t('loanPages.vatReturns'),
     t('loanPages.passportCopies'),
-    "Business plan (for startups)",
+    t('loanPages.businessPlanStartups'),
   ];
 
   return (
