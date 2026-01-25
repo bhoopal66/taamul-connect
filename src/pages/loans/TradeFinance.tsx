@@ -137,7 +137,7 @@ const TradeFinance = () => {
               </h3>
               <div className="space-y-4">
                 {fundingOptions.map((item, index) => (
-                  <div key={index} className={`flex gap-3 ${isRTL ? 'flex-row-reverse' : ''}`}>
+                  <div key={index} className={`flex gap-3 ${isRTL ? 'flex-row-reverse text-right' : ''}`}>
                     <CheckCircle2 className="h-5 w-5 text-accent flex-shrink-0 mt-0.5" />
                     <div>
                       <p className="text-primary font-medium text-base">{t(item.titleKey)}</p>
