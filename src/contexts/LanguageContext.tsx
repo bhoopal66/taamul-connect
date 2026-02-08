@@ -2214,7 +2214,7 @@ const translations = {
       syndicatedHighlight: "المشتركة",
       syndicatedDesc: "الوصول إلى مبالغ قروض أكبر من خلال شبكتنا من البنوك والمؤسسات المالية الشريكة. مثالية لمشاريع التوسع الكبرى.",
       syndicatedFeaturesTitle: "فوائد القروض المشتركة",
-      syndicatedFeaturesDesc: "افتح تمويلاً أكبر من خلال ترتيبات الإقراض الجماعي لدينا.",
+      syndicatedFeaturesDesc: "عزّز سقف التمويل الخاص بك عبر منظومة الإقراض الجماعي لدينا.",
       multipleLenders: "مقرضون متعددون",
       multipleLendersDesc: "الوصول إلى مبالغ أكبر من خلال شبكتنا من البنوك والمؤسسات المالية غير المصرفية الشريكة",
       higherLimits: "حدود أعلى",
