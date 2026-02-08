@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown, Globe, Phone, Mail } from "lucide-react";
+import { Menu, X, ChevronDown, Globe, Phone, Mail, BookOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -38,6 +38,14 @@ const Header = () => {
     { name: t('advisoryServices.bankFinancing'), href: "/services", description: t('advisoryServices.bankFinancingDesc') },
   ];
 
+  const knowledgeHubItems = [
+    { name: t('nav.blog'), href: "/knowledge/blog", description: t('nav.blogDesc') },
+    { name: t('nav.events'), href: "/knowledge/events", description: t('nav.eventsDesc') },
+    { name: t('nav.caseStudies'), href: "/knowledge/case-studies", description: t('nav.caseStudiesDesc') },
+    { name: t('nav.researchPapers'), href: "/knowledge/research-papers", description: t('nav.researchPapersDesc') },
+    { name: t('nav.webinarsOnDemand'), href: "/knowledge/webinars", description: t('nav.webinarsOnDemandDesc') },
+  ];
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -54,6 +62,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
   const isLoanActive = () => location.pathname.startsWith("/loans/");
   const isServiceActive = () => location.pathname.startsWith("/services");
+  const isKnowledgeActive = () => location.pathname.startsWith("/knowledge");
 
   const toggleMobileDropdown = (dropdown: string) => {
     setOpenMobileDropdown(openMobileDropdown === dropdown ? null : dropdown);
@@ -203,6 +212,51 @@ const Header = () => {
                                   {service.name}
                                 </span>
                                 <p className="text-xs text-muted-foreground mt-0.5">{service.description}</p>
+                              </Link>
+                            </NavigationMenuLink>
+                          ))}
+                        </div>
+                      </div>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+
+                  {/* Knowledge Hub Dropdown */}
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger
+                      className={cn(
+                        "text-[15px] font-medium bg-transparent hover:bg-transparent hover:text-accent data-[state=open]:bg-transparent px-0 h-auto",
+                        isKnowledgeActive() ? "text-accent" : "text-foreground"
+                      )}
+                    >
+                      {t('nav.knowledgeHub')}
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <div className="w-[400px] p-6 bg-card border border-border rounded-lg shadow-elevated">
+                        <div className={cn("mb-4 pb-3 border-b border-border", isRTL && "text-right")}>
+                          <div className={cn("flex items-center gap-2", isRTL && "flex-row-reverse")}>
+                            <BookOpen className="h-4 w-4 text-accent" />
+                            <h3 className="font-semibold text-foreground">{t('nav.knowledgeHub')}</h3>
+                          </div>
+                          <p className="text-sm text-muted-foreground mt-1">{t('nav.knowledgeHubDesc')}</p>
+                        </div>
+                        <div className="space-y-2">
+                          {knowledgeHubItems.map((item) => (
+                            <NavigationMenuLink key={item.href} asChild>
+                              <Link
+                                to={item.href}
+                                className={cn(
+                                  "block p-3 rounded-lg hover:bg-muted transition-colors group",
+                                  isActive(item.href) && "bg-accent/5",
+                                  isRTL && "text-right"
+                                )}
+                              >
+                                <span className={cn(
+                                  "font-medium text-sm group-hover:text-accent transition-colors",
+                                  isActive(item.href) ? "text-accent" : "text-foreground"
+                                )}>
+                                  {item.name}
+                                </span>
+                                <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
                               </Link>
                             </NavigationMenuLink>
                           ))}
@@ -391,6 +445,47 @@ const Header = () => {
                       )}
                     >
                       {service.name}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile Knowledge Hub Accordion */}
+            <div>
+              <button
+                onClick={() => toggleMobileDropdown("knowledge")}
+                className={cn(
+                  "w-full flex items-center justify-between px-4 py-3 rounded-lg font-medium transition-colors",
+                  isKnowledgeActive() ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted",
+                  isRTL && "flex-row-reverse"
+                )}
+              >
+                <span>{t('nav.knowledgeHub')}</span>
+                <ChevronDown
+                  className={cn(
+                    "h-4 w-4 transition-transform duration-200",
+                    openMobileDropdown === "knowledge" && "rotate-180"
+                  )}
+                />
+              </button>
+              <div
+                className={cn(
+                  "overflow-hidden transition-all duration-200",
+                  openMobileDropdown === "knowledge" ? "max-h-96" : "max-h-0"
+                )}
+              >
+                <div className={cn("pl-4 py-2 space-y-1", isRTL && "pl-0 pr-4")}>
+                  {knowledgeHubItems.map((item) => (
+                    <Link
+                      key={item.href}
+                      to={item.href}
+                      className={cn(
+                        "block px-4 py-2.5 rounded-lg text-sm transition-colors",
+                        isActive(item.href) ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
+                      )}
+                    >
+                      {item.name}
                     </Link>
                   ))}
                 </div>
