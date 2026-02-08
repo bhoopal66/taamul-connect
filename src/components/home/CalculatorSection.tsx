@@ -7,17 +7,10 @@ import { Slider } from "@/components/ui/slider";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
 import { supabase } from "@/integrations/supabase/client";
 import { cn } from "@/lib/utils";
-
-const benefits = [
-  "Prevent incomplete documentation delays",
-  "Access to 15+ leading UAE banks",
-  "Competitive interest rates from 7% p.a.",
-  "Flexible tenure up to 48 months",
-  "Minimal documentation required",
-  "Dedicated relationship manager",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CalculatorSection = () => {
+  const { t, isRTL } = useLanguage();
   const [turnover, setTurnover] = useState(5000000);
   const [eiborTenor, setEiborTenor] = useState<"3_month" | "6_month">("3_month");
   const [months, setMonths] = useState<string>("12");
@@ -77,29 +70,38 @@ const CalculatorSection = () => {
     }).format(value);
   };
 
+  const benefits = [
+    t('businessLoansPage.benefit1'),
+    t('businessLoansPage.benefit2'),
+    t('businessLoansPage.benefit3'),
+    t('businessLoansPage.benefit4'),
+    t('businessLoansPage.benefit5'),
+    t('businessLoansPage.benefit6'),
+  ];
+
   return (
     <section id="calculator" className="py-24 bg-background">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - Calculator */}
-          <AnimatedSection direction="left">
-            <div className="bg-card rounded-3xl p-8 shadow-elevated border border-border">
-              <div className="flex items-center gap-3 mb-8">
+          <AnimatedSection direction={isRTL ? "right" : "left"}>
+            <div className={cn("bg-card rounded-3xl p-8 shadow-elevated border border-border", isRTL && "text-right")}>
+              <div className={cn("flex items-center gap-3 mb-8", isRTL && "flex-row-reverse")}>
                 <div className="w-12 h-12 rounded-xl bg-accent/10 flex items-center justify-center">
                   <Calculator className="h-6 w-6 text-accent" />
                 </div>
                 <div>
-                  <h3 className="text-2xl font-bold text-foreground">Business Loan Eligibility Calculator</h3>
-                  <p className="text-muted-foreground">Get an instant estimate</p>
+                  <h3 className="text-2xl font-bold text-foreground">{t('businessLoansPage.loanCalculator')}</h3>
+                  <p className="text-muted-foreground">{t('businessLoansPage.getInstantEstimate')}</p>
                 </div>
               </div>
 
               <div className="space-y-6">
                 {/* Annual Turnover Slider */}
                 <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <label className="text-sm font-medium text-foreground">Annual Turnover</label>
-                    <span className="text-lg font-bold text-primary">{formatCurrency(turnover)}</span>
+                  <div className={cn("flex justify-between items-center", isRTL && "flex-row-reverse")}>
+                    <label className="text-sm font-medium text-foreground">{t('businessLoansPage.annualTurnover')}</label>
+                    <span className="text-lg font-bold text-primary" dir="ltr">{formatCurrency(turnover)}</span>
                   </div>
                   <Slider
                     value={[turnover]}
@@ -108,8 +110,9 @@ const CalculatorSection = () => {
                     max={100000000}
                     step={500000}
                     className="w-full"
+                    dir="ltr"
                   />
-                  <div className="flex justify-between text-xs text-muted-foreground">
+                  <div className={cn("flex justify-between text-xs text-muted-foreground", isRTL && "flex-row-reverse")} dir="ltr">
                     <span>AED 500K</span>
                     <span>AED 100M</span>
                   </div>
@@ -117,7 +120,7 @@ const CalculatorSection = () => {
 
                 {/* EIBOR Tenor Selection */}
                 <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">EIBOR Base Rate</label>
+                  <label className="text-sm font-medium text-foreground">{t('businessLoansPage.eiborBaseRate')}</label>
                   <div className="grid grid-cols-2 gap-2">
                     {(["3_month", "6_month"] as const).map((tenor) => (
                       <button
@@ -131,7 +134,7 @@ const CalculatorSection = () => {
                         )}
                       >
                         <span className="block text-xs text-muted-foreground mb-0.5">
-                          {tenor === "3_month" ? "3 Month EIBOR" : "6 Month EIBOR"}
+                          {tenor === "3_month" ? t('businessLoansPage.threeMonthEibor') : t('businessLoansPage.sixMonthEibor')}
                         </span>
                         <span className="font-bold" dir="ltr">{eiborRates[tenor].toFixed(4)}%</span>
                       </button>
@@ -142,7 +145,7 @@ const CalculatorSection = () => {
                 {/* Bank Spread & Months */}
                 <div className="grid grid-cols-2 gap-4">
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Bank Spread (%)</label>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">{t('businessLoansPage.bankSpread')}</label>
                     <div className="relative">
                       <input
                         type="number"
@@ -151,28 +154,36 @@ const CalculatorSection = () => {
                         max="10"
                         value={spread}
                         onChange={(e) => setSpread(e.target.value)}
-                        className="w-full rounded-lg border border-input bg-background px-3 py-2.5 pr-8 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                        className={cn(
+                          "w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring",
+                          isRTL ? "pl-8 text-right" : "pr-8"
+                        )}
+                        dir="ltr"
                       />
-                      <span className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground text-sm">%</span>
+                      <span className={cn("absolute top-1/2 -translate-y-1/2 text-muted-foreground text-sm", isRTL ? "left-3" : "right-3")}>%</span>
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">Tenure (Months)</label>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">{t('businessLoansPage.tenureMonths')}</label>
                     <input
                       type="number"
                       min="1"
                       max="120"
                       value={months}
                       onChange={(e) => setMonths(e.target.value)}
-                      className="w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                      className={cn(
+                        "w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring",
+                        isRTL && "text-right"
+                      )}
+                      dir="ltr"
                     />
                   </div>
                 </div>
 
                 {/* Minimum Requirement Note */}
-                <div className="flex items-center gap-2 p-3 bg-muted rounded-lg">
+                <div className={cn("flex items-center gap-2 p-3 bg-muted rounded-lg", isRTL && "flex-row-reverse")}>
                   <Info className="h-4 w-4 text-muted-foreground flex-shrink-0" />
-                  <p className="text-sm text-muted-foreground">Minimum 1 year in business required</p>
+                  <p className="text-sm text-muted-foreground">{t('businessLoansPage.minRequirement')}</p>
                 </div>
               </div>
 
@@ -184,29 +195,29 @@ const CalculatorSection = () => {
                 transition={{ duration: 0.3 }}
                 className="mt-8 p-6 rounded-2xl gradient-hero text-primary-foreground"
               >
-                <div className="flex justify-between items-center mb-3">
+                <div className={cn("flex justify-between items-center mb-3", isRTL && "flex-row-reverse")}>
                   <div>
-                    <p className="text-sm opacity-80 mb-1">Estimated Eligible Amount</p>
-                    <p className="text-3xl font-bold">{formatCurrency(eligibleAmount)}</p>
+                    <p className="text-sm opacity-80 mb-1">{t('businessLoansPage.estimatedAmount')}</p>
+                    <p className="text-3xl font-bold" dir="ltr">{formatCurrency(eligibleAmount)}</p>
                   </div>
-                  <div className="text-right">
-                    <p className="text-sm opacity-80 mb-1">Effective Rate</p>
-                    <p className="text-xl font-bold">{loanEstimate.totalRate.toFixed(2)}%</p>
+                  <div className={cn(isRTL ? "text-left" : "text-right")}>
+                    <p className="text-sm opacity-80 mb-1">{t('businessLoansPage.effectiveRate')}</p>
+                    <p className="text-xl font-bold" dir="ltr">{loanEstimate.totalRate.toFixed(2)}%</p>
                   </div>
                 </div>
                 <div className="border-t border-white/20 pt-3 mb-4">
-                  <p className="text-sm opacity-80 mb-1">Est. Monthly Payment ({months || 12} months)</p>
+                  <p className="text-sm opacity-80 mb-1">{t('businessLoansPage.estMonthlyPayment')} ({months || 12} {isRTL ? "شهر" : "months"})</p>
                   <p className="text-3xl font-bold" dir="ltr">
                     {loanEstimate.monthly > 0
                       ? formatCurrency(Math.round(loanEstimate.monthly))
                       : "—"}
                   </p>
                 </div>
-                <p className="text-xs opacity-70 mb-4">*Estimate only. Based on live EIBOR rates. Actual terms may vary.</p>
+                <p className="text-xs opacity-70 mb-4">{t('businessLoansPage.estimateDisclaimer')}</p>
                 <Button asChild variant="hero" size="lg" className="w-full">
-                  <Link to="/contact" className="flex items-center justify-center gap-2">
-                    Talk to Expert
-                    <ArrowRight className="h-5 w-5" />
+                  <Link to="/contact" className={cn("flex items-center justify-center gap-2", isRTL && "flex-row-reverse")}>
+                    {t('home.talkToExpert')}
+                    <ArrowRight className={cn("h-5 w-5", isRTL && "rotate-180")} />
                   </Link>
                 </Button>
               </motion.div>
@@ -214,24 +225,24 @@ const CalculatorSection = () => {
           </AnimatedSection>
 
           {/* Right - Benefits */}
-          <AnimatedSection direction="right" delay={0.1}>
-            <div className="space-y-8">
+          <AnimatedSection direction={isRTL ? "left" : "right"} delay={0.1}>
+            <div className={cn("space-y-8", isRTL && "text-right")}>
               <div>
                 <p className="text-accent font-semibold mb-3 uppercase tracking-wide text-sm">
-                  Why Choose TAAMUL?
+                  {t('businessLoansPage.whyChooseTaamul')}
                 </p>
                 <h2 className="text-display-sm text-foreground mb-4">
-                  Fast, Transparent Business Loan Financing
+                  {t('businessLoansPage.fastTransparent')}
                 </h2>
                 <p className="text-lg text-muted-foreground">
-                  We've simplified the business loan process so you can focus on what matters most - growing your business.
+                  {t('businessLoansPage.fastTransparentDesc')}
                 </p>
               </div>
 
               <div className="space-y-4">
                 {benefits.map((benefit, index) => (
-                  <AnimatedItem key={benefit} index={index} baseDelay={0.3}>
-                    <div className="flex items-start gap-3">
+                  <AnimatedItem key={index} index={index} baseDelay={0.3}>
+                    <div className={cn("flex items-start gap-3", isRTL && "flex-row-reverse")}>
                       <CheckCircle2 className="h-6 w-6 text-success flex-shrink-0 mt-0.5" />
                       <p className="text-foreground">{benefit}</p>
                     </div>
@@ -239,12 +250,12 @@ const CalculatorSection = () => {
                 ))}
               </div>
 
-              <div className="flex gap-4">
+              <div className={cn("flex gap-4", isRTL && "flex-row-reverse")}>
                 <Button asChild variant="default" size="lg">
-                  <Link to="/how-it-works">How It Works</Link>
+                  <Link to="/how-it-works">{t('nav.howItWorks')}</Link>
                 </Button>
                 <Button asChild variant="outline" size="lg">
-                  <Link to="/contact">Talk to Expert</Link>
+                  <Link to="/contact">{t('home.talkToExpert')}</Link>
                 </Button>
               </div>
             </div>
