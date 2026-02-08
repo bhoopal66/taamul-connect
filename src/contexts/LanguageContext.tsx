@@ -2058,7 +2058,7 @@ const translations = {
       workingCapitalTitle: "رأس المال العامل",
       workingCapitalHighlight: "الحلول",
       workingCapitalDesc: "سد فجوات التدفق النقدي والحفاظ على العمليات السلسة مع تمويل رأس المال العامل المرن المصمم للشركات الإماراتية.",
-      workingCapitalFeaturesTitle: "حلول خبراء لاحتياجات رأس المال العامل",
+      workingCapitalFeaturesTitle: "الحلول المتخصصة لاحتياجات رأس المال العامل",
       workingCapitalFeaturesDesc: "نساعدك في الحصول على التمويل التشغيلي في الوقت المناسب حتى يبقى عملك مرنًا ومستقرًا وجاهزًا للنمو.",
       quickDisbursement: "صرف سريع",
       quickDisbursementDesc: "وصول سريع إلى الأموال لمعالجة احتياجات التدفق النقدي الفورية",
