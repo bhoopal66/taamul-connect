@@ -12,9 +12,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const CalculatorSection = () => {
   const { t, isRTL } = useLanguage();
   const [turnover, setTurnover] = useState(5000000);
+  const [rateMode, setRateMode] = useState<"eibor" | "manual">("eibor");
   const [eiborTenor, setEiborTenor] = useState<"3_month" | "6_month">("3_month");
   const [months, setMonths] = useState<string>("12");
   const [spread, setSpread] = useState<string>("2");
+  const [manualRate, setManualRate] = useState<string>("7");
   const [eiborRates, setEiborRates] = useState<{ "3_month": number; "6_month": number }>({
     "3_month": 3.5556,
     "6_month": 3.6764,
@@ -51,16 +53,23 @@ const CalculatorSection = () => {
 
   const loanEstimate = useMemo(() => {
     const principal = eligibleAmount;
-    const baseRate = eiborRates[eiborTenor];
-    const bankSpread = parseFloat(spread) || 0;
-    const totalRate = baseRate + bankSpread;
+    let totalRate: number;
+
+    if (rateMode === "manual") {
+      totalRate = parseFloat(manualRate) || 0;
+    } else {
+      const baseRate = eiborRates[eiborTenor];
+      const bankSpread = parseFloat(spread) || 0;
+      totalRate = baseRate + bankSpread;
+    }
+
     const numMonths = parseInt(months) || 12;
     const monthlyRate = totalRate / 100 / 12;
 
     if (principal <= 0 || monthlyRate <= 0 || numMonths <= 0) return { monthly: 0, totalRate: 0 };
     const monthly = (principal * monthlyRate * Math.pow(1 + monthlyRate, numMonths)) / (Math.pow(1 + monthlyRate, numMonths) - 1);
     return { monthly, totalRate };
-  }, [eligibleAmount, eiborTenor, eiborRates, spread, months]);
+  }, [eligibleAmount, rateMode, eiborTenor, eiborRates, spread, manualRate, months]);
 
   const formatCurrency = (value: number) => {
     return new Intl.NumberFormat("en-AE", {
@@ -118,42 +127,94 @@ const CalculatorSection = () => {
                   </div>
                 </div>
 
-                {/* EIBOR Tenor Selection */}
-                <div className="space-y-2">
-                  <label className="text-sm font-medium text-foreground">{t('businessLoansPage.eiborBaseRate')}</label>
+                {/* Rate Mode Toggle */}
+                <div className="space-y-3">
+                  <label className="text-sm font-medium text-foreground">{isRTL ? "طريقة تحديد سعر الفائدة" : "Interest Rate Method"}</label>
                   <div className="grid grid-cols-2 gap-2">
-                    {(["3_month", "6_month"] as const).map((tenor) => (
-                      <button
-                        key={tenor}
-                        onClick={() => setEiborTenor(tenor)}
-                        className={cn(
-                          "px-4 py-3 rounded-xl border text-sm font-medium transition-all",
-                          eiborTenor === tenor
-                            ? "border-primary bg-primary/10 text-primary"
-                            : "border-border bg-background text-muted-foreground hover:bg-muted"
-                        )}
-                      >
-                        <span className="block text-xs text-muted-foreground mb-0.5">
-                          {tenor === "3_month" ? t('businessLoansPage.threeMonthEibor') : t('businessLoansPage.sixMonthEibor')}
-                        </span>
-                        <span className="font-bold" dir="ltr">{eiborRates[tenor].toFixed(4)}%</span>
-                      </button>
-                    ))}
+                    <button
+                      onClick={() => setRateMode("eibor")}
+                      className={cn(
+                        "px-4 py-2.5 rounded-xl border text-sm font-medium transition-all",
+                        rateMode === "eibor"
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-border bg-background text-muted-foreground hover:bg-muted"
+                      )}
+                    >
+                      {isRTL ? "إيبور + هامش" : "EIBOR + Spread"}
+                    </button>
+                    <button
+                      onClick={() => setRateMode("manual")}
+                      className={cn(
+                        "px-4 py-2.5 rounded-xl border text-sm font-medium transition-all",
+                        rateMode === "manual"
+                          ? "border-primary bg-primary/10 text-primary"
+                          : "border-border bg-background text-muted-foreground hover:bg-muted"
+                      )}
+                    >
+                      {isRTL ? "إدخال يدوي" : "Manual Rate"}
+                    </button>
                   </div>
                 </div>
 
-                {/* Bank Spread & Months */}
-                <div className="grid grid-cols-2 gap-4">
+                {rateMode === "eibor" ? (
+                  <>
+                    {/* EIBOR Tenor Selection */}
+                    <div className="space-y-2">
+                      <label className="text-sm font-medium text-foreground">{t('businessLoansPage.eiborBaseRate')}</label>
+                      <div className="grid grid-cols-2 gap-2">
+                        {(["3_month", "6_month"] as const).map((tenor) => (
+                          <button
+                            key={tenor}
+                            onClick={() => setEiborTenor(tenor)}
+                            className={cn(
+                              "px-4 py-3 rounded-xl border text-sm font-medium transition-all",
+                              eiborTenor === tenor
+                                ? "border-primary bg-primary/10 text-primary"
+                                : "border-border bg-background text-muted-foreground hover:bg-muted"
+                            )}
+                          >
+                            <span className="block text-xs text-muted-foreground mb-0.5">
+                              {tenor === "3_month" ? t('businessLoansPage.threeMonthEibor') : t('businessLoansPage.sixMonthEibor')}
+                            </span>
+                            <span className="font-bold" dir="ltr">{eiborRates[tenor].toFixed(4)}%</span>
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Bank Spread */}
+                    <div>
+                      <label className="text-sm font-medium text-foreground mb-1.5 block">{t('businessLoansPage.bankSpread')}</label>
+                      <div className="relative">
+                        <input
+                          type="number"
+                          step="0.1"
+                          min="0"
+                          max="10"
+                          value={spread}
+                          onChange={(e) => setSpread(e.target.value)}
+                          className={cn(
+                            "w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring",
+                            isRTL ? "pl-8 text-right" : "pr-8"
+                          )}
+                          dir="ltr"
+                        />
+                        <span className={cn("absolute top-1/2 -translate-y-1/2 text-muted-foreground text-sm", isRTL ? "left-3" : "right-3")}>%</span>
+                      </div>
+                    </div>
+                  </>
+                ) : (
+                  /* Manual Interest Rate */
                   <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">{t('businessLoansPage.bankSpread')}</label>
+                    <label className="text-sm font-medium text-foreground mb-1.5 block">{isRTL ? "سعر الفائدة السنوي (%)" : "Annual Interest Rate (%)"}</label>
                     <div className="relative">
                       <input
                         type="number"
                         step="0.1"
                         min="0"
-                        max="10"
-                        value={spread}
-                        onChange={(e) => setSpread(e.target.value)}
+                        max="30"
+                        value={manualRate}
+                        onChange={(e) => setManualRate(e.target.value)}
                         className={cn(
                           "w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring",
                           isRTL ? "pl-8 text-right" : "pr-8"
@@ -163,21 +224,23 @@ const CalculatorSection = () => {
                       <span className={cn("absolute top-1/2 -translate-y-1/2 text-muted-foreground text-sm", isRTL ? "left-3" : "right-3")}>%</span>
                     </div>
                   </div>
-                  <div>
-                    <label className="text-sm font-medium text-foreground mb-1.5 block">{t('businessLoansPage.tenureMonths')}</label>
-                    <input
-                      type="number"
-                      min="1"
-                      max="120"
-                      value={months}
-                      onChange={(e) => setMonths(e.target.value)}
-                      className={cn(
-                        "w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring",
-                        isRTL && "text-right"
-                      )}
-                      dir="ltr"
-                    />
-                  </div>
+                )}
+
+                {/* Tenure */}
+                <div>
+                  <label className="text-sm font-medium text-foreground mb-1.5 block">{t('businessLoansPage.tenureMonths')}</label>
+                  <input
+                    type="number"
+                    min="1"
+                    max="120"
+                    value={months}
+                    onChange={(e) => setMonths(e.target.value)}
+                    className={cn(
+                      "w-full rounded-lg border border-input bg-background px-3 py-2.5 text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring",
+                      isRTL && "text-right"
+                    )}
+                    dir="ltr"
+                  />
                 </div>
 
                 {/* Minimum Requirement Note */}
