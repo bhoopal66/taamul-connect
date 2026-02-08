@@ -44,6 +44,7 @@ const Header = () => {
     { name: t('nav.caseStudies'), href: "/knowledge/case-studies", description: t('nav.caseStudiesDesc') },
     { name: t('nav.researchPapers'), href: "/knowledge/research-papers", description: t('nav.researchPapersDesc') },
     { name: t('nav.webinarsOnDemand'), href: "/knowledge/webinars", description: t('nav.webinarsOnDemandDesc') },
+    { name: t('nav.videos'), href: "/knowledge/videos", description: t('nav.videosDesc') },
   ];
 
   useEffect(() => {

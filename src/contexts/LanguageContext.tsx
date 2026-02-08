@@ -99,6 +99,8 @@ const translations = {
       researchPapersDesc: "In-depth market and finance research",
       webinarsOnDemand: "Webinars On-Demand",
       webinarsOnDemandDesc: "Watch expert-led sessions anytime",
+      videos: "Videos",
+      videosDesc: "Educational video content and tutorials",
     },
     // Blog
     blog: {
@@ -1214,6 +1216,8 @@ const translations = {
       researchPapersDesc: "أبحاث معمّقة في السوق والتمويل",
       webinarsOnDemand: "ندوات عند الطلب",
       webinarsOnDemandDesc: "شاهد جلسات الخبراء في أي وقت",
+      videos: "فيديوهات",
+      videosDesc: "محتوى فيديو تعليمي ودروس تطبيقية",
     },
     // Blog
     blog: {
