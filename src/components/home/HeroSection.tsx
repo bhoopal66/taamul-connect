@@ -365,10 +365,16 @@ const HeroSection = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ duration: 0.5, delay: 1.2 }}
-                  className="mt-6 pt-6 border-t border-border text-center"
+                  className="mt-6 pt-6 border-t border-border space-y-3"
                 >
-                  <p className="text-sm text-muted-foreground">
-                    {t('hero.weEarnFromBanks')}
+                  <p className="text-sm font-semibold text-primary">
+                    {t('hero.authorizedDSA')}
+                  </p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {t('hero.helpBusinesses')}
+                  </p>
+                  <p className="text-xs text-muted-foreground/70 italic">
+                    {t('hero.subjectToApproval')}
                   </p>
                 </motion.div>
               </div>

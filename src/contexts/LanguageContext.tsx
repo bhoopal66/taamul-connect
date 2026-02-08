@@ -391,7 +391,10 @@ const translations = {
       noServiceFees: "No service fees",
       noConsultancyCharges: "No consultancy charges",
       noHiddenCosts: "No hidden costs",
-      weEarnFromBanks: "We earn from bank partnerships, not from you"
+      weEarnFromBanks: "We earn from bank partnerships, not from you",
+      authorizedDSA: "Authorized DSA for leading UAE banks.",
+      helpBusinesses: "We help businesses access loans and open business bank accounts with zero consultancy fees.",
+      subjectToApproval: "All facilities are subject to bank credit approval and terms."
     },
     // Services Section
     servicesSection: {
@@ -1610,7 +1613,10 @@ const translations = {
       noServiceFees: "بدون رسوم خدمة",
       noConsultancyCharges: "بدون رسوم استشارية",
       noHiddenCosts: "بدون تكاليف مخفية",
-      weEarnFromBanks: "نكسب من شراكات البنوك، وليس منك"
+      weEarnFromBanks: "نكسب من شراكات البنوك، وليس منك",
+      authorizedDSA: "وكيل بيع مباشر معتمد لبنوك رائدة في الإمارات.",
+      helpBusinesses: "نساعد الشركات في الحصول على القروض وفتح حسابات بنكية تجارية بدون رسوم استشارية.",
+      subjectToApproval: "جميع التسهيلات تخضع لموافقة البنك الائتمانية وشروطه."
     },
     // Services Section
     servicesSection: {
