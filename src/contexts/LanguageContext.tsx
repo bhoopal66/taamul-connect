@@ -203,6 +203,25 @@ const translations = {
       description: "Get pre-approved in 48 hours. Our experts are ready to find the perfect financing solution for your business.",
       callNow: "Call"
     },
+    // EIBOR Dashboard
+    eiborDashboard: {
+      liveBadge: "Live CBUAE Data — Updated Daily 11:00 AM",
+      heading: "Live Business Finance Dashboard",
+      description: "Track UAE EIBOR benchmark rates used by banks to price business loans, credit facilities, and trade finance products.",
+      tenor: "Tenor",
+      rateCol: "Rate (%)",
+      dailyChange: "Daily Change",
+      benchmark: "Benchmark",
+      bankFixings: "Bank-Wise Panel Fixings (3-Month EIBOR)",
+      bankFixingsNote: "Panel bank rates are indicative and sourced from CBUAE daily fixings.",
+      estimator: "Interest Estimator",
+      loanAmount: "Loan Amount (AED)",
+      bankSpread: "Bank Spread (%)",
+      effectiveRate: "Effective Rate (EIBOR + Spread)",
+      estMonthly: "Est. Monthly Repayment",
+      basedOn3M: "Based on 3-Month EIBOR · 12-month term",
+      disclaimer: "Rates are for illustrative purposes only and may not reflect real-time market conditions. Source: Central Bank of the UAE (CBUAE). Actual lending rates vary by bank, product, and borrower profile.",
+    },
     // Calculator Section
     calculatorSection: {
       title: "Loan Calculator",
@@ -1148,6 +1167,25 @@ const translations = {
       heading: "هل أنت مستعد لتسريع نمو أعمالك؟",
       description: "احصل على موافقة مسبقة خلال 48 ساعة. خبراؤنا مستعدون لإيجاد حل التمويل المثالي لعملك.",
       callNow: "اتصل"
+    },
+    // EIBOR Dashboard
+    eiborDashboard: {
+      liveBadge: "بيانات مباشرة من المصرف المركزي — تُحدّث يوميًا الساعة 11:00 صباحًا",
+      heading: "لوحة بيانات التمويل المباشرة",
+      description: "تابع أسعار الإيبور المرجعية التي تستخدمها البنوك لتسعير قروض الأعمال وتسهيلات الائتمان ومنتجات تمويل التجارة.",
+      tenor: "المدة",
+      rateCol: "السعر (%)",
+      dailyChange: "التغير اليومي",
+      benchmark: "مرجعي",
+      bankFixings: "تسعيرات البنوك (إيبور 3 أشهر)",
+      bankFixingsNote: "أسعار البنوك المشاركة إرشادية ومصدرها التثبيتات اليومية للمصرف المركزي.",
+      estimator: "حاسبة الفائدة",
+      loanAmount: "مبلغ القرض (درهم)",
+      bankSpread: "هامش البنك (%)",
+      effectiveRate: "السعر الفعلي (إيبور + الهامش)",
+      estMonthly: "القسط الشهري التقديري",
+      basedOn3M: "بناءً على إيبور 3 أشهر · مدة 12 شهرًا",
+      disclaimer: "الأسعار لأغراض توضيحية فقط وقد لا تعكس ظروف السوق الحالية. المصدر: المصرف المركزي لدولة الإمارات العربية المتحدة. تختلف أسعار الإقراض الفعلية حسب البنك والمنتج وملف المقترض.",
     },
     // Calculator Section
     calculatorSection: {
