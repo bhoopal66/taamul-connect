@@ -43,7 +43,7 @@ const TaamulAdvantageSection = () => {
         <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
           <h2 className="text-display-sm text-white mb-4">
             {isRTL ? (
-              <><span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              <>{t('loanPages.advantage')} <span className="text-accent">{t('loanPages.taamul')}</span></>
             ) : (
               <>The <span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
             )}
