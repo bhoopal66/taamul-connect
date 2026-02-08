@@ -1027,8 +1027,8 @@ const translations = {
       corporateLoansCtaTitle: "Let's Discuss Your Corporate Needs",
       corporateLoansCtaDesc: "Our corporate banking team is ready to structure the right solution for you.",
       // Equipment Financing
-      equipmentTitle: "New & Used* Equipment",
-      equipmentHighlight: "Financing",
+      equipmentTitle: "Equipment Financing",
+      equipmentHighlight: "(New & Used*)",
       equipmentDesc: "Acquire new or used machinery, vehicles, and equipment without impacting your working capital. The equipment serves as its own collateral.",
       equipmentFeaturesTitle: "Benefits of Equipment Financing",
       equipmentFeaturesDesc: "Get the equipment you need while preserving your capital for operations.",
@@ -2119,8 +2119,8 @@ const translations = {
       corporateLoansCtaTitle: "دعنا نناقش احتياجات شركتك",
       corporateLoansCtaDesc: "فريق الخدمات المصرفية للشركات لدينا مستعد لهيكلة الحل المناسب لك.",
       // Equipment Financing
-      equipmentTitle: "تمويل المعدات الجديدة والمستعملة*",
-      equipmentHighlight: "التمويل",
+      equipmentTitle: "تمويل المعدات",
+      equipmentHighlight: "(الجديدة والمستعملة*)",
       equipmentDesc: "احصل على الآلات والمركبات والمعدات سواء كانت جديدة أو مستعملة، دون المساس برأس مالك العامل. تُستخدم المعدات ذاتها كضمان للتمويل.",
       equipmentFeaturesTitle: "مزايا تمويل المعدات",
       equipmentFeaturesDesc: "احصل على المعدات اللازمة لتطوير أعمالك مع الحفاظ على السيولة التشغيلية.",
