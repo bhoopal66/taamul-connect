@@ -86,7 +86,19 @@ const translations = {
       contactUs: "Contact Us",
       viewAllServices: "View all services",
       loanProducts: "Loan Products",
-      comprehensiveFinancing: "Comprehensive financing solutions for your business"
+      comprehensiveFinancing: "Comprehensive financing solutions for your business",
+      knowledgeHub: "Knowledge Hub",
+      knowledgeHubDesc: "Insights, research & resources",
+      blog: "Blog",
+      blogDesc: "Latest insights and industry updates",
+      events: "Events",
+      eventsDesc: "Upcoming conferences and networking",
+      caseStudies: "Case Studies",
+      caseStudiesDesc: "Real success stories from our clients",
+      researchPapers: "Research Papers",
+      researchPapersDesc: "In-depth market and finance research",
+      webinarsOnDemand: "Webinars On-Demand",
+      webinarsOnDemandDesc: "Watch expert-led sessions anytime",
     },
     // Top Bar
     topBar: {
@@ -1056,7 +1068,19 @@ const translations = {
       contactUs: "تواصل معنا",
       viewAllServices: "عرض جميع الخدمات",
       loanProducts: "منتجات القروض",
-      comprehensiveFinancing: "حلول تمويل شاملة لأعمالك"
+      comprehensiveFinancing: "حلول تمويل شاملة لأعمالك",
+      knowledgeHub: "مركز المعرفة",
+      knowledgeHubDesc: "رؤى وأبحاث وموارد",
+      blog: "المدوّنة",
+      blogDesc: "أحدث الرؤى وتحديثات القطاع",
+      events: "الفعاليات",
+      eventsDesc: "مؤتمرات وفرص تواصل قادمة",
+      caseStudies: "دراسات الحالة",
+      caseStudiesDesc: "قصص نجاح حقيقية من عملائنا",
+      researchPapers: "أوراق بحثية",
+      researchPapersDesc: "أبحاث معمّقة في السوق والتمويل",
+      webinarsOnDemand: "ندوات عند الطلب",
+      webinarsOnDemandDesc: "شاهد جلسات الخبراء في أي وقت",
     },
     // Top Bar
     topBar: {
