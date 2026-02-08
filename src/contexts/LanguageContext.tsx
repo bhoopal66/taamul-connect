@@ -966,7 +966,7 @@ const translations = {
       workingCapitalTitle: "Working Capital",
       workingCapitalHighlight: "Solutions",
       workingCapitalDesc: "Bridge cash flow gaps and maintain smooth operations with flexible working capital financing designed for UAE businesses.",
-      workingCapitalFeaturesTitle: "Expert Solutions for Your Working Capital Needs",
+      workingCapitalFeaturesTitle: "The Expert Solutions for Your Working Capital Needs",
       workingCapitalFeaturesDesc: "We help you unlock timely operational funding so your business stays agile, stable, and ready to grow.",
       quickDisbursement: "Quick Disbursement",
       quickDisbursementDesc: "Fast access to funds to address immediate cash flow needs",
