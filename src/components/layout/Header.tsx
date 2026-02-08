@@ -220,6 +220,43 @@ const Header = () => {
                     </NavigationMenuContent>
                   </NavigationMenuItem>
 
+                  <NavigationMenuItem>
+                    <Link
+                      to="/business-accounts"
+                      className={cn(
+                        "text-[15px] font-medium transition-colors hover:text-accent leading-tight",
+                        isActive("/business-accounts") ? "text-accent" : "text-foreground"
+                      )}
+                    >
+                      <span className="block text-center">{t('nav.businessAccounts').split(' ')[0]}</span>
+                      <span className="block text-center text-[13px]">{t('nav.businessAccounts').split(' ').slice(1).join(' ')}</span>
+                    </Link>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <Link
+                      to="/how-it-works"
+                      className={cn(
+                        "text-[15px] font-medium transition-colors hover:text-accent",
+                        isActive("/how-it-works") ? "text-accent" : "text-foreground"
+                      )}
+                    >
+                      {t('nav.howItWorks')}
+                    </Link>
+                  </NavigationMenuItem>
+
+                  <NavigationMenuItem>
+                    <Link
+                      to="/about"
+                      className={cn(
+                        "text-[15px] font-medium transition-colors hover:text-accent",
+                        isActive("/about") ? "text-accent" : "text-foreground"
+                      )}
+                    >
+                      {t('nav.about')}
+                    </Link>
+                  </NavigationMenuItem>
+
                   {/* Knowledge Hub Dropdown */}
                   <NavigationMenuItem>
                     <NavigationMenuTrigger
@@ -263,43 +300,6 @@ const Header = () => {
                         </div>
                       </div>
                     </NavigationMenuContent>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem>
-                    <Link
-                      to="/business-accounts"
-                      className={cn(
-                        "text-[15px] font-medium transition-colors hover:text-accent leading-tight",
-                        isActive("/business-accounts") ? "text-accent" : "text-foreground"
-                      )}
-                    >
-                      <span className="block text-center">{t('nav.businessAccounts').split(' ')[0]}</span>
-                      <span className="block text-center text-[13px]">{t('nav.businessAccounts').split(' ').slice(1).join(' ')}</span>
-                    </Link>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem>
-                    <Link
-                      to="/how-it-works"
-                      className={cn(
-                        "text-[15px] font-medium transition-colors hover:text-accent",
-                        isActive("/how-it-works") ? "text-accent" : "text-foreground"
-                      )}
-                    >
-                      {t('nav.howItWorks')}
-                    </Link>
-                  </NavigationMenuItem>
-
-                  <NavigationMenuItem>
-                    <Link
-                      to="/about"
-                      className={cn(
-                        "text-[15px] font-medium transition-colors hover:text-accent",
-                        isActive("/about") ? "text-accent" : "text-foreground"
-                      )}
-                    >
-                      {t('nav.about')}
-                    </Link>
                   </NavigationMenuItem>
 
                   <NavigationMenuItem>
@@ -451,6 +451,39 @@ const Header = () => {
               </div>
             </div>
 
+
+
+
+            <Link
+              to="/business-accounts"
+              className={cn(
+                "block px-4 py-3 rounded-lg font-medium transition-colors",
+                isActive("/business-accounts") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
+              )}
+            >
+              {t('nav.businessAccounts')}
+            </Link>
+
+            <Link
+              to="/how-it-works"
+              className={cn(
+                "block px-4 py-3 rounded-lg font-medium transition-colors",
+                isActive("/how-it-works") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
+              )}
+            >
+              {t('nav.howItWorks')}
+            </Link>
+
+            <Link
+              to="/about"
+              className={cn(
+                "block px-4 py-3 rounded-lg font-medium transition-colors",
+                isActive("/about") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
+              )}
+            >
+              {t('nav.about')}
+            </Link>
+
             {/* Mobile Knowledge Hub Accordion */}
             <div>
               <button
@@ -491,36 +524,6 @@ const Header = () => {
                 </div>
               </div>
             </div>
-
-            <Link
-              to="/business-accounts"
-              className={cn(
-                "block px-4 py-3 rounded-lg font-medium transition-colors",
-                isActive("/business-accounts") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
-              )}
-            >
-              {t('nav.businessAccounts')}
-            </Link>
-
-            <Link
-              to="/how-it-works"
-              className={cn(
-                "block px-4 py-3 rounded-lg font-medium transition-colors",
-                isActive("/how-it-works") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
-              )}
-            >
-              {t('nav.howItWorks')}
-            </Link>
-
-            <Link
-              to="/about"
-              className={cn(
-                "block px-4 py-3 rounded-lg font-medium transition-colors",
-                isActive("/about") ? "bg-accent/10 text-accent" : "text-foreground hover:bg-muted"
-              )}
-            >
-              {t('nav.about')}
-            </Link>
 
             <Link
               to="/contact"
