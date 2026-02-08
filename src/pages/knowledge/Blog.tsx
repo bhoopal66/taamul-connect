@@ -104,6 +104,7 @@ const Blog = () => {
                 {filtered.map((article, i) => (
                   <BlogArticleCard
                     key={article.key}
+                    articleKey={article.key}
                     title={article.title}
                     summary={article.summary}
                     categoryLabel={article.categoryLabel}
