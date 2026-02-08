@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      eibor_bank_fixings: {
+        Row: {
+          bank_name: string
+          created_at: string
+          id: string
+          rate_date: string
+          three_month_rate: number
+        }
+        Insert: {
+          bank_name: string
+          created_at?: string
+          id?: string
+          rate_date: string
+          three_month_rate: number
+        }
+        Update: {
+          bank_name?: string
+          created_at?: string
+          id?: string
+          rate_date?: string
+          three_month_rate?: number
+        }
+        Relationships: []
+      }
+      eibor_rates: {
+        Row: {
+          created_at: string
+          daily_change: number | null
+          id: string
+          previous_rate: number | null
+          rate: number
+          rate_date: string
+          tenor: string
+        }
+        Insert: {
+          created_at?: string
+          daily_change?: number | null
+          id?: string
+          previous_rate?: number | null
+          rate: number
+          rate_date: string
+          tenor: string
+        }
+        Update: {
+          created_at?: string
+          daily_change?: number | null
+          id?: string
+          previous_rate?: number | null
+          rate?: number
+          rate_date?: string
+          tenor?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never

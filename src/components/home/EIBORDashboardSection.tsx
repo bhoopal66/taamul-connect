@@ -1,36 +1,48 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
-import { TrendingUp, TrendingDown, Minus, ChevronDown, ChevronUp, Calculator, Building2 } from "lucide-react";
+import { TrendingUp, TrendingDown, Minus, ChevronDown, ChevronUp, Calculator, Building2, RefreshCw } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
+import { supabase } from "@/integrations/supabase/client";
 
 interface EIBORRate {
   tenor: string;
-  tenorAr: string;
+  tenorLabel: string;
+  tenorLabelAr: string;
   rate: number;
   change: number;
   highlighted?: boolean;
 }
 
-const eiborRates: EIBORRate[] = [
-  { tenor: "Overnight", tenorAr: "ليلة واحدة", rate: 5.2400, change: 0.0000 },
-  { tenor: "1 Month", tenorAr: "شهر واحد", rate: 5.1250, change: -0.0050 },
-  { tenor: "3 Month", tenorAr: "٣ أشهر", rate: 4.9310, change: -0.0120, highlighted: true },
-  { tenor: "6 Month", tenorAr: "٦ أشهر", rate: 4.7680, change: 0.0030 },
-  { tenor: "1 Year", tenorAr: "سنة واحدة", rate: 4.6150, change: -0.0080 },
+const TENOR_CONFIG: Record<string, { label: string; labelAr: string; order: number; highlighted?: boolean }> = {
+  overnight: { label: "Overnight", labelAr: "ليلة واحدة", order: 0 },
+  "1_week": { label: "1 Week", labelAr: "أسبوع واحد", order: 1 },
+  "1_month": { label: "1 Month", labelAr: "شهر واحد", order: 2 },
+  "3_month": { label: "3 Month", labelAr: "٣ أشهر", order: 3, highlighted: true },
+  "6_month": { label: "6 Month", labelAr: "٦ أشهر", order: 4 },
+  "1_year": { label: "1 Year", labelAr: "سنة واحدة", order: 5 },
+};
+
+const FALLBACK_RATES: EIBORRate[] = [
+  { tenor: "overnight", tenorLabel: "Overnight", tenorLabelAr: "ليلة واحدة", rate: 3.4094, change: 0 },
+  { tenor: "1_week", tenorLabel: "1 Week", tenorLabelAr: "أسبوع واحد", rate: 3.6498, change: 0 },
+  { tenor: "1_month", tenorLabel: "1 Month", tenorLabelAr: "شهر واحد", rate: 3.6127, change: 0 },
+  { tenor: "3_month", tenorLabel: "3 Month", tenorLabelAr: "٣ أشهر", rate: 3.5556, change: 0, highlighted: true },
+  { tenor: "6_month", tenorLabel: "6 Month", tenorLabelAr: "٦ أشهر", rate: 3.6764, change: 0 },
+  { tenor: "1_year", tenorLabel: "1 Year", tenorLabelAr: "سنة واحدة", rate: 3.6527, change: 0 },
 ];
 
-const panelBanks = [
-  { name: "Abu Dhabi Commercial Bank (ADCB)", rate: 4.9300 },
-  { name: "Emirates NBD", rate: 4.9320 },
-  { name: "HSBC", rate: 4.9310 },
-  { name: "Mashreq Bank", rate: 4.9280 },
-  { name: "First Abu Dhabi Bank (FAB)", rate: 4.9330 },
-  { name: "Dubai Islamic Bank (DIB)", rate: 4.9290 },
-  { name: "Abu Dhabi Islamic Bank (ADIB)", rate: 4.9310 },
-  { name: "Commercial Bank of Dubai (CBD)", rate: 4.9320 },
-  { name: "National Bank of Fujairah (NBF)", rate: 4.9300 },
+const FALLBACK_BANKS = [
+  { name: "Abu Dhabi Commercial Bank (ADCB)", rate: 3.5540 },
+  { name: "Emirates NBD", rate: 3.5560 },
+  { name: "HSBC", rate: 3.5550 },
+  { name: "Mashreq Bank", rate: 3.5530 },
+  { name: "First Abu Dhabi Bank (FAB)", rate: 3.5570 },
+  { name: "Dubai Islamic Bank (DIB)", rate: 3.5540 },
+  { name: "Abu Dhabi Islamic Bank (ADIB)", rate: 3.5550 },
+  { name: "Commercial Bank of Dubai (CBD)", rate: 3.5560 },
+  { name: "National Bank of Fujairah (NBF)", rate: 3.5540 },
 ];
 
 const ChangeIndicator = ({ change }: { change: number }) => {
@@ -117,7 +129,74 @@ const InterestEstimator = ({ baseRate, isRTL, t }: { baseRate: number; isRTL: bo
 const EIBORDashboardSection = () => {
   const { t, isRTL } = useLanguage();
   const [bankFixingsOpen, setBankFixingsOpen] = useState(false);
-  const threeMonthRate = eiborRates.find((r) => r.highlighted)?.rate ?? 4.931;
+  const [rates, setRates] = useState<EIBORRate[]>(FALLBACK_RATES);
+  const [banks, setBanks] = useState(FALLBACK_BANKS);
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
+  const [isLive, setIsLive] = useState(false);
+
+  useEffect(() => {
+    const fetchRates = async () => {
+      try {
+        // Fetch latest rates from database
+        const { data, error } = await supabase
+          .from("eibor_rates")
+          .select("*")
+          .order("rate_date", { ascending: false })
+          .limit(12); // Get enough to cover all tenors for latest + previous date
+
+        if (error || !data || data.length === 0) {
+          console.log("No live rates found, using fallback data");
+          return;
+        }
+
+        // Group by date, take latest
+        const latestDate = data[0].rate_date;
+        const latestRates = data.filter((r: any) => r.rate_date === latestDate);
+
+        const mapped: EIBORRate[] = latestRates
+          .map((r: any) => {
+            const config = TENOR_CONFIG[r.tenor];
+            if (!config) return null;
+            return {
+              tenor: r.tenor,
+              tenorLabel: config.label,
+              tenorLabelAr: config.labelAr,
+              rate: parseFloat(r.rate),
+              change: parseFloat(r.daily_change || "0"),
+              highlighted: config.highlighted,
+            };
+          })
+          .filter(Boolean)
+          .sort((a: any, b: any) => TENOR_CONFIG[a.tenor].order - TENOR_CONFIG[b.tenor].order) as EIBORRate[];
+
+        if (mapped.length > 0) {
+          setRates(mapped);
+          setLastUpdated(latestDate);
+          setIsLive(true);
+        }
+
+        // Fetch bank fixings
+        const { data: bankData } = await supabase
+          .from("eibor_bank_fixings")
+          .select("*")
+          .order("rate_date", { ascending: false })
+          .limit(9);
+
+        if (bankData && bankData.length > 0) {
+          setBanks(bankData.map((b: any) => ({
+            name: b.bank_name,
+            rate: parseFloat(b.three_month_rate),
+          })));
+        }
+      } catch (err) {
+        console.error("Error fetching EIBOR rates:", err);
+      }
+    };
+
+    fetchRates();
+  }, []);
+
+  const threeMonthRate = rates.find((r) => r.highlighted)?.rate ?? 3.5556;
 
   return (
     <section className="py-24 bg-background">
@@ -125,13 +204,18 @@ const EIBORDashboardSection = () => {
         <AnimatedSection className={cn("text-center max-w-3xl mx-auto mb-12", isRTL && "text-right")}>
           <div className={cn("inline-flex items-center gap-2 px-4 py-2 bg-muted rounded-full text-sm font-medium text-foreground mb-4", isRTL && "flex-row-reverse")}>
             <span className="relative flex h-2.5 w-2.5">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500" />
+              <span className={cn("animate-ping absolute inline-flex h-full w-full rounded-full opacity-75", isLive ? "bg-emerald-400" : "bg-amber-400")} />
+              <span className={cn("relative inline-flex rounded-full h-2.5 w-2.5", isLive ? "bg-emerald-500" : "bg-amber-500")} />
             </span>
-            {t('eiborDashboard.liveBadge')}
+            {isLive ? t('eiborDashboard.liveBadge') : t('eiborDashboard.liveBadge')}
           </div>
           <h2 className="text-display-sm text-foreground mb-3">{t('eiborDashboard.heading')}</h2>
           <p className="text-lg text-muted-foreground">{t('eiborDashboard.description')}</p>
+          {lastUpdated && (
+            <p className="text-sm text-muted-foreground mt-2" dir="ltr">
+              Last updated: {new Date(lastUpdated).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
+            </p>
+          )}
         </AnimatedSection>
 
         <div className="grid lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -150,7 +234,7 @@ const EIBORDashboardSection = () => {
                       </tr>
                     </thead>
                     <tbody>
-                      {eiborRates.map((item) => (
+                      {rates.map((item) => (
                         <tr
                           key={item.tenor}
                           className={cn(
@@ -161,7 +245,7 @@ const EIBORDashboardSection = () => {
                           <td className={cn("px-6 py-4", isRTL ? "text-right" : "text-left")}>
                             <div className={cn("flex items-center gap-2", isRTL && "flex-row-reverse")}>
                               <span className={cn("font-medium text-foreground", item.highlighted && "text-primary font-bold text-lg")}>
-                                {isRTL ? item.tenorAr : item.tenor}
+                                {isRTL ? item.tenorLabelAr : item.tenorLabel}
                               </span>
                               {item.highlighted && (
                                 <span className="text-xs bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-medium">
@@ -186,7 +270,7 @@ const EIBORDashboardSection = () => {
 
                 {/* Mobile Cards */}
                 <div className="sm:hidden divide-y divide-border">
-                  {eiborRates.map((item) => (
+                  {rates.map((item) => (
                     <div
                       key={item.tenor}
                       className={cn("p-4", item.highlighted && "bg-primary/5")}
@@ -194,7 +278,7 @@ const EIBORDashboardSection = () => {
                       <div className={cn("flex justify-between items-start mb-2", isRTL && "flex-row-reverse")}>
                         <div className={cn("flex items-center gap-2", isRTL && "flex-row-reverse")}>
                           <span className={cn("font-medium text-foreground", item.highlighted && "text-primary font-bold")}>
-                            {isRTL ? item.tenorAr : item.tenor}
+                            {isRTL ? item.tenorLabelAr : item.tenorLabel}
                           </span>
                           {item.highlighted && (
                             <span className="text-xs bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-medium">
@@ -237,7 +321,7 @@ const EIBORDashboardSection = () => {
                       className="border-t border-border"
                     >
                       <div className="divide-y divide-border">
-                        {panelBanks.map((bank) => (
+                        {banks.map((bank) => (
                           <div
                             key={bank.name}
                             className={cn("flex items-center justify-between px-6 py-3 text-sm hover:bg-muted/30 transition-colors", isRTL && "flex-row-reverse")}
