@@ -2055,8 +2055,8 @@ const translations = {
       businessLoansCtaTitle: "هل أنت مستعد لتنمية عملك؟",
       businessLoansCtaDesc: "احصل على تمويل تنافسي لتوسيع عملك. ابدأ طلبك اليوم.",
       // Working Capital
-      workingCapitalTitle: "رأس المال العامل",
-      workingCapitalHighlight: "الحلول",
+      workingCapitalTitle: "حلول تمويل",
+      workingCapitalHighlight: "رأس المال العامل",
       workingCapitalDesc: "سد فجوات التدفق النقدي والحفاظ على العمليات السلسة مع تمويل رأس المال العامل المرن المصمم للشركات الإماراتية.",
       workingCapitalFeaturesTitle: "الحلول المتخصصة لاحتياجات رأس المال العامل",
       workingCapitalFeaturesDesc: "نساعدك في الحصول على التمويل التشغيلي في الوقت المناسب حتى يبقى عملك مرنًا ومستقرًا وجاهزًا للنمو.",
