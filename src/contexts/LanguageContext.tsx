@@ -2109,7 +2109,7 @@ const translations = {
       corporateLoansHighlight: "المؤسسي",
       corporateLoansDesc: "حلول تمويلية مهيكلة للشركات الكبرى والمؤسسات الراسخة. شروط تنافسية وهياكل مرنة تدعم مبادراتكم الاستراتيجية.",
       corporateLoansFeaturesTitle: "التمويل المهيكل",
-      corporateLoansFeaturesDesc: "حلول مالية متقدمة مصممة لتلبية المتطلبات المؤسسية المعقدة.",
+      corporateLoansFeaturesDesc: "حلول مالية متطورة للمتطلبات المؤسسية المعقدة.",
       largeLoanAmounts: "سقوف تمويلية مرتفعة",
       largeLoanAmountsDesc: "تسهيلات ائتمانية تتراوح بين 10 ملايين و500 مليون درهم للمشاريع والمبادرات الاستراتيجية",
       premiumRates: "هوامش ربح تفضيلية",
