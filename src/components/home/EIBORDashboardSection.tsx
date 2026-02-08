@@ -5,6 +5,7 @@ import { AnimatedSection } from "@/components/ui/animated-section";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { cn } from "@/lib/utils";
 import { supabase } from "@/integrations/supabase/client";
+import EIBORHistoricalChart from "./EIBORHistoricalChart";
 
 interface EIBORRate {
   tenor: string;
@@ -348,6 +349,9 @@ const EIBORDashboardSection = () => {
             </AnimatedSection>
           </div>
         </div>
+
+        {/* Historical Chart */}
+        <EIBORHistoricalChart />
 
         {/* Disclaimer */}
         <p className={cn("text-xs text-muted-foreground text-center mt-8 max-w-3xl mx-auto", isRTL && "text-right")}>
