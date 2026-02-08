@@ -22,6 +22,10 @@ import Contact from "./pages/Contact";
 import HowItWorks from "./pages/HowItWorks";
 import About from "./pages/About";
 import CaseStudies from "./pages/knowledge/CaseStudies";
+import Blog from "./pages/knowledge/Blog";
+import Events from "./pages/knowledge/Events";
+import ResearchPapers from "./pages/knowledge/ResearchPapers";
+import Webinars from "./pages/knowledge/Webinars";
 
 import NotFound from "./pages/NotFound";
 
@@ -53,6 +57,10 @@ const App = () => (
             <Route path="/how-it-works" element={<HowItWorks />} />
             <Route path="/about" element={<About />} />
             <Route path="/knowledge/case-studies" element={<CaseStudies />} />
+            <Route path="/knowledge/blog" element={<Blog />} />
+            <Route path="/knowledge/events" element={<Events />} />
+            <Route path="/knowledge/research-papers" element={<ResearchPapers />} />
+            <Route path="/knowledge/webinars" element={<Webinars />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
