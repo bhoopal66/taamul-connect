@@ -221,6 +221,9 @@ const translations = {
       estMonthly: "Est. Monthly Repayment",
       basedOn3M: "Based on 3-Month EIBOR · 12-month term",
       disclaimer: "Rates are for illustrative purposes only and may not reflect real-time market conditions. Source: Central Bank of the UAE (CBUAE). Actual lending rates vary by bank, product, and borrower profile.",
+      historicalTitle: "3-Month EIBOR Trend",
+      historicalSubtitle: "Historical benchmark rate over the past 6 months",
+      historicalLimited: "Historical chart will appear once more daily data points are collected.",
     },
     // Calculator Section
     calculatorSection: {
@@ -1186,6 +1189,9 @@ const translations = {
       estMonthly: "القسط الشهري التقديري",
       basedOn3M: "بناءً على إيبور 3 أشهر · مدة 12 شهرًا",
       disclaimer: "الأسعار لأغراض توضيحية فقط وقد لا تعكس ظروف السوق الحالية. المصدر: المصرف المركزي لدولة الإمارات العربية المتحدة. تختلف أسعار الإقراض الفعلية حسب البنك والمنتج وملف المقترض.",
+      historicalTitle: "اتجاه إيبور 3 أشهر",
+      historicalSubtitle: "السعر المرجعي التاريخي خلال الأشهر الستة الماضية",
+      historicalLimited: "سيظهر الرسم البياني التاريخي عند جمع المزيد من البيانات اليومية.",
     },
     // Calculator Section
     calculatorSection: {
