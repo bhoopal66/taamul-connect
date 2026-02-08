@@ -279,24 +279,23 @@ const Header = () => {
                         </div>
                         <div className="space-y-2">
                           {knowledgeHubItems.map((item) => (
-                            <NavigationMenuLink key={item.href} asChild>
-                              <Link
-                                to={item.href}
-                                className={cn(
-                                  "block p-3 rounded-lg hover:bg-muted transition-colors group",
-                                  isActive(item.href) && "bg-accent/5",
-                                  isRTL && "text-right"
-                                )}
-                              >
-                                <span className={cn(
-                                  "font-medium text-sm group-hover:text-accent transition-colors",
-                                  isActive(item.href) ? "text-accent" : "text-foreground"
-                                )}>
-                                  {item.name}
-                                </span>
-                                <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
-                              </Link>
-                            </NavigationMenuLink>
+                            <Link
+                              key={item.href}
+                              to={item.href}
+                              className={cn(
+                                "block p-3 rounded-lg hover:bg-muted transition-colors group",
+                                isActive(item.href) && "bg-accent/5",
+                                isRTL && "text-right"
+                              )}
+                            >
+                              <span className={cn(
+                                "font-medium text-sm group-hover:text-accent transition-colors",
+                                isActive(item.href) ? "text-accent" : "text-foreground"
+                              )}>
+                                {item.name}
+                              </span>
+                              <p className="text-xs text-muted-foreground mt-0.5">{item.description}</p>
+                            </Link>
                           ))}
                         </div>
                       </div>
