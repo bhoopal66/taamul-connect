@@ -4,7 +4,7 @@ import FloatingButtons from "@/components/layout/FloatingButtons";
 import HeroSection from "@/components/home/HeroSection";
 import ServicesSection from "@/components/home/ServicesSection";
 import BusinessAccountsSection from "@/components/home/BusinessAccountsSection";
-import EIBORDashboardSection from "@/components/home/EIBORDashboardSection";
+
 import CalculatorSection from "@/components/home/CalculatorSection";
 import PartnersSection from "@/components/home/PartnersSection";
 import TestimonialsSection from "@/components/home/TestimonialsSection";
@@ -18,7 +18,7 @@ const Index = () => {
         <HeroSection />
         <ServicesSection />
         <BusinessAccountsSection />
-        <EIBORDashboardSection />
+        
         <CalculatorSection />
         <PartnersSection />
         <TestimonialsSection />
