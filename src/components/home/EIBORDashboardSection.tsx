@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { TrendingUp, TrendingDown, Minus, ChevronDown, ChevronUp, Calculator, Building2, RefreshCw } from "lucide-react";
 import { AnimatedSection } from "@/components/ui/animated-section";
@@ -134,68 +134,82 @@ const EIBORDashboardSection = () => {
   const [banks, setBanks] = useState(FALLBACK_BANKS);
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
   const [isLive, setIsLive] = useState(false);
+  const [isRefreshing, setIsRefreshing] = useState(false);
+
+  const fetchRates = useCallback(async () => {
+    try {
+      const { data, error } = await supabase
+        .from("eibor_rates")
+        .select("*")
+        .order("rate_date", { ascending: false })
+        .limit(12);
+
+      if (error || !data || data.length === 0) {
+        console.log("No live rates found, using fallback data");
+        return;
+      }
+
+      const latestDate = data[0].rate_date;
+      const latestRates = data.filter((r: any) => r.rate_date === latestDate);
+
+      const mapped: EIBORRate[] = latestRates
+        .map((r: any) => {
+          const config = TENOR_CONFIG[r.tenor];
+          if (!config) return null;
+          return {
+            tenor: r.tenor,
+            tenorLabel: config.label,
+            tenorLabelAr: config.labelAr,
+            rate: parseFloat(r.rate),
+            change: parseFloat(r.daily_change || "0"),
+            highlighted: config.highlighted,
+          };
+        })
+        .filter(Boolean)
+        .sort((a: any, b: any) => TENOR_CONFIG[a.tenor].order - TENOR_CONFIG[b.tenor].order) as EIBORRate[];
+
+      if (mapped.length > 0) {
+        setRates(mapped);
+        setLastUpdated(latestDate);
+        setIsLive(true);
+      }
+
+      const { data: bankData } = await supabase
+        .from("eibor_bank_fixings")
+        .select("*")
+        .order("rate_date", { ascending: false })
+        .limit(9);
+
+      if (bankData && bankData.length > 0) {
+        setBanks(bankData.map((b: any) => ({
+          name: b.bank_name,
+          rate: parseFloat(b.three_month_rate),
+        })));
+      }
+    } catch (err) {
+      console.error("Error fetching EIBOR rates:", err);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchRates = async () => {
-      try {
-        // Fetch latest rates from database
-        const { data, error } = await supabase
-          .from("eibor_rates")
-          .select("*")
-          .order("rate_date", { ascending: false })
-          .limit(12); // Get enough to cover all tenors for latest + previous date
-
-        if (error || !data || data.length === 0) {
-          console.log("No live rates found, using fallback data");
-          return;
-        }
-
-        // Group by date, take latest
-        const latestDate = data[0].rate_date;
-        const latestRates = data.filter((r: any) => r.rate_date === latestDate);
-
-        const mapped: EIBORRate[] = latestRates
-          .map((r: any) => {
-            const config = TENOR_CONFIG[r.tenor];
-            if (!config) return null;
-            return {
-              tenor: r.tenor,
-              tenorLabel: config.label,
-              tenorLabelAr: config.labelAr,
-              rate: parseFloat(r.rate),
-              change: parseFloat(r.daily_change || "0"),
-              highlighted: config.highlighted,
-            };
-          })
-          .filter(Boolean)
-          .sort((a: any, b: any) => TENOR_CONFIG[a.tenor].order - TENOR_CONFIG[b.tenor].order) as EIBORRate[];
-
-        if (mapped.length > 0) {
-          setRates(mapped);
-          setLastUpdated(latestDate);
-          setIsLive(true);
-        }
-
-        // Fetch bank fixings
-        const { data: bankData } = await supabase
-          .from("eibor_bank_fixings")
-          .select("*")
-          .order("rate_date", { ascending: false })
-          .limit(9);
-
-        if (bankData && bankData.length > 0) {
-          setBanks(bankData.map((b: any) => ({
-            name: b.bank_name,
-            rate: parseFloat(b.three_month_rate),
-          })));
-        }
-      } catch (err) {
-        console.error("Error fetching EIBOR rates:", err);
-      }
-    };
-
     fetchRates();
-  }, []);
+  }, [fetchRates]);
+
+  const handleManualRefresh = async () => {
+    setIsRefreshing(true);
+    try {
+      const res = await supabase.functions.invoke("fetch-eibor-rates");
+      if (res.error) {
+        console.error("Manual refresh failed:", res.error);
+      }
+      // Re-fetch from DB after edge function completes
+      await fetchRates();
+    } catch (err) {
+      console.error("Manual refresh error:", err);
+    } finally {
+      setIsRefreshing(false);
+    }
+  };
 
   const threeMonthRate = rates.find((r) => r.highlighted)?.rate ?? 3.5556;
 
@@ -213,9 +227,23 @@ const EIBORDashboardSection = () => {
           <h2 className="text-display-sm text-foreground mb-3">{t('eiborDashboard.heading')}</h2>
           <p className="text-lg text-muted-foreground">{t('eiborDashboard.description')}</p>
           {lastUpdated && (
-            <p className="text-sm text-muted-foreground mt-2" dir="ltr">
-              Last updated: {new Date(lastUpdated).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
-            </p>
+            <div className="flex items-center justify-center gap-3 mt-2">
+              <p className="text-sm text-muted-foreground" dir="ltr">
+                Last updated: {new Date(lastUpdated).toLocaleDateString("en-GB", { weekday: "long", day: "numeric", month: "long", year: "numeric" })}
+              </p>
+              <button
+                onClick={handleManualRefresh}
+                disabled={isRefreshing}
+                className={cn(
+                  "inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium rounded-full border border-border bg-card text-foreground hover:bg-muted transition-colors disabled:opacity-50",
+                  isRefreshing && "cursor-not-allowed"
+                )}
+                title="Refresh rates from CBUAE"
+              >
+                <RefreshCw className={cn("h-3.5 w-3.5", isRefreshing && "animate-spin")} />
+                {isRefreshing ? t('eiborDashboard.refreshing') : t('eiborDashboard.refresh')}
+              </button>
+            </div>
           )}
         </AnimatedSection>
 

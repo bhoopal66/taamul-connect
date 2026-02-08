@@ -224,6 +224,8 @@ const translations = {
       historicalTitle: "3-Month EIBOR Trend",
       historicalSubtitle: "Historical benchmark rate over the past 6 months",
       historicalLimited: "Historical chart will appear once more daily data points are collected.",
+      refresh: "Refresh",
+      refreshing: "Refreshing…",
     },
     // Calculator Section
     calculatorSection: {
@@ -1192,6 +1194,8 @@ const translations = {
       historicalTitle: "اتجاه إيبور 3 أشهر",
       historicalSubtitle: "السعر المرجعي التاريخي خلال الأشهر الستة الماضية",
       historicalLimited: "سيظهر الرسم البياني التاريخي عند جمع المزيد من البيانات اليومية.",
+      refresh: "تحديث",
+      refreshing: "جارٍ التحديث…",
     },
     // Calculator Section
     calculatorSection: {
