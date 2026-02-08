@@ -684,7 +684,7 @@ const translations = {
     howItWorks: {
       title: "How It Works",
       heading: "How It Works",
-      description: "From application to disbursement, we've streamlined the business loan process to get you funded faster with minimum hassle.",
+      description: "From Submission of application to disbursement, we've streamlined the business loan process to get you funded faster with minimum hassle.",
       step: "STEP",
       steps: {
         consultation: "Consultation",
@@ -1776,7 +1776,7 @@ const translations = {
     howItWorks: {
       title: "كيف يعمل",
       heading: "كيف يعمل",
-      description: "من التقديم إلى الصرف، قمنا بتبسيط عملية القرض التجاري لتمويلك بشكل أسرع مع أقل قدر من المتاعب.",
+      description: "من تقديم الطلب إلى صرف التمويل، قمنا بتبسيط عملية القرض التجاري لتمويلك بشكل أسرع وبأقل قدر من التعقيدات.",
       step: "الخطوة",
       steps: {
         consultation: "الاستشارة",
