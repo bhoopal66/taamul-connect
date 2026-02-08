@@ -154,9 +154,11 @@ const LoanPageLayout = ({
         <div className="container mx-auto px-4 relative z-10">
           <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
             <h2 className="text-display-sm text-white mb-4">
-              {t('loanPages.taamulAdvantage').split('Taamul')[0]}
-              <span className="text-accent">{t('loanPages.taamul')}</span>
-              {t('loanPages.taamulAdvantage').split('Taamul')[1] || ' ' + t('loanPages.advantage')}
+              {isRTL ? (
+                <>{t('loanPages.advantage')} <span className="text-accent">{t('loanPages.taamul')}</span></>
+              ) : (
+                <>The <span className="text-accent">{t('loanPages.taamul')}</span> {t('loanPages.advantage')}</>
+              )}
             </h2>
             <p className="text-lg text-white/80">
               {t('loanPages.advantageDesc')}
