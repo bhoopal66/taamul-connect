@@ -2089,8 +2089,8 @@ const translations = {
       securedLoansCtaTitle: "حوّل أصولك إلى فرص نمو",
       securedLoansCtaDesc: "احصل على شروط تمويلية تفضيلية مدعومة بأصولك. دعنا نناقش احتياجاتك.",
       // SME Loans
-      smeLoansTitle: "تمويل المنشآت الصغيرة والمتوسطة",
-      smeLoansHighlight: "الحلول",
+      smeLoansTitle: "حلول تمويل ذكية لدعم نمو",
+      smeLoansHighlight: "المنشآت الصغيرة والمتوسطة",
       smeLoansDesc: "حلول تمويلية مصممة خصيصاً للمنشآت الصغيرة والمتوسطة في دولة الإمارات. عزّز نمو أعمالك مع الشريك التمويلي المناسب.",
       smeLoansFeaturesTitle: "لماذا تختارنا المنشآت الصغيرة والمتوسطة",
       smeLoansFeaturesDesc: "ندرك التحديات الفريدة التي تواجه الشركات النامية في السوق الإماراتي.",
