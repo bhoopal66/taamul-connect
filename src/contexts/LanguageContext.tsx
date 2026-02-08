@@ -125,6 +125,7 @@ const translations = {
           category: "financing",
           date: "Jan 28, 2025",
           readTime: "6",
+          body: "The Emirates Interbank Offered Rate (EIBOR) is the benchmark interest rate at which UAE banks lend to each other. It directly influences the cost of borrowing for businesses across the country.\n\n## What Is EIBOR?\n\nEIBOR is published daily by the UAE Central Bank and comes in multiple tenors: overnight, one week, one month, three months, six months, and twelve months. The three-month EIBOR is the most commonly used benchmark for commercial loans.\n\n## How EIBOR Affects Your Loan\n\nMost business loans in the UAE are priced as EIBOR plus a fixed margin. For example, if the 3-month EIBOR is 4.5% and your bank's margin is 2%, your effective interest rate would be 6.5%. When EIBOR rises, your loan repayments increase accordingly.\n\n## Current Trends in 2025\n\nAs of early 2025, EIBOR rates have shown signs of stabilization following the global interest rate cycle. The UAE Central Bank's monetary policy, closely tied to the US Federal Reserve, continues to influence these rates. Businesses should monitor EIBOR trends when planning financing decisions.\n\n## Tips for Managing EIBOR Risk\n\n- Consider fixed-rate loan options for predictable cash flows\n- Negotiate competitive margins with multiple lenders\n- Use interest rate hedging instruments for large exposures\n- Time your borrowing to take advantage of favorable rate environments\n\n## How Taamul Can Help\n\nAs an authorized Direct Selling Agent, Taamul provides access to 15+ banking partners, helping you secure the most competitive EIBOR-linked rates available in the market.",
         },
         a2: {
           title: "Top 5 Financing Options for UAE Startups and SMEs",
@@ -132,6 +133,7 @@ const translations = {
           category: "sme",
           date: "Jan 15, 2025",
           readTime: "5",
+          body: "Starting and growing a business in the UAE requires adequate financing. Here are the top five funding options available for startups and SMEs in the Emirates.\n\n## 1. Working Capital Loans\n\nThese short-term loans help businesses manage day-to-day operational expenses. They're ideal for covering payroll, rent, inventory, and other recurring costs. Most UAE banks offer working capital facilities from AED 500,000 to AED 10 million.\n\n## 2. SME Business Loans\n\nDedicated SME loan programs offer competitive rates and flexible terms. Many banks have specialized SME divisions that understand the unique challenges of growing businesses. Loan amounts typically range from AED 250,000 to AED 5 million.\n\n## 3. Trade Finance\n\nFor businesses involved in import and export, trade finance solutions like letters of credit and bank guarantees provide essential support. These instruments reduce risk and enable businesses to trade with confidence.\n\n## 4. Equipment Financing\n\nRather than depleting cash reserves, businesses can finance equipment purchases with dedicated facilities. The equipment itself serves as collateral, making approval easier and rates more competitive.\n\n## 5. Government-Backed Programs\n\nThe UAE government offers several SME support programs through entities like the Khalifa Fund and Mohammed Bin Rashid Fund for SMEs. These programs often provide favorable terms and mentorship alongside financing.\n\n## Choosing the Right Option\n\nThe best financing option depends on your business stage, industry, and specific needs. Taamul's advisors can help you evaluate all available options and secure the most suitable funding for your situation.",
         },
         a3: {
           title: "UAE Economic Outlook 2025: Key Trends for Business Owners",
@@ -139,6 +141,7 @@ const translations = {
           category: "market",
           date: "Jan 5, 2025",
           readTime: "7",
+          body: "The UAE economy continues to demonstrate remarkable resilience and growth, offering exciting opportunities for business owners across all sectors.\n\n## GDP Growth Projections\n\nThe UAE's GDP is projected to grow by 4-5% in 2025, driven by diversification efforts, increased non-oil trade, and a thriving tourism sector. Dubai's Expo legacy projects and Abu Dhabi's industrial expansion are key growth engines.\n\n## Real Estate and Construction Boom\n\nThe construction sector remains robust with major infrastructure projects underway. This creates opportunities not only for construction companies but also for suppliers, service providers, and financing partners.\n\n## Digital Economy Expansion\n\nThe UAE's push toward becoming a global digital hub is creating new opportunities in fintech, e-commerce, and technology services. Government initiatives supporting digital transformation are opening doors for innovative businesses.\n\n## Tourism and Hospitality Growth\n\nWith record-breaking tourist numbers, the hospitality sector offers strong growth potential. Restaurants, hotels, entertainment venues, and related service businesses are expanding rapidly.\n\n## SME-Friendly Policies\n\nNew government policies continue to support SME growth, including simplified licensing, reduced fees, and improved access to financing. The introduction of corporate tax has been implemented with SME-friendly thresholds.\n\n## What This Means for Your Business\n\nThe positive economic outlook creates favorable conditions for business expansion and borrowing. Banks are actively lending, competition among lenders keeps rates competitive, and government support programs continue to grow.",
         },
         a4: {
           title: "How to Prepare a Winning Loan Application: A Step-by-Step Guide",
@@ -146,6 +149,7 @@ const translations = {
           category: "tips",
           date: "Dec 20, 2024",
           readTime: "8",
+          body: "A well-prepared loan application can mean the difference between approval and rejection. Here's how to put together a compelling application that banks want to approve.\n\n## Step 1: Organize Your Financial Statements\n\nBanks want to see at least two years of audited financial statements. Ensure your profit and loss statements, balance sheets, and cash flow statements are accurate and up-to-date. Consider having them reviewed by a certified accountant.\n\n## Step 2: Prepare Your Business Plan\n\nA clear business plan demonstrates how you'll use the funds and how you plan to repay. Include market analysis, revenue projections, and a detailed use-of-funds breakdown.\n\n## Step 3: Gather Required Documents\n\nMost UAE banks require:\n- Valid trade license\n- Memorandum of Association\n- Emirates ID and passport copies of all partners\n- Bank statements (last 6-12 months)\n- Existing loan statements\n- VAT registration certificate\n- Tenancy contract\n\n## Step 4: Clean Up Your Credit Profile\n\nBefore applying, check your credit report through Al Etihad Credit Bureau. Resolve any outstanding issues, pay down existing debts where possible, and ensure all records are accurate.\n\n## Step 5: Choose the Right Lender\n\nDifferent banks specialize in different sectors and business sizes. Research which banks are most active in your industry and have the best terms for your loan size.\n\n## Step 6: Present Your Application Professionally\n\nOrganize documents in a clear folder structure, provide a cover letter summarizing your request, and be prepared to answer questions about your business operations and financials.\n\n## How Taamul Simplifies This Process\n\nTaamul handles the entire documentation process, ensuring your application meets each bank's specific requirements. Our team's experience with 15+ banking partners means we know exactly what each lender expects.",
         },
         a5: {
           title: "New UAE Central Bank Regulations: What Borrowers Need to Know",
@@ -153,6 +157,7 @@ const translations = {
           category: "regulation",
           date: "Dec 10, 2024",
           readTime: "5",
+          body: "The UAE Central Bank (CBUAE) regularly updates its regulations to ensure a stable and fair financial system. Here are the key regulatory changes that affect business borrowers.\n\n## Enhanced Consumer Protection Framework\n\nThe CBUAE has strengthened consumer protection regulations, requiring banks to provide clearer loan terms, standardized fee disclosures, and fair collection practices. This means borrowers now have more transparency when comparing loan offers.\n\n## Updated Capital Adequacy Requirements\n\nNew capital adequacy rules affect how much banks can lend and to whom. While these are primarily bank-facing regulations, they indirectly impact loan availability and pricing for businesses.\n\n## Digital Banking Regulations\n\nWith the rise of digital banks and fintech lenders, the CBUAE has introduced a regulatory framework for digital financial services. This creates new lending options for businesses while ensuring adequate oversight.\n\n## Anti-Money Laundering (AML) Updates\n\nStrengthened AML requirements mean more thorough documentation checks during the loan application process. Businesses should ensure their corporate records, beneficial ownership structures, and financial documentation are complete and transparent.\n\n## SME Lending Guidelines\n\nThe CBUAE has encouraged banks to increase SME lending through targeted guidelines. These include risk-sharing mechanisms and incentives for banks that meet SME lending targets.\n\n## What Borrowers Should Do\n\n- Keep corporate documents current and compliant\n- Maintain transparent financial records\n- Work with knowledgeable advisors who understand regulatory requirements\n- Compare offers from multiple lenders to ensure fair terms",
         },
         a6: {
           title: "Equipment Financing vs. Leasing: Which Is Right for Your Business?",
@@ -160,6 +165,7 @@ const translations = {
           category: "financing",
           date: "Nov 28, 2024",
           readTime: "6",
+          body: "When your business needs new equipment, the financing decision can significantly impact your cash flow and balance sheet. Understanding the differences between equipment financing and leasing is crucial.\n\n## Equipment Financing (Loan)\n\nWith equipment financing, you take a loan to purchase the equipment outright. You own the asset from day one, and it appears on your balance sheet.\n\n**Advantages:**\n- You own the equipment and build equity\n- Tax benefits through depreciation\n- No restrictions on usage or modifications\n- Potentially lower total cost over the equipment's lifetime\n\n**Disadvantages:**\n- Higher upfront costs or down payments\n- Risk of owning outdated equipment\n- Maintenance costs are your responsibility\n\n## Equipment Leasing\n\nLeasing allows you to use equipment for a fixed period while making regular payments. At the end of the lease, you can return, purchase, or upgrade the equipment.\n\n**Advantages:**\n- Lower monthly payments\n- Easy to upgrade to newer technology\n- Maintenance often included\n- Off-balance-sheet treatment (operating leases)\n\n**Disadvantages:**\n- No ownership equity\n- Higher total cost over time\n- Restrictions on usage and modifications\n- Early termination penalties\n\n## How to Decide\n\nChoose financing if the equipment has a long useful life and retains value. Choose leasing if the technology changes rapidly or you need flexibility. Consider your cash flow, tax situation, and growth plans.\n\n## Taamul's Equipment Solutions\n\nWe work with multiple lenders offering both financing and leasing options. Our advisors help you compare total costs, tax implications, and terms to find the optimal solution for your business.",
         },
         a7: {
           title: "Building Business Credit in the UAE: A Practical Guide",
@@ -167,6 +173,7 @@ const translations = {
           category: "tips",
           date: "Nov 15, 2024",
           readTime: "7",
+          body: "A strong business credit profile is essential for securing favorable financing terms in the UAE. Here's how to build and maintain excellent business credit.\n\n## Understanding UAE Business Credit\n\nThe Al Etihad Credit Bureau (AECB) maintains credit records for both individuals and businesses in the UAE. Your business credit score reflects your company's financial reliability and affects your ability to secure loans.\n\n## Steps to Build Strong Credit\n\n### 1. Register with AECB\nEnsure your business is registered with the credit bureau. This is the foundation of your credit profile.\n\n### 2. Open Business Bank Accounts\nMaintain active business accounts with reputable banks. Consistent banking relationships demonstrate stability.\n\n### 3. Start with Small Credit Lines\nBegin with manageable credit facilities like business credit cards or small overdraft facilities. Use them responsibly and pay on time.\n\n### 4. Pay All Obligations on Time\nTimely payment of loans, credit cards, utility bills, and rent all contribute to your credit profile. Set up automated payments to avoid missed deadlines.\n\n### 5. Maintain Clean Financial Records\nKeep accurate, audited financial statements. Banks and credit agencies look favorably on businesses with transparent bookkeeping.\n\n### 6. Diversify Credit Types\nHaving different types of credit (term loans, revolving credit, trade facilities) shows you can manage various financial obligations.\n\n## Common Mistakes to Avoid\n\n- Maxing out credit lines (keep utilization below 30%)\n- Applying for too much credit at once\n- Missing payments, even small ones\n- Mixing personal and business finances\n- Ignoring your credit report\n\n## Monitor Your Progress\n\nRegularly check your AECB report to ensure accuracy and track improvements. Dispute any errors promptly to maintain an accurate record.",
         },
         a8: {
           title: "Trade Finance Solutions: Expanding Your Import-Export Business",
@@ -174,8 +181,10 @@ const translations = {
           category: "sme",
           date: "Nov 1, 2024",
           readTime: "6",
+          body: "International trade is a cornerstone of the UAE economy. Understanding available trade finance tools can help your business expand globally with confidence.\n\n## Letters of Credit (LC)\n\nA letter of credit is a bank guarantee that ensures the seller receives payment once shipment terms are met. It's the most widely used trade finance instrument.\n\n**Types:**\n- Sight LC: Payment upon presentation of documents\n- Usance LC: Payment after a specified period\n- Standby LC: Acts as a backup payment guarantee\n\n## Bank Guarantees\n\nBank guarantees provide financial security to trading partners. Common types include:\n- Performance guarantees\n- Advance payment guarantees\n- Bid bonds\n- Retention money guarantees\n\n## Supply Chain Financing\n\nThis modern approach provides financing at various points in the supply chain:\n- **Pre-shipment finance:** Fund production and procurement\n- **Post-shipment finance:** Bridge the gap between shipment and payment\n- **Invoice discounting:** Convert outstanding invoices into immediate cash\n\n## Trust Receipts\n\nTrust receipts allow importers to take possession of goods before making full payment. The bank releases shipping documents to the importer, who agrees to hold the goods in trust and remit proceeds upon sale.\n\n## Choosing the Right Solution\n\nThe best trade finance tool depends on your trading partners, transaction size, and risk profile. Consider:\n- Your relationship with the counterparty\n- The countries involved and their risk levels\n- The value and frequency of transactions\n- Your existing banking relationships\n\n## Taamul's Trade Finance Advisory\n\nOur team helps businesses navigate the complex world of trade finance, connecting you with banks that offer the most competitive rates and flexible terms for your specific trade corridors.",
         },
       },
+      backToBlog: "Back to Blog",
     },
     // Case Studies / Success Stories
     caseStudies: {
@@ -1242,6 +1251,7 @@ const translations = {
           category: "financing",
           date: "28 يناير 2025",
           readTime: "6",
+          body: "سعر الفائدة بين البنوك الإماراتية (إيبور) هو سعر الفائدة المرجعي الذي تُقرض به البنوك الإماراتية بعضها البعض. ويؤثر بشكل مباشر على تكلفة الاقتراض للشركات في جميع أنحاء البلاد.\n\n## ما هو إيبور؟\n\nيُنشر إيبور يومياً من قِبل البنك المركزي الإماراتي ويأتي بفترات استحقاق متعددة. يُعد إيبور لثلاثة أشهر الأكثر استخداماً كمعيار للقروض التجارية.\n\n## كيف يؤثر إيبور على قرضك\n\nتُسعّر معظم قروض الأعمال في الإمارات على أساس إيبور مضافاً إليه هامش ثابت. عندما يرتفع إيبور، تزداد أقساط قرضك وفقاً لذلك.\n\n## نصائح لإدارة مخاطر إيبور\n\n- فكّر في خيارات القروض بسعر ثابت لتدفقات نقدية متوقعة\n- تفاوض على هوامش تنافسية مع عدة مقرضين\n- استخدم أدوات التحوط لأسعار الفائدة للتعرضات الكبيرة\n\n## كيف يمكن لتأمّل المساعدة\n\nبصفتنا وكيل بيع مباشر معتمد، نوفر الوصول إلى أكثر من 15 شريكاً مصرفياً لمساعدتك في تأمين أفضل الأسعار المرتبطة بإيبور.",
         },
         a2: {
           title: "أفضل 5 خيارات تمويل للشركات الناشئة والصغيرة في الإمارات",
@@ -1249,6 +1259,7 @@ const translations = {
           category: "sme",
           date: "15 يناير 2025",
           readTime: "5",
+          body: "يتطلب بدء وتنمية مشروع تجاري في الإمارات تمويلاً كافياً. إليك أفضل خمسة خيارات تمويلية متاحة للشركات الناشئة والصغيرة.\n\n## 1. قروض رأس المال العامل\n\nتساعد هذه القروض قصيرة الأجل في إدارة النفقات التشغيلية اليومية مثل الرواتب والإيجار والمخزون.\n\n## 2. قروض الشركات الصغيرة والمتوسطة\n\nتقدم برامج القروض المخصصة أسعاراً تنافسية وشروطاً مرنة مع فهم للتحديات الفريدة للأعمال النامية.\n\n## 3. تمويل التجارة\n\nللشركات العاملة في الاستيراد والتصدير، توفر حلول تمويل التجارة مثل خطابات الاعتماد دعماً أساسياً.\n\n## 4. تمويل المعدات\n\nبدلاً من استنفاد الاحتياطيات النقدية، يمكن للشركات تمويل شراء المعدات بتسهيلات مخصصة.\n\n## 5. البرامج الحكومية\n\nتقدم حكومة الإمارات عدة برامج دعم من خلال صندوق خليفة وصندوق محمد بن راشد للمشاريع الصغيرة والمتوسطة.",
         },
         a3: {
           title: "التوقعات الاقتصادية للإمارات 2025: اتجاهات رئيسية لأصحاب الأعمال",
@@ -1256,6 +1267,7 @@ const translations = {
           category: "market",
           date: "5 يناير 2025",
           readTime: "7",
+          body: "يواصل اقتصاد الإمارات إظهار مرونة ونمو ملحوظين، مما يوفر فرصاً مثيرة لأصحاب الأعمال في جميع القطاعات.\n\n## توقعات نمو الناتج المحلي الإجمالي\n\nمن المتوقع أن ينمو الناتج المحلي الإجمالي بنسبة 4-5% في 2025، مدفوعاً بجهود التنويع وزيادة التجارة غير النفطية.\n\n## التوسع في الاقتصاد الرقمي\n\nيخلق توجه الإمارات نحو مركز رقمي عالمي فرصاً جديدة في التكنولوجيا المالية والتجارة الإلكترونية.\n\n## سياسات صديقة للشركات الصغيرة والمتوسطة\n\nتستمر السياسات الحكومية في دعم نمو الشركات الصغيرة والمتوسطة من خلال التراخيص المبسطة وتحسين الوصول إلى التمويل.\n\n## ما يعنيه هذا لعملك\n\nتهيئ التوقعات الاقتصادية الإيجابية ظروفاً مواتية للتوسع التجاري والاقتراض بشروط تنافسية.",
         },
         a4: {
           title: "كيف تُعد طلب قرض ناجح: دليل خطوة بخطوة",
@@ -1263,6 +1275,7 @@ const translations = {
           category: "tips",
           date: "20 ديسمبر 2024",
           readTime: "8",
+          body: "يمكن لطلب القرض المُعد جيداً أن يكون الفارق بين الموافقة والرفض. إليك كيفية إعداد طلب مقنع.\n\n## الخطوة 1: تنظيم بياناتك المالية\n\nتريد البنوك رؤية سنتين على الأقل من البيانات المالية المدققة. تأكد من دقة بيانات الأرباح والخسائر والميزانية العمومية.\n\n## الخطوة 2: إعداد خطة عملك\n\nخطة عمل واضحة توضح كيف ستستخدم الأموال وكيف تخطط للسداد.\n\n## الخطوة 3: جمع المستندات المطلوبة\n\nتشمل: الرخصة التجارية، عقد التأسيس، كشوف حسابات بنكية، شهادة ضريبة القيمة المضافة.\n\n## الخطوة 4: تنظيف ملفك الائتماني\n\nراجع تقريرك الائتماني عبر الاتحاد للمعلومات الائتمانية وحل أي مشاكل معلقة.\n\n## كيف يبسط تأمّل هذه العملية\n\nيتولى تأمّل عملية التوثيق بالكامل، مع ضمان استيفاء طلبك لمتطلبات كل بنك.",
         },
         a5: {
           title: "لوائح البنك المركزي الإماراتي الجديدة: ما يحتاج المقترضون معرفته",
@@ -1270,6 +1283,7 @@ const translations = {
           category: "regulation",
           date: "10 ديسمبر 2024",
           readTime: "5",
+          body: "يقوم البنك المركزي الإماراتي بتحديث لوائحه بانتظام لضمان نظام مالي مستقر وعادل.\n\n## إطار حماية المستهلك المحسّن\n\nعزز البنك المركزي لوائح حماية المستهلك، مما يتطلب من البنوك توفير شروط قروض أوضح وإفصاحات موحدة عن الرسوم.\n\n## لوائح الخدمات المصرفية الرقمية\n\nمع صعود البنوك الرقمية، أدخل البنك المركزي إطاراً تنظيمياً للخدمات المالية الرقمية.\n\n## تحديثات مكافحة غسل الأموال\n\nمتطلبات مكافحة غسل الأموال المعززة تعني فحوصات وثائق أكثر دقة أثناء عملية طلب القرض.\n\n## إرشادات إقراض الشركات الصغيرة والمتوسطة\n\nشجع البنك المركزي البنوك على زيادة إقراض الشركات الصغيرة والمتوسطة من خلال إرشادات مستهدفة.",
         },
         a6: {
           title: "تمويل المعدات مقابل التأجير: أيهما الأنسب لعملك؟",
@@ -1277,6 +1291,7 @@ const translations = {
           category: "financing",
           date: "28 نوفمبر 2024",
           readTime: "6",
+          body: "عندما يحتاج عملك لمعدات جديدة، يمكن أن يؤثر قرار التمويل بشكل كبير على تدفقاتك النقدية.\n\n## تمويل المعدات (قرض)\n\nمع تمويل المعدات، تحصل على قرض لشراء المعدات. تملك الأصل من اليوم الأول.\n\n**المزايا:** تملك المعدات وبناء حقوق الملكية، مزايا ضريبية من خلال الاستهلاك.\n\n**العيوب:** تكاليف أولية أعلى، مخاطر امتلاك معدات قديمة.\n\n## تأجير المعدات\n\nيتيح لك التأجير استخدام المعدات لفترة محددة مع دفعات منتظمة.\n\n**المزايا:** دفعات شهرية أقل، سهولة الترقية للتقنيات الأحدث.\n\n**العيوب:** لا حقوق ملكية، تكلفة إجمالية أعلى على المدى الطويل.\n\n## كيف تقرر\n\nاختر التمويل إذا كان للمعدات عمر مفيد طويل. اختر التأجير إذا كانت التقنية تتغير بسرعة.",
         },
         a7: {
           title: "بناء الائتمان التجاري في الإمارات: دليل عملي",
@@ -1284,6 +1299,7 @@ const translations = {
           category: "tips",
           date: "15 نوفمبر 2024",
           readTime: "7",
+          body: "يُعد الملف الائتماني التجاري القوي أساسياً للحصول على شروط تمويل مواتية في الإمارات.\n\n## فهم الائتمان التجاري في الإمارات\n\nيحتفظ الاتحاد للمعلومات الائتمانية بسجلات ائتمانية للأفراد والشركات في الإمارات.\n\n## خطوات بناء ائتمان قوي\n\n### 1. التسجيل لدى الاتحاد للمعلومات الائتمانية\nتأكد من تسجيل عملك لدى مكتب الائتمان.\n\n### 2. فتح حسابات مصرفية تجارية\nحافظ على حسابات تجارية نشطة مع بنوك موثوقة.\n\n### 3. البدء بخطوط ائتمان صغيرة\nابدأ بتسهيلات ائتمانية قابلة للإدارة واستخدمها بمسؤولية.\n\n### 4. سداد جميع الالتزامات في الوقت المحدد\nالسداد في الوقت المناسب للقروض والبطاقات والفواتير يساهم في ملفك الائتماني.\n\n## أخطاء شائعة يجب تجنبها\n\n- استخدام حد الائتمان بالكامل\n- التقدم بطلبات ائتمان كثيرة في وقت واحد\n- تفويت المدفوعات\n- خلط الشؤون المالية الشخصية والتجارية",
         },
         a8: {
           title: "حلول تمويل التجارة: توسيع أعمال الاستيراد والتصدير",
@@ -1291,8 +1307,10 @@ const translations = {
           category: "sme",
           date: "1 نوفمبر 2024",
           readTime: "6",
+          body: "التجارة الدولية هي حجر الزاوية في اقتصاد الإمارات. فهم أدوات تمويل التجارة المتاحة يمكن أن يساعد عملك على التوسع عالمياً.\n\n## خطابات الاعتماد\n\nخطاب الاعتماد هو ضمان مصرفي يضمن للبائع تلقي الدفع بمجرد استيفاء شروط الشحن.\n\n**الأنواع:** خطاب اعتماد بالاطلاع، خطاب اعتماد مؤجل، خطاب اعتماد احتياطي.\n\n## الضمانات المصرفية\n\nتوفر الضمانات المصرفية أماناً مالياً لشركاء التجارة. تشمل: ضمانات الأداء، ضمانات الدفع المقدم، ضمانات العطاءات.\n\n## تمويل سلسلة التوريد\n\nيوفر هذا النهج الحديث التمويل في نقاط مختلفة من سلسلة التوريد:\n- تمويل ما قبل الشحن\n- تمويل ما بعد الشحن\n- خصم الفواتير\n\n## استشارات تمويل التجارة من تأمّل\n\nيساعد فريقنا الشركات في التنقل في عالم تمويل التجارة المعقد، وربطك بالبنوك التي تقدم أفضل الأسعار.",
         },
       },
+      backToBlog: "العودة للمدونة",
     },
     // Case Studies / Success Stories
     caseStudies: {

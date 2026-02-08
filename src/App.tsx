@@ -27,6 +27,7 @@ import Events from "./pages/knowledge/Events";
 import ResearchPapers from "./pages/knowledge/ResearchPapers";
 import Webinars from "./pages/knowledge/Webinars";
 import Videos from "./pages/knowledge/Videos";
+import BlogArticle from "./pages/knowledge/BlogArticle";
 
 import NotFound from "./pages/NotFound";
 
@@ -59,6 +60,7 @@ const App = () => (
             <Route path="/about" element={<About />} />
             <Route path="/knowledge/case-studies" element={<CaseStudies />} />
             <Route path="/knowledge/blog" element={<Blog />} />
+            <Route path="/knowledge/blog/:articleId" element={<BlogArticle />} />
             <Route path="/knowledge/events" element={<Events />} />
             <Route path="/knowledge/research-papers" element={<ResearchPapers />} />
             <Route path="/knowledge/webinars" element={<Webinars />} />

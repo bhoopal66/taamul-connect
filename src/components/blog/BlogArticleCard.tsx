@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
 import { Clock, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { AnimatedItem } from "@/components/ui/animated-section";
 
 interface BlogArticleCardProps {
+  articleKey: string;
   title: string;
   summary: string;
   categoryLabel: string;
@@ -23,6 +25,7 @@ const categoryColors: Record<string, string> = {
 };
 
 const BlogArticleCard = ({
+  articleKey,
   title,
   summary,
   categoryLabel,
@@ -40,6 +43,7 @@ const BlogArticleCard = ({
 
   return (
     <AnimatedItem index={index}>
+      <Link to={`/knowledge/blog/${articleKey}`} className="block h-full">
       <article className="group bg-card border border-border rounded-2xl overflow-hidden shadow-card hover:shadow-elevated transition-shadow duration-300 h-full flex flex-col">
         {/* Color accent bar */}
         <div className="h-1 bg-gradient-to-r from-primary to-accent" />
@@ -74,6 +78,7 @@ const BlogArticleCard = ({
           </div>
         </div>
       </article>
+      </Link>
     </AnimatedItem>
   );
 };
