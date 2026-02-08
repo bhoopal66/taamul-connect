@@ -26,6 +26,7 @@ import Blog from "./pages/knowledge/Blog";
 import Events from "./pages/knowledge/Events";
 import ResearchPapers from "./pages/knowledge/ResearchPapers";
 import Webinars from "./pages/knowledge/Webinars";
+import Videos from "./pages/knowledge/Videos";
 
 import NotFound from "./pages/NotFound";
 
@@ -61,6 +62,7 @@ const App = () => (
             <Route path="/knowledge/events" element={<Events />} />
             <Route path="/knowledge/research-papers" element={<ResearchPapers />} />
             <Route path="/knowledge/webinars" element={<Webinars />} />
+            <Route path="/knowledge/videos" element={<Videos />} />
             
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
