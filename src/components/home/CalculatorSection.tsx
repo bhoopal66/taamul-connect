@@ -269,7 +269,12 @@ const CalculatorSection = () => {
                   </div>
                 </div>
                 <div className="border-t border-white/20 pt-3 mb-4">
-                  <p className="text-sm opacity-80 mb-1">{t('businessLoansPage.estMonthlyPayment')} ({months || 12} {isRTL ? "شهر" : "months"})</p>
+                  <p className="text-sm opacity-80 mb-1">
+                    {t('businessLoansPage.estMonthlyPayment')} ({months || 12} {isRTL ? "شهر" : "months"})
+                    <span className="block text-xs opacity-60 mt-0.5">
+                      {isRTL ? "محسوب على مبلغ القرض المؤهل" : "Calculated on eligible loan amount"}
+                    </span>
+                  </p>
                   <p className="text-3xl font-bold" dir="ltr">
                     {loanEstimate.monthly > 0
                       ? formatCurrency(Math.round(loanEstimate.monthly))
