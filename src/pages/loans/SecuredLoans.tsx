@@ -9,6 +9,10 @@ import {
   FileText,
   Lock,
   TrendingDown,
+  Search,
+  BadgeCheck,
+  Gem,
+  HandCoins,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -135,7 +139,47 @@ const SecuredLoans = () => {
       </section>
 
       {/* Taamul Advantage Section */}
-      <TaamulAdvantageSection />
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Search,
+            title: "Asset Valuation Guidance",
+            titleAr: "إرشاد تقييم الأصول",
+            desc: "We help you maximize collateral value through approved valuers and optimal property presentation to lenders.",
+            descAr: "نساعدك في تعظيم قيمة الضمانات من خلال مقيّمين معتمدين وعرض أمثل للعقارات أمام المقرضين.",
+          },
+          {
+            icon: TrendingDown,
+            title: "Lowest Margin Sourcing",
+            titleAr: "الحصول على أقل هامش ربح",
+            desc: "Secured loans attract the best rates — we benchmark across banks to lock in the most competitive profit margins.",
+            descAr: "القروض المضمونة تجذب أفضل الأسعار — نقارن عبر البنوك لتأمين أقل هوامش ربح تنافسية.",
+          },
+          {
+            icon: BadgeCheck,
+            title: "Title Deed & Lien Clearance",
+            titleAr: "تخليص سند الملكية والرهن",
+            desc: "End-to-end support for property documentation, lien verification, and mortgage registration with Dubai Land Department.",
+            descAr: "دعم شامل لتوثيق العقارات والتحقق من الرهون وتسجيل الرهن العقاري مع دائرة الأراضي.",
+          },
+          {
+            icon: Gem,
+            title: "Higher LTV Negotiation",
+            titleAr: "التفاوض على نسبة تمويل أعلى",
+            desc: "Our banking relationships often unlock LTV ratios above standard thresholds — up to 80% on select assets.",
+            descAr: "علاقاتنا المصرفية غالباً ما تفتح نسب تمويل أعلى من الحدود المعتادة — تصل إلى 80% على أصول مختارة.",
+          },
+          {
+            icon: HandCoins,
+            title: "Flexible Collateral Structures",
+            titleAr: "هياكل ضمانات مرنة",
+            desc: "We structure multi-asset collateral packages combining property, equipment, and deposits for optimal loan terms.",
+            descAr: "نهيكل حزم ضمانات متعددة الأصول تجمع بين العقارات والمعدات والودائع لشروط قرض مثلى.",
+          },
+        ]}
+        description="Unlock the full value of your assets with expert guidance on collateral structuring and secured lending."
+        descriptionAr="أطلق القيمة الكاملة لأصولك مع إرشاد خبير في هيكلة الضمانات والإقراض المضمون."
+      />
 
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">

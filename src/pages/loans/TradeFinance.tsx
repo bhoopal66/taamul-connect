@@ -9,6 +9,10 @@ import {
   FileText,
   FileCheck,
   CreditCard,
+  Globe2,
+  Anchor,
+  ShieldCheck,
+  Network,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -187,7 +191,47 @@ const TradeFinance = () => {
       </section>
 
       {/* Taamul Advantage Section */}
-      <TaamulAdvantageSection />
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Globe2,
+            title: "Global Correspondent Network",
+            titleAr: "شبكة بنوك مراسلة عالمية",
+            desc: "Banking relationships spanning major trade corridors — Asia, Europe, Africa, and the Americas.",
+            descAr: "علاقات مصرفية تمتد عبر ممرات التجارة الرئيسية — آسيا وأوروبا وأفريقيا والأمريكتين.",
+          },
+          {
+            icon: FileCheck,
+            title: "LC Structuring Expertise",
+            titleAr: "خبرة في هيكلة خطابات الاعتماد",
+            desc: "Sight, usance, transferable, back-to-back — we structure the right LC type for every trade scenario.",
+            descAr: "اعتماد عند الاطلاع، مؤجل، قابل للتحويل، ظهر إلى ظهر — نهيكل نوع الاعتماد المناسب لكل سيناريو تجاري.",
+          },
+          {
+            icon: Anchor,
+            title: "UAE Port Operations Knowledge",
+            titleAr: "معرفة بعمليات الموانئ الإماراتية",
+            desc: "Deep understanding of Jebel Ali, Khalifa Port, and Sharjah port documentation and customs requirements.",
+            descAr: "فهم عميق لمتطلبات التوثيق والجمارك في موانئ جبل علي وخليفة والشارقة.",
+          },
+          {
+            icon: ShieldCheck,
+            title: "Trade Risk Mitigation",
+            titleAr: "تخفيف مخاطر التجارة",
+            desc: "We help secure trade credit insurance and structure payment guarantees to protect against buyer default.",
+            descAr: "نساعد في تأمين تأمين الائتمان التجاري وهيكلة ضمانات الدفع للحماية من تعثر المشترين.",
+          },
+          {
+            icon: Network,
+            title: "Supply Chain Optimization",
+            titleAr: "تحسين سلسلة التوريد",
+            desc: "Beyond traditional LCs — we connect you with supply chain financing and reverse factoring solutions.",
+            descAr: "ما وراء خطابات الاعتماد التقليدية — نربطك بحلول تمويل سلسلة التوريد والتخصيم العكسي.",
+          },
+        ]}
+        description="International trade demands specialized financial instruments. Our trade finance team brings deep expertise in cross-border transactions."
+        descriptionAr="التجارة الدولية تتطلب أدوات مالية متخصصة. فريق تمويل التجارة لدينا يقدم خبرة عميقة في المعاملات العابرة للحدود."
+      />
 
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">

@@ -9,6 +9,10 @@ import {
   FileText,
   Clock,
   Briefcase,
+  Target,
+  Handshake,
+  TrendingUp,
+  Zap,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -135,7 +139,47 @@ const SMELoans = () => {
       </section>
 
       {/* Taamul Advantage Section */}
-      <TaamulAdvantageSection />
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Target,
+            title: "SME-Specialized Underwriting",
+            titleAr: "اكتتاب متخصص للمنشآت الصغيرة",
+            desc: "We understand SME cash flows and present your application in the format banks prefer for faster approvals.",
+            descAr: "نفهم التدفقات النقدية للمنشآت الصغيرة ونقدم طلبك بالصيغة التي تفضلها البنوك لموافقات أسرع.",
+          },
+          {
+            icon: Handshake,
+            title: "Startup-Friendly Lender Access",
+            titleAr: "وصول لمقرضين صديقين للشركات الناشئة",
+            desc: "Direct relationships with banks and fintechs that actively welcome businesses with 1-3 years of operations.",
+            descAr: "علاقات مباشرة مع بنوك وشركات تقنية مالية ترحب بالمنشآت التي لديها 1-3 سنوات من العمليات.",
+          },
+          {
+            icon: TrendingUp,
+            title: "Growth-Stage Structuring",
+            titleAr: "هيكلة مرحلة النمو",
+            desc: "We structure repayment schedules aligned with your revenue growth trajectory, not rigid bank templates.",
+            descAr: "نهيكل جداول السداد بما يتوافق مع مسار نمو إيراداتك، وليس قوالب البنوك الجامدة.",
+          },
+          {
+            icon: Zap,
+            title: "Accelerated Processing",
+            titleAr: "معالجة متسارعة",
+            desc: "Pre-vetted documentation packages mean your SME application moves to credit committee faster.",
+            descAr: "حزم التوثيق المُدققة مسبقاً تعني انتقال طلب منشأتك إلى لجنة الائتمان بشكل أسرع.",
+          },
+          {
+            icon: Users,
+            title: "Dedicated SME Relationship Manager",
+            titleAr: "مدير علاقات مخصص للمنشآت الصغيرة",
+            desc: "A single point of contact who speaks your language and fights for the best terms on your behalf.",
+            descAr: "نقطة اتصال واحدة تتحدث لغتك وتسعى للحصول على أفضل الشروط نيابة عنك.",
+          },
+        ]}
+        description="We've built our reputation helping SMEs and startups navigate the UAE lending landscape — so you can focus on building your business."
+        descriptionAr="بنينا سمعتنا في مساعدة المنشآت الصغيرة والمتوسطة والناشئة على التنقل في بيئة الإقراض الإماراتية — لتتمكن من التركيز على بناء أعمالك."
+      />
 
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">

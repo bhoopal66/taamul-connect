@@ -16,11 +16,15 @@ import {
   TrendingUp,
   Zap,
   BadgeCheck,
+  Target,
+  BarChart3,
+  Headphones,
 } from "lucide-react";
 import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
+import TaamulAdvantageSection from "@/components/loans/TaamulAdvantageSection";
 import { Button } from "@/components/ui/button";
 import { Slider } from "@/components/ui/slider";
 import { useLanguage } from "@/contexts/LanguageContext";
@@ -258,69 +262,47 @@ const BusinessLoans = () => {
       </section>
 
       {/* Taamul Advantage Section */}
-      <section className="py-24 gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
-            <h2 className="text-display-sm text-white mb-4">
-              {t('loanPages.taamulAdvantage').split('Taamul')[0]}
-              <span className="text-accent">{t('loanPages.taamul')}</span>
-              {' '}{t('loanPages.advantage')}
-            </h2>
-            <p className="text-lg text-white/80">
-              {t('loanPages.advantageDesc')}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            {[
-              {
-                icon: BadgeCheck,
-                titleKey: "loanPages.authorizedDSA",
-                descKey: "loanPages.authorizedDSADesc",
-              },
-              {
-                icon: Shield,
-                titleKey: "loanPages.noConsultancyFees",
-                descKey: "loanPages.noConsultancyFeesDesc",
-              },
-              {
-                icon: Building2,
-                titleKey: "loanPages.multipleFundingOptions",
-                descKey: "loanPages.multipleFundingOptionsDesc",
-              },
-              {
-                icon: Zap,
-                titleKey: "loanPages.smeStartupFriendly",
-                descKey: "loanPages.smeStartupFriendlyDesc",
-              },
-              {
-                icon: FileText,
-                titleKey: "loanPages.endToEndSupport",
-                descKey: "loanPages.endToEndSupportDesc",
-              },
-            ].map((advantage, index) => (
-              <motion.div
-                key={advantage.titleKey}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
-              >
-                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
-                  <advantage.icon className="h-6 w-6 text-accent" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{t(advantage.titleKey)}</h3>
-                <p className="text-sm text-white/70">{t(advantage.descKey)}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Target,
+            title: "Turnover-Based Eligibility",
+            titleAr: "أهلية مبنية على رقم الأعمال",
+            desc: "We match your annual turnover to the right lender — maximizing eligible amounts without unnecessary rejections.",
+            descAr: "نطابق رقم أعمالك السنوي مع المقرض المناسب — لتعظيم المبالغ المؤهلة بدون رفض غير ضروري.",
+          },
+          {
+            icon: BarChart3,
+            title: "EIBOR Rate Optimization",
+            titleAr: "تحسين سعر إيبور",
+            desc: "We monitor live EIBOR rates and time your application to secure the most competitive effective interest rate.",
+            descAr: "نراقب أسعار إيبور الحية ونحدد توقيت طلبك لتأمين أفضل سعر فائدة فعلي تنافسي.",
+          },
+          {
+            icon: BadgeCheck,
+            title: "Pre-Qualified Applications",
+            titleAr: "طلبات مؤهلة مسبقاً",
+            desc: "Your application is pre-screened against bank criteria before submission — reducing processing time by 40%.",
+            descAr: "يتم فحص طلبك مسبقاً وفق معايير البنك قبل التقديم — مما يقلل وقت المعالجة بنسبة 40%.",
+          },
+          {
+            icon: Headphones,
+            title: "Post-Disbursement Support",
+            titleAr: "دعم ما بعد الصرف",
+            desc: "Our relationship doesn't end at disbursement. We help with renewals, top-ups, and facility restructuring.",
+            descAr: "علاقتنا لا تنتهي عند الصرف. نساعد في التجديدات والمبالغ الإضافية وإعادة هيكلة التسهيلات.",
+          },
+          {
+            icon: Shield,
+            title: "Zero-Fee Guarantee",
+            titleAr: "ضمان بدون رسوم",
+            desc: "No consultancy fees, no success charges, no hidden costs. Our compensation comes from banking partnerships.",
+            descAr: "لا رسوم استشارية، لا رسوم نجاح، لا تكاليف مخفية. تعويضنا يأتي من شراكات البنوك.",
+          },
+        ]}
+        description="From eligibility assessment to final disbursement — we handle the heavy lifting so you can focus on growing your business."
+        descriptionAr="من تقييم الأهلية إلى الصرف النهائي — نتولى العمل الشاق حتى تتمكن من التركيز على تنمية أعمالك."
+      />
 
       {/* POS Machine Loan Section */}
       <section className="py-24 gradient-hero relative overflow-hidden">

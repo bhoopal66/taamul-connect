@@ -9,6 +9,10 @@ import {
   FileText,
   Clock,
   Car,
+  Factory,
+  Truck,
+  BadgeCheck,
+  Settings,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -139,7 +143,47 @@ const EquipmentFinancing = () => {
       </section>
 
       {/* Taamul Advantage Section */}
-      <TaamulAdvantageSection />
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Factory,
+            title: "All Industry Coverage",
+            titleAr: "تغطية جميع القطاعات",
+            desc: "Manufacturing, construction, logistics, healthcare, hospitality — we finance equipment across every sector.",
+            descAr: "التصنيع، البناء، اللوجستيات، الرعاية الصحية، الضيافة — نموّل المعدات في كل قطاع.",
+          },
+          {
+            icon: Truck,
+            title: "Fleet & Vehicle Programs",
+            titleAr: "برامج الأساطيل والمركبات",
+            desc: "Specialized financing for commercial vehicle fleets, delivery trucks, and heavy transport equipment.",
+            descAr: "تمويل متخصص لأساطيل المركبات التجارية وشاحنات التوصيل ومعدات النقل الثقيل.",
+          },
+          {
+            icon: BadgeCheck,
+            title: "Approved Dealer Network",
+            titleAr: "شبكة موردين معتمدين",
+            desc: "Pre-approved relationships with OEMs and authorized dealers for faster quotation-to-disbursement cycles.",
+            descAr: "علاقات مُعتمدة مسبقاً مع الشركات المصنعة والموزعين المعتمدين لدورات أسرع من عرض السعر إلى الصرف.",
+          },
+          {
+            icon: Settings,
+            title: "New & Used Equipment Expertise",
+            titleAr: "خبرة في المعدات الجديدة والمستعملة",
+            desc: "We know which lenders finance used equipment and at what age thresholds — saving you time and rejections.",
+            descAr: "نعرف أي المقرضين يموّلون المعدات المستعملة وعند أي حدود عمرية — مما يوفر وقتك ويجنبك الرفض.",
+          },
+          {
+            icon: Shield,
+            title: "Asset-as-Collateral Structuring",
+            titleAr: "هيكلة الأصل كضمان",
+            desc: "The equipment itself secures the loan — no need to pledge additional property or personal guarantees.",
+            descAr: "المعدات نفسها تضمن القرض — لا حاجة لرهن عقارات إضافية أو ضمانات شخصية.",
+          },
+        ]}
+        description="From heavy machinery to commercial vehicles, we match your equipment needs with the right financing structure."
+        descriptionAr="من الآلات الثقيلة إلى المركبات التجارية، نطابق احتياجات معداتك مع هيكل التمويل المناسب."
+      />
 
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">

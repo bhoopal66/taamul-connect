@@ -9,6 +9,10 @@ import {
   FileText,
   Clock,
   Banknote,
+  Landmark,
+  BarChart3,
+  Scale,
+  BriefcaseBusiness,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -135,7 +139,47 @@ const CorporateLoans = () => {
       </section>
 
       {/* Taamul Advantage Section */}
-      <TaamulAdvantageSection />
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Landmark,
+            title: "Institutional-Grade Advisory",
+            titleAr: "استشارات بمستوى مؤسسي",
+            desc: "Senior advisors with Big 4 and investment banking backgrounds structure your corporate facility with precision.",
+            descAr: "مستشارون كبار بخلفيات في الشركات الأربع الكبرى والخدمات المصرفية الاستثمارية يهيكلون تسهيلاتكم المؤسسية بدقة.",
+          },
+          {
+            icon: BarChart3,
+            title: "Multi-Bank Benchmarking",
+            titleAr: "مقارنة معيارية متعددة البنوك",
+            desc: "We run competitive pricing analysis across tier-1 banks to ensure you secure the most favorable margin and covenants.",
+            descAr: "نجري تحليل تسعير تنافسي عبر بنوك المستوى الأول لضمان حصولكم على أفضل هامش وشروط.",
+          },
+          {
+            icon: Scale,
+            title: "Covenant Negotiation Expertise",
+            titleAr: "خبرة في التفاوض على الشروط",
+            desc: "We negotiate financial covenants, security packages, and drawdown conditions that protect your operational flexibility.",
+            descAr: "نتفاوض على الشروط المالية وحزم الضمانات وشروط السحب التي تحمي مرونتكم التشغيلية.",
+          },
+          {
+            icon: Globe,
+            title: "Cross-Border Facility Structuring",
+            titleAr: "هيكلة تسهيلات عابرة للحدود",
+            desc: "Experience arranging multi-currency and cross-jurisdiction corporate facilities across GCC markets.",
+            descAr: "خبرة في ترتيب تسهيلات مؤسسية متعددة العملات وعابرة للولايات القضائية عبر أسواق الخليج.",
+          },
+          {
+            icon: BriefcaseBusiness,
+            title: "Board-Ready Documentation",
+            titleAr: "توثيق جاهز لمجلس الإدارة",
+            desc: "We prepare comprehensive credit memos and term sheet comparisons ready for board-level decision making.",
+            descAr: "نعد مذكرات ائتمان شاملة ومقارنات أوراق الشروط الجاهزة لاتخاذ القرارات على مستوى مجلس الإدارة.",
+          },
+        ]}
+        description="Institutional financing demands institutional-grade advisory. Our team brings the expertise your corporate treasury expects."
+        descriptionAr="التمويل المؤسسي يتطلب استشارات بمستوى مؤسسي. فريقنا يقدم الخبرة التي تتوقعها خزينتكم المؤسسية."
+      />
 
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">
