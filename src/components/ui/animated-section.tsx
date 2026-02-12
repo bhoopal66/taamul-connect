@@ -33,7 +33,7 @@ export const AnimatedSection = ({
   duration = 0.6,
 }: AnimatedSectionProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const isInView = useInView(ref, { once: true, margin: "100px 0px -50px 0px" });
   const offset = getDirectionOffset(direction);
 
   return (
@@ -67,7 +67,7 @@ export const AnimatedItem = ({
   baseDelay = 0,
 }: AnimatedItemProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const isInView = useInView(ref, { once: true, margin: "-50px" });
+  const isInView = useInView(ref, { once: true, margin: "50px 0px -30px 0px" });
 
   return (
     <motion.div
