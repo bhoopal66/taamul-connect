@@ -12,11 +12,15 @@ import {
   Target,
   Users,
   Zap,
+  Brain,
+  Landmark,
+  ScrollText,
+  LineChart,
 } from "lucide-react";
-import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
+import TaamulAdvantageSection from "@/components/loans/TaamulAdvantageSection";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -159,42 +163,48 @@ const DebtAdvisory = () => {
         </div>
       </section>
 
-      {/* Why Choose Us - Dark Section */}
-      <section className="py-24 gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
-            <h2 className="text-display-sm text-white mb-4">
-              {t("debtAdvisory.advantageTitle")} <span className="text-accent">{t("debtAdvisory.advantageHighlight")}</span> {t("debtAdvisory.advantageWord")}
-            </h2>
-            <p className="text-lg text-white/80">
-              {t("debtAdvisory.advantageDesc")}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseUs.map((item, index) => (
-              <motion.div
-                key={item.titleKey}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
-              >
-                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'mr-0 ml-auto' : ''}`}>
-                  <item.icon className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
-                <p className="text-sm text-white/70">{t(item.descKey)}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Taamul Advantage Section */}
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Brain,
+            title: "CFO-Level Strategic Insight",
+            titleAr: "رؤية استراتيجية بمستوى المدير المالي",
+            desc: "Our advisors think like your CFO — analyzing debt capacity, coverage ratios, and optimal leverage before approaching lenders.",
+            descAr: "مستشارونا يفكرون كمديرك المالي — يحللون القدرة على الاقتراض ونسب التغطية والرافعة المالية المثلى قبل التواصل مع المقرضين.",
+          },
+          {
+            icon: Landmark,
+            title: "Lender-Side Experience",
+            titleAr: "خبرة من جانب المقرض",
+            desc: "Former bank credit officers on our team know exactly what lenders look for — giving your proposal an insider edge.",
+            descAr: "مسؤولو الائتمان المصرفي السابقون في فريقنا يعرفون بالضبط ما يبحث عنه المقرضون — مما يمنح اقتراحك ميزة من الداخل.",
+          },
+          {
+            icon: ScrollText,
+            title: "Term Sheet Benchmarking",
+            titleAr: "مقارنة معيارية لأوراق الشروط",
+            desc: "We compare term sheets clause-by-clause across multiple banks to ensure you get the most borrower-friendly terms.",
+            descAr: "نقارن أوراق الشروط بنداً بند عبر بنوك متعددة لضمان حصولك على أفضل الشروط الملائمة للمقترض.",
+          },
+          {
+            icon: LineChart,
+            title: "Debt Capacity Modeling",
+            titleAr: "نمذجة القدرة على الاقتراض",
+            desc: "Proprietary financial models stress-test your debt serviceability under multiple scenarios before bank submission.",
+            descAr: "نماذج مالية خاصة تختبر قدرتك على خدمة الدين في سيناريوهات متعددة قبل التقديم للبنك.",
+          },
+          {
+            icon: RefreshCw,
+            title: "Refinancing Optimization",
+            titleAr: "تحسين إعادة التمويل",
+            desc: "We identify refinancing windows when market rates drop, saving clients an average of 0.5-1.5% on existing facilities.",
+            descAr: "نحدد فرص إعادة التمويل عند انخفاض أسعار السوق، مما يوفر للعملاء بمعدل 0.5-1.5% على التسهيلات القائمة.",
+          },
+        ]}
+        description="Strategic debt advisory that goes beyond loan placement — we optimize your entire capital structure for sustainable growth."
+        descriptionAr="استشارات ديون استراتيجية تتجاوز ترتيب القروض — نحسّن هيكل رأس مالك بالكامل لنمو مستدام."
+      />
 
       {/* Benefits & Process */}
       <section className="py-24 bg-muted">

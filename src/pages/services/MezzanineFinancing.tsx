@@ -13,11 +13,15 @@ import {
   TrendingUp,
   Zap,
   Scale,
+  Puzzle,
+  Gem,
+  ShieldCheck,
+  PiggyBank,
 } from "lucide-react";
-import { motion } from "framer-motion";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
+import TaamulAdvantageSection from "@/components/loans/TaamulAdvantageSection";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -157,42 +161,48 @@ const MezzanineFinancing = () => {
         </div>
       </section>
 
-      {/* Why Choose Us - Dark Section */}
-      <section className="py-24 gradient-hero relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2" />
-          <div className="absolute bottom-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2" />
-        </div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className={`text-center max-w-3xl mx-auto mb-16 ${isRTL ? 'text-right' : ''}`}>
-            <h2 className="text-display-sm text-white mb-4">
-              {t("mezzanineFinancing.advantageTitle")} <span className="text-accent">{t("mezzanineFinancing.advantageHighlight")}</span> {t("mezzanineFinancing.advantageWord")}
-            </h2>
-            <p className="text-lg text-white/80">
-              {t("mezzanineFinancing.advantageDesc")}
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {whyChooseUs.map((item, index) => (
-              <motion.div
-                key={item.titleKey}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 ${isRTL ? 'text-right' : ''}`}
-              >
-                <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'mr-0 ml-auto' : ''}`}>
-                  <item.icon className="h-6 w-6 text-white" />
-                </div>
-                <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
-                <p className="text-sm text-white/70">{t(item.descKey)}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Taamul Advantage Section */}
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Puzzle,
+            title: "Hybrid Capital Architecture",
+            titleAr: "هندسة رأس المال الهجين",
+            desc: "We design bespoke mezzanine structures — convertible notes, PIK instruments, and equity kickers — tailored to your capital stack.",
+            descAr: "نصمم هياكل ميزانين مخصصة — سندات قابلة للتحويل وأدوات PIK وحوافز أسهم — مصممة حسب هيكل رأس مالك.",
+          },
+          {
+            icon: Gem,
+            title: "Private Credit Network",
+            titleAr: "شبكة ائتمان خاصة",
+            desc: "Access to family offices, private debt funds, and alternative lenders actively deploying mezzanine capital in the GCC.",
+            descAr: "وصول لمكاتب عائلية وصناديق ديون خاصة ومقرضين بديلين ينشرون رأس مال ميزانين بنشاط في الخليج.",
+          },
+          {
+            icon: Scale,
+            title: "Equity Dilution Protection",
+            titleAr: "حماية من تخفيف حقوق الملكية",
+            desc: "Mezzanine preserves ownership control. We structure terms that minimize dilution while maximizing growth capital.",
+            descAr: "الميزانين يحافظ على السيطرة على الملكية. نهيكل شروطاً تقلل التخفيف مع تعظيم رأس مال النمو.",
+          },
+          {
+            icon: ShieldCheck,
+            title: "Senior Lender Coordination",
+            titleAr: "تنسيق مع المقرض الأول",
+            desc: "We manage inter-creditor negotiations between senior and mezzanine lenders to ensure smooth facility coexistence.",
+            descAr: "ندير مفاوضات ما بين الدائنين الأوائل ومقرضي الميزانين لضمان تعايش سلس للتسهيلات.",
+          },
+          {
+            icon: PiggyBank,
+            title: "Flexible Repayment Engineering",
+            titleAr: "هندسة سداد مرنة",
+            desc: "PIK interest, bullet maturities, and cash-sweep mechanisms — we engineer repayment to match your cash generation cycle.",
+            descAr: "فوائد PIK واستحقاقات نهائية وآليات مسح نقدي — نهندس السداد ليتوافق مع دورة توليد النقد لديك.",
+          },
+        ]}
+        description="Mezzanine financing bridges the gap between senior debt and equity. Our team structures creative capital solutions for ambitious growth plans."
+        descriptionAr="تمويل الميزانين يسد الفجوة بين الدين الأول وحقوق الملكية. فريقنا يهيكل حلول رأسمالية إبداعية لخطط النمو الطموحة."
+      />
 
       {/* Benefits & Use Cases */}
       <section className="py-24 bg-muted">
