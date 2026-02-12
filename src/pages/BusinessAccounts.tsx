@@ -32,6 +32,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingButtons from "@/components/layout/FloatingButtons";
 import { AnimatedSection, AnimatedItem } from "@/components/ui/animated-section";
+import TaamulAdvantageSection from "@/components/loans/TaamulAdvantageSection";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const BusinessAccounts = () => {
@@ -332,6 +333,49 @@ const BusinessAccounts = () => {
           </AnimatedSection>
         </div>
       </section>
+
+      {/* Taamul Advantage Section */}
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Shield,
+            title: "Bank Relationship Intelligence",
+            titleAr: "ذكاء العلاقات المصرفية",
+            desc: "Deep relationships with compliance and onboarding teams at 15+ UAE banks ensure your application reaches the right decision-makers.",
+            descAr: "علاقات عميقة مع فرق الامتثال والتأهيل في أكثر من 15 بنكاً إماراتياً تضمن وصول طلبكم إلى صناع القرار المناسبين.",
+          },
+          {
+            icon: Zap,
+            title: "Pre-Screened Applications",
+            titleAr: "طلبات مُفلترة مسبقاً",
+            desc: "We pre-qualify your documentation against each bank's KYC requirements, eliminating rejections and reducing opening timelines by up to 60%.",
+            descAr: "نتحقق مسبقاً من وثائقكم وفق متطلبات كل بنك، مما يلغي حالات الرفض ويقلل مدة الفتح بنسبة تصل إلى 60%.",
+          },
+          {
+            icon: Globe,
+            title: "Multi-Jurisdiction Expertise",
+            titleAr: "خبرة متعددة الولايات القضائية",
+            desc: "Specialized in mainland, free zone, and offshore account structures — we match the right banking partner to your company's legal setup.",
+            descAr: "متخصصون في هياكل الحسابات للبر الرئيسي والمناطق الحرة والأوفشور — نطابق الشريك المصرفي المناسب مع الهيكل القانوني لشركتكم.",
+          },
+          {
+            icon: Award,
+            title: "Fee Negotiation & Optimization",
+            titleAr: "التفاوض على الرسوم وتحسينها",
+            desc: "We benchmark account maintenance fees, transaction charges, and FX spreads across banks to secure the most cost-effective banking package.",
+            descAr: "نقارن رسوم صيانة الحسابات وتكاليف المعاملات وفروق أسعار الصرف عبر البنوك لتأمين أفضل حزمة مصرفية من حيث التكلفة.",
+          },
+          {
+            icon: Headphones,
+            title: "Post-Opening Support",
+            titleAr: "دعم ما بعد الفتح",
+            desc: "Our relationship continues after account activation — we assist with online banking setup, card issuance, trade finance linkage, and ongoing banking needs.",
+            descAr: "علاقتنا تستمر بعد تفعيل الحساب — نساعد في إعداد الخدمات المصرفية الإلكترونية وإصدار البطاقات وربط تمويل التجارة والاحتياجات المصرفية المستمرة.",
+          },
+        ]}
+        description="Opening a business account in the UAE shouldn't take weeks. Our banking specialists streamline every step from documentation to activation."
+        descriptionAr="فتح حساب تجاري في الإمارات لا ينبغي أن يستغرق أسابيع. متخصصونا المصرفيون يُبسّطون كل خطوة من التوثيق إلى التفعيل."
+      />
 
       {/* How We Do It Section */}
       <section className="py-20 bg-background">
