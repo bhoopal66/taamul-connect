@@ -8,6 +8,10 @@ import {
   FileText,
   Shield,
   Zap,
+  RefreshCcw,
+  Gauge,
+  Calculator,
+  Layers,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -134,7 +138,47 @@ const WorkingCapital = () => {
       </section>
 
       {/* Taamul Advantage Section */}
-      <TaamulAdvantageSection />
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Gauge,
+            title: "Cash Flow Gap Analysis",
+            titleAr: "تحليل فجوة التدفق النقدي",
+            desc: "We assess your receivables cycle and payables pressure to recommend the exact facility size you need.",
+            descAr: "نقيّم دورة مستحقاتك وضغط المدفوعات لنوصي بحجم التسهيل الذي تحتاجه بالضبط.",
+          },
+          {
+            icon: RefreshCcw,
+            title: "Revolving Facility Experts",
+            titleAr: "خبراء التسهيلات المتجددة",
+            desc: "We structure revolving credit lines that flex with your seasonal demand — draw, repay, and redraw as needed.",
+            descAr: "نهيكل خطوط ائتمان متجددة تتكيف مع طلبك الموسمي — اسحب وسدد وأعد السحب حسب الحاجة.",
+          },
+          {
+            icon: Zap,
+            title: "48-Hour Fast-Track",
+            titleAr: "مسار سريع خلال 48 ساعة",
+            desc: "Urgent liquidity needs require urgent action. Our pre-approved documentation packages accelerate bank decisions.",
+            descAr: "احتياجات السيولة العاجلة تتطلب إجراءات عاجلة. حزم التوثيق المعتمدة مسبقاً تسرّع قرارات البنوك.",
+          },
+          {
+            icon: Calculator,
+            title: "Overdraft vs. Loan Advisory",
+            titleAr: "استشارات السحب على المكشوف مقابل القرض",
+            desc: "Not every cash gap needs a term loan. We advise on overdrafts, invoice discounting, and credit lines.",
+            descAr: "ليست كل فجوة نقدية تحتاج قرضاً. نقدم المشورة حول السحب على المكشوف وخصم الفواتير وخطوط الائتمان.",
+          },
+          {
+            icon: Layers,
+            title: "Multi-Facility Optimization",
+            titleAr: "تحسين التسهيلات المتعددة",
+            desc: "Already have facilities? We review your existing lines and restructure for better rates and higher limits.",
+            descAr: "لديك تسهيلات بالفعل؟ نراجع خطوطك الحالية ونعيد هيكلتها لأسعار أفضل وحدود أعلى.",
+          },
+        ]}
+        description="Operational liquidity is the lifeblood of your business. We ensure you never miss a payroll or supplier payment."
+        descriptionAr="السيولة التشغيلية هي شريان حياة أعمالك. نضمن ألا تفوّت أي رواتب أو مدفوعات للموردين."
+      />
 
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">

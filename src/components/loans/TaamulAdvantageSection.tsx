@@ -1,37 +1,72 @@
 import { motion } from "framer-motion";
-import { BadgeCheck, Gift, Layers, Users, Headphones } from "lucide-react";
+import { BadgeCheck, Gift, Layers, Users, Headphones, LucideIcon } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
-const TaamulAdvantageSection = () => {
+interface AdvantageItem {
+  icon: LucideIcon;
+  title: string;
+  titleAr: string;
+  desc: string;
+  descAr: string;
+}
+
+interface TaamulAdvantageSectionProps {
+  advantages?: AdvantageItem[];
+  description?: string;
+  descriptionAr?: string;
+}
+
+const defaultAdvantages: AdvantageItem[] = [
+  {
+    icon: BadgeCheck,
+    title: "Authorized DSA",
+    titleAr: "وكيل مبيعات معتمد",
+    desc: "Official Direct Selling Agent for leading UAE banks and financial institutions.",
+    descAr: "وكيل مبيعات مباشر رسمي للبنوك والمؤسسات المالية الرائدة في الإمارات.",
+  },
+  {
+    icon: Gift,
+    title: "No Fees",
+    titleAr: "بدون رسوم",
+    desc: "Zero consultancy fees, no success charges – we earn from bank partnerships only.",
+    descAr: "صفر رسوم استشارية، بدون رسوم نجاح – نكسب من شراكات البنوك فقط.",
+  },
+  {
+    icon: Layers,
+    title: "Multiple Options",
+    titleAr: "خيارات متعددة",
+    desc: "Access 15+ banking and fintech partners under one roof for the best terms.",
+    descAr: "الوصول إلى أكثر من 15 شريكاً مصرفياً وتقنياً تحت سقف واحد للحصول على أفضل الشروط.",
+  },
+  {
+    icon: Users,
+    title: "SME & Startup Friendly",
+    titleAr: "صديق للمشاريع الصغيرة",
+    desc: "Tailored solutions designed specifically for growing businesses and new ventures.",
+    descAr: "حلول مخصصة مصممة خصيصاً للشركات النامية والمشاريع الجديدة.",
+  },
+  {
+    icon: Headphones,
+    title: "End-to-End Support",
+    titleAr: "دعم شامل",
+    desc: "Complete application assistance from documentation to final disbursement.",
+    descAr: "مساعدة كاملة في التقديم من التوثيق إلى الصرف النهائي.",
+  },
+];
+
+const TaamulAdvantageSection = ({
+  advantages,
+  description,
+  descriptionAr,
+}: TaamulAdvantageSectionProps) => {
   const { t, isRTL } = useLanguage();
 
-  const advantages = [
-    {
-      icon: BadgeCheck,
-      titleKey: "taamulAdvantage.authorizedDSA",
-      descKey: "taamulAdvantage.authorizedDSADesc",
-    },
-    {
-      icon: Gift,
-      titleKey: "taamulAdvantage.noFees",
-      descKey: "taamulAdvantage.noFeesDesc",
-    },
-    {
-      icon: Layers,
-      titleKey: "taamulAdvantage.multipleOptions",
-      descKey: "taamulAdvantage.multipleOptionsDesc",
-    },
-    {
-      icon: Users,
-      titleKey: "taamulAdvantage.smeFriendly",
-      descKey: "taamulAdvantage.smeFriendlyDesc",
-    },
-    {
-      icon: Headphones,
-      titleKey: "taamulAdvantage.endToEnd",
-      descKey: "taamulAdvantage.endToEndDesc",
-    },
-  ];
+  const items = advantages || defaultAdvantages;
+  const desc = isRTL
+    ? (descriptionAr || "تعاون مع متخصصي تمويل الأعمال الموثوقين في الإمارات لتجربة تمويل سلسة.")
+    : (description || "Partner with UAE's trusted business finance specialists for a seamless funding experience.");
+
+  const gridCols = items.length === 4 ? "lg:grid-cols-4" : "lg:grid-cols-5";
 
   return (
     <section className="py-24 gradient-hero relative overflow-hidden">
@@ -49,14 +84,14 @@ const TaamulAdvantageSection = () => {
             )}
           </h2>
           <p className="text-lg text-white">
-            {t('taamulAdvantage.description')}
+            {desc}
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-6">
-          {advantages.map((item, index) => (
+        <div className={`grid sm:grid-cols-2 ${gridCols} gap-6`}>
+          {items.map((item, index) => (
             <motion.div
-              key={item.titleKey}
+              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -66,8 +101,12 @@ const TaamulAdvantageSection = () => {
               <div className={`w-12 h-12 rounded-xl bg-white/20 flex items-center justify-center mb-4 ${isRTL ? 'ml-auto' : ''}`}>
                 <item.icon className="h-6 w-6 text-white" />
               </div>
-              <h3 className="text-lg font-bold text-white mb-2">{t(item.titleKey)}</h3>
-              <p className="text-sm text-white/80">{t(item.descKey)}</p>
+              <h3 className="text-lg font-bold text-white mb-2">
+                {isRTL ? item.titleAr : item.title}
+              </h3>
+              <p className="text-sm text-white/80">
+                {isRTL ? item.descAr : item.desc}
+              </p>
             </motion.div>
           ))}
         </div>

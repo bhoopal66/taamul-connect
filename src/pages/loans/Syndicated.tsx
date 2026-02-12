@@ -9,6 +9,10 @@ import {
   FileText,
   Handshake,
   TrendingUp,
+  Network,
+  ScrollText,
+  UserCheck,
+  Award,
 } from "lucide-react";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -131,7 +135,40 @@ const Syndicated = () => {
       </section>
 
       {/* Taamul Advantage Section */}
-      <TaamulAdvantageSection />
+      <TaamulAdvantageSection
+        advantages={[
+          {
+            icon: Network,
+            title: "15+ Lender Consortium Access",
+            titleAr: "وصول لأكثر من 15 مقرضاً في الاتحاد",
+            desc: "Direct access to banks and NBFCs willing to participate in syndicated arrangements across the UAE and GCC.",
+            descAr: "وصول مباشر للبنوك والمؤسسات المالية غير المصرفية المستعدة للمشاركة في ترتيبات مشتركة عبر الإمارات والخليج.",
+          },
+          {
+            icon: ScrollText,
+            title: "Deal Structuring & Term Sheets",
+            titleAr: "هيكلة الصفقات وأوراق الشروط",
+            desc: "Expert structuring of tranches, pricing waterfall, security packages, and inter-creditor arrangements.",
+            descAr: "هيكلة خبيرة للشرائح ونظام التسعير وحزم الضمانات وترتيبات ما بين الدائنين.",
+          },
+          {
+            icon: UserCheck,
+            title: "Single-Point Coordination",
+            titleAr: "تنسيق من نقطة واحدة",
+            desc: "We manage all lender relationships, documentation, and disbursement coordination on your behalf.",
+            descAr: "ندير جميع علاقات المقرضين والتوثيق وتنسيق الصرف نيابة عنكم.",
+          },
+          {
+            icon: Award,
+            title: "AED 500M+ Track Record",
+            titleAr: "سجل إنجازات بأكثر من 500 مليون درهم",
+            desc: "Proven experience arranging large-scale syndicated facilities for infrastructure, real estate, and industrial projects.",
+            descAr: "خبرة مثبتة في ترتيب تسهيلات مشتركة كبيرة لمشاريع البنية التحتية والعقارات والصناعة.",
+          },
+        ]}
+        description="Large-scale projects deserve large-scale financing expertise. We orchestrate multi-lender arrangements that maximize your borrowing capacity."
+        descriptionAr="المشاريع الكبيرة تستحق خبرة تمويل بنفس الحجم. ننسق ترتيبات متعددة المقرضين تُعظّم قدرتكم على الاقتراض."
+      />
 
       {/* Eligibility & Documents */}
       <section className="py-24 bg-muted">
